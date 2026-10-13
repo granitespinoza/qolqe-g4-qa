@@ -1,0 +1,83 @@
+# Cómo estudiar y defender el proyecto
+
+## Empieza por un caso, no por todas las carpetas
+Recorre G4-004: requisito → decisión de diseño → feature → petición y respuesta → conclusión. Cuando puedas explicar ese recorrido sin leer, repítelo con G4-018 y una HU distinta.
+
+## Las tres referencias que debes distinguir
+1. **Requisitos funcionales:** `referencias/qolqe-wallet/docs/requisitos.md`. Dice qué debe hacer Qolqe: HU, CA, prioridades y reglas. Para alias, R-G4-02 permite tildes y ñ, exige normalizar espacios y limita la longitud a 3–20.
+2. **Contrato técnico:** `data/openapi-original.json`, también visible en la sección Referencia de API. Dice cómo comunicarse: ruta, método, autenticación, parámetros, esquemas y respuestas. Es el snapshot original conservado; no lo corregimos para hacer pasar pruebas.
+3. **Semántica HTTP:** RFC 9110. Explica métodos y códigos en general. No define las reglas de alias ni el límite de contactos de Qolqe.
+
+La respuesta obtenida es la evidencia que contrastamos con esas referencias, no la fuente del resultado esperado.
+
+## Documentación frente a HTTP
+| Código | Significado general | Decisión en Qolqe |
+|---|---|---|
+| 200 | Solicitud atendida correctamente | Consultas y modificaciones con respuesta |
+| 201 | Se creó un recurso | Agregar contacto o solicitud; también una transferencia según su contrato |
+| 204 | Éxito sin contenido | Eliminar contacto y cerrar sesión |
+| 401 | Faltan credenciales válidas | Token ausente, inválido, vencido o revocado |
+| 403 | La solicitud se entiende, pero se rechaza | No sustituir el 404 que Qolqe exige para recursos ajenos |
+| 404 | Recurso no disponible; puede ocultar su existencia | Recurso inexistente o de otro usuario |
+| 409 | Conflicto con el estado actual | Duplicado o transición de solicitud prohibida |
+| 422 | Contenido entendido, pero no procesable | Reglas y datos inválidos según las convenciones del proyecto |
+| 500 | Fallo inesperado del servidor | Investigar; una entrada inválida no debe provocar un fallo no controlado |
+
+No afirmar que 201 es exclusivo de POST: un PUT que crea un recurso puede responder 201. No afirmar que todo dato inválido debe producir 400: Qolqe especifica 422 para varias validaciones. Un 200 sin cuerpo no demuestra por sí solo un defecto.
+
+Si se cumple el contrato pero un código resulta inusual, explicar la observación y la semántica aplicable. Clase 10 trata el DELETE documentado con 201 como observación, no como incumplimiento automático. Si hay contradicción entre HU y OpenAPI, conservar ambas fuentes y registrar la discrepancia; no elegir silenciosamente la que haga pasar la prueba.
+
+Fuente HTTP: https://httpwg.org/specs/rfc9110.html (9.3.4, 15.3.2, 15.3.5, 15.5.4, 15.5.10, 15.5.21).
+
+## Orden recomendado de lectura
+| Orden | Abre | Qué debes sacar de ahí |
+|---|---|---|
+| 1 | Requisitos, sección G4 | La HU y la regla exacta que justifican el caso |
+| 2 | `docs/diseno-pruebas.md`, G4-004 | Técnica, datos elegidos y por qué |
+| 3 | `features/hu-g4-01.feature`, etiqueta @G4-004 | Lo que hace y comprueba la prueba ejecutable |
+| 4 | `evidencias/G4-004.html` | Petición real, 422 recibido y ALIAS_INVALIDO |
+| 5 | `docs/defectos.md`, D-01 | Cómo redactamos la conclusión y la reproducción |
+| 6 | `docs/revision-contrato.md` | Qué produjo Schemathesis y qué no podemos concluir automáticamente |
+| 7 | `docs/cobertura.md` y `docs/ci.md` | Pendientes y diferencias entre local y pipeline |
+
+## Mapa de carpetas
+| Ruta | Para qué sirve | Cuándo leerla |
+|---|---|---|
+| `docs/` | Análisis, justificaciones, informe y límites | Para estudiar y sustentar |
+| `features/` | Pruebas Karate ejecutables; una HU por archivo | Para explicar y ejecutar un escenario |
+| `features/support/` | Preparación de usuarios y adaptación HTTP | Cuando pregunten por autenticación o aislamiento |
+| `data/casos.json` | Catálogo con ID, HU, CA, técnica y pasos | Para localizar casos y reconstruir el diseño |
+| `data/openapi-original.json` | Contrato capturado | Para explicar campos, tipos y respuestas |
+| `data/defectos-confirmados.json` | Registro de hallazgos revisados | Para distinguir defecto conocido y reproducción actual |
+| `scripts/` | Preparar, ejecutar y generar documentación | Para reproducir; no necesitas memorizar cada línea |
+| `evidencias/` | Registros HTTP redactados y capturas | Para demostrar qué ocurrió |
+| `reports/` | Resultados y manifiestos | Para verificar origen, versión y fecha |
+| `reports/raw/` | Reportes completos locales; ignorados en Git | Para depurar y analizar adjuntos |
+| `apidoc/` | Portal: resultados, presentación, aprendizaje y API | Para la exposición y consulta |
+| `presentacion/` | PPT anterior, fuentes y guion | Respaldo; el HTML será el recorrido principal |
+| `.github/workflows/` | Pipeline de GitHub Actions | Cuando pregunten por ejecución automática |
+| `referencias/qolqe-wallet/` | Aplicación recibida, sin cambios | Para contrastar requisito, contrato y posible causa |
+| `.venv/`, `.tools/`, `.build/` | Dependencias, datos y compilación local | No son el análisis ni se entregan como autoría del grupo |
+
+## Cómo leer un feature
+`@HU-G4-01` identifica la historia; `@G4-004`, el caso; `@CA1`, el criterio. `Background` prepara el contexto de cada escenario.
+`a` es el propietario de la lista; `b`, el contacto; `c`, un tercero. Sus datos se crean para la prueba. `a.token` autoriza las peticiones como ese usuario.
+`add(b.cell, 'Niño', a.token)` intenta crear el contacto. `match r.statusCode == 201` exige creación. `match r.result.alias == 'Niño'` verifica el alias devuelto. La consulta posterior comprueba persistencia.
+Karate usa `*` para instrucciones del DSL. No fingimos que todo es Gherkin declarativo de negocio. El título, descripción y diseño explican la conducta; el DSL implementa las peticiones y aserciones.
+Cuando una aserción falla, los pasos siguientes pueden no ejecutarse. Por eso no afirmes que verificaste persistencia o saldo posterior si la ejecución se detuvo antes: revisa el registro.
+
+## Cómo leer una respuesta y una aserción
+En el reporte, `201` es el esperado y `422` el obtenido. El cuerpo explica el rechazo con `codigo: ALIAS_INVALIDO` y `detail`. El código HTTP y el código de negocio son dos cosas diferentes.
+Un caso negativo está aprobado si la aplicación rechaza exactamente como se espera. “Prueba aprobada” no significa siempre “operación realizada”. “Prueba fallida” tampoco significa automáticamente “defecto”: puede faltar contexto, fallar la conexión o estar mal escrita la aserción.
+
+## Cómo ensayar
+Primera pasada: explica G4-004 con el portal abierto. Segunda: explica G4-018 sin leer el guion. Tercera: pide que te elijan una HU al azar y localiza su regla, técnica y evidencia.
+Debes poder contestar: ¿qué exige?, ¿por qué ese dato?, ¿qué técnica?, ¿qué esperaba?, ¿qué ocurrió?, ¿qué demuestra?, ¿qué no demuestra?, ¿cómo lo repito?
+
+## Comprobaciones antes de exponer
+- Usar una ejecución terminada y vinculada a la misma versión y diseño.
+- Abrir las evidencias y probar los enlaces sin depender de Internet.
+- Tener la API disponible para demo, o identificar claramente el reporte como ejecución registrada.
+- Saber que CI tuvo fallos de preparación además de los defectos reproducidos localmente.
+- No afirmar cobertura total, evaluación de usabilidad ejecutada o causa raíz confirmada cuando sigue pendiente.
+- Revelar asistencia de IA y explicar personalmente las decisiones; no atribuir contribuciones no verificadas a Franco.

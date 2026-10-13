@@ -1,6 +1,6 @@
 """Documentación y resultados se generan desde fuentes reales, sin completar huecos."""
 from pathlib import Path
-import datetime, hashlib, html, json, re, subprocess
+import base64, datetime, hashlib, html, json, re, subprocess
 from zoneinfo import ZoneInfo
 from qa_provenance import validate
 
@@ -39,7 +39,15 @@ def build():
                 design=next((c for c in cases if c['id']==case_id),None)
                 first=next((i for i,s in enumerate(steps) if design and s.get('name')==design['steps'][0]),0)
                 logs='\n'.join(redact(s.get('doc_string',{}).get('value','')) for s in steps[first:])
+                attachments=[]
+                for step in steps[first:]:
+                    for attached in step.get('embeddings',[]):
+                        if attached.get('mime_type')=='application/json':
+                            try: attachments.append(json.loads(redact(base64.b64decode(attached['data']).decode('utf-8'))))
+                            except (ValueError,KeyError,UnicodeError):pass
+                if attachments:logs+='\n\nADJUNTOS REALES DE LA EJECUCIÓN\n'+json.dumps(attachments,ensure_ascii=False,indent=2)
                 results[case_id]={'status':status,'error':error,'feature':feature['uri'],'name':e.get('name',''),'failed_step':failed[0]['name'] if failed else '', 'failure_phase':'preparacion' if failed and steps.index(failed[0])<first else ('asercion' if failed else None)}
+                if attachments:results[case_id]['attachments']=attachments
                 evidence=f'<html lang="es"><meta charset="utf-8"><title>{case_id}</title><style>body{{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}}pre{{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}}</style><h1>{case_id} · {html.escape(e.get("name",""))}</h1><p>Resultado: {status} · Karate 1.5.2 · referencia {commit[:12]}</p><p>Registro real de ejecución; tokens ocultos.</p><pre>{html.escape(error)}</pre><pre>{html.escape(logs)}</pre></html>'
                 write(f'evidencias/{case_id}.html',evidence)
     stats={'executed':sum(r['status']!='PENDIENTE' for r in results.values()),'passed':sum(r['status']=='APROBADO' for r in results.values()),'failed':sum(r['status']=='FALLÓ' for r in results.values())}
