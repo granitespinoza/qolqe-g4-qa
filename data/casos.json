@@ -1,0 +1,2366 @@
+[
+  {
+    "id": "G4-001",
+    "hu": "HU-G4-01",
+    "title": "Crear contacto con alias 'Ana'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01/02/03",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Alias permitido; celular activo, ajeno y lista vacía.",
+    "steps": [
+      "def r = add(b.cell, \"Ana\", a.token)",
+      "match r.statusCode == 201",
+      "match r.result.alias == \"Ana\"",
+      "match r.result.favorito == false",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-002",
+    "hu": "HU-G4-01",
+    "title": "Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01/02/03",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Alias permitido; celular activo, ajeno y lista vacía.",
+    "steps": [
+      "def r = add(b.cell, \"AAAAAAAAAAAAAAAAAAAA\", a.token)",
+      "match r.statusCode == 201",
+      "match r.result.alias == \"AAAAAAAAAAAAAAAAAAAA\"",
+      "match r.result.favorito == false",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-003",
+    "hu": "HU-G4-01",
+    "title": "Crear contacto con alias 'José'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Alias permitido; celular activo, ajeno y lista vacía.",
+    "steps": [
+      "def r = add(b.cell, \"José\", a.token)",
+      "match r.statusCode == 201",
+      "match r.result.alias == \"José\"",
+      "match r.result.favorito == false",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-004",
+    "hu": "HU-G4-01",
+    "title": "Crear contacto con alias 'Niño'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Alias permitido; celular activo, ajeno y lista vacía.",
+    "steps": [
+      "def r = add(b.cell, \"Niño\", a.token)",
+      "match r.statusCode == 201",
+      "match r.result.alias == \"Niño\"",
+      "match r.result.favorito == false",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-005",
+    "hu": "HU-G4-01",
+    "title": "Crear contacto con alias 'A1 B'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Alias permitido; celular activo, ajeno y lista vacía.",
+    "steps": [
+      "def r = add(b.cell, \"A1 B\", a.token)",
+      "match r.statusCode == 201",
+      "match r.result.alias == \"A1 B\"",
+      "match r.result.favorito == false",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-006",
+    "hu": "HU-G4-01",
+    "title": "Crear contacto con alias ' Ana '",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Alias permitido; celular activo, ajeno y lista vacía.",
+    "steps": [
+      "def r = add(b.cell, \" Ana \", a.token)",
+      "match r.statusCode == 201",
+      "match r.result.alias == \"Ana\"",
+      "match r.result.favorito == false",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-007",
+    "hu": "HU-G4-01",
+    "title": "Rechazar alias 'Lu'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Frontera o clase inválida, restantes condiciones válidas.",
+    "steps": [
+      "def r = add(b.cell, \"Lu\", a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'ALIAS_INVALIDO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-008",
+    "hu": "HU-G4-01",
+    "title": "Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Frontera o clase inválida, restantes condiciones válidas.",
+    "steps": [
+      "def r = add(b.cell, \"AAAAAAAAAAAAAAAAAAAAA\", a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'ALIAS_INVALIDO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-009",
+    "hu": "HU-G4-01",
+    "title": "Rechazar alias ''",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Frontera o clase inválida, restantes condiciones válidas.",
+    "steps": [
+      "def r = add(b.cell, \"\", a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'ALIAS_INVALIDO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-010",
+    "hu": "HU-G4-01",
+    "title": "Rechazar alias '   '",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Frontera o clase inválida, restantes condiciones válidas.",
+    "steps": [
+      "def r = add(b.cell, \"   \", a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'ALIAS_INVALIDO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-011",
+    "hu": "HU-G4-01",
+    "title": "Rechazar alias 'Ana@'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Frontera o clase inválida, restantes condiciones válidas.",
+    "steps": [
+      "def r = add(b.cell, \"Ana@\", a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'ALIAS_INVALIDO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-012",
+    "hu": "HU-G4-01",
+    "title": "Rechazar celular: CONTACTO_PROPIO",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01",
+    "technique": "Particiones de equivalencia",
+    "why": "Representante de una condición distinta de negocio.",
+    "steps": [
+      "def r = add(a.cell, 'Ana', a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'CONTACTO_PROPIO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-013",
+    "hu": "HU-G4-01",
+    "title": "Rechazar celular: CELULAR_INVALIDO",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01",
+    "technique": "Particiones de equivalencia",
+    "why": "Representante de una condición distinta de negocio.",
+    "steps": [
+      "def r = add('123', 'Ana', a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'CELULAR_INVALIDO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-014",
+    "hu": "HU-G4-01",
+    "title": "Rechazar celular: CELULAR_NO_REGISTRADO",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01",
+    "technique": "Particiones de equivalencia",
+    "why": "Representante de una condición distinta de negocio.",
+    "steps": [
+      "def r = add('934567812', 'Ana', a.token)",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'CELULAR_NO_REGISTRADO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-015",
+    "hu": "HU-G4-01",
+    "title": "Celular válido sin registro",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01",
+    "technique": "Particiones de equivalencia",
+    "why": "Cerrar una cuenta propia de contexto no reutiliza datos ajenos.",
+    "steps": [
+      "def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, b.token, {})",
+      "match r.statusCode == 204",
+      "def r = add(b.cell, 'Ana', a.token)",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'CELULAR_NO_REGISTRADO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-016",
+    "hu": "HU-G4-01",
+    "title": "Contacto duplicado",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01",
+    "technique": "Particiones de equivalencia",
+    "why": "Mismo celular con otro alias.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = add(b.cell, 'Otro', a.token)",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'CONTACTO_EXISTENTE'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-017",
+    "hu": "HU-G4-01",
+    "title": "Alias duplicado tras normalizar 'ANA'",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Unicidad se comprueba sin mayúsculas y tras recortar espacios.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = add(c.cell, \"ANA\", a.token)",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ALIAS_DUPLICADO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-018",
+    "hu": "HU-G4-01",
+    "title": "Alias duplicado tras normalizar ' Ana '",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Unicidad se comprueba sin mayúsculas y tras recortar espacios.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = add(c.cell, \" Ana \", a.token)",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ALIAS_DUPLICADO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-019",
+    "hu": "HU-G4-01",
+    "title": "Permitir contacto 15 y rechazar contacto 16",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-03",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Contexto con 14; comprobar frontera y ausencia de efecto al superar 15.",
+    "steps": [
+      "def fill = function(n){ for(var i=0;i<n;i++){ var u=create('Contacto ' + i); var x=add(u.cell,'Contacto ' + i,a.token); if(x.statusCode!=201) karate.fail('Contexto capacidad: '+JSON.stringify(x.result)); } }",
+      "eval fill(14)",
+      "def r = add(b.cell, 'Ana', a.token)",
+      "match r.statusCode == 201",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 15",
+      "def r = add(c.cell, 'Franco', a.token)",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'LIMITE_CONTACTOS'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 15"
+    ]
+  },
+  {
+    "id": "G4-020",
+    "hu": "HU-G4-02",
+    "title": "Buscar ignorando mayúsculas y tildes",
+    "ca": [
+      2,
+      3
+    ],
+    "rule": "HU-G4-02 CA2/3",
+    "technique": "Particiones de equivalencia",
+    "why": "José debe coincidir con JOSE; se verifica máscara, teléfono y favorito.",
+    "steps": [
+      "def r = add(b.cell, 'José', a.token)",
+      "def r = req('/api/contactos', 'GET', null, a.token, {buscar:'JOSE'})",
+      "match r.statusCode == 200",
+      "match r.result.total == 1",
+      "match r.result.contactos[0].alias == 'José'",
+      "match r.result.contactos[0].celular == b.cell",
+      "match r.result.contactos[0].favorito == false",
+      "match r.result.contactos[0].nombre != 'Franco Prueba'"
+    ]
+  },
+  {
+    "id": "G4-021",
+    "hu": "HU-G4-02",
+    "title": "Ordenar favoritos antes del resto",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-02 CA1",
+    "technique": "Particiones de equivalencia",
+    "why": "Favorito con alias Z debe preceder a alias A no favorito.",
+    "steps": [
+      "def z = add(b.cell, 'Zeta', a.token)",
+      "def r = add(c.cell, 'Alfa', a.token)",
+      "def r = req('/api/contactos/' + z.result.id + '', 'PUT', {favorito:true}, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/contactos', 'GET', null, a.token, {})",
+      "match r.result.contactos[*].alias == ['Zeta','Alfa']"
+    ]
+  },
+  {
+    "id": "G4-022",
+    "hu": "HU-G4-02",
+    "title": "Paginación con 11 contactos",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-02 CA1",
+    "technique": "Valores límite (2 puntos)",
+    "why": "10/11 distingue primera y segunda página.",
+    "steps": [
+      "def fill = function(n){ for(var i=0;i<n;i++){ var u=create('Contacto ' + i); var x=add(u.cell,'Contacto ' + i,a.token); if(x.statusCode!=201) karate.fail('Contexto capacidad: '+JSON.stringify(x.result)); } }",
+      "eval fill(11)",
+      "def r = req('/api/contactos', 'GET', null, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.total == 11",
+      "match r.result.total_paginas == 2",
+      "match r.result.contactos == \"#[10]\"",
+      "def r = req('/api/contactos', 'GET', null, a.token, {pagina:2})",
+      "match r.statusCode == 200",
+      "match r.result.contactos == \"#[1]\""
+    ]
+  },
+  {
+    "id": "G4-023",
+    "hu": "HU-G4-02",
+    "title": "Búsqueda sin coincidencias",
+    "ca": [
+      2
+    ],
+    "rule": "HU-G4-02 CA2",
+    "technique": "Particiones de equivalencia",
+    "why": "Consulta válida sin coincidencias devuelve lista vacía.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/contactos', 'GET', null, a.token, {buscar:'Inexistente'})",
+      "match r.statusCode == 200",
+      "match r.result.contactos == []"
+    ]
+  },
+  {
+    "id": "G4-024",
+    "hu": "HU-G4-03",
+    "title": "Editar alias sin compararlo consigo mismo",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Mantener el mismo alias no debe ser duplicado; celular se conserva.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'PUT', {alias:'Ana'}, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.alias == 'Ana'",
+      "match r.result.celular == b.cell"
+    ]
+  },
+  {
+    "id": "G4-025",
+    "hu": "HU-G4-03",
+    "title": "Marcar y desmarcar favorito",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-03",
+    "technique": "Transición de estados",
+    "why": "Ambas acciones conservan alias y celular.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'PUT', {favorito:true}, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.favorito == true",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'PUT', {favorito:false}, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.favorito == false",
+      "match r.result.alias == 'Ana'"
+    ]
+  },
+  {
+    "id": "G4-026",
+    "hu": "HU-G4-03",
+    "title": "Quinto favorito permitido; sexto rechazado",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-03",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Verificar 5/6 y que el sexto conserve estado no favorito.",
+    "steps": [
+      "def ids = []",
+      "def populate = function(){for(var i=0;i<6;i++){var u=create('Favorito '+i); var x=add(u.cell,'Favorito '+i,a.token); karate.appendTo(ids,x.result.id);}}",
+      "eval populate()",
+      "def mark = function(){for(var i=0;i<5;i++){var x=req('/api/contactos/'+ids[i],'PUT',{favorito:true},a.token,{}); if(x.statusCode!=200) karate.fail('Contexto favorito');}}",
+      "eval mark()",
+      "def r = req('/api/contactos/' + ids[5] + '', 'PUT', {favorito:true}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'LIMITE_FAVORITOS'",
+      "def r = req('/api/contactos', 'GET', null, a.token, {})",
+      "match r.result.contactos[5].favorito == false"
+    ]
+  },
+  {
+    "id": "G4-027",
+    "hu": "HU-G4-03",
+    "title": "Rechazar edición de contacto ajeno",
+    "ca": [
+      1
+    ],
+    "rule": "Propiedad de datos",
+    "technique": "Particiones de equivalencia",
+    "why": "Un tercero no puede editar un recurso ajeno.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'PUT', {alias:'Otro'}, c.token, {})",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'CONTACTO_NO_ENCONTRADO'"
+    ]
+  },
+  {
+    "id": "G4-028",
+    "hu": "HU-G4-04",
+    "title": "Eliminar contacto conserva transferencia",
+    "ca": [
+      1
+    ],
+    "rule": "RN-11",
+    "technique": "Comprobación de efectos",
+    "why": "Transferir, eliminar y consultar movimiento por código.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'100.00'}, null, {})",
+      "def tx = req('/api/transferencias', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00'}, a.token, {})",
+      "match tx.statusCode == 201",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'DELETE', null, a.token, {})",
+      "match r.statusCode == 204",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0",
+      "def r = req('/api/movimientos/' + tx.result.codigo_operacion + '', 'GET', null, a.token, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-029",
+    "hu": "HU-G4-04",
+    "title": "Solicitud pendiente enviada impide eliminar",
+    "ca": [
+      2
+    ],
+    "rule": "R-G4-05",
+    "technique": "Tabla de decisiones",
+    "why": "Contacto propio y solicitud pendiente vigente.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'DELETE', null, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'SOLICITUDES_PENDIENTES'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 1"
+    ]
+  },
+  {
+    "id": "G4-030",
+    "hu": "HU-G4-04",
+    "title": "Solicitud pendiente recibida impide eliminar",
+    "ca": [
+      2
+    ],
+    "rule": "R-G4-05",
+    "technique": "Tabla de decisiones",
+    "why": "Comprobar dirección recibida, no solo enviada.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def cb = add(a.cell,'Granit',b.token)",
+      "def r = req('/api/contactos/' + cb.result.id + '', 'DELETE', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'SOLICITUDES_PENDIENTES'"
+    ]
+  },
+  {
+    "id": "G4-031",
+    "hu": "HU-G4-04",
+    "title": "Solicitud vencida permite eliminar",
+    "ca": [
+      2
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Vencida no bloquea eliminación.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2880}, null, {})",
+      "set a.token = login(a)",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'DELETE', null, a.token, {})",
+      "match r.statusCode == 204",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-032",
+    "hu": "HU-G4-05",
+    "title": "Transferir por contacto acredita ambos saldos",
+    "ca": [
+      1
+    ],
+    "rule": "HU-N-07",
+    "technique": "Comprobación de efectos",
+    "why": "Cuenta origen 100, destino 0; transferencia 10 y SMS.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'100.00'}, null, {})",
+      "def r = req('/api/transferencias', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00'}, a.token, {})",
+      "match r.statusCode == 201",
+      "match r.result.saldo == '90.00'",
+      "match r.result.comision == '0.00'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})",
+      "match r.result.saldo == '10.00'",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:b.cell})",
+      "assert r.result.length >= 2"
+    ]
+  },
+  {
+    "id": "G4-033",
+    "hu": "HU-G4-05",
+    "title": "Saldo insuficiente no produce transferencia",
+    "ca": [
+      1
+    ],
+    "rule": "RN-08",
+    "technique": "Particiones de equivalencia",
+    "why": "Saldo cero y monto válido; no confundir con monto inválido.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/transferencias', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SALDO_INSUFICIENTE'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-034",
+    "hu": "HU-G4-06",
+    "title": "Crear solicitud pendiente con vigencia 48 h y SMS",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "R-G4-04/05",
+    "technique": "Comprobación de efectos",
+    "why": "El monto pedido no debita saldo antes de aceptar.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "match s.result.estado == 'PENDIENTE'",
+      "assert (new Date(s.result.vence_en+'-05:00') - new Date(s.result.creada_en+'-05:00')) == 172800000",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:b.cell})",
+      "assert r.result.length >= 2",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-035",
+    "hu": "HU-G4-06",
+    "title": "Monto solicitado 0.00",
+    "ca": [
+      1
+    ],
+    "rule": "RN-05 / R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras monetarias y clase con demasiados decimales.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '0.00', 'Almuerzo')",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SOLICITUD_INVALIDA'"
+    ]
+  },
+  {
+    "id": "G4-036",
+    "hu": "HU-G4-06",
+    "title": "Monto solicitado 0.01",
+    "ca": [
+      1
+    ],
+    "rule": "RN-05 / R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras monetarias y clase con demasiados decimales.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '0.01', 'Almuerzo')",
+      "match r.statusCode == 201"
+    ]
+  },
+  {
+    "id": "G4-037",
+    "hu": "HU-G4-06",
+    "title": "Monto solicitado 500.00",
+    "ca": [
+      1
+    ],
+    "rule": "RN-05 / R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras monetarias y clase con demasiados decimales.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '500.00', 'Almuerzo')",
+      "match r.statusCode == 201"
+    ]
+  },
+  {
+    "id": "G4-038",
+    "hu": "HU-G4-06",
+    "title": "Monto solicitado 500.01",
+    "ca": [
+      1
+    ],
+    "rule": "RN-05 / R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras monetarias y clase con demasiados decimales.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '500.01', 'Almuerzo')",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SOLICITUD_INVALIDA'"
+    ]
+  },
+  {
+    "id": "G4-039",
+    "hu": "HU-G4-06",
+    "title": "Monto solicitado 10.005",
+    "ca": [
+      1
+    ],
+    "rule": "RN-05 / R-G4-04",
+    "technique": "Particiones de equivalencia",
+    "why": "Fronteras monetarias y clase con demasiados decimales.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '10.005', 'Almuerzo')",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SOLICITUD_INVALIDA'"
+    ]
+  },
+  {
+    "id": "G4-040",
+    "hu": "HU-G4-06",
+    "title": "Motivo de 2 caracteres",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras 3/60 con monto y contacto válidos.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '10.00', 'AA')",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SOLICITUD_INVALIDA'"
+    ]
+  },
+  {
+    "id": "G4-041",
+    "hu": "HU-G4-06",
+    "title": "Motivo de 3 caracteres",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras 3/60 con monto y contacto válidos.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '10.00', 'AAA')",
+      "match r.statusCode == 201"
+    ]
+  },
+  {
+    "id": "G4-042",
+    "hu": "HU-G4-06",
+    "title": "Motivo de 60 caracteres",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras 3/60 con monto y contacto válidos.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '10.00', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')",
+      "match r.statusCode == 201"
+    ]
+  },
+  {
+    "id": "G4-043",
+    "hu": "HU-G4-06",
+    "title": "Motivo de 61 caracteres",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Fronteras 3/60 con monto y contacto válidos.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = requestMoney(contact.result.id, '10.00', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SOLICITUD_INVALIDA'"
+    ]
+  },
+  {
+    "id": "G4-044",
+    "hu": "HU-G4-06",
+    "title": "Décima pendiente permitida y undécima rechazada",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-04",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Límite independiente del número de contactos.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def fillRequests = function(){for(var i=0;i<9;i++){var x=requestMoney(contact.result.id,'10.00','Almuerzo'); if(x.statusCode!=201) karate.fail('Contexto solicitudes');}}",
+      "eval fillRequests()",
+      "def r = requestMoney(contact.result.id,'10.00','Almuerzo')",
+      "match r.statusCode == 201",
+      "def r = requestMoney(contact.result.id,'10.00','Almuerzo')",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'LIMITE_SOLICITUDES'"
+    ]
+  },
+  {
+    "id": "G4-045",
+    "hu": "HU-G4-07",
+    "title": "Separar solicitudes enviadas y recibidas y filtrar",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-07 CA1",
+    "technique": "Particiones de equivalencia",
+    "why": "Mismo recurso aparece según rol; filtro sin coincidencias.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes', 'GET', null, a.token, {})",
+      "match r.result.enviadas == \"#[1]\"",
+      "match r.result.recibidas == []",
+      "def r = req('/api/solicitudes', 'GET', null, b.token, {})",
+      "match r.result.recibidas == \"#[1]\"",
+      "match r.result.enviadas == []",
+      "def r = req('/api/solicitudes', 'GET', null, a.token, {estado:'ACEPTADA'})",
+      "match r.result.enviadas == []"
+    ]
+  },
+  {
+    "id": "G4-046",
+    "hu": "HU-G4-07",
+    "title": "Estado al transcurrir 2879 minutos",
+    "ca": [
+      2
+    ],
+    "rule": "R-G4-05",
+    "technique": "Valores límite (3 puntos)",
+    "why": "Antes, exactamente y después de 48 h; renovar token porque expira a los 30 min.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2879}, null, {})",
+      "set a.token = login(a)",
+      "def r = req('/api/solicitudes', 'GET', null, a.token, {})",
+      "match r.result.enviadas[0].estado == 'PENDIENTE'"
+    ]
+  },
+  {
+    "id": "G4-047",
+    "hu": "HU-G4-07",
+    "title": "Estado al transcurrir 2880 minutos",
+    "ca": [
+      2
+    ],
+    "rule": "R-G4-05",
+    "technique": "Valores límite (3 puntos)",
+    "why": "Antes, exactamente y después de 48 h; renovar token porque expira a los 30 min.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2880}, null, {})",
+      "set a.token = login(a)",
+      "def r = req('/api/solicitudes', 'GET', null, a.token, {})",
+      "match r.result.enviadas[0].estado == 'VENCIDA'"
+    ]
+  },
+  {
+    "id": "G4-048",
+    "hu": "HU-G4-07",
+    "title": "Estado al transcurrir 2881 minutos",
+    "ca": [
+      2
+    ],
+    "rule": "R-G4-05",
+    "technique": "Valores límite (3 puntos)",
+    "why": "Antes, exactamente y después de 48 h; renovar token porque expira a los 30 min.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2881}, null, {})",
+      "set a.token = login(a)",
+      "def r = req('/api/solicitudes', 'GET', null, a.token, {})",
+      "match r.result.enviadas[0].estado == 'VENCIDA'"
+    ]
+  },
+  {
+    "id": "G4-049",
+    "hu": "HU-G4-08",
+    "title": "Aceptar genera transferencia, código y SMS",
+    "ca": [
+      1,
+      3,
+      4
+    ],
+    "rule": "HU-N-07 / R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Destinatario vigente con saldo; vincular operación y solicitud.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.estado == 'ACEPTADA'",
+      "match r.result.codigo_operacion == \"#string\"",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})",
+      "match r.result.saldo == '90.00'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '10.00'",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:a.cell})",
+      "assert r.result.length >= 2"
+    ]
+  },
+  {
+    "id": "G4-050",
+    "hu": "HU-G4-08",
+    "title": "Saldo insuficiente conserva PENDIENTE",
+    "ca": [
+      2
+    ],
+    "rule": "RN-08 / R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Error financiero no resuelve solicitud.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SALDO_INSUFICIENTE'",
+      "def r = req('/api/solicitudes', 'GET', null, a.token, {})",
+      "match r.result.enviadas[0].estado == 'PENDIENTE'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-051",
+    "hu": "HU-G4-08",
+    "title": "Tercero no puede aceptar",
+    "ca": [
+      4
+    ],
+    "rule": "Propiedad de datos",
+    "technique": "Tabla de decisiones",
+    "why": "Token válido con rol ajeno devuelve 404.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, c.token, {})",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'SOLICITUD_NO_ENCONTRADA'"
+    ]
+  },
+  {
+    "id": "G4-052",
+    "hu": "HU-G4-08",
+    "title": "Aceptar a los 2879 minutos",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Valores límite (3 puntos)",
+    "why": "Vigencia se decide en la acción, no solo al listar.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2879}, null, {})",
+      "set b.token = login(b)",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-053",
+    "hu": "HU-G4-08",
+    "title": "Aceptar a los 2880 minutos",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Valores límite (3 puntos)",
+    "why": "Vigencia se decide en la acción, no solo al listar.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2880}, null, {})",
+      "set b.token = login(b)",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-054",
+    "hu": "HU-G4-08",
+    "title": "Aceptar a los 2881 minutos",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Valores límite (3 puntos)",
+    "why": "Vigencia se decide en la acción, no solo al listar.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2881}, null, {})",
+      "set b.token = login(b)",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-055",
+    "hu": "HU-G4-08",
+    "title": "No aceptar dos veces",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "La segunda aceptación no duplica dinero.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})",
+      "match r.result.saldo == '90.00'"
+    ]
+  },
+  {
+    "id": "G4-056",
+    "hu": "HU-G4-09",
+    "title": "Rechazar solicitud pendiente",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Acción del rol correcto cambia el estado sin mover dinero.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'No corresponde'}, b.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.estado == 'RECHAZADA'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-057",
+    "hu": "HU-G4-09",
+    "title": "Rechazar acción de tercero",
+    "ca": [
+      1
+    ],
+    "rule": "Propiedad de datos",
+    "technique": "Tabla de decisiones",
+    "why": "Un usuario ajeno no puede resolver solicitudes.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'No corresponde'}, c.token, {})",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'SOLICITUD_NO_ENCONTRADA'"
+    ]
+  },
+  {
+    "id": "G4-058",
+    "hu": "HU-G4-09",
+    "title": "No resolver solicitud vencida",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "A las 48 h la acción debe ser rechazada.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2880}, null, {})",
+      "set a.token = login(a)",
+      "set b.token = login(b)",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'No corresponde'}, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-059",
+    "hu": "HU-G4-09",
+    "title": "No repetir resolución",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Estado terminal no admite otra resolución.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'No corresponde'}, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'No corresponde'}, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-060",
+    "hu": "HU-G4-10",
+    "title": "Cancelar solicitud pendiente",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Acción del rol correcto cambia el estado sin mover dinero.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.estado == 'CANCELADA'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-061",
+    "hu": "HU-G4-10",
+    "title": "Rechazar acción de tercero",
+    "ca": [
+      1
+    ],
+    "rule": "Propiedad de datos",
+    "technique": "Tabla de decisiones",
+    "why": "Un usuario ajeno no puede resolver solicitudes.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, c.token, {})",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'SOLICITUD_NO_ENCONTRADA'"
+    ]
+  },
+  {
+    "id": "G4-062",
+    "hu": "HU-G4-10",
+    "title": "No resolver solicitud vencida",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "A las 48 h la acción debe ser rechazada.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:2880}, null, {})",
+      "set a.token = login(a)",
+      "set b.token = login(b)",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-063",
+    "hu": "HU-G4-10",
+    "title": "No repetir resolución",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Estado terminal no admite otra resolución.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-064",
+    "hu": "HU-G4-09",
+    "title": "Motivo opcional y aviso al solicitante",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-09 CA1",
+    "technique": "Particiones de equivalencia",
+    "why": "Omitir motivo debe estar permitido; SMS verificable.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.motivo_rechazo == null",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:a.cell})",
+      "assert r.result.length >= 2"
+    ]
+  },
+  {
+    "id": "G4-065",
+    "hu": "HU-G4-09",
+    "title": "Motivo de rechazo longitud 60",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-09 CA1",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Extremo permitido y vecino inválido.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}, b.token, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-066",
+    "hu": "HU-G4-09",
+    "title": "Motivo de rechazo longitud 61",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-09 CA1",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Extremo permitido y vecino inválido.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', {motivo:'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'}, b.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SOLICITUD_INVALIDA'"
+    ]
+  },
+  {
+    "id": "G4-067",
+    "hu": "HU-N-01",
+    "title": "Registro crea saldo cero, límite y bienvenida",
+    "ca": [
+      1,
+      6
+    ],
+    "rule": "RN-01/02/03",
+    "technique": "Comprobación de efectos",
+    "why": "Usuarios creados por API; se verifican consecuencias del registro.",
+    "steps": [
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.saldo == '0.00'",
+      "def r = req('/api/limites', 'GET', null, a.token, {})",
+      "match r.result.limite_diario == '2000.00'",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:a.cell})",
+      "assert r.result.length >= 1"
+    ]
+  },
+  {
+    "id": "G4-068",
+    "hu": "HU-N-01",
+    "title": "Rechazar dni inválido",
+    "ca": [
+      2
+    ],
+    "rule": "RN-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Una entrada inválida por caso.",
+    "steps": [
+      "def n = random()",
+      "def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#(\"9\" + n)',pin:'4826'}",
+      "set payload.dni = '123'",
+      "def r = req('/api/usuarios', 'POST', payload, null, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'DNI_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-069",
+    "hu": "HU-N-01",
+    "title": "Rechazar celular inválido",
+    "ca": [
+      3
+    ],
+    "rule": "RN-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Una entrada inválida por caso.",
+    "steps": [
+      "def n = random()",
+      "def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#(\"9\" + n)',pin:'4826'}",
+      "set payload.celular = '123'",
+      "def r = req('/api/usuarios', 'POST', payload, null, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'CELULAR_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-070",
+    "hu": "HU-N-01",
+    "title": "Rechazar pin inválido",
+    "ca": [
+      4
+    ],
+    "rule": "RN-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Una entrada inválida por caso.",
+    "steps": [
+      "def n = random()",
+      "def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#(\"9\" + n)',pin:'4826'}",
+      "set payload.pin = '1111'",
+      "def r = req('/api/usuarios', 'POST', payload, null, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'PIN_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-071",
+    "hu": "HU-N-01",
+    "title": "Rechazar correo inválido",
+    "ca": [
+      5
+    ],
+    "rule": "RN-01/02/03",
+    "technique": "Particiones de equivalencia",
+    "why": "Una entrada inválida por caso.",
+    "steps": [
+      "def n = random()",
+      "def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#(\"9\" + n)',pin:'4826'}",
+      "set payload.correo = 'invalid'",
+      "def r = req('/api/usuarios', 'POST', payload, null, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'CORREO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-072",
+    "hu": "HU-N-02",
+    "title": "Login crea sesión con vigencia de 30 minutos",
+    "ca": [
+      1
+    ],
+    "rule": "HU-N-02 CA1",
+    "technique": "Comprobación de efectos",
+    "why": "La autenticación de contexto se vuelve a verificar explícitamente.",
+    "steps": [
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})",
+      "match r.statusCode == 200",
+      "match r.result.expires_in == 1800",
+      "match r.result.sesion_id == \"#number\""
+    ]
+  },
+  {
+    "id": "G4-073",
+    "hu": "HU-N-02",
+    "title": "Bloqueo tras tres intentos y acceso después de 15 min",
+    "ca": [
+      2,
+      3,
+      4
+    ],
+    "rule": "RN-04",
+    "technique": "Transición de estados",
+    "why": "Secuencia de intentos y frontera temporal.",
+    "steps": [
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'0000'}, null, {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'CREDENCIALES_INVALIDAS'",
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'0000'}, null, {})",
+      "match r.statusCode == 401",
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'0000'}, null, {})",
+      "match r.statusCode == 423",
+      "match r.result.codigo == 'CUENTA_BLOQUEADA'",
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})",
+      "match r.statusCode == 423",
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:15}, null, {})",
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-074",
+    "hu": "HU-N-03",
+    "title": "Cerrar sesión revoca solo ese token",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "HU-N-03",
+    "technique": "Transición de estados",
+    "why": "Dos sesiones; revocación de una no afecta la otra.",
+    "steps": [
+      "def second = login(a)",
+      "def r = req('/api/auth/logout', 'POST', null, a.token, {})",
+      "match r.statusCode == 204",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'NO_AUTENTICADO'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, second, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-075",
+    "hu": "HU-N-04",
+    "title": "Saldo PEN y perfil enmascarado",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "HU-N-04",
+    "technique": "Comprobación de efectos",
+    "why": "No revelar DNI completo.",
+    "steps": [
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.moneda == 'PEN'",
+      "match r.result.actualizado_en == \"#string\"",
+      "def r = req('/api/cuentas/me', 'GET', null, a.token, {})",
+      "match r.statusCode == 200",
+      "assert r.result.dni.startsWith('****')",
+      "match r.result.celular == a.cell"
+    ]
+  },
+  {
+    "id": "G4-076",
+    "hu": "HU-N-04",
+    "title": "Acceso sin autenticación null",
+    "ca": [
+      3
+    ],
+    "rule": "HU-N-04 CA3",
+    "technique": "Particiones de equivalencia",
+    "why": "Ausente e inválido son clases diferentes.",
+    "steps": [
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, null, {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'NO_AUTENTICADO'"
+    ]
+  },
+  {
+    "id": "G4-077",
+    "hu": "HU-N-04",
+    "title": "Acceso sin autenticación 'invalid'",
+    "ca": [
+      3
+    ],
+    "rule": "HU-N-04 CA3",
+    "technique": "Particiones de equivalencia",
+    "why": "Ausente e inválido son clases diferentes.",
+    "steps": [
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, 'invalid', {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'NO_AUTENTICADO'"
+    ]
+  },
+  {
+    "id": "G4-078",
+    "hu": "HU-N-04",
+    "title": "Token vencido",
+    "ca": [
+      3
+    ],
+    "rule": "HU-N-04 CA3",
+    "technique": "Valores límite (2 puntos)",
+    "why": "A los 30 min debe rechazarse.",
+    "steps": [
+      "def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:30}, null, {})",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'NO_AUTENTICADO'"
+    ]
+  },
+  {
+    "id": "G4-079",
+    "hu": "HU-N-05",
+    "title": "Editar perfil ignora DNI y celular y envía SMS",
+    "ca": [
+      1,
+      2,
+      3
+    ],
+    "rule": "HU-N-05",
+    "technique": "Comprobación de efectos",
+    "why": "Actualizar permitidos sin cambiar identidad.",
+    "steps": [
+      "def r = req('/api/cuentas/me', 'PUT', {nombres:'Granit Actualizado',correo:'#(a.cell + \"@example.com\")',dni:'11111111',celular:'999999999'}, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.nombres == 'Granit Actualizado'",
+      "match r.result.celular == a.cell",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:a.cell})",
+      "assert r.result.length >= 2"
+    ]
+  },
+  {
+    "id": "G4-080",
+    "hu": "HU-N-06",
+    "title": "Cerrar cuenta con saldo cero revoca acceso",
+    "ca": [
+      1,
+      2,
+      4
+    ],
+    "rule": "HU-N-06",
+    "technique": "Transición de estados",
+    "why": "Cierre válido y posterior login prohibido.",
+    "steps": [
+      "def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})",
+      "match r.statusCode == 204",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.statusCode == 401",
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'CUENTA_CERRADA'"
+    ]
+  },
+  {
+    "id": "G4-081",
+    "hu": "HU-N-06",
+    "title": "Solicitud pendiente impide cerrar cuenta",
+    "ca": [
+      3
+    ],
+    "rule": "HU-N-06 CA3",
+    "technique": "Tabla de decisiones",
+    "why": "Saldo cero pero solicitud pendiente: rechazo de cierre.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'SOLICITUDES_PENDIENTES'"
+    ]
+  },
+  {
+    "id": "G4-082",
+    "hu": "HU-N-07",
+    "title": "Transferencia monto 0.00",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "RN-05",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Probar rango financiero con saldo y destinatario válidos.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'0.00'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'MONTO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-083",
+    "hu": "HU-N-07",
+    "title": "Transferencia monto 0.01",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "RN-05",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Probar rango financiero con saldo y destinatario válidos.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'0.01'}, a.token, {})",
+      "match r.statusCode == 201"
+    ]
+  },
+  {
+    "id": "G4-084",
+    "hu": "HU-N-07",
+    "title": "Transferencia monto 500.00",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "RN-05",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Probar rango financiero con saldo y destinatario válidos.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'500.00'}, a.token, {})",
+      "match r.statusCode == 201"
+    ]
+  },
+  {
+    "id": "G4-085",
+    "hu": "HU-N-07",
+    "title": "Transferencia monto 500.01",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "RN-05",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Probar rango financiero con saldo y destinatario válidos.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'500.01'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'MONTO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-086",
+    "hu": "HU-N-07",
+    "title": "Transferencia monto 10.005",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "RN-05",
+    "technique": "Valores límite (2 puntos)",
+    "why": "Probar rango financiero con saldo y destinatario válidos.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'10.005'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'MONTO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-087",
+    "hu": "HU-N-07",
+    "title": "Comprobante y movimientos con mismo código",
+    "ca": [
+      3,
+      4
+    ],
+    "rule": "RN-10",
+    "technique": "Comprobación de efectos",
+    "why": "Verificar transferencia en ambas cuentas.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'100.00'}, null, {})",
+      "def tx = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'10.00',descripcion:'Almuerzo'}, a.token, {})",
+      "match tx.statusCode == 201",
+      "match tx.result.total == '10.00'",
+      "match tx.result.saldo == '90.00'",
+      "def r = req('/api/movimientos/' + tx.result.codigo_operacion + '', 'GET', null, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/movimientos/' + tx.result.codigo_operacion + '', 'GET', null, b.token, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-088",
+    "hu": "HU-N-08",
+    "title": "Transferencia interbancaria cobra comisión y enmascara CCI",
+    "ca": [
+      1,
+      2,
+      3
+    ],
+    "rule": "RN-09",
+    "technique": "Comprobación de efectos",
+    "why": "Monto 100: comisión 1.50; verificar CCI en movimiento.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'200.00'}, null, {})",
+      "def tx = req('/api/transferencias', 'POST', {tipo:'INTERBANCARIA',cci:'12345678901234567890',monto:'100.00'}, a.token, {})",
+      "match tx.statusCode == 201",
+      "match tx.result.comision == '1.50'",
+      "match tx.result.saldo == '98.50'",
+      "def r = req('/api/movimientos/' + tx.result.codigo_operacion + '', 'GET', null, a.token, {})",
+      "match r.statusCode == 200",
+      "assert JSON.stringify(r.result).indexOf('12345678901234567890') == -1"
+    ]
+  },
+  {
+    "id": "G4-089",
+    "hu": "HU-N-09",
+    "title": "Simular comisión para 1.00 sin debitar",
+    "ca": [
+      1
+    ],
+    "rule": "RN-09",
+    "technique": "Particiones de equivalencia",
+    "why": "Mínimo, proporcional y máximo; saldo no cambia.",
+    "steps": [
+      "def r = req('/api/transferencias/comision', 'GET', null, a.token, {monto:'1.00',tipo:'INTERBANCARIA'})",
+      "match r.statusCode == 200",
+      "match r.result.comision == '1.00'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-090",
+    "hu": "HU-N-09",
+    "title": "Simular comisión para 100.00 sin debitar",
+    "ca": [
+      1
+    ],
+    "rule": "RN-09",
+    "technique": "Particiones de equivalencia",
+    "why": "Mínimo, proporcional y máximo; saldo no cambia.",
+    "steps": [
+      "def r = req('/api/transferencias/comision', 'GET', null, a.token, {monto:'100.00',tipo:'INTERBANCARIA'})",
+      "match r.statusCode == 200",
+      "match r.result.comision == '1.50'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-091",
+    "hu": "HU-N-09",
+    "title": "Simular comisión para 500.00 sin debitar",
+    "ca": [
+      1
+    ],
+    "rule": "RN-09",
+    "technique": "Particiones de equivalencia",
+    "why": "Mínimo, proporcional y máximo; saldo no cambia.",
+    "steps": [
+      "def r = req('/api/transferencias/comision', 'GET', null, a.token, {monto:'500.00',tipo:'INTERBANCARIA'})",
+      "match r.statusCode == 200",
+      "match r.result.comision == '5.00'",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})",
+      "match r.result.saldo == '0.00'"
+    ]
+  },
+  {
+    "id": "G4-092",
+    "hu": "HU-N-02",
+    "title": "Cuenta cerrada no puede ingresar",
+    "ca": [
+      5
+    ],
+    "rule": "HU-N-02 CA5",
+    "technique": "Transición de estados",
+    "why": "Cerrar cuenta con saldo cero antes de intentar ingresar.",
+    "steps": [
+      "def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})",
+      "match r.statusCode == 204",
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})",
+      "match r.statusCode == 401",
+      "match r.result.codigo == 'CUENTA_CERRADA'"
+    ]
+  },
+  {
+    "id": "G4-093",
+    "hu": "HU-N-02",
+    "title": "Nuevo dispositivo permite login y genera alerta",
+    "ca": [
+      6
+    ],
+    "rule": "HU-N-02 CA6",
+    "technique": "Comprobación de efectos",
+    "why": "Identificador no registrado no bloquea login, pero avisa.",
+    "steps": [
+      "def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826',dispositivo_id:'dispositivo-no-registrado'}, null, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/pruebas/notificaciones', 'GET', null, null, {celular:a.cell})",
+      "assert JSON.stringify(r.result).toLowerCase().indexOf('nuevo dispositivo') >= 0"
+    ]
+  },
+  {
+    "id": "G4-094",
+    "hu": "HU-N-03",
+    "title": "Cerrar una sesión no afecta otra",
+    "ca": [
+      2
+    ],
+    "rule": "HU-N-03 CA2",
+    "technique": "Transición de estados",
+    "why": "Separado del caso de revocación para que su fallo no oculte este criterio.",
+    "steps": [
+      "def second = login(a)",
+      "def r = req('/api/auth/logout', 'POST', null, a.token, {})",
+      "match r.statusCode == 204",
+      "def r = req('/api/cuentas/me/saldo', 'GET', null, second, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-095",
+    "hu": "HU-G4-05",
+    "title": "Límite diario agotado impide operación",
+    "ca": [
+      1
+    ],
+    "rule": "RN-06",
+    "technique": "Tabla de decisiones",
+    "why": "Saldo suficiente pero límite agotado: aislar rechazo diario.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/limites', 'PUT', {limite_diario:'100.00'}, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'100.00'}, a.token, {})",
+      "match r.statusCode == 201",
+      "def r = req('/api/transferencias', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'LIMITE_DIARIO_EXCEDIDO'"
+    ]
+  },
+  {
+    "id": "G4-096",
+    "hu": "HU-G4-08",
+    "title": "Límite diario agotado impide operación",
+    "ca": [
+      1,
+      2
+    ],
+    "rule": "RN-06",
+    "technique": "Tabla de decisiones",
+    "why": "Saldo suficiente pero límite agotado: aislar rechazo diario.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(b.cell)',saldo:'1000.00'}, null, {})",
+      "def r = req('/api/limites', 'PUT', {limite_diario:'100.00'}, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(a.cell)',monto:'100.00'}, b.token, {})",
+      "match r.statusCode == 201",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'LIMITE_DIARIO_EXCEDIDO'"
+    ]
+  },
+  {
+    "id": "G4-097",
+    "hu": "HU-G4-08",
+    "title": "No aceptar desde ACEPTADA",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-098",
+    "hu": "HU-G4-09",
+    "title": "No rechazar desde ACEPTADA",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-099",
+    "hu": "HU-G4-10",
+    "title": "No cancelar desde ACEPTADA",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-100",
+    "hu": "HU-G4-08",
+    "title": "No aceptar desde RECHAZADA",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-101",
+    "hu": "HU-G4-09",
+    "title": "No rechazar desde RECHAZADA",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-102",
+    "hu": "HU-G4-10",
+    "title": "No cancelar desde RECHAZADA",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-103",
+    "hu": "HU-G4-08",
+    "title": "No aceptar desde CANCELADA",
+    "ca": [
+      4
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-104",
+    "hu": "HU-G4-09",
+    "title": "No rechazar desde CANCELADA",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/rechazar', 'POST', null, b.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-105",
+    "hu": "HU-G4-10",
+    "title": "No cancelar desde CANCELADA",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-05",
+    "technique": "Transición de estados",
+    "why": "Cubrir transición inválida desde estado terminal con rol correcto.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def s = requestMoney(contact.result.id, '10.00', 'Almuerzo')",
+      "match s.statusCode == 201",
+      "def fund = req('/api/pruebas/saldo', 'PUT', {celular: '#(b.cell)', saldo:'100.00'}, null, {})",
+      "match fund.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/solicitudes/' + s.result.id + '/cancelar', 'POST', null, a.token, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'ESTADO_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-106",
+    "hu": "HU-G4-01",
+    "title": "Celular válido aún no registrado",
+    "ca": [
+      1
+    ],
+    "rule": "R-G4-01",
+    "technique": "Particiones de equivalencia",
+    "why": "Crear valor nuevo sin registrar; separado de cuenta cerrada.",
+    "steps": [
+      "def unknown = '9' + random()",
+      "def r = add(unknown, 'Ana', a.token)",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'CELULAR_NO_REGISTRADO'",
+      "def list = req('/api/contactos', 'GET', null, a.token, {})",
+      "match list.result.total == 0"
+    ]
+  },
+  {
+    "id": "G4-107",
+    "hu": "HU-G4-02",
+    "title": "Orden alfabético dentro de cada grupo",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-02 CA1",
+    "technique": "Particiones de equivalencia",
+    "why": "Cuatro alias comprueban ambos grupos y prioridad de favoritos.",
+    "steps": [
+      "def u = create('Cuarto Usuario')",
+      "def z = add(b.cell, 'Zeta', a.token)",
+      "def x = add(c.cell, 'Alfa', a.token)",
+      "def r = add(u.cell, 'Beta', a.token)",
+      "def v = create('Quinto Usuario')",
+      "def r = add(v.cell, 'Gamma', a.token)",
+      "def r = req('/api/contactos/' + z.result.id + '', 'PUT', {favorito:true}, a.token, {})",
+      "def r = req('/api/contactos/' + x.result.id + '', 'PUT', {favorito:true}, a.token, {})",
+      "def r = req('/api/contactos', 'GET', null, a.token, {})",
+      "match r.result.contactos[*].alias == ['Alfa','Zeta','Beta','Gamma']"
+    ]
+  },
+  {
+    "id": "G4-108",
+    "hu": "HU-G4-03",
+    "title": "Editar solo alias conserva favorito",
+    "ca": [
+      1
+    ],
+    "rule": "HU-G4-03 CA1",
+    "technique": "Comprobación de efectos",
+    "why": "No basta verificar el campo cambiado.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'PUT', {favorito:true}, a.token, {})",
+      "match r.statusCode == 200",
+      "def r = req('/api/contactos/' + contact.result.id + '', 'PUT', {alias:'Nuevo Alias'}, a.token, {})",
+      "match r.statusCode == 200",
+      "match r.result.favorito == true",
+      "match r.result.celular == b.cell"
+    ]
+  },
+  {
+    "id": "G4-109",
+    "hu": "HU-G4-06",
+    "title": "Contacto de otro usuario no permite solicitar",
+    "ca": [
+      1
+    ],
+    "rule": "Propiedad de datos",
+    "technique": "Particiones de equivalencia",
+    "why": "Un id válido ajeno debe ser tratado como inexistente.",
+    "steps": [
+      "def contact = add(b.cell, 'Ana', a.token)",
+      "match contact.statusCode == 201",
+      "def r = req('/api/solicitudes', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00',motivo:'Almuerzo'}, c.token, {})",
+      "match r.statusCode == 404",
+      "match r.result.codigo == 'CONTACTO_NO_ENCONTRADO'"
+    ]
+  },
+  {
+    "id": "G4-110",
+    "hu": "HU-N-01",
+    "title": "Celular duplicado responde conflicto",
+    "ca": [
+      3
+    ],
+    "rule": "RN-02",
+    "technique": "Particiones de equivalencia",
+    "why": "Registro con celular existente y restantes datos válidos.",
+    "steps": [
+      "def r = req('/api/usuarios', 'POST', {dni:'12345678',nombres:'Nuevo Usuario',celular:'#(a.cell)',pin:'4826'}, null, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'CELULAR_REGISTRADO'"
+    ]
+  },
+  {
+    "id": "G4-111",
+    "hu": "HU-N-01",
+    "title": "Correo duplicado ignora mayúsculas",
+    "ca": [
+      5
+    ],
+    "rule": "HU-N-01 CA5",
+    "technique": "Particiones de equivalencia",
+    "why": "Primera cuenta fija correo; segunda intenta su versión en mayúsculas.",
+    "steps": [
+      "def email = a.cell + '@example.com'",
+      "def r = req('/api/cuentas/me', 'PUT', {correo:email}, a.token, {})",
+      "match r.statusCode == 200",
+      "def n = random()",
+      "def r = req('/api/usuarios', 'POST', {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#(\"9\"+n)',pin:'4826',correo:'#(email.toUpperCase())'}, null, {})",
+      "match r.statusCode == 409",
+      "match r.result.codigo == 'CORREO_REGISTRADO'"
+    ]
+  },
+  {
+    "id": "G4-112",
+    "hu": "HU-N-06",
+    "title": "PIN incorrecto impide cierre",
+    "ca": [
+      1
+    ],
+    "rule": "HU-N-06 CA1",
+    "technique": "Particiones de equivalencia",
+    "why": "Saldo cero, PIN incorrecto; conservar cuenta activa.",
+    "steps": [
+      "def r = req('/api/cuentas/me/cierre', 'POST', {pin:'0000'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'PIN_INCORRECTO'",
+      "def r = req('/api/cuentas/me', 'GET', null, a.token, {})",
+      "match r.statusCode == 200"
+    ]
+  },
+  {
+    "id": "G4-113",
+    "hu": "HU-N-06",
+    "title": "Saldo pendiente impide cierre",
+    "ca": [
+      2
+    ],
+    "rule": "HU-N-06 CA2",
+    "technique": "Particiones de equivalencia",
+    "why": "PIN correcto y saldo positivo.",
+    "steps": [
+      "def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'0.01'}, null, {})",
+      "def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'SALDO_PENDIENTE'"
+    ]
+  },
+  {
+    "id": "G4-114",
+    "hu": "HU-N-07",
+    "title": "Transferencia a sí mismo rechazada",
+    "ca": [
+      2
+    ],
+    "rule": "RN-07",
+    "technique": "Particiones de equivalencia",
+    "why": "Monto válido y saldo suficiente; aislar destino.",
+    "steps": [
+      "def r = req('/api/transferencias', 'POST', {celular_destino:'#(a.cell)',monto:'10.00'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'TRANSFERENCIA_A_SI_MISMO'"
+    ]
+  },
+  {
+    "id": "G4-115",
+    "hu": "HU-N-08",
+    "title": "CCI inválido rechazado",
+    "ca": [
+      1
+    ],
+    "rule": "HU-N-08 CA1",
+    "technique": "Particiones de equivalencia",
+    "why": "CCI corto con monto válido.",
+    "steps": [
+      "def r = req('/api/transferencias', 'POST', {tipo:'INTERBANCARIA',cci:'123',monto:'10.00'}, a.token, {})",
+      "match r.statusCode == 422",
+      "match r.result.codigo == 'CCI_INVALIDO'"
+    ]
+  },
+  {
+    "id": "G4-116",
+    "hu": "HU-N-07",
+    "title": "Concurrencia conserva saldo y límite diario",
+    "ca": [
+      5
+    ],
+    "rule": "RN-06/08",
+    "technique": "Tabla de decisiones y concurrencia",
+    "why": "Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado.",
+    "steps": [
+      "def command = ['#(qaPython)', 'scripts/concurrency_probe.py']",
+      "def runProbe = function(args){var P=Java.type('java.lang.ProcessBuilder');var S=Java.type('java.util.Scanner');var p=new P(Java.to(args,'java.lang.String[]')).redirectErrorStream(true).start();var scan=new S(p.getInputStream()).useDelimiter('\\\\A');var out=scan.hasNext()?scan.next():'';var code=p.waitFor();if(code!=0) karate.fail(out);return JSON.parse(out);}",
+      "def probe = runProbe(command)",
+      "match probe.ok == true"
+    ]
+  }
+]
