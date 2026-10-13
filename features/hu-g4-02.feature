@@ -28,7 +28,7 @@ Background:
     * match r.result.contactos[0].alias == 'José'
     * match r.result.contactos[0].celular == b.cell
     * match r.result.contactos[0].favorito == false
-    * match r.result.contactos[0].nombre != 'Franco Prueba'
+    * match r.result.contactos[0].nombre == 'Franco P.'
 
   @G4-021 @CA1
   Scenario: Ordenar favoritos antes del resto

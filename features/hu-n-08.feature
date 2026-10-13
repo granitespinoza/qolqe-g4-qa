@@ -28,7 +28,7 @@ Background:
     * match tx.result.saldo == '98.50'
     * def r = req('/api/movimientos/' + tx.result.codigo_operacion + '', 'GET', null, a.token, {})
     * match r.statusCode == 200
-    * assert JSON.stringify(r.result).indexOf('12345678901234567890') == -1
+    * match r.result.contraparte == '****************7890'
 
   @G4-115 @CA1
   Scenario: CCI inválido rechazado

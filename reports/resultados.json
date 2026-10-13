@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-13T00:30:15-05:00",
+  "timestamp": "2026-10-13T01:01:24-05:00",
   "commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
   "stats": {
     "executed": 116,
@@ -11,697 +11,929 @@
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Crear contacto con alias 'Ana'"
+      "name": "Crear contacto con alias 'Ana'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-002": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA'"
+      "name": "Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-003": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Crear contacto con alias 'José'"
+      "name": "Crear contacto con alias 'José'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-004": {
       "status": "FALLÓ",
       "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  422\n  201\n\nfeatures/hu-g4-01.feature:55",
       "feature": "features/hu-g4-01.feature",
-      "name": "Crear contacto con alias 'Niño'"
+      "name": "Crear contacto con alias 'Niño'",
+      "failed_step": "match r.statusCode == 201",
+      "failure_phase": "asercion"
     },
     "G4-005": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Crear contacto con alias 'A1 B'"
+      "name": "Crear contacto con alias 'A1 B'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-006": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Crear contacto con alias ' Ana '"
+      "name": "Crear contacto con alias ' Ana '",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-007": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar alias 'Lu'"
+      "name": "Rechazar alias 'Lu'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-008": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA'"
+      "name": "Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-009": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar alias ''"
+      "name": "Rechazar alias ''",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-010": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar alias '   '"
+      "name": "Rechazar alias '   '",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-011": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar alias 'Ana@'"
+      "name": "Rechazar alias 'Ana@'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-012": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar celular: CONTACTO_PROPIO"
+      "name": "Rechazar celular: CONTACTO_PROPIO",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-013": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar celular: CELULAR_INVALIDO"
+      "name": "Rechazar celular: CELULAR_INVALIDO",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-014": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Rechazar celular: CELULAR_NO_REGISTRADO"
+      "name": "Rechazar celular: CELULAR_NO_REGISTRADO",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-015": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Celular válido sin registro"
+      "name": "Celular válido sin registro",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-016": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Contacto duplicado"
+      "name": "Contacto duplicado",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-017": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Alias duplicado tras normalizar 'ANA'"
+      "name": "Alias duplicado tras normalizar 'ANA'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-018": {
       "status": "FALLÓ",
       "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  201\n  409\n\nfeatures/hu-g4-01.feature:192",
       "feature": "features/hu-g4-01.feature",
-      "name": "Alias duplicado tras normalizar ' Ana '"
+      "name": "Alias duplicado tras normalizar ' Ana '",
+      "failed_step": "match r.statusCode == 409",
+      "failure_phase": "asercion"
     },
     "G4-019": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Permitir contacto 15 y rechazar contacto 16"
+      "name": "Permitir contacto 15 y rechazar contacto 16",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-106": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-01.feature",
-      "name": "Celular válido aún no registrado"
+      "name": "Celular válido aún no registrado",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-020": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-02.feature",
-      "name": "Buscar ignorando mayúsculas y tildes"
+      "name": "Buscar ignorando mayúsculas y tildes",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-021": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-02.feature",
-      "name": "Ordenar favoritos antes del resto"
+      "name": "Ordenar favoritos antes del resto",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-022": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-02.feature",
-      "name": "Paginación con 11 contactos"
+      "name": "Paginación con 11 contactos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-023": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-02.feature",
-      "name": "Búsqueda sin coincidencias"
+      "name": "Búsqueda sin coincidencias",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-107": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-02.feature",
-      "name": "Orden alfabético dentro de cada grupo"
+      "name": "Orden alfabético dentro de cada grupo",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-024": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-03.feature",
-      "name": "Editar alias sin compararlo consigo mismo"
+      "name": "Editar alias sin compararlo consigo mismo",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-025": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-03.feature",
-      "name": "Marcar y desmarcar favorito"
+      "name": "Marcar y desmarcar favorito",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-026": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-03.feature",
-      "name": "Quinto favorito permitido; sexto rechazado"
+      "name": "Quinto favorito permitido; sexto rechazado",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-027": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-03.feature",
-      "name": "Rechazar edición de contacto ajeno"
+      "name": "Rechazar edición de contacto ajeno",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-108": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-03.feature",
-      "name": "Editar solo alias conserva favorito"
+      "name": "Editar solo alias conserva favorito",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-028": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-04.feature",
-      "name": "Eliminar contacto conserva transferencia"
+      "name": "Eliminar contacto conserva transferencia",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-029": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-04.feature",
-      "name": "Solicitud pendiente enviada impide eliminar"
+      "name": "Solicitud pendiente enviada impide eliminar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-030": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-04.feature",
-      "name": "Solicitud pendiente recibida impide eliminar"
+      "name": "Solicitud pendiente recibida impide eliminar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-031": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-04.feature",
-      "name": "Solicitud vencida permite eliminar"
+      "name": "Solicitud vencida permite eliminar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-032": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-05.feature",
-      "name": "Transferir por contacto acredita ambos saldos"
+      "name": "Transferir por contacto acredita ambos saldos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-033": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-05.feature",
-      "name": "Saldo insuficiente no produce transferencia"
+      "name": "Saldo insuficiente no produce transferencia",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-095": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-05.feature",
-      "name": "Límite diario agotado impide operación"
+      "name": "Límite diario agotado impide operación",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-034": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Crear solicitud pendiente con vigencia 48 h y SMS"
+      "name": "Crear solicitud pendiente con vigencia 48 h y SMS",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-035": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Monto solicitado 0.00"
+      "name": "Monto solicitado 0.00",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-036": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Monto solicitado 0.01"
+      "name": "Monto solicitado 0.01",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-037": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Monto solicitado 500.00"
+      "name": "Monto solicitado 500.00",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-038": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Monto solicitado 500.01"
+      "name": "Monto solicitado 500.01",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-039": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Monto solicitado 10.005"
+      "name": "Monto solicitado 10.005",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-040": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Motivo de 2 caracteres"
+      "name": "Motivo de 2 caracteres",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-041": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Motivo de 3 caracteres"
+      "name": "Motivo de 3 caracteres",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-042": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Motivo de 60 caracteres"
+      "name": "Motivo de 60 caracteres",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-043": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Motivo de 61 caracteres"
+      "name": "Motivo de 61 caracteres",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-044": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Décima pendiente permitida y undécima rechazada"
+      "name": "Décima pendiente permitida y undécima rechazada",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-109": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-06.feature",
-      "name": "Contacto de otro usuario no permite solicitar"
+      "name": "Contacto de otro usuario no permite solicitar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-045": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-07.feature",
-      "name": "Separar solicitudes enviadas y recibidas y filtrar"
+      "name": "Separar solicitudes enviadas y recibidas y filtrar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-046": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-07.feature",
-      "name": "Estado al transcurrir 2879 minutos"
+      "name": "Estado al transcurrir 2879 minutos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-047": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-07.feature",
-      "name": "Estado al transcurrir 2880 minutos"
+      "name": "Estado al transcurrir 2880 minutos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-048": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-07.feature",
-      "name": "Estado al transcurrir 2881 minutos"
+      "name": "Estado al transcurrir 2881 minutos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-049": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "Aceptar genera transferencia, código y SMS"
+      "name": "Aceptar genera transferencia, código y SMS",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-050": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "Saldo insuficiente conserva PENDIENTE"
+      "name": "Saldo insuficiente conserva PENDIENTE",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-051": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "Tercero no puede aceptar"
+      "name": "Tercero no puede aceptar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-052": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "Aceptar a los 2879 minutos"
+      "name": "Aceptar a los 2879 minutos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-053": {
       "status": "FALLÓ",
       "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409\n\nfeatures/hu-g4-08.feature:93",
       "feature": "features/hu-g4-08.feature",
-      "name": "Aceptar a los 2880 minutos"
+      "name": "Aceptar a los 2880 minutos",
+      "failed_step": "match r.statusCode == 409",
+      "failure_phase": "asercion"
     },
     "G4-054": {
       "status": "FALLÓ",
       "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409\n\nfeatures/hu-g4-08.feature:108",
       "feature": "features/hu-g4-08.feature",
-      "name": "Aceptar a los 2881 minutos"
+      "name": "Aceptar a los 2881 minutos",
+      "failed_step": "match r.statusCode == 409",
+      "failure_phase": "asercion"
     },
     "G4-055": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "No aceptar dos veces"
+      "name": "No aceptar dos veces",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-096": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "Límite diario agotado impide operación"
+      "name": "Límite diario agotado impide operación",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-097": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "No aceptar desde ACEPTADA"
+      "name": "No aceptar desde ACEPTADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-100": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "No aceptar desde RECHAZADA"
+      "name": "No aceptar desde RECHAZADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-103": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-08.feature",
-      "name": "No aceptar desde CANCELADA"
+      "name": "No aceptar desde CANCELADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-056": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "Rechazar solicitud pendiente"
+      "name": "Rechazar solicitud pendiente",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-057": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "Rechazar acción de tercero"
+      "name": "Rechazar acción de tercero",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-058": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "No resolver solicitud vencida"
+      "name": "No resolver solicitud vencida",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-059": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "No repetir resolución"
+      "name": "No repetir resolución",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-064": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "Motivo opcional y aviso al solicitante"
+      "name": "Motivo opcional y aviso al solicitante",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-065": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "Motivo de rechazo longitud 60"
+      "name": "Motivo de rechazo longitud 60",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-066": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "Motivo de rechazo longitud 61"
+      "name": "Motivo de rechazo longitud 61",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-098": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "No rechazar desde ACEPTADA"
+      "name": "No rechazar desde ACEPTADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-101": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "No rechazar desde RECHAZADA"
+      "name": "No rechazar desde RECHAZADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-104": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-09.feature",
-      "name": "No rechazar desde CANCELADA"
+      "name": "No rechazar desde CANCELADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-060": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "Cancelar solicitud pendiente"
+      "name": "Cancelar solicitud pendiente",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-061": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "Rechazar acción de tercero"
+      "name": "Rechazar acción de tercero",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-062": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "No resolver solicitud vencida"
+      "name": "No resolver solicitud vencida",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-063": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "No repetir resolución"
+      "name": "No repetir resolución",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-099": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "No cancelar desde ACEPTADA"
+      "name": "No cancelar desde ACEPTADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-102": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "No cancelar desde RECHAZADA"
+      "name": "No cancelar desde RECHAZADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-105": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-g4-10.feature",
-      "name": "No cancelar desde CANCELADA"
+      "name": "No cancelar desde CANCELADA",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-067": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Registro crea saldo cero, límite y bienvenida"
+      "name": "Registro crea saldo cero, límite y bienvenida",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-068": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Rechazar dni inválido"
+      "name": "Rechazar dni inválido",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-069": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Rechazar celular inválido"
+      "name": "Rechazar celular inválido",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-070": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Rechazar pin inválido"
+      "name": "Rechazar pin inválido",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-071": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Rechazar correo inválido"
+      "name": "Rechazar correo inválido",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-110": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Celular duplicado responde conflicto"
+      "name": "Celular duplicado responde conflicto",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-111": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-01.feature",
-      "name": "Correo duplicado ignora mayúsculas"
+      "name": "Correo duplicado ignora mayúsculas",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-072": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-02.feature",
-      "name": "Login crea sesión con vigencia de 30 minutos"
+      "name": "Login crea sesión con vigencia de 30 minutos",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-073": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-02.feature",
-      "name": "Bloqueo tras tres intentos y acceso después de 15 min"
+      "name": "Bloqueo tras tres intentos y acceso después de 15 min",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-092": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-02.feature",
-      "name": "Cuenta cerrada no puede ingresar"
+      "name": "Cuenta cerrada no puede ingresar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-093": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-02.feature",
-      "name": "Nuevo dispositivo permite login y genera alerta"
+      "name": "Nuevo dispositivo permite login y genera alerta",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-074": {
       "status": "FALLÓ",
       "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  401\n\nfeatures/hu-n-03.feature:28",
       "feature": "features/hu-n-03.feature",
-      "name": "Cerrar sesión revoca solo ese token"
+      "name": "Cerrar sesión revoca solo ese token",
+      "failed_step": "match r.statusCode == 401",
+      "failure_phase": "asercion"
     },
     "G4-094": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-03.feature",
-      "name": "Cerrar una sesión no afecta otra"
+      "name": "Cerrar una sesión no afecta otra",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-075": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-04.feature",
-      "name": "Saldo PEN y perfil enmascarado"
+      "name": "Saldo PEN y perfil enmascarado",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-076": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-04.feature",
-      "name": "Acceso sin autenticación null"
+      "name": "Acceso sin autenticación null",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-077": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-04.feature",
-      "name": "Acceso sin autenticación 'invalid'"
+      "name": "Acceso sin autenticación 'invalid'",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-078": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-04.feature",
-      "name": "Token vencido"
+      "name": "Token vencido",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-079": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-05.feature",
-      "name": "Editar perfil ignora DNI y celular y envía SMS"
+      "name": "Editar perfil ignora DNI y celular y envía SMS",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-080": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-06.feature",
-      "name": "Cerrar cuenta con saldo cero revoca acceso"
+      "name": "Cerrar cuenta con saldo cero revoca acceso",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-081": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-06.feature",
-      "name": "Solicitud pendiente impide cerrar cuenta"
+      "name": "Solicitud pendiente impide cerrar cuenta",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-112": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-06.feature",
-      "name": "PIN incorrecto impide cierre"
+      "name": "PIN incorrecto impide cierre",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-113": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-06.feature",
-      "name": "Saldo pendiente impide cierre"
+      "name": "Saldo pendiente impide cierre",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-082": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Transferencia monto 0.00"
+      "name": "Transferencia monto 0.00",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-083": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Transferencia monto 0.01"
+      "name": "Transferencia monto 0.01",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-084": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Transferencia monto 500.00"
+      "name": "Transferencia monto 500.00",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-085": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Transferencia monto 500.01"
+      "name": "Transferencia monto 500.01",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-086": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Transferencia monto 10.005"
+      "name": "Transferencia monto 10.005",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-087": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Comprobante y movimientos con mismo código"
+      "name": "Comprobante y movimientos con mismo código",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-114": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-07.feature",
-      "name": "Transferencia a sí mismo rechazada"
+      "name": "Transferencia a sí mismo rechazada",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-116": {
       "status": "FALLÓ",
-      "error": "match failed: EQUALS\n  $ | not equal (BOOLEAN:BOOLEAN)\n  false\n  true\n\nfeatures/hu-n-07.feature:85",
+      "error": "match failed: EQUALS\n  $ | not equal (BOOLEAN:BOOLEAN)\n  false\n  true\n\nfeatures/hu-n-07.feature:86",
       "feature": "features/hu-n-07.feature",
-      "name": "Concurrencia conserva saldo y límite diario"
+      "name": "Concurrencia conserva saldo y límite diario",
+      "failed_step": "match probe.ok == true",
+      "failure_phase": "asercion"
     },
     "G4-088": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-08.feature",
-      "name": "Transferencia interbancaria cobra comisión y enmascara CCI"
+      "name": "Transferencia interbancaria cobra comisión y enmascara CCI",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-115": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-08.feature",
-      "name": "CCI inválido rechazado"
+      "name": "CCI inválido rechazado",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-089": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-09.feature",
-      "name": "Simular comisión para 1.00 sin debitar"
+      "name": "Simular comisión para 1.00 sin debitar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-090": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-09.feature",
-      "name": "Simular comisión para 100.00 sin debitar"
+      "name": "Simular comisión para 100.00 sin debitar",
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-091": {
       "status": "APROBADO",
       "error": "",
       "feature": "features/hu-n-09.feature",
-      "name": "Simular comisión para 500.00 sin debitar"
+      "name": "Simular comisión para 500.00 sin debitar",
+      "failed_step": "",
+      "failure_phase": null
     }
   },
   "findings": [
@@ -709,36 +941,56 @@
       "id": "D-01",
       "title": "Alias con ñ rechazado",
       "description": "La regla R-G4-02 admite ñ. El alta con Niño devuelve ALIAS_INVALIDO en lugar de crear el contacto.",
-      "classification": "Incumplimiento funcional reproducido",
-      "case": "G4-004"
+      "classification": "Defecto revisado; reproducido en esta ejecución",
+      "case": "G4-004",
+      "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "expected_failed_step": "match r.statusCode == 201",
+      "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+      "reviewed_at": "2026-10-13T06:00:49+00:00"
     },
     {
       "id": "D-02",
       "title": "Duplicado tras recortar espacios",
       "description": "Después de guardar Ana, crear otro contacto con « Ana » debe ser ALIAS_DUPLICADO. Se observa creación de un segundo alias Ana.",
-      "classification": "Incumplimiento funcional reproducido",
-      "case": "G4-018"
+      "classification": "Defecto revisado; reproducido en esta ejecución",
+      "case": "G4-018",
+      "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "expected_failed_step": "match r.statusCode == 409",
+      "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+      "reviewed_at": "2026-10-13T06:00:49+00:00"
     },
     {
       "id": "D-03",
       "title": "Aceptación de solicitud vencida",
       "description": "A las 48 horas se espera ESTADO_INVALIDO, 409, sin transferencia. La aceptación realiza la transferencia.",
-      "classification": "Incumplimiento funcional reproducido",
-      "case": "G4-053"
+      "classification": "Defecto revisado; reproducido en esta ejecución",
+      "case": "G4-053",
+      "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "expected_failed_step": "match r.statusCode == 409",
+      "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+      "reviewed_at": "2026-10-13T06:00:49+00:00"
     },
     {
       "id": "D-04",
       "title": "Token sigue válido después de logout",
       "description": "HU-N-03 exige revocación inmediata. Tras logout, la consulta de saldo con el mismo token sigue respondiendo 200.",
-      "classification": "Incumplimiento funcional reproducido",
-      "case": "G4-074"
+      "classification": "Defecto revisado; reproducido en esta ejecución",
+      "case": "G4-074",
+      "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "expected_failed_step": "match r.statusCode == 401",
+      "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+      "reviewed_at": "2026-10-13T06:00:49+00:00"
     },
     {
       "id": "D-05",
       "title": "Concurrencia supera saldo y límite diario",
-      "description": "Dos transferencias de 400 simultáneas: con saldo inicial 500 se observaron dos éxitos y saldo -300; con saldo 2000 y límite 500 se observaron 800 usados. Ver reports/concurrencia.json.",
-      "classification": "Incumplimiento funcional reproducido",
-      "case": "G4-116"
+      "description": "Se incumple saldo no negativo o límite diario bajo dos transferencias simultáneas de S/ 400. La observación original y sus saldos se conservan en reports/concurrencia.json; la reproducción actual adjunta sus propios resultados.",
+      "classification": "Defecto revisado; reproducido en esta ejecución",
+      "case": "G4-116",
+      "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "expected_failed_step": "match probe.ok == true",
+      "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+      "reviewed_at": "2026-10-13T06:00:49+00:00"
     }
   ]
 }

@@ -5,7 +5,7 @@
 
 
 
-00:26:53.664 request:
+01:00:58.061 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;991048340&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+{&quot;celular&quot;:&quot;981694352&quot;,&quot;alias&quot;:&quot;Ana&quot;}
 
-00:26:53.672 response time in milliseconds: 7
+01:00:58.072 response time in milliseconds: 11
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 05:26:53 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:00:57 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 84
 1 &lt; content-type: application/json
-{&quot;id&quot;:390,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;991048340&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:708,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;981694352&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-00:26:53.675 request:
+01:00:58.074 request:
 1 &gt; POST http://127.0.0.1:8000/api/solicitudes
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -44,15 +44,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;contacto_id&quot;:390,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
+{&quot;contacto_id&quot;:708,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
 
-00:26:53.681 response time in milliseconds: 6
+01:00:58.081 response time in milliseconds: 7
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 05:26:53 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:00:57 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 318
 1 &lt; content-type: application/json
-{&quot;id&quot;:182,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;949354801&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;991048340&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-13T00:26:53&quot;,&quot;vence_en&quot;:&quot;2026-10-15T00:26:53&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
+{&quot;id&quot;:335,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;992357027&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;981694352&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-13T01:00:58&quot;,&quot;vence_en&quot;:&quot;2026-10-15T01:00:58&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
 
 
 
@@ -65,8 +65,8 @@
 
 
 
-00:26:53.685 request:
-1 &gt; POST http://127.0.0.1:8000/api/solicitudes/182/cancelar
+01:00:58.084 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes/335/cancelar
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -74,13 +74,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-00:26:53.691 response time in milliseconds: 6
+01:00:58.089 response time in milliseconds: 4
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 05:26:53 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:00:57 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 335
 1 &lt; content-type: application/json
-{&quot;id&quot;:182,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;949354801&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;991048340&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;CANCELADA&quot;,&quot;creada_en&quot;:&quot;2026-10-13T00:26:53&quot;,&quot;vence_en&quot;:&quot;2026-10-15T00:26:53&quot;,&quot;resuelta_en&quot;:&quot;2026-10-13T00:26:53&quot;,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
+{&quot;id&quot;:335,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;992357027&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;981694352&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;CANCELADA&quot;,&quot;creada_en&quot;:&quot;2026-10-13T01:00:58&quot;,&quot;vence_en&quot;:&quot;2026-10-15T01:00:58&quot;,&quot;resuelta_en&quot;:&quot;2026-10-13T01:00:58&quot;,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
 
 
 
@@ -93,8 +93,8 @@
 
 
 
-00:26:53.694 request:
-1 &gt; POST http://127.0.0.1:8000/api/solicitudes/182/cancelar
+01:00:58.091 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes/335/cancelar
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -102,9 +102,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-00:26:53.701 response time in milliseconds: 7
+01:00:58.095 response time in milliseconds: 4
 1 &lt; 409
-1 &lt; date: Tue, 13 Oct 2026 05:26:53 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:00:57 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 74
 1 &lt; content-type: application/json

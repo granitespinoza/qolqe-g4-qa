@@ -5,7 +5,7 @@
 
 
 
-00:26:31.540 request:
+01:00:35.733 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;929252187&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+{&quot;celular&quot;:&quot;959267473&quot;,&quot;alias&quot;:&quot;Ana&quot;}
 
-00:26:31.551 response time in milliseconds: 10
+01:00:35.742 response time in milliseconds: 9
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 05:26:30 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:00:35 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 84
 1 &lt; content-type: application/json
-{&quot;id&quot;:359,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;929252187&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:677,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;959267473&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-00:26:31.555 request:
+01:00:35.746 request:
 1 &gt; POST http://127.0.0.1:8000/api/solicitudes
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -44,11 +44,11 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;contacto_id&quot;:359,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;}
+{&quot;contacto_id&quot;:677,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;}
 
-00:26:31.565 response time in milliseconds: 10
+01:00:35.757 response time in milliseconds: 11
 1 &lt; 422
-1 &lt; date: Tue, 13 Oct 2026 05:26:30 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:00:35 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 87
 1 &lt; content-type: application/json

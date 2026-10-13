@@ -54,6 +54,18 @@ Background:
     * match r.statusCode == 200
     * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'100.00'}, a.token, {})
     * match r.statusCode == 201
+    * def beforePayer = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+    * def beforeTarget = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+    * def beforeLimits = req('/api/limites', 'GET', null, a.token, {})
+    * def beforeMovements = req('/api/movimientos', 'GET', null, a.token, {})
     * def r = req('/api/transferencias', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00'}, a.token, {})
     * match r.statusCode == 422
     * match r.result.codigo == 'LIMITE_DIARIO_EXCEDIDO'
+    * def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+    * match r.result == beforePayer.result
+    * def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+    * match r.result == beforeTarget.result
+    * def r = req('/api/limites', 'GET', null, a.token, {})
+    * match r.result.usado_hoy == beforeLimits.result.usado_hoy
+    * def r = req('/api/movimientos', 'GET', null, a.token, {})
+    * match r.result.total == beforeMovements.result.total

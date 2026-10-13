@@ -137,9 +137,25 @@ Background:
     * match r.statusCode == 200
     * def r = req('/api/transferencias', 'POST', {celular_destino:'#(a.cell)',monto:'100.00'}, b.token, {})
     * match r.statusCode == 201
+    * def beforePayer = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+    * def beforeTarget = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+    * def beforeLimits = req('/api/limites', 'GET', null, b.token, {})
+    * def beforeMovements = req('/api/movimientos', 'GET', null, b.token, {})
     * def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})
     * match r.statusCode == 422
     * match r.result.codigo == 'LIMITE_DIARIO_EXCEDIDO'
+    * def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+    * match r.result == beforePayer.result
+    * def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+    * match r.result == beforeTarget.result
+    * def r = req('/api/limites', 'GET', null, b.token, {})
+    * match r.result.usado_hoy == beforeLimits.result.usado_hoy
+    * def r = req('/api/movimientos', 'GET', null, b.token, {})
+    * match r.result.total == beforeMovements.result.total
+    * def r = req('/api/solicitudes', 'GET', null, a.token, {})
+    * match r.result.enviadas[0].id == s.result.id
+    * match r.result.enviadas[0].estado == 'PENDIENTE'
+    * match r.result.enviadas[0].codigo_operacion == null
 
   @G4-097 @CA4
   Scenario: No aceptar desde ACEPTADA

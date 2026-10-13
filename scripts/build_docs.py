@@ -1,7 +1,8 @@
 """Documentación y resultados se generan desde fuentes reales, sin completar huecos."""
 from pathlib import Path
-import datetime, html, json, re, subprocess, urllib.request
+import datetime, hashlib, html, json, re, subprocess
 from zoneinfo import ZoneInfo
+from qa_provenance import validate
 
 ROOT=Path(__file__).resolve().parents[1]
 def write(p,s):
@@ -9,15 +10,23 @@ def write(p,s):
 def redact(s):
     return re.sub(r'eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+','<TOKEN_OCULTO>',s)
 def build():
+    manifest=json.loads((ROOT/'reports/latest-karate.json').read_text(encoding='utf-8'))
+    report_dir=validate(manifest)
     commit=subprocess.check_output(['git','-C',str(ROOT/'referencias/qolqe-wallet'),'rev-parse','HEAD'],text=True).strip()
     source=(ROOT/'referencias/qolqe-wallet/docs/requisitos.md').read_text(encoding='utf-8')
     cases=json.loads((ROOT/'data/casos.json').read_text(encoding='utf-8'))
-    with urllib.request.urlopen('http://127.0.0.1:8000/openapi.json') as r: schema=json.load(r)
+    if not (report_dir/'openapi.json').is_file():raise SystemExit('Falta el reporte local de esa ejecución. Ejecuta scripts/run_qa.py karate antes de regenerar documentación.')
+    schema_bytes=(report_dir/'openapi.json').read_bytes()
+    if hashlib.sha256(schema_bytes).hexdigest()!=manifest['openapi_sha256']:raise SystemExit('El snapshot OpenAPI cambió después de la ejecución')
+    schema=json.loads(schema_bytes)
     write('data/openapi-original.json',json.dumps(schema,ensure_ascii=False,indent=2))
     results={}
-    for p in (ROOT/'reports/raw/karate').glob('features.*.json'):
+    for p in report_dir.glob('features.*.json'):
         features=json.loads(p.read_text(encoding='utf-8'))
+        # Los adjuntos JSON de Karate (por ejemplo concurrencia) no son reportes Cucumber.
+        if not isinstance(features,list): continue
         for feature in features:
+            if not isinstance(feature,dict) or feature.get('keyword')!='Feature':continue
             for e in feature.get('elements',[]):
                 tags=[t['name'].lstrip('@') for t in e.get('tags',[])]
                 case_id=next((t for t in tags if re.fullmatch('G4-\\d+',t)),None)
@@ -30,16 +39,17 @@ def build():
                 design=next((c for c in cases if c['id']==case_id),None)
                 first=next((i for i,s in enumerate(steps) if design and s.get('name')==design['steps'][0]),0)
                 logs='\n'.join(redact(s.get('doc_string',{}).get('value','')) for s in steps[first:])
-                results[case_id]={'status':status,'error':error,'feature':feature['uri'],'name':e.get('name','')}
+                results[case_id]={'status':status,'error':error,'feature':feature['uri'],'name':e.get('name',''),'failed_step':failed[0]['name'] if failed else '', 'failure_phase':'preparacion' if failed and steps.index(failed[0])<first else ('asercion' if failed else None)}
                 evidence=f'<html lang="es"><meta charset="utf-8"><title>{case_id}</title><style>body{{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}}pre{{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}}</style><h1>{case_id} · {html.escape(e.get("name",""))}</h1><p>Resultado: {status} · Karate 1.5.2 · referencia {commit[:12]}</p><p>Registro real de ejecución; tokens ocultos.</p><pre>{html.escape(error)}</pre><pre>{html.escape(logs)}</pre></html>'
                 write(f'evidencias/{case_id}.html',evidence)
     stats={'executed':sum(r['status']!='PENDIENTE' for r in results.values()),'passed':sum(r['status']=='APROBADO' for r in results.values()),'failed':sum(r['status']=='FALLÓ' for r in results.values())}
     findings=[]
-    known=[('Niño','D-01','Alias con ñ rechazado','La regla R-G4-02 admite ñ. El alta con Niño devuelve ALIAS_INVALIDO en lugar de crear el contacto.'),('Alias duplicado tras normalizar \' Ana \'','D-02','Duplicado tras recortar espacios','Después de guardar Ana, crear otro contacto con « Ana » debe ser ALIAS_DUPLICADO. Se observa creación de un segundo alias Ana.'),('Aceptar a los 2880 minutos','D-03','Aceptación de solicitud vencida','A las 48 horas se espera ESTADO_INVALIDO, 409, sin transferencia. La aceptación realiza la transferencia.'),('Cerrar sesión revoca solo ese token','D-04','Token sigue válido después de logout','HU-N-03 exige revocación inmediata. Tras logout, la consulta de saldo con el mismo token sigue respondiendo 200.'),('Concurrencia conserva saldo','D-05','Concurrencia supera saldo y límite diario','Dos transferencias de 400 simultáneas: con saldo inicial 500 se observaron dos éxitos y saldo -300; con saldo 2000 y límite 500 se observaron 800 usados. Ver reports/concurrencia.json.')]
-    for needle,id,title,description in known:
-        c=next((c for c in cases if needle in c['title']),None)
-        if c and results.get(c['id'],{}).get('status')=='FALLÓ':
-            findings.append(dict(id=id,title=title,description=description,classification='Incumplimiento funcional reproducido',case=c['id']))
+    registry=json.loads((ROOT/'data/defectos-confirmados.json').read_text(encoding='utf-8'))
+    for reviewed in registry:
+        r=results.get(reviewed['case'],{})
+        reproduced=(r.get('status')=='FALLÓ' and r.get('failure_phase')=='asercion' and r.get('failed_step')==reviewed['expected_failed_step'] and 'match failed' in r.get('error',''))
+        if reproduced:
+            findings.append({**reviewed,'classification':'Defecto revisado; reproducido en esta ejecución'})
     operations=[]
     paths=['/api/contactos','/api/solicitudes','/api/transferencias','/api/auth','/api/cuentas','/api/usuarios']
     for path,methods in schema['paths'].items():
@@ -54,7 +64,7 @@ def build():
                 sample=body.get('example') or next((x['value'] for x in body.get('examples',{}).values() if 'value' in x),{})
                 curl+=" \\\n  -H 'Content-Type: application/json' \\\n  --data '"+json.dumps(sample,ensure_ascii=False)+"'"
             operations.append(dict(id=id,path=path,method=method,operation=op,curl=curl))
-    stamp=datetime.datetime.now(ZoneInfo('America/Lima')).isoformat(timespec='seconds')
+    stamp=datetime.datetime.fromisoformat(manifest['finished_at']).astimezone(ZoneInfo('America/Lima')).isoformat(timespec='seconds')
     data=dict(commit=commit,timestamp=stamp,cases=cases,results=results,stats=stats,findings=findings,operations=operations,openapi=schema)
     write('apidoc/data.js','window.QA_DATA = '+json.dumps(data,ensure_ascii=False)+';\n')
     write('reports/resultados.json',json.dumps(dict(timestamp=stamp,commit=commit,stats=stats,results=results,findings=findings),ensure_ascii=False,indent=2))
@@ -88,14 +98,15 @@ Granit Espinoza y Franco · CS5383
 Referencia: https://github.com/cjudihtroj/qolqe-wallet · commit `{commit}`.
 Karate verifica negocio, estados y efectos; Schemathesis explora el contrato. [Decisiones y alternativas](decisiones.md).
 Nivel: pruebas HTTP contra la aplicación FastAPI real con SQLite, sin mocks. No representa integración con bancos reales.
+[Usabilidad complementaria](usabilidad.md): plan de inspección heurística para la entrega web; no se declara evaluación de interfaz realizada.
 
 ## 2. Pruebas de API
 [Diseño detallado por HU](diseno-pruebas.md). [Contrato original](../data/openapi-original.json).
 Usuarios nuevos por escenario. Reloj global restablecido al comenzar. Ejecución secuencial porque cambiar el reloj afecta toda la aplicación; no se promete paralelismo seguro.
 **Última generación de evidencia:** {stamp}.
 **Karate:** {stats['executed']} ejecutados; {stats['passed']} aprobados; {stats['failed']} fallaron.
-Reporte bruto local: `reports/raw/karate/karate-summary.html`. Registros redactados: [evidencias](../evidencias/).
-El número de escenarios aprobados no mide cobertura de criterios ni ausencia de defectos.
+Reporte bruto de esta ejecución: `{manifest['report_dir']}/karate-summary.html`. Registros redactados: [evidencias](../evidencias/).
+El número de escenarios aprobados no mide cobertura de criterios ni ausencia de defectos. Cada reporte queda vinculado con commit, huellas de fuentes e inicio/fin de su ejecución; se rechazan resultados desactualizados.
 [Schemathesis y límites de la ejecución](revision-contrato.md).
 
 ## 3. Pruebas web y CI/CD

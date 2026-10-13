@@ -120,7 +120,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-113 | HU-N-06 CA2 | HU-N-06 CA2 | Particiones de equivalencia | PIN correcto y saldo positivo. | APROBADO |
 | G4-114 | HU-N-07 CA2 | RN-07 | Particiones de equivalencia | Monto válido y saldo suficiente; aislar destino. | APROBADO |
 | G4-115 | HU-N-08 CA1 | HU-N-08 CA1 | Particiones de equivalencia | CCI corto con monto válido. | APROBADO |
-| G4-116 | HU-N-07 CA5 | RN-06/08 | Tabla de decisiones y concurrencia | Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado. | FALLÓ |
+| G4-116 | HU-N-07 CA5 | RN-06/08 | Tabla de decisiones y concurrencia | Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado. Los reintentos de preparación, si ocurren, quedan en la evidencia. | FALLÓ |
 
 ## HU-N-01 — Registrarme · Prioridad Alta
 
@@ -545,13 +545,14 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ```
 
 ### G4-116 — Concurrencia conserva saldo y límite diario
-**Técnica:** Tabla de decisiones y concurrencia. **Justificación:** Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado.
+**Técnica:** Tabla de decisiones y concurrencia. **Justificación:** Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado. Los reintentos de preparación, si ocurren, quedan en la evidencia.
 **Regla:** RN-06/08. **Resultado:** FALLÓ.
 [Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-116.html)
 ```gherkin
 * def command = ['#(qaPython)', 'scripts/concurrency_probe.py']
-* def runProbe = function(args){var P=Java.type('java.lang.ProcessBuilder');var S=Java.type('java.util.Scanner');var p=new P(Java.to(args,'java.lang.String[]')).redirectErrorStream(true).start();var scan=new S(p.getInputStream()).useDelimiter('\\A');var out=scan.hasNext()?scan.next():'';var code=p.waitFor();if(code!=0) karate.fail(out);return JSON.parse(out);}
+* def runProbe = function(args){var P=Java.type('java.lang.ProcessBuilder');var S=Java.type('java.util.Scanner');var p=new P(Java.to(args,'java.lang.String[]')).redirectErrorStream(true).start();var scan=new S(p.getInputStream()).useDelimiter('\\A');var out=scan.hasNext()?scan.next():'';var code=p.waitFor();if(code!=0) throw new Error('Preparación de concurrencia: '+out);return JSON.parse(out);}
 * def probe = runProbe(command)
+* eval karate.embed(probe, 'application/json')
 * match probe.ok == true
 ```
 
@@ -574,7 +575,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 * match tx.result.saldo == '98.50'
 * def r = req('/api/movimientos/' + tx.result.codigo_operacion + '', 'GET', null, a.token, {})
 * match r.statusCode == 200
-* assert JSON.stringify(r.result).indexOf('12345678901234567890') == -1
+* match r.result.contraparte == '****************7890'
 ```
 
 ### G4-115 — CCI inválido rechazado
@@ -913,7 +914,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 * match r.result.contactos[0].alias == 'José'
 * match r.result.contactos[0].celular == b.cell
 * match r.result.contactos[0].favorito == false
-* match r.result.contactos[0].nombre != 'Franco Prueba'
+* match r.result.contactos[0].nombre == 'Franco P.'
 ```
 
 ### G4-021 — Ordenar favoritos antes del resto
@@ -1174,9 +1175,21 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 * match r.statusCode == 200
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'100.00'}, a.token, {})
 * match r.statusCode == 201
+* def beforePayer = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+* def beforeTarget = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+* def beforeLimits = req('/api/limites', 'GET', null, a.token, {})
+* def beforeMovements = req('/api/movimientos', 'GET', null, a.token, {})
 * def r = req('/api/transferencias', 'POST', {contacto_id:'#(contact.result.id)',monto:'10.00'}, a.token, {})
 * match r.statusCode == 422
 * match r.result.codigo == 'LIMITE_DIARIO_EXCEDIDO'
+* def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+* match r.result == beforePayer.result
+* def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+* match r.result == beforeTarget.result
+* def r = req('/api/limites', 'GET', null, a.token, {})
+* match r.result.usado_hoy == beforeLimits.result.usado_hoy
+* def r = req('/api/movimientos', 'GET', null, a.token, {})
+* match r.result.total == beforeMovements.result.total
 ```
 
 
@@ -1555,9 +1568,25 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 * match r.statusCode == 200
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(a.cell)',monto:'100.00'}, b.token, {})
 * match r.statusCode == 201
+* def beforePayer = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+* def beforeTarget = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+* def beforeLimits = req('/api/limites', 'GET', null, b.token, {})
+* def beforeMovements = req('/api/movimientos', 'GET', null, b.token, {})
 * def r = req('/api/solicitudes/' + s.result.id + '/aceptar', 'POST', null, b.token, {})
 * match r.statusCode == 422
 * match r.result.codigo == 'LIMITE_DIARIO_EXCEDIDO'
+* def r = req('/api/cuentas/me/saldo', 'GET', null, b.token, {})
+* match r.result == beforePayer.result
+* def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
+* match r.result == beforeTarget.result
+* def r = req('/api/limites', 'GET', null, b.token, {})
+* match r.result.usado_hoy == beforeLimits.result.usado_hoy
+* def r = req('/api/movimientos', 'GET', null, b.token, {})
+* match r.result.total == beforeMovements.result.total
+* def r = req('/api/solicitudes', 'GET', null, a.token, {})
+* match r.result.enviadas[0].id == s.result.id
+* match r.result.enviadas[0].estado == 'PENDIENTE'
+* match r.result.enviadas[0].codigo_operacion == null
 ```
 
 ### G4-097 — No aceptar desde ACEPTADA

@@ -12,6 +12,7 @@ Trabajo de QA asistido con IA: decisiones justificadas, pruebas reproducibles y 
 5. [Documentación HTML](apidoc/index.html): endpoints, búsqueda, escenarios y resultados.
 6. [PPT editable](presentacion/G4-contactos.pptx) y [guion de sustentación](presentacion/guion.md).
 7. [Estado verificado del pipeline](docs/ci.md).
+8. [Evaluación de usabilidad propuesta](docs/usabilidad.md): complemento para la Parte 2.
 
 ## Preparar en Windows
 Requisitos: Git y Python 3.12. Java 17 se descarga localmente si falta.
@@ -53,3 +54,4 @@ API: http://localhost:8000/docs · OpenAPI: http://localhost:8000/openapi.json.
 ## Evidencias y límites
 `reports/raw/` contiene reportes locales completos; puede incluir tokens de prueba y no se versiona. `evidencias/` contiene registros HTML con tokens ocultos. GitHub Actions conserva reportes de prueba como artefactos privados por 7 días.
 La suite es secuencial por el reloj compartido. No se declara cobertura total mientras existan pendientes en `docs/cobertura.md`. No se crea `parte-1` hasta completar y revisar la entrega.
+Cada ejecución nueva conserva un directorio propio y `reports/latest-karate.json`, con commit, huellas de fuentes e inicio/fin. La documentación rechaza resultados de otro diseño y usa el OpenAPI capturado en esa ejecución. `--start-api` rechaza un puerto ocupado para evitar probar otra instancia por accidente.

@@ -5,7 +5,7 @@
 
 
 
-00:27:14.956 request:
+01:01:18.011 request:
 1 &gt; PUT http://127.0.0.1:8000/api/pruebas/saldo
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,11 +14,11 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;990380249&quot;,&quot;saldo&quot;:&quot;100.00&quot;}
+{&quot;celular&quot;:&quot;914420302&quot;,&quot;saldo&quot;:&quot;100.00&quot;}
 
-00:27:14.964 response time in milliseconds: 7
+01:01:18.023 response time in milliseconds: 12
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 43
 1 &lt; content-type: application/json
@@ -34,7 +34,7 @@
 
 
 
-00:27:14.968 request:
+01:01:18.025 request:
 1 &gt; POST http://127.0.0.1:8000/api/transferencias
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -43,15 +43,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular_destino&quot;:&quot;981766957&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;}
+{&quot;celular_destino&quot;:&quot;995405900&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;}
 
-00:27:15.088 response time in milliseconds: 119
+01:01:18.071 response time in milliseconds: 46
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 225
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101300271401564&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;10.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;981766957&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;90.00&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:14&quot;}
+{&quot;codigo_operacion&quot;:&quot;TRF26101301011802712&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;10.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;995405900&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;90.00&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:01:18&quot;}
 
 
 
@@ -66,8 +66,8 @@
 
 
 
-00:27:15.091 request:
-1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101300271401564
+01:01:18.074 request:
+1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101301011802712
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -75,13 +75,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-00:27:15.100 response time in milliseconds: 9
+01:01:18.079 response time in milliseconds: 4
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 260
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101300271401564&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:14&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;,&quot;contraparte&quot;:&quot;981766957&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
+{&quot;codigo_operacion&quot;:&quot;TRF26101301011802712&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:01:18&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;,&quot;contraparte&quot;:&quot;995405900&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
 
 
 
@@ -94,8 +94,8 @@
 
 
 
-00:27:15.102 request:
-1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101300271401564
+01:01:18.081 request:
+1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101301011802712
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -103,13 +103,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-00:27:15.111 response time in milliseconds: 9
+01:01:18.085 response time in milliseconds: 4
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 260
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101300271401564&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:14&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;,&quot;contraparte&quot;:&quot;981766957&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
+{&quot;codigo_operacion&quot;:&quot;TRF26101301011802712&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:01:18&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;,&quot;contraparte&quot;:&quot;995405900&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
 
 
 

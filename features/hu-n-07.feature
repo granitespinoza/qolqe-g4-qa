@@ -78,8 +78,9 @@ Background:
 
   @G4-116 @CA5
   Scenario: Concurrencia conserva saldo y límite diario
-    # RN-06/08 | Tabla de decisiones y concurrencia | Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado.
+    # RN-06/08 | Tabla de decisiones y concurrencia | Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado. Los reintentos de preparación, si ocurren, quedan en la evidencia.
     * def command = ['#(qaPython)', 'scripts/concurrency_probe.py']
-    * def runProbe = function(args){var P=Java.type('java.lang.ProcessBuilder');var S=Java.type('java.util.Scanner');var p=new P(Java.to(args,'java.lang.String[]')).redirectErrorStream(true).start();var scan=new S(p.getInputStream()).useDelimiter('\\A');var out=scan.hasNext()?scan.next():'';var code=p.waitFor();if(code!=0) karate.fail(out);return JSON.parse(out);}
+    * def runProbe = function(args){var P=Java.type('java.lang.ProcessBuilder');var S=Java.type('java.util.Scanner');var p=new P(Java.to(args,'java.lang.String[]')).redirectErrorStream(true).start();var scan=new S(p.getInputStream()).useDelimiter('\\A');var out=scan.hasNext()?scan.next():'';var code=p.waitFor();if(code!=0) throw new Error('Preparación de concurrencia: '+out);return JSON.parse(out);}
     * def probe = runProbe(command)
+    * eval karate.embed(probe, 'application/json')
     * match probe.ok == true

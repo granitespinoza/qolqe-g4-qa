@@ -10,7 +10,7 @@ features/hu-n-03.feature:28</pre><pre>
 
 
 
-00:27:04.224 request:
+01:01:07.809 request:
 1 &gt; POST http://127.0.0.1:8000/api/auth/login
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -19,15 +19,15 @@ features/hu-n-03.feature:28</pre><pre>
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;981184817&quot;,&quot;pin&quot;:&quot;4826&quot;}
+{&quot;celular&quot;:&quot;935007794&quot;,&quot;pin&quot;:&quot;4826&quot;}
 
-00:27:04.306 response time in milliseconds: 82
+01:01:07.900 response time in milliseconds: 90
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 05:27:04 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:07 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 370
 1 &lt; content-type: application/json
-{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:1363,&quot;usuario&quot;:{&quot;id&quot;:1516,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;981184817&quot;}}
+{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:2555,&quot;usuario&quot;:{&quot;id&quot;:2664,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;935007794&quot;}}
 
 
 
@@ -39,7 +39,7 @@ features/hu-n-03.feature:28</pre><pre>
 
 
 
-00:27:04.309 request:
+01:01:07.903 request:
 1 &gt; POST http://127.0.0.1:8000/api/auth/logout
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -48,9 +48,9 @@ features/hu-n-03.feature:28</pre><pre>
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-00:27:04.315 response time in milliseconds: 6
+01:01:07.920 response time in milliseconds: 17
 1 &lt; 204
-1 &lt; date: Tue, 13 Oct 2026 05:27:04 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:07 GMT
 1 &lt; server: uvicorn
 1 &lt; content-type: application/json
 
@@ -66,7 +66,7 @@ features/hu-n-03.feature:28</pre><pre>
 
 
 
-00:27:04.318 request:
+01:01:07.922 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -75,18 +75,18 @@ features/hu-n-03.feature:28</pre><pre>
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-00:27:04.326 response time in milliseconds: 7
+01:01:07.927 response time in milliseconds: 5
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 05:27:04 GMT
+1 &lt; date: Tue, 13 Oct 2026 06:01:07 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 70
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-13T00:27:03&quot;}
+{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-13T01:01:07&quot;}
 
 
 
 
-00:27:04.326 features/hu-n-03.feature:28
+01:01:07.928 features/hu-n-03.feature:28
 * match r.statusCode == 401
 match failed: EQUALS
   $ | not equal (NUMBER:NUMBER)

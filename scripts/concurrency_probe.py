@@ -1,5 +1,6 @@
 """Dos transferencias simultáneas: saldo y límite deben mantenerse bajo concurrencia."""
 import concurrent.futures, json, threading, time, urllib.request, urllib.error
+preparation_retries=[]
 def request(route,method='GET',body=None,token=None):
     headers={'Content-Type':'application/json'}
     if token:headers['Authorization']='Bearer '+token
@@ -12,7 +13,11 @@ def user():
     cell='9'+n
     status,r=request('/api/usuarios','POST',{'dni':n,'nombres':'Concurrencia Prueba','celular':cell,'pin':'4826'})
     assert status==201,(status,r)
-    status,r=request('/api/auth/login','POST',{'celular':cell,'pin':'4826'})
+    for attempt in range(5):
+        status,r=request('/api/auth/login','POST',{'celular':cell,'pin':'4826'})
+        if status==200:break
+        preparation_retries.append({'stage':'login tras registro','attempt':attempt+1,'status':status,'response':r})
+        time.sleep(0.02)
     assert status==200,(status,r)
     return cell,r['access_token']
 def probe(balance,limit):
@@ -32,4 +37,5 @@ def probe(balance,limit):
 if __name__=='__main__':
     result={'saldo':probe('500.00','2000.00'),'limite':probe('2000.00','500.00')}
     result['ok']=all(v['ok'] for v in result.values())
+    result['preparation_retries']=preparation_retries
     print(json.dumps(result,ensure_ascii=True))

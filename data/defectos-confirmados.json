@@ -1,0 +1,57 @@
+[
+  {
+    "id": "D-01",
+    "title": "Alias con ñ rechazado",
+    "description": "La regla R-G4-02 admite ñ. El alta con Niño devuelve ALIAS_INVALIDO en lugar de crear el contacto.",
+    "classification": "Incumplimiento funcional reproducido",
+    "case": "G4-004",
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "expected_failed_step": "match r.statusCode == 201",
+    "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+    "reviewed_at": "2026-10-13T06:00:49+00:00"
+  },
+  {
+    "id": "D-02",
+    "title": "Duplicado tras recortar espacios",
+    "description": "Después de guardar Ana, crear otro contacto con « Ana » debe ser ALIAS_DUPLICADO. Se observa creación de un segundo alias Ana.",
+    "classification": "Incumplimiento funcional reproducido",
+    "case": "G4-018",
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "expected_failed_step": "match r.statusCode == 409",
+    "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+    "reviewed_at": "2026-10-13T06:00:49+00:00"
+  },
+  {
+    "id": "D-03",
+    "title": "Aceptación de solicitud vencida",
+    "description": "A las 48 horas se espera ESTADO_INVALIDO, 409, sin transferencia. La aceptación realiza la transferencia.",
+    "classification": "Incumplimiento funcional reproducido",
+    "case": "G4-053",
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "expected_failed_step": "match r.statusCode == 409",
+    "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+    "reviewed_at": "2026-10-13T06:00:49+00:00"
+  },
+  {
+    "id": "D-04",
+    "title": "Token sigue válido después de logout",
+    "description": "HU-N-03 exige revocación inmediata. Tras logout, la consulta de saldo con el mismo token sigue respondiendo 200.",
+    "classification": "Incumplimiento funcional reproducido",
+    "case": "G4-074",
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "expected_failed_step": "match r.statusCode == 401",
+    "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+    "reviewed_at": "2026-10-13T06:00:49+00:00"
+  },
+  {
+    "id": "D-05",
+    "title": "Concurrencia supera saldo y límite diario",
+    "description": "Se incumple saldo no negativo o límite diario bajo dos transferencias simultáneas de S/ 400. La observación original y sus saldos se conservan en reports/concurrencia.json; la reproducción actual adjunta sus propios resultados.",
+    "classification": "Incumplimiento funcional reproducido",
+    "case": "G4-116",
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "expected_failed_step": "match probe.ok == true",
+    "evidence_generated_at": "2026-10-13T00:30:15-05:00",
+    "reviewed_at": "2026-10-13T06:00:49+00:00"
+  }
+]
