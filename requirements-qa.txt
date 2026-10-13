@@ -1,0 +1,2 @@
+schemathesis==4.17.0
+tzdata==2026.5

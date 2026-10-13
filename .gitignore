@@ -1,0 +1,12 @@
+.venv/
+.tools/
+referencias/
+__pycache__/
+*.db
+*.db-shm
+*.db-wal
+.build/
+node_modules/
+reports/raw/
+.env
+*.log
