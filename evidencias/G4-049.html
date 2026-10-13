@@ -1,0 +1,204 @@
+<html lang="es"><meta charset="utf-8"><title>G4-049</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-049 · Aceptar genera transferencia, código y SMS</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:26:37.088 request:
+1 &gt; POST http://127.0.0.1:8000/api/contactos
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 37
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;910360110&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+
+00:26:37.095 response time in milliseconds: 6
+1 &lt; 201
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 84
+1 &lt; content-type: application/json
+{&quot;id&quot;:366,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;910360110&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:37.100 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 55
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;contacto_id&quot;:366,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
+
+00:26:37.106 response time in milliseconds: 5
+1 &lt; 201
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 318
+1 &lt; content-type: application/json
+{&quot;id&quot;:158,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;991139929&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;910360110&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-13T00:26:37&quot;,&quot;vence_en&quot;:&quot;2026-10-15T00:26:37&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:37.109 request:
+1 &gt; PUT http://127.0.0.1:8000/api/pruebas/saldo
+1 &gt; Authorization: null
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 40
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;910360110&quot;,&quot;saldo&quot;:&quot;100.00&quot;}
+
+00:26:37.115 response time in milliseconds: 5
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 43
+1 &lt; content-type: application/json
+{&quot;mensaje&quot;:&quot;Saldo actualizado a S/ 100.00&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:37.118 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes/158/aceptar
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:26:37.199 response time in milliseconds: 81
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 352
+1 &lt; content-type: application/json
+{&quot;id&quot;:158,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;991139929&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;910360110&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;ACEPTADA&quot;,&quot;creada_en&quot;:&quot;2026-10-13T00:26:37&quot;,&quot;vence_en&quot;:&quot;2026-10-15T00:26:37&quot;,&quot;resuelta_en&quot;:&quot;2026-10-13T00:26:37&quot;,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:&quot;TRF26101300263701400&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:37.204 request:
+1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:26:37.212 response time in milliseconds: 8
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 71
+1 &lt; content-type: application/json
+{&quot;saldo&quot;:&quot;90.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-13T00:26:37&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:37.216 request:
+1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:26:37.225 response time in milliseconds: 8
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 71
+1 &lt; content-type: application/json
+{&quot;saldo&quot;:&quot;10.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-13T00:26:37&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:37.228 request:
+1 &gt; GET http://127.0.0.1:8000/api/pruebas/notificaciones?celular=991139929
+1 &gt; Authorization: null
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:26:37.235 response time in milliseconds: 7
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:26:36 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 395
+1 &lt; content-type: application/json
+[{&quot;celular&quot;:&quot;991139929&quot;,&quot;mensaje&quot;:&quot;Franco P. aceptó tu solicitud de S/ 10.00. Operación TRF26101300263701400.&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:26:37&quot;},{&quot;celular&quot;:&quot;991139929&quot;,&quot;mensaje&quot;:&quot;Recibiste S/ 10.00 de Franco P.. Operación TRF26101300263701400.&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:26:37&quot;},{&quot;celular&quot;:&quot;991139929&quot;,&quot;mensaje&quot;:&quot;Bienvenido a Qolqe. Tu cuenta fue creada con éxito.&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:26:36&quot;}]
+
+
+
+
+</pre></html>

@@ -1,0 +1,60 @@
+<html lang="es"><meta charset="utf-8"><title>G4-092</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-092 · Cuenta cerrada no puede ingresar</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:27:02.528 request:
+1 &gt; POST http://127.0.0.1:8000/api/cuentas/me/cierre
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 14
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;pin&quot;:&quot;4826&quot;}
+
+00:27:02.637 response time in milliseconds: 109
+1 &lt; 204
+1 &lt; date: Tue, 13 Oct 2026 05:27:02 GMT
+1 &lt; server: uvicorn
+1 &lt; content-type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+00:27:02.640 request:
+1 &gt; POST http://127.0.0.1:8000/api/auth/login
+1 &gt; Authorization: null
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 36
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;962642641&quot;,&quot;pin&quot;:&quot;4826&quot;}
+
+00:27:02.727 response time in milliseconds: 86
+1 &lt; 401
+1 &lt; date: Tue, 13 Oct 2026 05:27:02 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 60
+1 &lt; content-type: application/json
+{&quot;codigo&quot;:&quot;CUENTA_CERRADA&quot;,&quot;detail&quot;:&quot;La cuenta fue cerrada&quot;}
+
+
+
+
+
+</pre></html>

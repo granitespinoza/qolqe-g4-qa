@@ -1,0 +1,60 @@
+<html lang="es"><meta charset="utf-8"><title>G4-079</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-079 · Editar perfil ignora DNI y celular y envía SMS</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:27:08.153 request:
+1 &gt; PUT http://127.0.0.1:8000/api/cuentas/me
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 104
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;nombres&quot;:&quot;Granit Actualizado&quot;,&quot;correo&quot;:&quot;914006358@example.com&quot;,&quot;dni&quot;:&quot;11111111&quot;,&quot;celular&quot;:&quot;999999999&quot;}
+
+00:27:08.161 response time in milliseconds: 8
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:07 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 166
+1 &lt; content-type: application/json
+{&quot;id&quot;:1534,&quot;nombres&quot;:&quot;Granit Actualizado&quot;,&quot;celular&quot;:&quot;914006358&quot;,&quot;correo&quot;:&quot;914006358@example.com&quot;,&quot;dni&quot;:&quot;****6358&quot;,&quot;estado&quot;:&quot;ACTIVA&quot;,&quot;creado_en&quot;:&quot;2026-10-13T00:27:07&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+00:27:08.165 request:
+1 &gt; GET http://127.0.0.1:8000/api/pruebas/notificaciones?celular=914006358
+1 &gt; Authorization: null
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:27:08.173 response time in milliseconds: 7
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:07 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 295
+1 &lt; content-type: application/json
+[{&quot;celular&quot;:&quot;914006358&quot;,&quot;mensaje&quot;:&quot;El correo de tu cuenta Qolqe se cambió a 914006358@example.com. Si no fuiste tú, comunícate con nosotros.&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:08&quot;},{&quot;celular&quot;:&quot;914006358&quot;,&quot;mensaje&quot;:&quot;Bienvenido a Qolqe. Tu cuenta fue creada con éxito.&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:07&quot;}]
+
+
+
+
+</pre></html>

@@ -1,0 +1,59 @@
+<html lang="es"><meta charset="utf-8"><title>G4-011</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-011 · Rechazar alias &#x27;Ana@&#x27;</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:25:56.584 request:
+1 &gt; POST http://127.0.0.1:8000/api/contactos
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 38
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;945171457&quot;,&quot;alias&quot;:&quot;Ana@&quot;}
+
+00:25:56.590 response time in milliseconds: 6
+1 &lt; 422
+1 &lt; date: Tue, 13 Oct 2026 05:25:55 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 87
+1 &lt; content-type: application/json
+{&quot;codigo&quot;:&quot;ALIAS_INVALIDO&quot;,&quot;detail&quot;:&quot;El alias solo admite letras, números y espacios&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+00:25:56.595 request:
+1 &gt; GET http://127.0.0.1:8000/api/contactos
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:25:56.601 response time in milliseconds: 6
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:25:55 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 85
+1 &lt; content-type: application/json
+{&quot;buscar&quot;:null,&quot;pagina&quot;:1,&quot;por_pagina&quot;:10,&quot;total&quot;:0,&quot;total_paginas&quot;:1,&quot;contactos&quot;:[]}
+
+
+
+
+</pre></html>

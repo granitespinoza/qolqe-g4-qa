@@ -1,0 +1,117 @@
+<html lang="es"><meta charset="utf-8"><title>G4-087</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-087 · Comprobante y movimientos con mismo código</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:27:14.956 request:
+1 &gt; PUT http://127.0.0.1:8000/api/pruebas/saldo
+1 &gt; Authorization: null
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 40
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;990380249&quot;,&quot;saldo&quot;:&quot;100.00&quot;}
+
+00:27:14.964 response time in milliseconds: 7
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 43
+1 &lt; content-type: application/json
+{&quot;mensaje&quot;:&quot;Saldo actualizado a S/ 100.00&quot;}
+
+
+
+
+
+
+
+
+
+
+
+00:27:14.968 request:
+1 &gt; POST http://127.0.0.1:8000/api/transferencias
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 72
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular_destino&quot;:&quot;981766957&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;}
+
+00:27:15.088 response time in milliseconds: 119
+1 &lt; 201
+1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 225
+1 &lt; content-type: application/json
+{&quot;codigo_operacion&quot;:&quot;TRF26101300271401564&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;10.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;981766957&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;90.00&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:14&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+00:27:15.091 request:
+1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101300271401564
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:27:15.100 response time in milliseconds: 9
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 260
+1 &lt; content-type: application/json
+{&quot;codigo_operacion&quot;:&quot;TRF26101300271401564&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:14&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;,&quot;contraparte&quot;:&quot;981766957&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
+
+
+
+
+
+
+
+
+
+
+
+
+00:27:15.102 request:
+1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101300271401564
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:27:15.111 response time in milliseconds: 9
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:14 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 260
+1 &lt; content-type: application/json
+{&quot;codigo_operacion&quot;:&quot;TRF26101300271401564&quot;,&quot;fecha&quot;:&quot;2026-10-13T00:27:14&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Almuerzo&quot;,&quot;contraparte&quot;:&quot;981766957&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
+
+
+
+
+</pre></html>

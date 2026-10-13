@@ -1,0 +1,57 @@
+<html lang="es"><meta charset="utf-8"><title>G4-090</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-090 · Simular comisión para 100.00 sin debitar</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:27:20.822 request:
+1 &gt; GET http://127.0.0.1:8000/api/transferencias/comision?monto=100.00&amp;tipo=INTERBANCARIA
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:27:20.829 response time in milliseconds: 7
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:20 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 53
+1 &lt; content-type: application/json
+{&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;1.50&quot;,&quot;total&quot;:&quot;101.50&quot;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+00:27:20.832 request:
+1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:27:20.838 response time in milliseconds: 6
+1 &lt; 200
+1 &lt; date: Tue, 13 Oct 2026 05:27:20 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 70
+1 &lt; content-type: application/json
+{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-13T00:27:20&quot;}
+
+
+
+
+</pre></html>

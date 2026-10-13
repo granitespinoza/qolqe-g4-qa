@@ -1,0 +1,89 @@
+<html lang="es"><meta charset="utf-8"><title>G4-051</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-051 · Tercero no puede aceptar</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:26:38.469 request:
+1 &gt; POST http://127.0.0.1:8000/api/contactos
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 37
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;938020752&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+
+00:26:38.475 response time in milliseconds: 6
+1 &lt; 201
+1 &lt; date: Tue, 13 Oct 2026 05:26:37 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 84
+1 &lt; content-type: application/json
+{&quot;id&quot;:368,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;938020752&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:38.479 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 55
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;contacto_id&quot;:368,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
+
+00:26:38.486 response time in milliseconds: 7
+1 &lt; 201
+1 &lt; date: Tue, 13 Oct 2026 05:26:37 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 318
+1 &lt; content-type: application/json
+{&quot;id&quot;:160,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;996234041&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;938020752&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-13T00:26:38&quot;,&quot;vence_en&quot;:&quot;2026-10-15T00:26:38&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:38.490 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes/160/aceptar
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:26:38.499 response time in milliseconds: 9
+1 &lt; 404
+1 &lt; date: Tue, 13 Oct 2026 05:26:37 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 70
+1 &lt; content-type: application/json
+{&quot;codigo&quot;:&quot;SOLICITUD_NO_ENCONTRADA&quot;,&quot;detail&quot;:&quot;La solicitud no existe&quot;}
+
+
+
+
+
+</pre></html>

@@ -1,0 +1,61 @@
+<html lang="es"><meta charset="utf-8"><title>G4-039</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-039 · Monto solicitado 10.005</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:26:28.913 request:
+1 &gt; POST http://127.0.0.1:8000/api/contactos
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 37
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;celular&quot;:&quot;990626116&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+
+00:26:28.921 response time in milliseconds: 7
+1 &lt; 201
+1 &lt; date: Tue, 13 Oct 2026 05:26:28 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 84
+1 &lt; content-type: application/json
+{&quot;id&quot;:355,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;990626116&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+
+
+
+
+
+
+
+
+
+
+
+
+00:26:28.926 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 56
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;contacto_id&quot;:355,&quot;monto&quot;:&quot;10.005&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
+
+00:26:28.934 response time in milliseconds: 8
+1 &lt; 422
+1 &lt; date: Tue, 13 Oct 2026 05:26:28 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 83
+1 &lt; content-type: application/json
+{&quot;codigo&quot;:&quot;SOLICITUD_INVALIDA&quot;,&quot;detail&quot;:&quot;El monto admite como máximo 2 decimales&quot;}
+
+
+
+
+
+</pre></html>

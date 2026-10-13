@@ -1,0 +1,744 @@
+{
+  "timestamp": "2026-10-13T00:30:15-05:00",
+  "commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "stats": {
+    "executed": 116,
+    "passed": 110,
+    "failed": 6
+  },
+  "results": {
+    "G4-001": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Crear contacto con alias 'Ana'"
+    },
+    "G4-002": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA'"
+    },
+    "G4-003": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Crear contacto con alias 'José'"
+    },
+    "G4-004": {
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  422\n  201\n\nfeatures/hu-g4-01.feature:55",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Crear contacto con alias 'Niño'"
+    },
+    "G4-005": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Crear contacto con alias 'A1 B'"
+    },
+    "G4-006": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Crear contacto con alias ' Ana '"
+    },
+    "G4-007": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar alias 'Lu'"
+    },
+    "G4-008": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA'"
+    },
+    "G4-009": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar alias ''"
+    },
+    "G4-010": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar alias '   '"
+    },
+    "G4-011": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar alias 'Ana@'"
+    },
+    "G4-012": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar celular: CONTACTO_PROPIO"
+    },
+    "G4-013": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar celular: CELULAR_INVALIDO"
+    },
+    "G4-014": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Rechazar celular: CELULAR_NO_REGISTRADO"
+    },
+    "G4-015": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Celular válido sin registro"
+    },
+    "G4-016": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Contacto duplicado"
+    },
+    "G4-017": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Alias duplicado tras normalizar 'ANA'"
+    },
+    "G4-018": {
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  201\n  409\n\nfeatures/hu-g4-01.feature:192",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Alias duplicado tras normalizar ' Ana '"
+    },
+    "G4-019": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Permitir contacto 15 y rechazar contacto 16"
+    },
+    "G4-106": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-01.feature",
+      "name": "Celular válido aún no registrado"
+    },
+    "G4-020": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-02.feature",
+      "name": "Buscar ignorando mayúsculas y tildes"
+    },
+    "G4-021": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-02.feature",
+      "name": "Ordenar favoritos antes del resto"
+    },
+    "G4-022": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-02.feature",
+      "name": "Paginación con 11 contactos"
+    },
+    "G4-023": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-02.feature",
+      "name": "Búsqueda sin coincidencias"
+    },
+    "G4-107": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-02.feature",
+      "name": "Orden alfabético dentro de cada grupo"
+    },
+    "G4-024": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-03.feature",
+      "name": "Editar alias sin compararlo consigo mismo"
+    },
+    "G4-025": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-03.feature",
+      "name": "Marcar y desmarcar favorito"
+    },
+    "G4-026": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-03.feature",
+      "name": "Quinto favorito permitido; sexto rechazado"
+    },
+    "G4-027": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-03.feature",
+      "name": "Rechazar edición de contacto ajeno"
+    },
+    "G4-108": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-03.feature",
+      "name": "Editar solo alias conserva favorito"
+    },
+    "G4-028": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-04.feature",
+      "name": "Eliminar contacto conserva transferencia"
+    },
+    "G4-029": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-04.feature",
+      "name": "Solicitud pendiente enviada impide eliminar"
+    },
+    "G4-030": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-04.feature",
+      "name": "Solicitud pendiente recibida impide eliminar"
+    },
+    "G4-031": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-04.feature",
+      "name": "Solicitud vencida permite eliminar"
+    },
+    "G4-032": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-05.feature",
+      "name": "Transferir por contacto acredita ambos saldos"
+    },
+    "G4-033": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-05.feature",
+      "name": "Saldo insuficiente no produce transferencia"
+    },
+    "G4-095": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-05.feature",
+      "name": "Límite diario agotado impide operación"
+    },
+    "G4-034": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Crear solicitud pendiente con vigencia 48 h y SMS"
+    },
+    "G4-035": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Monto solicitado 0.00"
+    },
+    "G4-036": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Monto solicitado 0.01"
+    },
+    "G4-037": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Monto solicitado 500.00"
+    },
+    "G4-038": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Monto solicitado 500.01"
+    },
+    "G4-039": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Monto solicitado 10.005"
+    },
+    "G4-040": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Motivo de 2 caracteres"
+    },
+    "G4-041": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Motivo de 3 caracteres"
+    },
+    "G4-042": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Motivo de 60 caracteres"
+    },
+    "G4-043": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Motivo de 61 caracteres"
+    },
+    "G4-044": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Décima pendiente permitida y undécima rechazada"
+    },
+    "G4-109": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-06.feature",
+      "name": "Contacto de otro usuario no permite solicitar"
+    },
+    "G4-045": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-07.feature",
+      "name": "Separar solicitudes enviadas y recibidas y filtrar"
+    },
+    "G4-046": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-07.feature",
+      "name": "Estado al transcurrir 2879 minutos"
+    },
+    "G4-047": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-07.feature",
+      "name": "Estado al transcurrir 2880 minutos"
+    },
+    "G4-048": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-07.feature",
+      "name": "Estado al transcurrir 2881 minutos"
+    },
+    "G4-049": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Aceptar genera transferencia, código y SMS"
+    },
+    "G4-050": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Saldo insuficiente conserva PENDIENTE"
+    },
+    "G4-051": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Tercero no puede aceptar"
+    },
+    "G4-052": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Aceptar a los 2879 minutos"
+    },
+    "G4-053": {
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409\n\nfeatures/hu-g4-08.feature:93",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Aceptar a los 2880 minutos"
+    },
+    "G4-054": {
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409\n\nfeatures/hu-g4-08.feature:108",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Aceptar a los 2881 minutos"
+    },
+    "G4-055": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "No aceptar dos veces"
+    },
+    "G4-096": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "Límite diario agotado impide operación"
+    },
+    "G4-097": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "No aceptar desde ACEPTADA"
+    },
+    "G4-100": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "No aceptar desde RECHAZADA"
+    },
+    "G4-103": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-08.feature",
+      "name": "No aceptar desde CANCELADA"
+    },
+    "G4-056": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "Rechazar solicitud pendiente"
+    },
+    "G4-057": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "Rechazar acción de tercero"
+    },
+    "G4-058": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "No resolver solicitud vencida"
+    },
+    "G4-059": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "No repetir resolución"
+    },
+    "G4-064": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "Motivo opcional y aviso al solicitante"
+    },
+    "G4-065": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "Motivo de rechazo longitud 60"
+    },
+    "G4-066": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "Motivo de rechazo longitud 61"
+    },
+    "G4-098": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "No rechazar desde ACEPTADA"
+    },
+    "G4-101": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "No rechazar desde RECHAZADA"
+    },
+    "G4-104": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-09.feature",
+      "name": "No rechazar desde CANCELADA"
+    },
+    "G4-060": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "Cancelar solicitud pendiente"
+    },
+    "G4-061": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "Rechazar acción de tercero"
+    },
+    "G4-062": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "No resolver solicitud vencida"
+    },
+    "G4-063": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "No repetir resolución"
+    },
+    "G4-099": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "No cancelar desde ACEPTADA"
+    },
+    "G4-102": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "No cancelar desde RECHAZADA"
+    },
+    "G4-105": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-g4-10.feature",
+      "name": "No cancelar desde CANCELADA"
+    },
+    "G4-067": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Registro crea saldo cero, límite y bienvenida"
+    },
+    "G4-068": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Rechazar dni inválido"
+    },
+    "G4-069": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Rechazar celular inválido"
+    },
+    "G4-070": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Rechazar pin inválido"
+    },
+    "G4-071": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Rechazar correo inválido"
+    },
+    "G4-110": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Celular duplicado responde conflicto"
+    },
+    "G4-111": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-01.feature",
+      "name": "Correo duplicado ignora mayúsculas"
+    },
+    "G4-072": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-02.feature",
+      "name": "Login crea sesión con vigencia de 30 minutos"
+    },
+    "G4-073": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-02.feature",
+      "name": "Bloqueo tras tres intentos y acceso después de 15 min"
+    },
+    "G4-092": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-02.feature",
+      "name": "Cuenta cerrada no puede ingresar"
+    },
+    "G4-093": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-02.feature",
+      "name": "Nuevo dispositivo permite login y genera alerta"
+    },
+    "G4-074": {
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  401\n\nfeatures/hu-n-03.feature:28",
+      "feature": "features/hu-n-03.feature",
+      "name": "Cerrar sesión revoca solo ese token"
+    },
+    "G4-094": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-03.feature",
+      "name": "Cerrar una sesión no afecta otra"
+    },
+    "G4-075": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-04.feature",
+      "name": "Saldo PEN y perfil enmascarado"
+    },
+    "G4-076": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-04.feature",
+      "name": "Acceso sin autenticación null"
+    },
+    "G4-077": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-04.feature",
+      "name": "Acceso sin autenticación 'invalid'"
+    },
+    "G4-078": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-04.feature",
+      "name": "Token vencido"
+    },
+    "G4-079": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-05.feature",
+      "name": "Editar perfil ignora DNI y celular y envía SMS"
+    },
+    "G4-080": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-06.feature",
+      "name": "Cerrar cuenta con saldo cero revoca acceso"
+    },
+    "G4-081": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-06.feature",
+      "name": "Solicitud pendiente impide cerrar cuenta"
+    },
+    "G4-112": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-06.feature",
+      "name": "PIN incorrecto impide cierre"
+    },
+    "G4-113": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-06.feature",
+      "name": "Saldo pendiente impide cierre"
+    },
+    "G4-082": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Transferencia monto 0.00"
+    },
+    "G4-083": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Transferencia monto 0.01"
+    },
+    "G4-084": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Transferencia monto 500.00"
+    },
+    "G4-085": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Transferencia monto 500.01"
+    },
+    "G4-086": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Transferencia monto 10.005"
+    },
+    "G4-087": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Comprobante y movimientos con mismo código"
+    },
+    "G4-114": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-07.feature",
+      "name": "Transferencia a sí mismo rechazada"
+    },
+    "G4-116": {
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (BOOLEAN:BOOLEAN)\n  false\n  true\n\nfeatures/hu-n-07.feature:85",
+      "feature": "features/hu-n-07.feature",
+      "name": "Concurrencia conserva saldo y límite diario"
+    },
+    "G4-088": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-08.feature",
+      "name": "Transferencia interbancaria cobra comisión y enmascara CCI"
+    },
+    "G4-115": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-08.feature",
+      "name": "CCI inválido rechazado"
+    },
+    "G4-089": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-09.feature",
+      "name": "Simular comisión para 1.00 sin debitar"
+    },
+    "G4-090": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-09.feature",
+      "name": "Simular comisión para 100.00 sin debitar"
+    },
+    "G4-091": {
+      "status": "APROBADO",
+      "error": "",
+      "feature": "features/hu-n-09.feature",
+      "name": "Simular comisión para 500.00 sin debitar"
+    }
+  },
+  "findings": [
+    {
+      "id": "D-01",
+      "title": "Alias con ñ rechazado",
+      "description": "La regla R-G4-02 admite ñ. El alta con Niño devuelve ALIAS_INVALIDO en lugar de crear el contacto.",
+      "classification": "Incumplimiento funcional reproducido",
+      "case": "G4-004"
+    },
+    {
+      "id": "D-02",
+      "title": "Duplicado tras recortar espacios",
+      "description": "Después de guardar Ana, crear otro contacto con « Ana » debe ser ALIAS_DUPLICADO. Se observa creación de un segundo alias Ana.",
+      "classification": "Incumplimiento funcional reproducido",
+      "case": "G4-018"
+    },
+    {
+      "id": "D-03",
+      "title": "Aceptación de solicitud vencida",
+      "description": "A las 48 horas se espera ESTADO_INVALIDO, 409, sin transferencia. La aceptación realiza la transferencia.",
+      "classification": "Incumplimiento funcional reproducido",
+      "case": "G4-053"
+    },
+    {
+      "id": "D-04",
+      "title": "Token sigue válido después de logout",
+      "description": "HU-N-03 exige revocación inmediata. Tras logout, la consulta de saldo con el mismo token sigue respondiendo 200.",
+      "classification": "Incumplimiento funcional reproducido",
+      "case": "G4-074"
+    },
+    {
+      "id": "D-05",
+      "title": "Concurrencia supera saldo y límite diario",
+      "description": "Dos transferencias de 400 simultáneas: con saldo inicial 500 se observaron dos éxitos y saldo -300; con saldo 2000 y límite 500 se observaron 800 usados. Ver reports/concurrencia.json.",
+      "classification": "Incumplimiento funcional reproducido",
+      "case": "G4-116"
+    }
+  ]
+}

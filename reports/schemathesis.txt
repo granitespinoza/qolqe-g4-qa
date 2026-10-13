@@ -1,0 +1,145 @@
+Schemathesis v4.17.0
+━━━━━━━━━━━━━━━━━━━━
+
+
+ ✅  Loaded specification from http://127.0.0.1:8000/openapi.json (in 1.75s)   
+
+     Base URL:         http://127.0.0.1:8000/                                  
+     Specification:    Open API 3.1.0                                          
+     Operations:       9 selected / 69 total                                   
+
+
+ ✅  API capabilities:                                                         
+
+     Supports NULL byte in headers:    ✘                                       
+
+ ❌  Examples (in 1.56s)                                                       
+                                                                               
+     ✅ 6 passed  ❌ 1 failed  ⏭  2 skipped                                    
+
+ ❌  Coverage (in 9.83s)                                                       
+                                                                               
+     ✅ 7 passed  ❌ 2 failed                                                  
+
+ ❌  Fuzzing (in 2.84s)                                                        
+                                                                               
+     ✅ 6 passed  ❌ 3 failed                                                  
+
+=================================== FAILURES ===================================
+____________________________ POST /api/solicitudes _____________________________
+1. Test Case ID: Fe8gd4
+
+- API rejected schema-compliant request
+
+    Valid data should have been accepted
+    Expected: 2xx, 401, 403, 404, 409, 5xx
+
+[422] Unprocessable Content:
+
+    `{"codigo":"SOLICITUD_INVALIDA","detail":"La solicitud tiene datos inválidos","errores":[{"campo":"body.monto","mensaje":"Field required"},{"campo":"body.motivo","mensaje":"Field required"}]}`
+
+Reproduce with:
+
+    curl -X POST -H 'Authorization: [Filtered]' -H 'Content-Type: application/json' -d '{"contacto_id": 182}' http://127.0.0.1:8000/api/solicitudes
+
+_____________________________ POST /api/contactos ______________________________
+1. Test Case ID: OOjllv
+
+- API accepted schema-violating request
+
+    Invalid data should have been rejected
+    Expected: 400, 401, 403, 404, 406, 422, 428, 5xx
+    Invalid component: in body - alias: String larger than maxLength
+
+[409] Conflict:
+
+    `{"codigo":"CONTACTO_EXISTENTE","detail":"Ese celular ya está en tus contactos"}`
+
+Reproduce with:
+
+    curl -X POST -H 'Authorization: [Filtered]' -H 'Content-Type: application/json' -d '{"alias": "0\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085\u0085", "celular": "912345678"}' http://127.0.0.1:8000/api/contactos
+
+2. Test Case ID: yiJUu6
+
+- API rejected schema-compliant request
+
+    Valid data should have been accepted
+    Expected: 2xx, 401, 403, 404, 409, 5xx
+
+[422] Unprocessable Content:
+
+    `{"codigo":"CELULAR_INVALIDO","detail":"El celular debe tener 9 dígitos y empezar con 9"}`
+
+Reproduce with:
+
+    curl -X POST -H 'Authorization: [Filtered]' -H 'Content-Type: application/json' -d '{"alias": "\u202f\u001d\u00a0QKrg\u00cd\u00c10", "celular": "9\u06f0\u09e9\u0e59\u0e57\u1a99\ud804\udc6e\u0b680", "\u00d7+\u0091l\ud805\udf5a\uda18\ude73": -5.406137996787982e+16, "\ud818\udf49\ud90e\udf9f5": [[false, null, ""], [], [205, "\u0016\u00aab\u000b\u00c4\u00ccL\u00a4\u001c"]], "\uda7f\udf25T:h\u00be\ud8f3\udf08\u00c3\u00ea\u0080": []}' http://127.0.0.1:8000/api/contactos
+
+_____________________________ GET /api/solicitudes _____________________________
+1. Test Case ID: 4xPBbp
+
+- API rejected schema-compliant request
+
+    Valid data should have been accepted
+    Expected: 2xx, 401, 403, 404, 409, 5xx
+
+[422] Unprocessable Content:
+
+    `{"codigo":"FILTRO_INVALIDO","detail":"Estado no válido. Valores: PENDIENTE, ACEPTADA, RECHAZADA, CANCELADA, VENCIDA"}`
+
+Reproduce with:
+
+    curl -X GET -H 'Authorization: [Filtered]' 'http://127.0.0.1:8000/api/solicitudes?estado=null'
+
+=================================== WARNINGS ===================================
+
+Missing test data: 6 operations repeatedly returned 404 Not Found, preventing tests from reaching your API's core logic
+
+  - DELETE /api/contactos/{contacto_id}
+  - POST /api/solicitudes
+  - POST /api/solicitudes/{solicitud_id}/aceptar
+  - POST /api/solicitudes/{solicitud_id}/cancelar
+  - POST /api/solicitudes/{solicitud_id}/rechazar
+  - PUT /api/contactos/{contacto_id}
+
+💡 Provide realistic parameter values in your config file so tests can access existing resources
+
+Schema validation mismatch: 5 operations mostly rejected generated data due to validation errors, indicating schema constraints don't match API validation
+
+  - POST /api/solicitudes
+  - POST /api/solicitudes/{solicitud_id}/aceptar
+  - POST /api/solicitudes/{solicitud_id}/cancelar
+  - POST /api/solicitudes/{solicitud_id}/rechazar
+  - PUT /api/contactos/{contacto_id}
+
+💡 Check your schema constraints - API validation may be stricter than documented
+
+=================================== SUMMARY ====================================
+
+API Operations:
+  Selected: 9/69
+  Tested: 9
+
+Test Phases:
+  ❌ Examples
+  ❌ Coverage
+  ❌ Fuzzing
+  ⏭  Stateful (disabled)
+
+Failures:
+  ❌ API accepted schema-violating request: 1
+  ❌ API rejected schema-compliant request: 3
+
+Warnings:
+  ⚠️ Missing valid test data: 6 operations repeatedly returned 404 responses
+  ⚠️ Schema validation mismatch: 5 operations mostly rejected generated data
+
+Test cases:
+  400 generated, 4 found 4 unique failures, 72 skipped
+
+Reports:
+  - JUNIT: reports\raw\schemathesis\junit-20261013T001828Z.xml
+  - NDJSON: reports\raw\schemathesis\ndjson-20261013T001828Z.ndjson
+
+Seed: 20261013
+
+======================= 4 failures, 2 warnings in 14.30s =======================

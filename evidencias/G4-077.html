@@ -1,0 +1,30 @@
+<html lang="es"><meta charset="utf-8"><title>G4-077</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-077 · Acceso sin autenticación &#x27;invalid&#x27;</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
+
+
+
+
+
+
+00:27:06.912 request:
+1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
+1 &gt; Authorization: Bearer invalid
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+00:27:06.915 response time in milliseconds: 3
+1 &lt; 401
+1 &lt; date: Tue, 13 Oct 2026 05:27:06 GMT
+1 &lt; server: uvicorn
+1 &lt; www-authenticate: Bearer
+1 &lt; content-length: 54
+1 &lt; content-type: application/json
+{&quot;codigo&quot;:&quot;NO_AUTENTICADO&quot;,&quot;detail&quot;:&quot;Token inválido&quot;}
+
+
+
+
+
+</pre></html>
