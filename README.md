@@ -10,6 +10,8 @@ Trabajo de QA asistido con IA: decisiones justificadas, pruebas reproducibles y 
 3. [Diseño por historia](docs/diseno-pruebas.md) y [pendientes por criterio](docs/cobertura.md).
 4. [Defectos reproducidos](docs/defectos.md).
 5. [Documentación HTML](apidoc/index.html): endpoints, búsqueda, escenarios y resultados.
+6. [PPT editable](presentacion/G4-contactos.pptx) y [guion de sustentación](presentacion/guion.md).
+7. [Estado verificado del pipeline](docs/ci.md).
 
 ## Preparar en Windows
 Requisitos: Git y Python 3.12. Java 17 se descarga localmente si falta.

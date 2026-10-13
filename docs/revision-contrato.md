@@ -7,7 +7,7 @@ Schemathesis 4.17.0; fases examples, coverage y fuzzing. Stateful desactivado. S
 ## Interpretación de hallazgos
 | Petición / respuesta | Interpretación | Próxima comprobación |
 |---|---|---|
-| POST solicitudes con solo contacto_id devuelve 422, pero se generó como válida | Posible obligatoriedad incompleta en el contrato | Revisar required de SolicitudDinero y contrastar CA1: monto y motivo requeridos |
+| POST solicitudes con solo contacto_id devuelve 422, pero se generó como válida | Señal automática pendiente: el snapshot sí declara obligatorios contacto_id, monto y motivo | Rechazar esa petición es correcto; investigar generación/clasificación de Schemathesis antes de atribuir un defecto |
 | Alias largo devuelve 409 CONTACTO_EXISTENTE | La clasificación automática no implica que se haya creado un contacto inválido: intervino un duplicado | Repetir con celular propio de contexto que aún no sea contacto y verificar ausencia de creación |
 | Celular con dígitos Unicode genera 422 | Posible diferencia entre regex del contrato y validación del código | Revisar la semántica de digit y definir con requisitos si se admiten solamente dígitos ASCII |
 | GET solicitudes?estado=null devuelve 422 | Diferencia entre null del esquema y texto literal «null» en query | Reproducir omitiendo estado; no asumir que la cadena null equivale a ausencia |

@@ -18,7 +18,7 @@ El número de escenarios aprobados no mide cobertura de criterios ni ausencia de
 
 ## 3. Pruebas web y CI/CD
 Workflow preparado en `.github/workflows/api.yml`, con jobs separados para Karate y contrato. Conserva los reportes aunque una prueba falle. El pipeline debe informar fallos reales.
-E2E web pendiente de Parte 2.
+[Resultado verificado y diferencias de CI](ci.md). E2E web pendiente de Parte 2.
 
 ## 4. Rendimiento
 Pendiente de Parte 3; no se realizó prueba de carga contra servicios públicos.
