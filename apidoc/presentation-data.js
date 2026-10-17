@@ -1,11 +1,199 @@
 window.QA_PRESENTATION = [
-{title:'Karate para verificar comportamientos',subtitle:'1 · Herramienta y motivo',body:'Los .feature contienen las peticiones HTTP, la preparación y las aserciones. Ejecutamos la suite completa o una selección por tag y conservamos el reporte de cada ejecución.',why:'Frente a pytest-bdd, reduce código de enlace HTTP. Frente a una colección Postman, concentra los escenarios en archivos ejecutables versionados. Postman también permite automatizar; nuestra elección responde a este proyecto.',items:['Ventaja: etiquetas por HU y por caso para la revisión al azar.','Costo: requiere Java y utiliza un DSL técnico. No presentamos Karate como BDD de negocio puro.'],show:'Ver las herramientas y sus límites',link:'#decisiones'},
-{title:'Qué corresponde a G4',subtitle:'2 · Funcionalidad y alcance',body:'Contactos: agregar, listar y buscar, editar alias y favorito, eliminar y transferir. Solicitudes de dinero: crear, consultar, aceptar, rechazar y cancelar.',items:['HU-G4-01 a HU-G4-10: módulo asignado.','HU-N-01 a HU-N-09: núcleo común, incluida autenticación y reglas financieras.','La explicación se concentra en una HU; la ejecución abarca todo el alcance.'],why:'El módulo depende de usuarios autenticados y de reglas de transferencia. Consultar un endpoint no demuestra todas sus reglas.',show:'Ver historias y sus casos',link:'#historias'},
-{title:'HU-G4-01 · Agregar un contacto',subtitle:'3 · Todos sus criterios: CA1',body:'CA1: indico celular y alias. Se aplican R-G4-01 a R-G4-03. Un celular de cuenta cerrada se trata como no registrado.',items:['R-G4-01: celular registrado y activo, ajeno y no repetido.','R-G4-02: recortar espacios; alias de 3–20 caracteres; letras con tildes y ñ, números y espacios; único sin distinguir mayúsculas.','R-G4-03: máximo 15 contactos y 5 favoritos. La edición del favorito se comprueba en HU-G4-03.','Errores enumerados por CA1: CELULAR_INVALIDO, CONTACTO_PROPIO, CELULAR_NO_REGISTRADO (404), CONTACTO_EXISTENTE (409), ALIAS_INVALIDO, ALIAS_DUPLICADO (409) y LIMITE_CONTACTOS.'],why:'CA1 es compuesto: un solo caso exitoso no comprueba todas sus condiciones.',show:'Abrir requisitos originales',link:'../referencias/qolqe-wallet/docs/requisitos.md'},
-{title:'De cada regla a los datos de prueba',subtitle:'4 · Diseño funcional de HU-G4-01',body:'Mantenemos válidas las demás condiciones para que cada rechazo pueda asociarse a la regla que evaluamos.',rows:[['Regla / condición','Técnica y datos','Casos'],['Alias de 3–20','Valores límite: 2, 3, 20 y 21','G4-001, 002, 007, 008'],['Caracteres y normalización','Particiones: José, Niño, A1 B, espacios, vacío, @','G4-003 a 011'],['Celular válido, ajeno y único','Particiones: propio, mal formato, cerrado, inexistente, duplicado','G4-012 a 016, 106'],['Alias único normalizado','Particiones: ANA y « Ana » con Ana existente','G4-017, 018'],['Máximo 15 contactos','Valores límite: alta 15 permitida; alta 16 rechazada','G4-019']],why:'Los límites prueban fronteras inclusivas; las particiones representan condiciones con un resultado esperado diferente. La presencia de estos casos no demuestra cobertura exhaustiva.',show:'Filtrar casos y leer técnica, regla y aserciones',link:'#historias'},
-{title:'Contrato técnico: demostrar cada validación',subtitle:'5 · Obligatorios, tipos y restricciones',body:'Separamos reglas funcionales de validaciones del contrato. Para contactos debemos evidenciar campos omitidos, tipos incorrectos y restricciones del esquema, con respuesta y aserciones.',items:['El JSON OpenAPI es la fuente para required, type, pattern y longitudes declaradas.','Schemathesis aporta exploración: sus totales no acreditan por sí solos cada validación; mostramos las peticiones y comprobaciones disponibles.','Las validaciones sin evidencia identificable necesitan casos explícitos. El tag @CONTRATO-CONTACTOS permite localizar los casos de contrato.'],why:'Una suite verde puede omitir requisitos. Revisamos criterio → dato → caso → resultado, sin confundir señales exploratorias con defectos confirmados.',show:'Ver contrato, casos técnicos y ejecución',link:'#ejecucion-vivo'},
-{title:'Ejecutar todo el alcance en vivo',subtitle:'6 · Suite completa; capturas como apoyo',body:'La ejecución completa es distinta de la explicación de HU-G4-01 y de la demostración visual de tres casos. Abrimos el reporte generado en esta sesión y explicamos sus fallos.',items:['Suite completa: núcleo común + G4 + casos técnicos presentes.','Selección G4: comprobar el módulo asignado por separado.','Distinguir fallo de preparación, incumplimiento del requisito y validación negativa aprobada.'],why:'Las capturas registran una ejecución pasada. La docente pide además observar la ejecución actual y poder reproducirla.',show:'Abrir comandos de ejecución completa y por tag',link:'#ejecucion-vivo'},
-{title:'G4-004 · Alias Niño',subtitle:'7 · Un resultado explicado',case:'G4-004',expected:'201 · Contacto creado con alias Niño',obtained:'Registro histórico: 422 · ALIAS_INVALIDO',body:'Contexto válido: usuario autenticado, destinatario activo y ajeno, lista con capacidad. Niño representa una entrada permitida por R-G4-02.',why:'La prueba falla porque rechaza un alias permitido; 422 no es incorrecto por sí mismo. Los pasos posteriores a la aserción fallida no se ejecutaron. Contrastamos este registro con la nueva ejecución.',show:'Abrir petición y respuesta registradas',link:'../evidencias/G4-004.html'},
-{title:'Otra HU al azar: localizar y ejecutar',subtitle:'8 · Selección por tag, sin correr toda la suite',body:'Seleccionamos la HU indicada, mostramos todos sus criterios y sus casos, justificamos la técnica y ejecutamos solamente su tag. Si pide un caso concreto, usamos su etiqueta G4-xxx.',items:['Ejemplo de HU: @HU-G4-02. Ejemplo de caso: @G4-020.','Revisar la cantidad seleccionada: cero escenarios no demuestra aprobación.','Abrir el reporte nuevo: comparar esperado, obtenido y efectos, con sus límites.'],why:'El número total de pruebas no responde si un criterio específico está cubierto. La trazabilidad permite defender la selección al azar.',show:'Elegir HU y ver su comando y casos',link:'#ejecucion-vivo'},
-{title:'Conclusiones y lecciones aprendidas',subtitle:'9 · Lo que demuestra la evidencia',body:'Detectamos diferencias entre reglas, contrato y comportamiento. Distinguimos incumplimientos funcionales, discrepancias técnicas y problemas de preparación.',items:['El esperado procede de requisitos y OpenAPI, no de copiar lo que devuelve la aplicación.','Un 201 de preparación requiere recursos visibles antes de evaluar otra regla; las esperas y verificaciones quedan registradas.','Los totales verdes no garantizan cobertura: cada validación debe tener caso, aserción y evidencia.'],why:'Conservar los fallos y sus límites permite defender el resultado y proponer correcciones sin modificar la aplicación original.',show:'Revisar contraste entre documentación y código',link:'../docs/contraste-documentacion-codigo.md'}
+  {
+    "title": "Por qué Karate",
+    "subtitle": "1 · Herramienta",
+    "body": "Peticiones, preparación y aserciones en archivos .feature.",
+    "items": [
+      "Ejecutamos por HU o caso mediante tags.",
+      "Menos código HTTP que con pytest-bdd; requiere Java."
+    ],
+    "why": "Concentramos las pruebas versionadas en un solo formato. Postman también permite automatizar.",
+    "show": "Ver decisiones",
+    "link": "#decisiones"
+  },
+  {
+    "title": "Alcance G4",
+    "subtitle": "2 · Funcionalidad",
+    "body": "Contactos y solicitudes de dinero.",
+    "items": [
+      "Contactos: agregar, buscar, editar, eliminar y transferir.",
+      "Solicitudes: crear, consultar, aceptar, rechazar y cancelar.",
+      "Incluimos el núcleo común: usuarios, autenticación, cuenta y transferencias."
+    ],
+    "why": "Los flujos de G4 dependen del núcleo común.",
+    "show": "Ver historias",
+    "link": "#historias"
+  },
+  {
+    "title": "HU-G4-01 · Agregar un contacto",
+    "subtitle": "3 · Criterio de aceptación CA1",
+    "body": "Ingresar celular y alias; aplicar R-G4-01 a R-G4-03.",
+    "items": [
+      "Celular registrado, activo, ajeno y no repetido; cerrado equivale a no registrado.",
+      "Alias: recortar espacios; 3–20 caracteres; letras, tildes, ñ, números y espacios; único sin distinguir mayúsculas.",
+      "Máximo 15 contactos y 5 favoritos; favoritos se evalúa al editar."
+    ],
+    "why": "CA1 reúne varias condiciones: cada una necesita casos.",
+    "show": "Ver CA1, reglas y errores originales",
+    "link": "../referencias/qolqe-wallet/docs/requisitos.md"
+  },
+  {
+    "title": "Regla → técnica → casos",
+    "subtitle": "4 · Diseño de HU-G4-01",
+    "body": "Variamos una condición y mantenemos válidas las demás.",
+    "rows": [
+      [
+        "Condición",
+        "Técnica / datos",
+        "Casos"
+      ],
+      [
+        "Longitud del alias",
+        "Valores límite: 2, 3, 20, 21",
+        "G4-001, 002, 007, 008"
+      ],
+      [
+        "Caracteres y espacios",
+        "Particiones: José, Niño, vacío, @",
+        "G4-003 a 011"
+      ],
+      [
+        "Celular",
+        "Particiones: propio, cerrado, inválido, duplicado",
+        "G4-012 a 016, 106"
+      ],
+      [
+        "Unicidad del alias",
+        "Particiones: ANA y « Ana »",
+        "G4-017, 018"
+      ],
+      [
+        "Capacidad",
+        "Valores límite: contactos 15 y 16",
+        "G4-019"
+      ]
+    ],
+    "why": "Probamos fronteras y clases con comportamientos distintos.",
+    "show": "Ver casos y aserciones",
+    "link": "#historias"
+  },
+  {
+    "title": "Validaciones técnicas",
+    "subtitle": "5 · Fuente: OpenAPI",
+    "body": "Obligatoriedad, headers, tipos, longitudes, rangos y formatos.",
+    "items": [
+      "Schemathesis: mostrar petición, respuesta, metadatos y checks.",
+      "Karate: casos CT explícitos para complementar la exploración."
+    ],
+    "why": "Un total de pruebas no demuestra qué restricción se validó.",
+    "links": [
+      {
+        "label": "Ver detalle de Schemathesis",
+        "href": "../reports/schemathesis-detallado.html"
+      },
+      {
+        "label": "Ver matriz técnica",
+        "href": "../docs/cobertura-tecnica-contactos.md"
+      }
+    ]
+  },
+  {
+    "title": "Ejecutar toda la suite",
+    "subtitle": "6 · Demo en vivo",
+    "body": "Ejecutar → abrir el reporte nuevo → explicar los fallos.",
+    "items": [
+      "G4 + núcleo común + escenarios complementarios.",
+      "Distinguir fallos de preparación y de aserción."
+    ],
+    "why": "El reporte debe corresponder a la ejecución de esta sesión.",
+    "show": "Ver comandos",
+    "link": "#ejecucion-vivo"
+  },
+  {
+    "title": "G4-004 · Alias Niño",
+    "subtitle": "7 · Resultado y fundamento",
+    "case": "G4-004",
+    "body": "Usuario autenticado, destinatario válido y lista con capacidad.",
+    "expected": "201 · Contacto creado",
+    "obtained": "Registro guardado: 422 · ALIAS_INVALIDO",
+    "code": "* def r = add(b.cell, \"Niño\", a.token)\n* match r.statusCode == 201",
+    "why": "R-G4-02 y OpenAPI permiten ñ. El rechazo contradice ambas fuentes.",
+    "links": [
+      {
+        "label": "Ver petición y respuesta",
+        "href": "../evidencias/G4-004.html"
+      },
+      {
+        "label": "Ver contrato del alias",
+        "href": "#post-api-contactos"
+      }
+    ]
+  },
+  {
+    "title": "Otra HU por tag",
+    "subtitle": "8 · Pregunta al azar",
+    "body": "Ubicar CA y casos → justificar técnica → ejecutar el tag.",
+    "items": [
+      "HU: @HU-G4-02 · Caso: @G4-020.",
+      "Abrir el reporte nuevo y revisar lo ejecutado."
+    ],
+    "why": "La etiqueta selecciona los escenarios asociados a la HU o al caso.",
+    "show": "Elegir HU y copiar comando",
+    "link": "#ejecucion-vivo"
+  },
+  {
+    "title": "De 116 a 181 escenarios",
+    "subtitle": "9 · Alcance y conteo",
+    "body": "Catálogo inicial: 81 casos G4 + 35 del núcleo común = 116.",
+    "rows": [
+      [
+        "Conjunto inicial",
+        "Casos"
+      ],
+      [
+        "Contactos y transferencia por contacto",
+        "37"
+      ],
+      [
+        "Solicitudes de dinero",
+        "44"
+      ],
+      [
+        "Núcleo común",
+        "35"
+      ]
+    ],
+    "items": [
+      "65 añadidos = 53 técnicos + 12 funcionales.",
+      "Karate: 116 + 65 = 181. Schemathesis se cuenta aparte."
+    ],
+    "why": "Cada HU requiere varias pruebas; cantidad no equivale a cobertura completa.",
+    "links": [
+      {
+        "label": "Ver los 116 iniciales",
+        "href": "#historias",
+        "allCases": true
+      },
+      {
+        "label": "Ver los 65 añadidos",
+        "href": "#supplementary-results"
+      },
+      {
+        "label": "Ver reporte total: 181",
+        "report": true
+      }
+    ]
+  },
+  {
+    "title": "Conclusiones",
+    "subtitle": "10 · Lecciones aprendidas",
+    "body": "El esperado sale de requisitos y contrato.",
+    "items": [
+      "Conservar y explicar los fallos; no cambiar aserciones para obtener verde.",
+      "Registrar la preparación y reconocer los pendientes."
+    ],
+    "why": "Cada conclusión necesita una regla y evidencia.",
+    "show": "Ver documentación frente a código",
+    "link": "../docs/contraste-documentacion-codigo.md"
+  }
 ];

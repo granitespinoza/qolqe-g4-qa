@@ -54,4 +54,7 @@ PREGUNTAS QUE DEBES PODER RESPONDER
 
 CIERRE Y TIEMPO (última indicación de la docente)
 Ensayar 10 minutos de exposición y 5 de preguntas. Explicar una HU, ejecutar TODO el alcance, revisar fallos y responder otra HU por tag. Cerrar con conclusiones y lecciones aprendidas. Las capturas son respaldo de estudio; la demostración final es en vivo.
-En la diapositiva 9: el esperado sale de requisitos y contrato; no de imitar la implementación. Cada validación necesita evidencia; los problemas de preparación se registran aparte.
+En la diapositiva 10: el esperado sale de requisitos y contrato; no de imitar la implementación. Cada validación necesita evidencia; los problemas de preparación se registran aparte.
+
+DIAPOSITIVA 9 - ALCANCE Y CONTEO
+G4 incluye Contactos y solicitudes de dinero: 37 + 44 = 81 casos iniciales. Sumamos 35 del núcleo común: 116. Después añadimos 53 escenarios técnicos y 12 funcionales: 65 complementarios. Karate ejecuta 181 en total. Schemathesis se cuenta aparte. Cada HU tiene varios casos; cantidad no equivale a cobertura completa.

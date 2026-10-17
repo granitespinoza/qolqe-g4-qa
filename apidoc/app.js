@@ -28,7 +28,16 @@ document.addEventListener('click',async e=>{if(e.target.matches('.copy')){let o=
 draw();
 
 let slideIndex=0;
-function renderSlide(){const s=window.QA_PRESENTATION[slideIndex];el('slide-count').textContent=`${slideIndex+1} / ${window.QA_PRESENTATION.length}`;el('slide-prev').disabled=slideIndex===0;el('slide-next').disabled=slideIndex===window.QA_PRESENTATION.length-1;const c=D.cases.find(c=>c.id===s.case);el('slide-content').innerHTML=`<p class="slide-subtitle">${esc(s.subtitle)}</p><h3>${esc(s.title)}</h3><p class="slide-body">${esc(s.body)}</p>${s.items?`<ul>${s.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}${s.rows?`<table>${s.rows.map((row,i)=>`<tr>${row.map(cell=>`<${i===0?'th':'td'}>${esc(cell)}</${i===0?'th':'td'}>`).join('')}</tr>`).join('')}</table>`:''}${s.expected?`<div class="slide-comparison"><p><strong>Esperado</strong><br>${esc(s.expected)}</p><p><strong>Obtenido</strong><br><span class="fail">${esc(s.obtained)}</span></p></div>`:''}${c?`<pre>${esc(c.steps.join('\n'))}</pre>`:''}<p><strong>Por qué:</strong> ${esc(s.why)}</p><p><a href="${esc(s.link)}">${esc(s.show)} ↗</a></p>`;}
+function renderSlide(){
+ const s=window.QA_PRESENTATION[slideIndex];
+ el('slide-count').textContent=`${slideIndex+1} / ${window.QA_PRESENTATION.length}`;
+ el('slide-prev').disabled=slideIndex===0;el('slide-next').disabled=slideIndex===window.QA_PRESENTATION.length-1;
+ const c=D.cases.find(c=>c.id===s.case);
+ const links=s.links||[{label:s.show,href:s.link}];
+ const actions=links.map(a=>{const href=a.report?(D.report_dir?'../'+D.report_dir+'/karate-summary.html':'#ejecucion-vivo'):a.href;return `<a href="${esc(href)}" ${a.allCases?'data-all-cases="true"':''} ${a.report?'target="_blank" rel="noopener"':''}>${esc(a.label)} ↗</a>`;}).join(' · ');
+ el('slide-content').innerHTML=`<p class="slide-subtitle">${esc(s.subtitle)}</p><h3>${esc(s.title)}</h3><p class="slide-body">${esc(s.body)}</p>${s.items?`<ul>${s.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}${s.rows?`<table>${s.rows.map((row,i)=>`<tr>${row.map(cell=>`<${i===0?'th':'td'}>${esc(cell)}</${i===0?'th':'td'}>`).join('')}</tr>`).join('')}</table>`:''}${s.expected?`<div class="slide-comparison"><p><strong>Esperado</strong><br>${esc(s.expected)}</p><p><strong>Obtenido</strong><br><span class="fail">${esc(s.obtained)}</span></p></div>`:''}${s.code||c?`<pre>${esc(s.code||c.steps.join('\n'))}</pre>`:''}<p><strong>Por qué:</strong> ${esc(s.why)}</p><p class="slide-links">${actions}</p>`;
+}
+
 el('slide-prev').addEventListener('click',()=>{if(slideIndex>0){slideIndex--;renderSlide()}});
 el('slide-next').addEventListener('click',()=>{if(slideIndex<window.QA_PRESENTATION.length-1){slideIndex++;renderSlide()}});
 el('presentation-fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await el('presentacion').requestFullscreen()}catch{el('presentation-fullscreen').textContent='Amplía la ventana del navegador'}});
@@ -53,3 +62,15 @@ const knownFunctionalFailures=new Set(['G4-004','G4-018','G4-053','G4-054','G4-0
 const otherFailures=Object.entries(D.results).filter(([id,r])=>r.status==='FALLÓ'&&!knownFunctionalFailures.has(id));
 if(otherFailures.length)el('other-failures').innerHTML=`<article class="result-explanation"><h3>Otras aserciones o preparaciones fallidas de esta ejecución</h3><p>Estos resultados requieren diagnóstico. Los efectos inmediatos de cierre, sesión y notificación se contrastan con la incidencia de confirmación tardía; no se suman automáticamente como defectos independientes.</p><table><tr><th>Caso</th><th>Fase y paso que falló</th><th>Evidencia</th></tr>${otherFailures.map(([id,r])=>`<tr><td>${esc(id)}</td><td>${esc(r.failure_phase)}<br><code>${esc(r.failed_step)}</code></td><td><a href="../evidencias/${esc(id)}.html">Petición y respuesta</a></td></tr>`).join('')}</table><p><a href="../docs/incidencia-consistencia.md">Explicación, límites y comparación de ejecuciones</a></p></article>`;
 if(D.supplementary){const s=D.supplementary;el('current-karate-report').textContent=`Abrir última suite completa: ${D.stats.executed+s.cases.length} escenarios, ${D.stats.passed+s.stats.APROBADO} aprobados y ${D.stats.failed+s.stats['FALLÓ']} fallidos`;}
+
+document.addEventListener('click',async e=>{
+ const a=e.target.closest('a');if(!a)return;
+ const supplementary=a.getAttribute('href')==='#supplementary-results';
+ if(!supplementary&&!a.dataset.allCases)return;
+ e.preventDefault();
+ if(document.fullscreenElement)await document.exitFullscreen();
+ if(a.dataset.allCases){el('search').value='';el('hu-filter').value='';el('status-filter').value='';draw();}
+ const target=supplementary?el('supplementary-results'):el('historias');
+ if(supplementary)target.closest('details').open=true;
+ location.hash=target.id;target.scrollIntoView({behavior:'smooth',block:'start'});
+});
