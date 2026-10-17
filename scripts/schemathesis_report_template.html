@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schemathesis · Peticiones y comprobaciones reales</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#172b31;background:#f4f7f8}body{margin:0}main{max-width:1200px;margin:auto;padding:28px}h1{font-size:28px;margin:8px 0}p{line-height:1.6}.eyebrow{color:#087f77;font-weight:700}a{color:#087f77}.summary,.controls,.notice,article{background:white;border:1px solid #d7e2e4;border-radius:10px;padding:18px;margin:16px 0}.summary{display:flex;gap:28px;flex-wrap:wrap}.stat strong{display:block;font-size:26px}.stat span{font-size:13px}.notice{background:#fff8e7;border-color:#e9cc86}.controls{display:flex;gap:12px;flex-wrap:wrap}input,select,button{padding:10px;border:1px solid #a9bdc2;border-radius:6px;background:white;color:inherit}input{flex:1;min-width:220px}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}.head{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.method{padding:5px 9px;border-radius:5px;background:#edf1f3;font-weight:800}.GET{background:#e4f1ff;color:#155e9f}.POST{background:#e0f5e8;color:#17623a}.PUT,.PATCH{background:#fff0d9;color:#854e00}.DELETE{background:#ffe6e8;color:#a61d29}.fail{border-left:5px solid #c63242}.ok{border-left:5px solid #168373}.muted{color:#526c73;font-size:13px}code{overflow-wrap:anywhere}.details{display:grid;grid-template-columns:1fr 1fr;gap:15px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f4f5;padding:14px;border-radius:6px;max-height:380px;overflow:auto;font-size:12px}summary{cursor:pointer;font-weight:650;padding:12px 0}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.chip{background:#edf2f3;border-radius:12px;padding:4px 9px;font-size:12px}.pager{display:flex;gap:15px;align-items:center;flex-wrap:wrap}.empty{padding:40px;text-align:center}@media(max-width:650px){main{padding:15px}.details{grid-template-columns:1fr}h1{font-size:23px}}
+</style>
+<main>
+<a href="../apidoc/#demostracion">← Volver a la demostración</a>
+<p class="eyebrow">EVIDENCIA TÉCNICA · SCHEMATHESIS 4.17.0</p>
+<h1>Peticiones y comprobaciones reales</h1>
+<p id="execution"></p>
+<div class="summary" id="stats"></div>
+<div class="notice"><strong>Leer el resultado con contexto.</strong> Esta vista muestra peticiones registradas y sus checks. Un 404 o 422 puede ser el resultado correcto. «Checks registrados sin fallo» no acredita todos los requisitos; una petición auxiliar puede evaluarse en el caso padre. Las categorías se asignan solo cuando existe evidencia en los metadatos. Los fallos repetidos de checks no equivalen a defectos confirmados.</div>
+<p><a href="schemathesis-detallado.json" download>Descargar evidencia JSON redactada</a> · <a href="../docs/revision-contrato.md">Interpretación de señales y límites</a></p>
+<div class="controls">
+<input id="search" type="search" aria-label="Buscar método, ruta, campo, caso o texto" placeholder="Buscar: alias, /api/contactos, ID…">
+<select id="phase" aria-label="Filtrar fase"><option value="">Todas las fases</option></select>
+<select id="category" aria-label="Filtrar categoría"><option value="">Todas las categorías</option></select>
+<select id="outcome" aria-label="Filtrar resultado"><option value="">Todos los resultados</option></select>
+</div>
+<p class="muted" id="count" aria-live="polite"></p>
+<div class="pager"><button id="prev">Anterior</button><span id="page"></span><button id="next">Siguiente</button></div>
+<section id="requests" aria-label="Peticiones registradas"></section>
+<details><summary>Fuentes, conteos y limitaciones</summary><pre id="source"></pre></details>
+</main>
+<script>
+'use strict';
+const DATA=/*DATA*/null;
+const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
+const pretty=value=>value===null||value===undefined?'Sin cuerpo registrado':JSON.stringify(value,null,2);
+const q=id=>document.getElementById(id);
+q('execution').textContent=`Ejecución ${DATA.summary.run_id} · Inicio (Lima): ${new Date(DATA.summary.started_at).toLocaleString('es-PE',{timeZone:'America/Lima'})}. Datos conservados de NDJSON y HAR; no se ejecutan pruebas al abrir esta página.`;
+for(const [number,label] of [[DATA.summary.ndjson_interactions,'peticiones detalladas (NDJSON)'],[DATA.summary.har_entries,'peticiones en HAR'],[DATA.summary.har_correlated,'coincidencias verificadas HAR/NDJSON'],[DATA.summary.requests_with_check_failure,'peticiones con check fallido']]){const s=el('div',undefined,'stat');s.append(el('strong',number),el('span',label));q('stats').append(s);}
+q('source').textContent=pretty(DATA.summary);
+for(const field of ['phase','category','outcome'])for(const value of [...new Set(DATA.requests.map(r=>r[field]))].sort()){const option=el('option',value);option.value=value;q(field).append(option);}
+let page=0;const size=25;let filtered=[];
+function update(reset=true){if(reset)page=0;const term=q('search').value.trim().toLowerCase();filtered=DATA.requests.filter(r=>(!q('phase').value||r.phase===q('phase').value)&&(!q('category').value||r.category===q('category').value)&&(!q('outcome').value||r.outcome===q('outcome').value)&&(!term||JSON.stringify(r).toLowerCase().includes(term)));render();}
+function render(){const container=q('requests');container.replaceChildren();const totalPages=Math.max(1,Math.ceil(filtered.length/size));page=Math.min(page,totalPages-1);q('count').textContent=`${filtered.length} de ${DATA.requests.length} peticiones coinciden con los filtros.`;q('page').textContent=`Página ${page+1} de ${totalPages}`;q('prev').disabled=page===0;q('next').disabled=page+1>=totalPages;
+for(const r of filtered.slice(page*size,(page+1)*size)){const article=el('article',undefined,r.outcome==='fallo de check'?'fail':r.checks.length?'ok':'');article.id='caso-'+r.case_id;
+const head=el('div',undefined,'head');head.append(el('span',r.method,'method '+r.method),el('code',r.path_template||r.url),el('strong','HTTP '+(r.status??'sin respuesta')));article.append(head);
+article.append(el('p',`${r.case_id} · ${r.phase} · ${r.origin} · ${r.outcome}`,'muted'));
+const chips=el('div',undefined,'chips');chips.append(el('span',r.category,'chip'));if(r.parent_id)chips.append(el('span','Padre: '+r.parent_id,'chip'));article.append(chips);
+const detail=el('details');detail.append(el('summary','Ver petición, respuesta y checks'));
+detail.append(el('p',r.url),el('p',r.category_evidence,'muted'),el('p',r.correlation,'muted'));
+const grid=el('div',undefined,'details');for(const [title,value] of [['Petición · encabezados',r.request_headers],['Respuesta · encabezados',r.response_headers],['Petición · cuerpo',r.request_body],['Respuesta · cuerpo',r.response_body]]){const panel=el('div');panel.append(el('h3',title),el('pre',pretty(value)));grid.append(panel);}detail.append(grid);
+detail.append(el('h3','Checks asociados a este case_id'),el('pre',r.checks.length?pretty(r.checks):'No hay checks propios registrados. Si es una petición auxiliar, consulta el resultado del caso padre.'));
+if(r.parent_id){const link=el('button','Mostrar caso padre');link.addEventListener('click',()=>{q('search').value=r.parent_id;q('phase').value='';q('category').value='';q('outcome').value='';update();});detail.append(link);}
+detail.append(el('h3','Metadatos de generación conservados'),el('pre',pretty(r.metadata)));article.append(detail);container.append(article);}
+if(!filtered.length)container.append(el('p','No hay coincidencias. Ajusta los filtros.','empty'));}
+q('search').addEventListener('input',()=>update());for(const id of ['phase','category','outcome'])q(id).addEventListener('change',()=>update());q('prev').addEventListener('click',()=>{page--;render();});q('next').addEventListener('click',()=>{page++;render();});update();
+</script></html>

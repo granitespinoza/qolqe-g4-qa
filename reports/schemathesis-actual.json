@@ -112,49 +112,49 @@
       "response_status": 401,
       "codigo": "CREDENCIALES_INVALIDAS",
       "detail": "Celular o PIN incorrectos",
-      "action": "reintento de preparaciÃ³n tras 0.2 segundos"
+      "action": "reintento de preparación tras 0.2 segundos"
     },
     {
       "operation": "contacto propio visible tras alta",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "contacto propio visible tras alta",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "contacto propio visible tras alta",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "contacto propio visible tras alta",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "solicitud visible para el participante correcto",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "contacto propio visible tras alta",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "solicitud visible para el participante correcto",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "login tras registro",
@@ -162,19 +162,19 @@
       "response_status": 401,
       "codigo": "CREDENCIALES_INVALIDAS",
       "detail": "Celular o PIN incorrectos",
-      "action": "reintento de preparaciÃ³n tras 0.2 segundos"
+      "action": "reintento de preparación tras 0.2 segundos"
     },
     {
       "operation": "contacto propio visible tras alta",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     },
     {
       "operation": "solicitud visible para el participante correcto",
       "attempts": 1,
       "response_status": 200,
-      "result": "precondiciÃ³n visible"
+      "result": "precondición visible"
     }
   ],
   "generator_preparation_retries": [],

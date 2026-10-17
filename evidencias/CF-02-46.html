@@ -1,4 +1,4 @@
-<html lang="es"><meta charset="utf-8"><title>CF-02-46</title><style>body{font:16px Segoe UI;margin:35px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Editar alias inválido conserva el contacto original</h1><p>CF-02-46 · APROBADO · ejecución 20261017T015949Z-a4941f</p><p>Registro real; tokens ocultos. Cada fila de Examples se conserva por separado.</p><pre>
+<html lang="es"><meta charset="utf-8"><title>CF-02-46</title><style>body{font:16px Segoe UI;margin:35px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Editar alias inválido conserva el contacto original</h1><p>CF-02-46 · APROBADO · ejecución 20261017T022208Z-161b94</p><p>Registro real; tokens ocultos. Cada fila de Examples se conserva por separado.</p><pre>
 
 
 
@@ -12,308 +12,7 @@
 
 
 
-
-
-
-
-
-
-21:00:01.938 request:
-1 &gt; DELETE http://127.0.0.1:8000/api/pruebas/reloj
-1 &gt; Authorization: null
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-
-
-21:00:01.938 response time in milliseconds: 0
-1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:00:01 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 49
-1 &lt; content-type: application/json
-{&quot;ahora&quot;:&quot;2026-10-16T21:00:01&quot;,&quot;desfasado&quot;:false}
-
-
-
-
-
-
-
-
-
-
-
-function(name) {
-  var n = random();
-  var cell = &#x27;9&#x27; + n;
-  var reg = karate.call(http, { route: &#x27;/api/usuarios&#x27;, method: &#x27;POST&#x27;, body: {dni:n, nombres:name, celular:cell, pin:&#x27;4826&#x27;} });
-  if (reg.statusCode != 201) karate.fail(&#x27;No se pudo crear contexto: &#x27; + JSON.stringify(reg.result));
-  var login = karate.call(http, {route:&#x27;/api/auth/login&#x27;,method:&#x27;POST&#x27;,body:{celular:cell,pin:&#x27;4826&#x27;}});
-  if (login.statusCode != 200) karate.fail(&#x27;No se pudo autenticar contexto&#x27;);
-  return {cell:cell, token:login.result.access_token, id:reg.result.id};
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:01.970 request:
-1 &gt; POST http://127.0.0.1:8000/api/usuarios
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 79
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;dni&quot;:&quot;21272753&quot;,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;921272753&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:00:02.102 response time in milliseconds: 132
-1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:00:01 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 107
-1 &lt; content-type: application/json
-{&quot;id&quot;:3271,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;921272753&quot;,&quot;correo&quot;:null,&quot;creado_en&quot;:&quot;2026-10-16T21:00:01&quot;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:02.117 request:
-1 &gt; POST http://127.0.0.1:8000/api/auth/login
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 36
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;921272753&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:00:02.230 response time in milliseconds: 111
-1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:00:01 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 370
-1 &lt; content-type: application/json
-{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:3162,&quot;usuario&quot;:{&quot;id&quot;:3271,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;921272753&quot;}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:02.247 request:
-1 &gt; POST http://127.0.0.1:8000/api/usuarios
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 79
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;dni&quot;:&quot;47333705&quot;,&quot;nombres&quot;:&quot;Franco Prueba&quot;,&quot;celular&quot;:&quot;947333705&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:00:02.376 response time in milliseconds: 129
-1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:00:01 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 107
-1 &lt; content-type: application/json
-{&quot;id&quot;:3272,&quot;nombres&quot;:&quot;Franco Prueba&quot;,&quot;celular&quot;:&quot;947333705&quot;,&quot;correo&quot;:null,&quot;creado_en&quot;:&quot;2026-10-16T21:00:02&quot;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:02.393 request:
-1 &gt; POST http://127.0.0.1:8000/api/auth/login
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 36
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;947333705&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:00:02.507 response time in milliseconds: 114
-1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:00:02 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 370
-1 &lt; content-type: application/json
-{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:3163,&quot;usuario&quot;:{&quot;id&quot;:3272,&quot;nombres&quot;:&quot;Franco Prueba&quot;,&quot;celular&quot;:&quot;947333705&quot;}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:02.547 request:
-1 &gt; POST http://127.0.0.1:8000/api/usuarios
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 80
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;dni&quot;:&quot;19646700&quot;,&quot;nombres&quot;:&quot;Tercero Prueba&quot;,&quot;celular&quot;:&quot;919646700&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:00:02.677 response time in milliseconds: 130
-1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:00:02 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 108
-1 &lt; content-type: application/json
-{&quot;id&quot;:3273,&quot;nombres&quot;:&quot;Tercero Prueba&quot;,&quot;celular&quot;:&quot;919646700&quot;,&quot;correo&quot;:null,&quot;creado_en&quot;:&quot;2026-10-16T21:00:02&quot;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:02.697 request:
-1 &gt; POST http://127.0.0.1:8000/api/auth/login
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 36
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;919646700&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:00:02.824 response time in milliseconds: 126
-1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:00:02 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 371
-1 &lt; content-type: application/json
-{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:3164,&quot;usuario&quot;:{&quot;id&quot;:3273,&quot;nombres&quot;:&quot;Tercero Prueba&quot;,&quot;celular&quot;:&quot;919646700&quot;}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:00:02.836 request:
+21:22:21.208 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -322,15 +21,50 @@ function(name) {
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;947333705&quot;,&quot;alias&quot;:&quot;Inicial&quot;}
+{&quot;celular&quot;:&quot;974770083&quot;,&quot;alias&quot;:&quot;Inicial&quot;}
 
-21:00:02.843 response time in milliseconds: 6
+21:22:21.219 response time in milliseconds: 11
 1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:00:02 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:22:20 GMT
 1 &lt; server: uvicorn
-1 &lt; content-length: 88
+1 &lt; content-length: 89
 1 &lt; content-type: application/json
-{&quot;id&quot;:795,&quot;alias&quot;:&quot;Inicial&quot;,&quot;celular&quot;:&quot;947333705&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:1127,&quot;alias&quot;:&quot;Inicial&quot;,&quot;celular&quot;:&quot;974770083&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+21:22:21.229 request:
+1 &gt; GET http://127.0.0.1:8000/api/contactos?pagina=1
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+21:22:21.232 response time in milliseconds: 3
+1 &lt; 200
+1 &lt; date: Sat, 17 Oct 2026 02:22:20 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 174
+1 &lt; content-type: application/json
+{&quot;buscar&quot;:null,&quot;pagina&quot;:1,&quot;por_pagina&quot;:10,&quot;total&quot;:1,&quot;total_paginas&quot;:1,&quot;contactos&quot;:[{&quot;id&quot;:1127,&quot;alias&quot;:&quot;Inicial&quot;,&quot;celular&quot;:&quot;974770083&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}]}
 
 
 
@@ -354,8 +88,8 @@ function(name) {
 
 
 
-21:00:02.849 request:
-1 &gt; PUT http://127.0.0.1:8000/api/contactos/795
+21:22:21.249 request:
+1 &gt; PUT http://127.0.0.1:8000/api/contactos/1127
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 15
@@ -365,9 +99,9 @@ function(name) {
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;alias&quot;:&quot;   &quot;}
 
-21:00:02.864 response time in milliseconds: 15
+21:22:21.261 response time in milliseconds: 12
 1 &lt; 422
-1 &lt; date: Sat, 17 Oct 2026 02:00:02 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:22:20 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 82
 1 &lt; content-type: application/json
@@ -397,7 +131,7 @@ function(name) {
 
 
 
-21:00:02.874 request:
+21:22:21.270 request:
 1 &gt; GET http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -406,13 +140,13 @@ function(name) {
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:00:02.880 response time in milliseconds: 6
+21:22:21.278 response time in milliseconds: 8
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:00:02 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:22:20 GMT
 1 &lt; server: uvicorn
-1 &lt; content-length: 173
+1 &lt; content-length: 174
 1 &lt; content-type: application/json
-{&quot;buscar&quot;:null,&quot;pagina&quot;:1,&quot;por_pagina&quot;:10,&quot;total&quot;:1,&quot;total_paginas&quot;:1,&quot;contactos&quot;:[{&quot;id&quot;:795,&quot;alias&quot;:&quot;Inicial&quot;,&quot;celular&quot;:&quot;947333705&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}]}
+{&quot;buscar&quot;:null,&quot;pagina&quot;:1,&quot;por_pagina&quot;:10,&quot;total&quot;:1,&quot;total_paginas&quot;:1,&quot;contactos&quot;:[{&quot;id&quot;:1127,&quot;alias&quot;:&quot;Inicial&quot;,&quot;celular&quot;:&quot;974770083&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}]}
 
 
 

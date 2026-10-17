@@ -1,0 +1,104 @@
+{
+  "report_dir": "reports/raw/readiness-contactos-20261016",
+  "executed": 7,
+  "passed": 7,
+  "failed": 0,
+  "retry_exercised": false,
+  "note": "Recorrido normal comprobado: todos los primeros sondeos disponibles; no se reproduce carrera en esta selección.",
+  "cases": [
+    {
+      "feature": "features.contrato-contactos.json",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@CT-08",
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@CT-08",
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@CT-08",
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@CT-08",
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "name": "Editar alias con símbolo prohibido conserva el contacto",
+      "tags": [
+        "@CT-09",
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-04.json",
+      "name": "Solicitud pendiente enviada impide eliminar",
+      "tags": [
+        "@HU-G4-04",
+        "@CA2",
+        "@api",
+        "@G4-029"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-06.json",
+      "name": "Monto solicitado 0.00",
+      "tags": [
+        "@CA1",
+        "@HU-G4-06",
+        "@G4-035",
+        "@api"
+      ],
+      "status": "APROBADO"
+    }
+  ]
+}

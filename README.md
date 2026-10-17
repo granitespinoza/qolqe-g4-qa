@@ -57,3 +57,10 @@ API: http://localhost:8000/docs · OpenAPI: http://localhost:8000/openapi.json.
 `reports/raw/` contiene reportes locales completos; puede incluir tokens de prueba y no se versiona. `evidencias/` contiene registros HTML con tokens ocultos. GitHub Actions conserva reportes de prueba como artefactos privados por 7 días.
 La suite es secuencial por el reloj compartido. No se declara cobertura total mientras existan pendientes en `docs/cobertura.md`. No se crea `parte-1` hasta completar y revisar la entrega.
 Cada ejecución nueva conserva un directorio propio y `reports/latest-karate.json`, con commit, huellas de fuentes e inicio/fin. La documentación rechaza resultados de otro diseño y usa el OpenAPI capturado en esa ejecución. `--start-api` rechaza un puerto ocupado para evitar probar otra instancia por accidente.
+
+## Sustentación en vivo (última indicación de la docente)
+Explicar una HU con sus CA y diseño; ejecutar toda la automatización; revisar el reporte; defender otra HU por tag. Ensayar 10 minutos y reservar 5 de preguntas, cerrando con conclusiones. Las capturas son archivo de estudio.
+
+Schemathesis dispone de [peticiones y checks detallados](reports/schemathesis-detallado.html), con filtros basados en metadatos y credenciales ocultas. Los casos CT explícitos y la matriz complementan las condiciones no demostradas por la exploración. El detalle se genera al ejecutar Schemathesis; también puede reconstruirse desde su evidencia local con `scripts/build_schemathesis_report.py`.
+
+La preparación de usuarios, contactos y sesiones comprueba disponibilidad mediante sondeos acotados y registrados. No se reintentan operaciones financieras ni se cambian sus aserciones. [Incidencia y comparación de ejecuciones](docs/incidencia-consistencia.md).

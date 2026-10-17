@@ -5,7 +5,7 @@
 
 
 
-21:02:00.339 request:
+21:25:39.551 request:
 1 &gt; PUT http://127.0.0.1:8000/api/cuentas/me
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nombres&quot;:&quot;Granit Actualizado&quot;,&quot;correo&quot;:&quot;947339350@example.com&quot;,&quot;dni&quot;:&quot;11111111&quot;,&quot;celular&quot;:&quot;999999999&quot;}
+{&quot;nombres&quot;:&quot;Granit Actualizado&quot;,&quot;correo&quot;:&quot;958280590@example.com&quot;,&quot;dni&quot;:&quot;11111111&quot;,&quot;celular&quot;:&quot;999999999&quot;}
 
-21:02:00.345 response time in milliseconds: 6
+21:25:39.551 response time in milliseconds: 0
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:59 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:25:39 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 166
 1 &lt; content-type: application/json
-{&quot;id&quot;:3750,&quot;nombres&quot;:&quot;Granit Actualizado&quot;,&quot;celular&quot;:&quot;947339350&quot;,&quot;correo&quot;:&quot;947339350@example.com&quot;,&quot;dni&quot;:&quot;****9350&quot;,&quot;estado&quot;:&quot;ACTIVA&quot;,&quot;creado_en&quot;:&quot;2026-10-16T21:01:59&quot;}
+{&quot;id&quot;:5022,&quot;nombres&quot;:&quot;Granit Actualizado&quot;,&quot;celular&quot;:&quot;958280590&quot;,&quot;correo&quot;:&quot;958280590@example.com&quot;,&quot;dni&quot;:&quot;****0590&quot;,&quot;estado&quot;:&quot;ACTIVA&quot;,&quot;creado_en&quot;:&quot;2026-10-16T21:25:38&quot;}
 
 
 
@@ -37,8 +37,8 @@
 
 
 
-21:02:00.361 request:
-1 &gt; GET http://127.0.0.1:8000/api/pruebas/notificaciones?celular=947339350
+21:25:39.567 request:
+1 &gt; GET http://127.0.0.1:8000/api/pruebas/notificaciones?celular=958280590
 1 &gt; Authorization: null
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -46,13 +46,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:02:00.366 response time in milliseconds: 5
+21:25:39.585 response time in milliseconds: 18
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:59 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:25:39 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 295
 1 &lt; content-type: application/json
-[{&quot;celular&quot;:&quot;947339350&quot;,&quot;mensaje&quot;:&quot;El correo de tu cuenta Qolqe se cambió a 947339350@example.com. Si no fuiste tú, comunícate con nosotros.&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:02:00&quot;},{&quot;celular&quot;:&quot;947339350&quot;,&quot;mensaje&quot;:&quot;Bienvenido a Qolqe. Tu cuenta fue creada con éxito.&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:01:59&quot;}]
+[{&quot;celular&quot;:&quot;958280590&quot;,&quot;mensaje&quot;:&quot;El correo de tu cuenta Qolqe se cambió a 958280590@example.com. Si no fuiste tú, comunícate con nosotros.&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:25:39&quot;},{&quot;celular&quot;:&quot;958280590&quot;,&quot;mensaje&quot;:&quot;Bienvenido a Qolqe. Tu cuenta fue creada con éxito.&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:25:38&quot;}]
 
 
 

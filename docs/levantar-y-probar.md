@@ -153,9 +153,25 @@ Para cerrar la sesión de trabajo, pulsa **Ctrl+C** en las terminales de API y H
 1. Herramienta y motivo (breve), alcance asignado y HU elegida con **todos** sus CA.
 2. Requisito → particiones/límites/estados o decisiones → casos resultantes. Explica por qué usaste esa técnica y qué datos elegiste.
 3. Abre el `.feature`: preparación, petición y aserciones. Distingue reglas funcionales de restricciones del contrato.
-4. Ejecuta la HU en vivo, muestra su reporte y explica resultados concretos. Si hay un defecto, conserva el fallo y justifica el esperado.
-5. Ten listo el comando de suite del alcance y el de HU/caso por tag para la elección al azar. No prometas cobertura de un criterio sin su caso y evidencia.
+4. Ejecuta toda la automatización del alcance en vivo, muestra su reporte y explica resultados concretos. Si hay un defecto, conserva el fallo y justifica el esperado.
+5. Después ejecuta y explica la HU/caso elegida al azar usando su tag. Cierra con conclusiones y lecciones aprendidas. No prometas cobertura de un criterio sin su caso y evidencia.
 
 ## Incidencia observada al preparar datos
 
 La ejecución integrada del 16/10 registró seis fallos de login en Background y una consulta prematura tras crear un contacto. Consulta [evidencia y causa probable](incidencia-consistencia.md). Un 201 seguido inmediatamente de 401/404 no demuestra que la regla funcional posterior haya sido evaluada. Conserva ambos registros; cualquier repetición produce un reporte nuevo, sin borrar el fallo anterior. Los controles de Schemathesis registran sus reintentos de preparación por separado.
+
+## Tiempo de sustentación
+
+Ensaya 10 minutos de exposición y reserva 5 para preguntas: herramienta y alcance 1 minuto; HU, técnicas y datos 3; validaciones técnicas y evidencia 2; ejecución completa y reporte 3; conclusiones 1. Las preguntas aleatorias se atienden con los tags ya preparados. No reemplaces la ejecución completa por una selección ni por capturas.
+
+## Mostrar el detalle técnico de Schemathesis
+
+Al ejecutar `scripts/run_qa.py schemathesis` se genera automáticamente [el reporte navegable](../reports/schemathesis-detallado.html). Filtra por categoría (required, type, length, pattern o auth), abre una petición y muestra su dato, respuesta y checks. Conserva los metadatos que explican la categoría. Sin metadatos suficientes se indica sin categoría demostrada; eso no cuenta como cobertura probada. Distingue checks propios de peticiones auxiliares evaluadas por un padre.
+
+Para reconstruirlo desde la última ejecución guardada sin consumir la API:
+
+```powershell
+./.venv/Scripts/python.exe scripts/build_schemathesis_report.py
+```
+
+La reconstrucción lee evidencia histórica. Para la demo en vivo primero ejecuta la herramienta y luego abre el reporte de esa ejecución. El lanzador conserva además una copia del detalle en la carpeta propia de cada ejecución nueva.

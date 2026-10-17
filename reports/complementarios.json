@@ -1,7 +1,7 @@
 {
-  "run_id": "20261017T015949Z-a4941f",
+  "run_id": "20261017T022208Z-161b94",
   "stats": {
-    "APROBADO": 54,
+    "APROBADO": 59,
     "FALLÓ": 6,
     "PENDIENTE": 0
   },
@@ -425,6 +425,41 @@
       "name": "Operaciones protegidas rechazan peticiones sin token",
       "status": "APROBADO",
       "evidence": "evidencias/CT-07-145.html"
+    },
+    {
+      "id": "CT-08-161",
+      "tag": "CT-08",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-08-161.html"
+    },
+    {
+      "id": "CT-08-162",
+      "tag": "CT-08",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-08-162.html"
+    },
+    {
+      "id": "CT-08-163",
+      "tag": "CT-08",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-08-163.html"
+    },
+    {
+      "id": "CT-08-164",
+      "tag": "CT-08",
+      "name": "Bearer con token malformado no autentica operaciones protegidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-08-164.html"
+    },
+    {
+      "id": "CT-09-167",
+      "tag": "CT-09",
+      "name": "Editar alias con símbolo prohibido conserva el contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-09-167.html"
     }
   ]
 }

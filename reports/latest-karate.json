@@ -1,14 +1,14 @@
 {
-  "run_id": "20261017T015949Z-a4941f",
+  "run_id": "20261017T022208Z-161b94",
   "tool": "karate",
   "scope": "all",
   "tag": null,
-  "started_at": "2026-10-17T01:59:49.173417+00:00",
-  "report_dir": "reports/raw/karate/20261017T015949Z-a4941f",
+  "started_at": "2026-10-17T02:22:08.149557+00:00",
+  "report_dir": "reports/raw/karate/20261017T022208Z-161b94",
   "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
   "source_hashes": {
     "features/complemento-contactos.feature": "2a0d04f34caa24553c34991eb60972936bbbc1584a3e9e5ac7a4e64199f9650b",
-    "features/contrato-contactos.feature": "c619bf8c2658ab3b5d2b0ae0e9b08ff10dc713bf0e860f6ab234ca0e47beb332",
+    "features/contrato-contactos.feature": "3cc2d8d5814eafd5cfa12d774e4d4c990cf1f65b734c050ca6004833dcac8d7c",
     "features/hu-g4-01.feature": "9dfb5e6c66dcb0f47f9f0f1475a29276e56a70c8bd29c5f2e224ec6c51daf84f",
     "features/hu-g4-02.feature": "6cfbf14b93614cb8bd88d83dc8cc8ebe78f2f19b9016a9fcc593ecd74b8ea946",
     "features/hu-g4-03.feature": "bc90c0997b2313fc5759cd95c2131f48a49673e5f55e5b0e90e3f2a37553a04a",
@@ -29,12 +29,13 @@
     "features/hu-n-08.feature": "4c3d906319f7fa5b10a21286fd0c65b1600f75796c649d7c5d323528358c42c8",
     "features/hu-n-09.feature": "a166dc35c855a4db0c55195e8258f0ecccad75715f8326c60e833a8e7a81b99a",
     "features/support/http.feature": "10d04bc36c21c8d197c5fb6f303ccf4425425d530ecd37e0b18b373e758725a7",
-    "features/support/setup.feature": "9f8f532e3c87234d674a13ddd1edaeca495042d3ecd70eb9031f720896c43c77",
+    "features/support/session-ready.feature": "dabe8186b06d9939ae639b8172fa21af41104094fa4c7cf2f68d492adb8cc6db",
+    "features/support/setup.feature": "69392392f20970aba7e60e7614b2b837027a551ace0b3f1d882535f1ab614243",
     "karate-config.js": "f000ee811707745897f8f7da250edca3c27c3df719aa1dcc070fb08988dcbfd8",
     "data/casos.json": "9a59b504df058573e110aa10173dcb26a9bc13c4cdbad41d6e4db82e4d6f4d94",
     "scripts/concurrency_probe.py": "ffb9d7230dbc4195bc3e6dca73055354b057857af33460b53676eb78154a76a3"
   },
   "openapi_sha256": "4247ee6fe4d1ede34b325c4de4e9d6e6dd258240720dd406bfa0ee647e794b69",
-  "finished_at": "2026-10-17T02:02:13.634789+00:00",
+  "finished_at": "2026-10-17T02:26:08.535914+00:00",
   "exit_code": 1
 }

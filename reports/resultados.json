@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-10-16T21:02:13-05:00",
+  "timestamp": "2026-10-16T21:26:08-05:00",
   "commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
   "stats": {
     "executed": 116,
-    "passed": 103,
-    "failed": 13
+    "passed": 107,
+    "failed": 9
   },
   "results": {
     "G4-001": {
@@ -120,12 +120,12 @@
       "failure_phase": null
     },
     "G4-015": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  201\n  404\n\nfeatures/hu-g4-01.feature:159",
       "feature": "features/hu-g4-01.feature",
       "name": "Celular válido sin registro",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "match r.statusCode == 404",
+      "failure_phase": "asercion"
     },
     "G4-016": {
       "status": "APROBADO",
@@ -157,7 +157,294 @@
       "feature": "features/hu-g4-01.feature",
       "name": "Permitir contacto 15 y rechazar contacto 16",
       "failed_step": "",
-      "failure_phase": null
+      "failure_phase": null,
+      "attachments": [
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 154,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 166,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 140,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 160,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 161,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 151,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 142,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 159,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 164,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 153,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 146,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 146,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 42,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 43,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 44,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        }
+      ]
     },
     "G4-106": {
       "status": "APROBADO",
@@ -189,7 +476,161 @@
       "feature": "features/hu-g4-02.feature",
       "name": "Paginación con 11 contactos",
       "failed_step": "",
-      "failure_phase": null
+      "failure_phase": null,
+      "attachments": [
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 213,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 218,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 279,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 223,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 150,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 151,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 150,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 43,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        }
+      ]
     },
     "G4-023": {
       "status": "APROBADO",
@@ -229,7 +670,104 @@
       "feature": "features/hu-g4-03.feature",
       "name": "Quinto favorito permitido; sexto rechazado",
       "failed_step": "",
-      "failure_phase": null
+      "failure_phase": null,
+      "attachments": [
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 149,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 158,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-usuario",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 156,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "CREDENCIALES_INVALIDAS"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 38,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        },
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 45,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        }
+      ]
     },
     "G4-027": {
       "status": "APROBADO",
@@ -256,12 +794,12 @@
       "failure_phase": null
     },
     "G4-029": {
-      "status": "FALLÓ",
-      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-g4-04.feature:9",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-g4-04.feature",
       "name": "Solicitud pendiente enviada impide eliminar",
-      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
-      "failure_phase": "preparacion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-030": {
       "status": "APROBADO",
@@ -277,7 +815,28 @@
       "feature": "features/hu-g4-04.feature",
       "name": "Solicitud vencida permite eliminar",
       "failed_step": "",
-      "failure_phase": null
+      "failure_phase": null,
+      "attachments": [
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 41,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        }
+      ]
     },
     "G4-032": {
       "status": "APROBADO",
@@ -304,20 +863,20 @@
       "failure_phase": null
     },
     "G4-034": {
-      "status": "FALLÓ",
-      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-g4-06.feature:9",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-g4-06.feature",
       "name": "Crear solicitud pendiente con vigencia 48 h y SMS",
-      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
-      "failure_phase": "preparacion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-035": {
-      "status": "FALLÓ",
-      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  404\n  422\n\nfeatures/hu-g4-06.feature:41",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-g4-06.feature",
       "name": "Monto solicitado 0.00",
-      "failed_step": "match r.statusCode == 422",
-      "failure_phase": "asercion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-036": {
       "status": "APROBADO",
@@ -421,7 +980,28 @@
       "feature": "features/hu-g4-07.feature",
       "name": "Estado al transcurrir 2880 minutos",
       "failed_step": "",
-      "failure_phase": null
+      "failure_phase": null,
+      "attachments": [
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 43,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        }
+      ]
     },
     "G4-048": {
       "status": "APROBADO",
@@ -429,7 +1009,28 @@
       "feature": "features/hu-g4-07.feature",
       "name": "Estado al transcurrir 2881 minutos",
       "failed_step": "",
-      "failure_phase": null
+      "failure_phase": null,
+      "attachments": [
+        {
+          "phase": "readiness-sesion",
+          "max_attempts": 20,
+          "deadline_ms": 2000,
+          "elapsed_ms": 45,
+          "interval_ms": 25,
+          "observations": [
+            {
+              "attempt": 1,
+              "status": 401,
+              "codigo": "NO_AUTENTICADO"
+            },
+            {
+              "attempt": 2,
+              "status": 200,
+              "codigo": null
+            }
+          ]
+        }
+      ]
     },
     "G4-049": {
       "status": "APROBADO",
@@ -576,12 +1177,12 @@
       "failure_phase": null
     },
     "G4-098": {
-      "status": "FALLÓ",
-      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-g4-09.feature:9",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-g4-09.feature",
       "name": "No rechazar desde ACEPTADA",
-      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
-      "failure_phase": "preparacion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-101": {
       "status": "APROBADO",
@@ -696,28 +1297,28 @@
       "failure_phase": null
     },
     "G4-110": {
-      "status": "FALLÓ",
-      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-n-01.feature:9",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-n-01.feature",
       "name": "Celular duplicado responde conflicto",
-      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
-      "failure_phase": "preparacion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-111": {
-      "status": "FALLÓ",
-      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:22\nfeatures/hu-n-01.feature:9",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-n-01.feature",
       "name": "Correo duplicado ignora mayúsculas",
-      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
-      "failure_phase": "preparacion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-072": {
-      "status": "FALLÓ",
-      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-n-02.feature:9",
+      "status": "APROBADO",
+      "error": "",
       "feature": "features/hu-n-02.feature",
       "name": "Login crea sesión con vigencia de 30 minutos",
-      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
-      "failure_phase": "preparacion"
+      "failed_step": "",
+      "failure_phase": null
     },
     "G4-073": {
       "status": "APROBADO",
@@ -736,12 +1337,12 @@
       "failure_phase": null
     },
     "G4-093": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "did not evaluate to 'true': JSON.stringify(r.result).toLowerCase().indexOf('nuevo dispositivo') >= 0\nfeatures/hu-n-02.feature:61",
       "feature": "features/hu-n-02.feature",
       "name": "Nuevo dispositivo permite login y genera alerta",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "assert JSON.stringify(r.result).toLowerCase().indexOf('nuevo dispositivo') >= 0",
+      "failure_phase": "asercion"
     },
     "G4-074": {
       "status": "FALLÓ",
@@ -800,12 +1401,12 @@
       "failure_phase": null
     },
     "G4-080": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  401\n\nfeatures/hu-n-06.feature:27",
       "feature": "features/hu-n-06.feature",
       "name": "Cerrar cuenta con saldo cero revoca acceso",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "match r.statusCode == 401",
+      "failure_phase": "asercion"
     },
     "G4-081": {
       "status": "APROBADO",
@@ -903,35 +1504,35 @@
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101621020803789",
+                  "codigo_operacion": "TRF26101621255605061",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "954227300",
+                    "celular": "921045300",
                     "cci": null
                   },
-                  "saldo": "100.00",
-                  "fecha": "2026-10-16T21:02:08"
+                  "saldo": "-300.00",
+                  "fecha": "2026-10-16T21:25:56"
                 }
               ],
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101621020803789",
+                  "codigo_operacion": "TRF26101621255605061",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "954227300",
+                    "celular": "921045300",
                     "cci": null
                   },
-                  "saldo": "-300.00",
-                  "fecha": "2026-10-16T21:02:08"
+                  "saldo": "100.00",
+                  "fecha": "2026-10-16T21:25:56"
                 }
               ]
             ],
@@ -939,7 +1540,7 @@
             "saldo": {
               "saldo": "-300.00",
               "moneda": "PEN",
-              "actualizado_en": "2026-10-16T21:02:08"
+              "actualizado_en": "2026-10-16T21:25:56"
             },
             "limits": {
               "limite_por_operacion": "500.00",
@@ -958,35 +1559,35 @@
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101621020903791",
+                  "codigo_operacion": "TRF26101621255705063",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "918209500",
+                    "celular": "948234100",
                     "cci": null
                   },
-                  "saldo": "1200.00",
-                  "fecha": "2026-10-16T21:02:09"
+                  "saldo": "1600.00",
+                  "fecha": "2026-10-16T21:25:57"
                 }
               ],
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101621020903791",
+                  "codigo_operacion": "TRF26101621255705063",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "918209500",
+                    "celular": "948234100",
                     "cci": null
                   },
-                  "saldo": "1600.00",
-                  "fecha": "2026-10-16T21:02:09"
+                  "saldo": "1200.00",
+                  "fecha": "2026-10-16T21:25:57"
                 }
               ]
             ],
@@ -994,7 +1595,7 @@
             "saldo": {
               "saldo": "1200.00",
               "moneda": "PEN",
-              "actualizado_en": "2026-10-16T21:02:09"
+              "actualizado_en": "2026-10-16T21:25:57"
             },
             "limits": {
               "limite_por_operacion": "500.00",

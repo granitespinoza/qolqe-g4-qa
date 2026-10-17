@@ -19,7 +19,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-012 | HU-G4-01 CA1 | R-G4-01 | Particiones de equivalencia | Representante de una condición distinta de negocio. | APROBADO |
 | G4-013 | HU-G4-01 CA1 | R-G4-01 | Particiones de equivalencia | Representante de una condición distinta de negocio. | APROBADO |
 | G4-014 | HU-G4-01 CA1 | R-G4-01 | Particiones de equivalencia | Representante de una condición distinta de negocio. | APROBADO |
-| G4-015 | HU-G4-01 CA1 | R-G4-01 | Particiones de equivalencia | Cerrar una cuenta propia de contexto no reutiliza datos ajenos. | APROBADO |
+| G4-015 | HU-G4-01 CA1 | R-G4-01 | Particiones de equivalencia | Cerrar una cuenta propia de contexto no reutiliza datos ajenos. | FALLÓ |
 | G4-016 | HU-G4-01 CA1 | R-G4-01 | Particiones de equivalencia | Mismo celular con otro alias. | APROBADO |
 | G4-017 | HU-G4-01 CA1 | R-G4-02 | Particiones de equivalencia | Unicidad se comprueba sin mayúsculas y tras recortar espacios. | APROBADO |
 | G4-018 | HU-G4-01 CA1 | R-G4-02 | Particiones de equivalencia | Unicidad se comprueba sin mayúsculas y tras recortar espacios. | FALLÓ |
@@ -33,13 +33,13 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-026 | HU-G4-03 CA1 | R-G4-03 | Valores límite (2 puntos) | Verificar 5/6 y que el sexto conserve estado no favorito. | APROBADO |
 | G4-027 | HU-G4-03 CA1 | Propiedad de datos | Particiones de equivalencia | Un tercero no puede editar un recurso ajeno. | APROBADO |
 | G4-028 | HU-G4-04 CA1 | RN-11 | Comprobación de efectos | Transferir, eliminar y consultar movimiento por código. | APROBADO |
-| G4-029 | HU-G4-04 CA2 | R-G4-05 | Tabla de decisiones | Contacto propio y solicitud pendiente vigente. | FALLÓ |
+| G4-029 | HU-G4-04 CA2 | R-G4-05 | Tabla de decisiones | Contacto propio y solicitud pendiente vigente. | APROBADO |
 | G4-030 | HU-G4-04 CA2 | R-G4-05 | Tabla de decisiones | Comprobar dirección recibida, no solo enviada. | APROBADO |
 | G4-031 | HU-G4-04 CA2 | R-G4-05 | Transición de estados | Vencida no bloquea eliminación. | APROBADO |
 | G4-032 | HU-G4-05 CA1 | HU-N-07 | Comprobación de efectos | Cuenta origen 100, destino 0; transferencia 10 y SMS. | APROBADO |
 | G4-033 | HU-G4-05 CA1 | RN-08 | Particiones de equivalencia | Saldo cero y monto válido; no confundir con monto inválido. | APROBADO |
-| G4-034 | HU-G4-06 CA1, CA2 | R-G4-04/05 | Comprobación de efectos | El monto pedido no debita saldo antes de aceptar. | FALLÓ |
-| G4-035 | HU-G4-06 CA1 | RN-05 / R-G4-04 | Valores límite (2 puntos) | Fronteras monetarias y clase con demasiados decimales. | FALLÓ |
+| G4-034 | HU-G4-06 CA1, CA2 | R-G4-04/05 | Comprobación de efectos | El monto pedido no debita saldo antes de aceptar. | APROBADO |
+| G4-035 | HU-G4-06 CA1 | RN-05 / R-G4-04 | Valores límite (2 puntos) | Fronteras monetarias y clase con demasiados decimales. | APROBADO |
 | G4-036 | HU-G4-06 CA1 | RN-05 / R-G4-04 | Valores límite (2 puntos) | Fronteras monetarias y clase con demasiados decimales. | APROBADO |
 | G4-037 | HU-G4-06 CA1 | RN-05 / R-G4-04 | Valores límite (2 puntos) | Fronteras monetarias y clase con demasiados decimales. | APROBADO |
 | G4-038 | HU-G4-06 CA1 | RN-05 / R-G4-04 | Valores límite (2 puntos) | Fronteras monetarias y clase con demasiados decimales. | APROBADO |
@@ -76,7 +76,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-069 | HU-N-01 CA3 | RN-01/02/03 | Particiones de equivalencia | Una entrada inválida por caso. | APROBADO |
 | G4-070 | HU-N-01 CA4 | RN-01/02/03 | Particiones de equivalencia | Una entrada inválida por caso. | APROBADO |
 | G4-071 | HU-N-01 CA5 | RN-01/02/03 | Particiones de equivalencia | Una entrada inválida por caso. | APROBADO |
-| G4-072 | HU-N-02 CA1 | HU-N-02 CA1 | Comprobación de efectos | La autenticación de contexto se vuelve a verificar explícitamente. | FALLÓ |
+| G4-072 | HU-N-02 CA1 | HU-N-02 CA1 | Comprobación de efectos | La autenticación de contexto se vuelve a verificar explícitamente. | APROBADO |
 | G4-073 | HU-N-02 CA2, CA3, CA4 | RN-04 | Transición de estados | Secuencia de intentos y frontera temporal. | APROBADO |
 | G4-074 | HU-N-03 CA1, CA2 | HU-N-03 | Transición de estados | Dos sesiones; revocación de una no afecta la otra. | FALLÓ |
 | G4-075 | HU-N-04 CA1, CA2 | HU-N-04 | Comprobación de efectos | No revelar DNI completo. | APROBADO |
@@ -84,7 +84,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-077 | HU-N-04 CA3 | HU-N-04 CA3 | Particiones de equivalencia | Ausente e inválido son clases diferentes. | APROBADO |
 | G4-078 | HU-N-04 CA3 | HU-N-04 CA3 | Valores límite (2 puntos) | A los 30 min debe rechazarse. | APROBADO |
 | G4-079 | HU-N-05 CA1, CA2, CA3 | HU-N-05 | Comprobación de efectos | Actualizar permitidos sin cambiar identidad. | APROBADO |
-| G4-080 | HU-N-06 CA1, CA2, CA4 | HU-N-06 | Transición de estados | Cierre válido y posterior login prohibido. | APROBADO |
+| G4-080 | HU-N-06 CA1, CA2, CA4 | HU-N-06 | Transición de estados | Cierre válido y posterior login prohibido. | FALLÓ |
 | G4-081 | HU-N-06 CA3 | HU-N-06 CA3 | Tabla de decisiones | Saldo cero pero solicitud pendiente: rechazo de cierre. | APROBADO |
 | G4-082 | HU-N-07 CA1, CA2 | RN-05 | Valores límite (2 puntos) | Probar rango financiero con saldo y destinatario válidos. | APROBADO |
 | G4-083 | HU-N-07 CA1, CA2 | RN-05 | Valores límite (2 puntos) | Probar rango financiero con saldo y destinatario válidos. | APROBADO |
@@ -97,12 +97,12 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-090 | HU-N-09 CA1 | RN-09 | Particiones de equivalencia | Mínimo, proporcional y máximo; saldo no cambia. | APROBADO |
 | G4-091 | HU-N-09 CA1 | RN-09 | Particiones de equivalencia | Mínimo, proporcional y máximo; saldo no cambia. | APROBADO |
 | G4-092 | HU-N-02 CA5 | HU-N-02 CA5 | Transición de estados | Cerrar cuenta con saldo cero antes de intentar ingresar. | APROBADO |
-| G4-093 | HU-N-02 CA6 | HU-N-02 CA6 | Comprobación de efectos | Identificador no registrado no bloquea login, pero avisa. | APROBADO |
+| G4-093 | HU-N-02 CA6 | HU-N-02 CA6 | Comprobación de efectos | Identificador no registrado no bloquea login, pero avisa. | FALLÓ |
 | G4-094 | HU-N-03 CA2 | HU-N-03 CA2 | Transición de estados | Separado del caso de revocación para que su fallo no oculte este criterio. | APROBADO |
 | G4-095 | HU-G4-05 CA1 | RN-06 | Tabla de decisiones | Saldo suficiente pero límite agotado: aislar rechazo diario. | APROBADO |
 | G4-096 | HU-G4-08 CA1, CA2 | RN-06 | Tabla de decisiones | Saldo suficiente pero límite agotado: aislar rechazo diario. | APROBADO |
 | G4-097 | HU-G4-08 CA4 | R-G4-05 | Transición de estados | Cubrir transición inválida desde estado terminal con rol correcto. | APROBADO |
-| G4-098 | HU-G4-09 CA1 | R-G4-05 | Transición de estados | Cubrir transición inválida desde estado terminal con rol correcto. | FALLÓ |
+| G4-098 | HU-G4-09 CA1 | R-G4-05 | Transición de estados | Cubrir transición inválida desde estado terminal con rol correcto. | APROBADO |
 | G4-099 | HU-G4-10 CA1 | R-G4-05 | Transición de estados | Cubrir transición inválida desde estado terminal con rol correcto. | APROBADO |
 | G4-100 | HU-G4-08 CA4 | R-G4-05 | Transición de estados | Cubrir transición inválida desde estado terminal con rol correcto. | APROBADO |
 | G4-101 | HU-G4-09 CA1 | R-G4-05 | Transición de estados | Cubrir transición inválida desde estado terminal con rol correcto. | APROBADO |
@@ -114,8 +114,8 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 | G4-107 | HU-G4-02 CA1 | HU-G4-02 CA1 | Particiones de equivalencia | Cuatro alias comprueban ambos grupos y prioridad de favoritos. | APROBADO |
 | G4-108 | HU-G4-03 CA1 | HU-G4-03 CA1 | Comprobación de efectos | No basta verificar el campo cambiado. | APROBADO |
 | G4-109 | HU-G4-06 CA1 | Propiedad de datos | Particiones de equivalencia | Un id válido ajeno debe ser tratado como inexistente. | APROBADO |
-| G4-110 | HU-N-01 CA3 | RN-02 | Particiones de equivalencia | Registro con celular existente y restantes datos válidos. | FALLÓ |
-| G4-111 | HU-N-01 CA5 | HU-N-01 CA5 | Particiones de equivalencia | Primera cuenta fija correo; segunda intenta su versión en mayúsculas. | FALLÓ |
+| G4-110 | HU-N-01 CA3 | RN-02 | Particiones de equivalencia | Registro con celular existente y restantes datos válidos. | APROBADO |
+| G4-111 | HU-N-01 CA5 | HU-N-01 CA5 | Particiones de equivalencia | Primera cuenta fija correo; segunda intenta su versión en mayúsculas. | APROBADO |
 | G4-112 | HU-N-06 CA1 | HU-N-06 CA1 | Particiones de equivalencia | Saldo cero, PIN incorrecto; conservar cuenta activa. | APROBADO |
 | G4-113 | HU-N-06 CA2 | HU-N-06 CA2 | Particiones de equivalencia | PIN correcto y saldo positivo. | APROBADO |
 | G4-114 | HU-N-07 CA2 | RN-07 | Particiones de equivalencia | Monto válido y saldo suficiente; aislar destino. | APROBADO |
@@ -200,7 +200,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-110 — Celular duplicado responde conflicto
 **Técnica:** Particiones de equivalencia. **Justificación:** Registro con celular existente y restantes datos válidos.
-**Regla:** RN-02. **Resultado:** FALLÓ.
+**Regla:** RN-02. **Resultado:** APROBADO.
 [Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-110.html)
 ```gherkin
 * def r = req('/api/usuarios', 'POST', {dni:'12345678',nombres:'Nuevo Usuario',celular:'#(a.cell)',pin:'4826'}, null, {})
@@ -210,7 +210,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-111 — Correo duplicado ignora mayúsculas
 **Técnica:** Particiones de equivalencia. **Justificación:** Primera cuenta fija correo; segunda intenta su versión en mayúsculas.
-**Regla:** HU-N-01 CA5. **Resultado:** FALLÓ.
+**Regla:** HU-N-01 CA5. **Resultado:** APROBADO.
 [Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-111.html)
 ```gherkin
 * def email = a.cell + '@example.com'
@@ -235,7 +235,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-072 — Login crea sesión con vigencia de 30 minutos
 **Técnica:** Comprobación de efectos. **Justificación:** La autenticación de contexto se vuelve a verificar explícitamente.
-**Regla:** HU-N-02 CA1. **Resultado:** FALLÓ.
+**Regla:** HU-N-02 CA1. **Resultado:** APROBADO.
 [Escenario](../features/hu-n-02.feature) · [Evidencia](../evidencias/G4-072.html)
 ```gherkin
 * def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})
@@ -278,7 +278,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-093 — Nuevo dispositivo permite login y genera alerta
 **Técnica:** Comprobación de efectos. **Justificación:** Identificador no registrado no bloquea login, pero avisa.
-**Regla:** HU-N-02 CA6. **Resultado:** APROBADO.
+**Regla:** HU-N-02 CA6. **Resultado:** FALLÓ.
 [Escenario](../features/hu-n-02.feature) · [Evidencia](../evidencias/G4-093.html)
 ```gherkin
 * def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826',dispositivo_id:'dispositivo-no-registrado'}, null, {})
@@ -406,7 +406,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-080 — Cerrar cuenta con saldo cero revoca acceso
 **Técnica:** Transición de estados. **Justificación:** Cierre válido y posterior login prohibido.
-**Regla:** HU-N-06. **Resultado:** APROBADO.
+**Regla:** HU-N-06. **Resultado:** FALLÓ.
 [Escenario](../features/hu-n-06.feature) · [Evidencia](../evidencias/G4-080.html)
 ```gherkin
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})
@@ -810,7 +810,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-015 — Celular válido sin registro
 **Técnica:** Particiones de equivalencia. **Justificación:** Cerrar una cuenta propia de contexto no reutiliza datos ajenos.
-**Regla:** R-G4-01. **Resultado:** APROBADO.
+**Regla:** R-G4-01. **Resultado:** FALLÓ.
 [Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-015.html)
 ```gherkin
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, b.token, {})
@@ -1080,7 +1080,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-029 — Solicitud pendiente enviada impide eliminar
 **Técnica:** Tabla de decisiones. **Justificación:** Contacto propio y solicitud pendiente vigente.
-**Regla:** R-G4-05. **Resultado:** FALLÓ.
+**Regla:** R-G4-05. **Resultado:** APROBADO.
 [Escenario](../features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-029.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
@@ -1201,7 +1201,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-034 — Crear solicitud pendiente con vigencia 48 h y SMS
 **Técnica:** Comprobación de efectos. **Justificación:** El monto pedido no debita saldo antes de aceptar.
-**Regla:** R-G4-04/05. **Resultado:** FALLÓ.
+**Regla:** R-G4-04/05. **Resultado:** APROBADO.
 [Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-034.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
@@ -1218,7 +1218,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-035 — Monto solicitado 0.00
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras monetarias y clase con demasiados decimales.
-**Regla:** RN-05 / R-G4-04. **Resultado:** FALLÓ.
+**Regla:** RN-05 / R-G4-04. **Resultado:** APROBADO.
 [Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-035.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
@@ -1756,7 +1756,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 
 ### G4-098 — No rechazar desde ACEPTADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
-**Regla:** R-G4-05. **Resultado:** FALLÓ.
+**Regla:** R-G4-05. **Resultado:** APROBADO.
 [Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-098.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)

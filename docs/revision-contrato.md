@@ -4,6 +4,14 @@
 
 Ejecución `20261017T020510Z-9ea00f`, Schemathesis 4.17.0: **562 casos generados, 138 omitidos, 4 señales únicas, 0 errores de hooks y 2 advertencias**. Salida 1: no es una ejecución completamente aprobada. La fecha del identificador está en UTC. [Resumen público de esta ejecución](../reports/schemathesis-actual.json).
 
+**[Explorar peticiones y checks en el reporte detallado](../reports/schemathesis-detallado.html)**. Contiene 562 interacciones registradas en NDJSON y 562 en HAR, correlacionadas por identificador, método, URL y estado. Permite buscar un dato o endpoint, filtrar fase/categoría/resultado y desplegar petición, respuesta y checks. Hay 27 peticiones con fallos de checks y 138 sin checks propios (incluidas peticiones auxiliares); esos conteos no equivalen a 27 defectos ni contradicen las cuatro señales únicas de la herramienta.
+
+Las categorías proceden de metadatos o de la relación registrada de autenticación: required 5, type 98, length 9, pattern 2, range 3, enum 6 y auth 177; 262 peticiones no permiten atribuir una categoría de estas. Son conteos observados, no porcentajes de cobertura del contrato. El reporte conserva la ejecución histórica identificada y no representa cambios posteriores en los `.feature` de Karate. Para reconstruir la vista sin consumir la API:
+
+```powershell
+./.venv/Scripts/python.exe scripts/build_schemathesis_report.py
+```
+
 Se añadieron nueve ejemplos de control independientes de los datos aleatorios. Todos alcanzaron una respuesta de éxito con recursos propios y rol correcto:
 
 | Operación | Respuesta del control |

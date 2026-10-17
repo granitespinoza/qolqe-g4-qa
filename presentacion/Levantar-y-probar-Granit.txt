@@ -73,3 +73,13 @@ CERRAR
 Cuando termines, pulsa Ctrl+C en las terminales de API y HTML.
 
 GUÍA COMPLETA: docs/levantar-y-probar.md
+
+DETALLE DE SCHEMATHESIS
+Después de ejecutar la herramienta abre:
+http://localhost:8765/reports/schemathesis-detallado.html
+Filtra required: muestra alias omitido, respuesta422 y el check de rechazo.
+Luego muestra type, length, range, pattern y auth cuando tengan metadatos.
+Una categoría sin registros no equivale a cobertura; usa sus casos explícitos.
+Para reconstruir desde el reporte guardado (sin nueva ejecución):
+./.venv/Scripts/python.exe scripts/build_schemathesis_report.py
+Cierra con conclusiones; ensaya10min y reserva5min de preguntas.

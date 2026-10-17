@@ -63,6 +63,17 @@ def run(mode, tag=None, scope='all'):
     # Una demostración parcial nunca reemplaza el resultado de la suite completa.
     pointer = f'latest-{mode}' if not tag and scope == 'all' else f'latest-{mode}-selection'
     (ROOT/'reports'/f'{pointer}.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+    if mode == 'schemathesis':
+        # Se publica el detalle de esta ejecución, no un resumen antiguo.
+        exporter=subprocess.run([sys.executable,str(ROOT/'scripts/build_schemathesis_report.py'),
+            '--manifest',f'reports/{pointer}.json'],cwd=ROOT,capture_output=True,text=True,encoding='utf-8')
+        if exporter.returncode:
+            print('No se pudo generar el reporte detallado de Schemathesis. Los reportes originales se conservaron.')
+            print(exporter.stderr)
+            return result.returncode or exporter.returncode
+        for name in ['schemathesis-detallado.html','schemathesis-detallado.json']:
+            shutil.copy2(ROOT/'reports'/name,ROOT/report_dir/name)
+        print('Detalle: http://localhost:8765/reports/schemathesis-detallado.html')
     print(f'{mode}: salida {result.returncode}; alcance {scope}; tag {tag or "todos"}')
     print(f'Registro local: {log}')
     if mode == 'karate':

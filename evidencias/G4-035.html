@@ -1,16 +1,11 @@
-<html lang="es"><meta charset="utf-8"><title>G4-035</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-035 · Monto solicitado 0.00</h1><p>Resultado: FALLÓ · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre>match failed: EQUALS
-  $ | not equal (NUMBER:NUMBER)
-  404
-  422
-
-features/hu-g4-06.feature:41</pre><pre>
+<html lang="es"><meta charset="utf-8"><title>G4-035</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-035 · Monto solicitado 0.00</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
 
 
 
 
 
 
-21:01:22.360 request:
+21:24:18.975 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -19,15 +14,15 @@ features/hu-g4-06.feature:41</pre><pre>
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;972706797&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+{&quot;celular&quot;:&quot;979302225&quot;,&quot;alias&quot;:&quot;Ana&quot;}
 
-21:01:22.366 response time in milliseconds: 6
+21:24:18.975 response time in milliseconds: 0
 1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:01:21 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:18 GMT
 1 &lt; server: uvicorn
-1 &lt; content-length: 84
+1 &lt; content-length: 85
 1 &lt; content-type: application/json
-{&quot;id&quot;:886,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;972706797&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:1226,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;979302225&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
 
 
 
@@ -38,37 +33,55 @@ features/hu-g4-06.feature:41</pre><pre>
 
 
 
-
-
-21:01:22.367 request:
-1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+21:24:18.991 request:
+1 &gt; GET http://127.0.0.1:8000/api/contactos?pagina=1
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 54
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;contacto_id&quot;:886,&quot;monto&quot;:&quot;0.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
 
-21:01:22.367 response time in milliseconds: 0
-1 &lt; 404
-1 &lt; date: Sat, 17 Oct 2026 02:01:21 GMT
+
+21:24:19.007 response time in milliseconds: 16
+1 &lt; 200
+1 &lt; date: Sat, 17 Oct 2026 02:24:18 GMT
 1 &lt; server: uvicorn
-1 &lt; content-length: 68
+1 &lt; content-length: 170
 1 &lt; content-type: application/json
-{&quot;codigo&quot;:&quot;CONTACTO_NO_ENCONTRADO&quot;,&quot;detail&quot;:&quot;El contacto no existe&quot;}
+{&quot;buscar&quot;:null,&quot;pagina&quot;:1,&quot;por_pagina&quot;:10,&quot;total&quot;:1,&quot;total_paginas&quot;:1,&quot;contactos&quot;:[{&quot;id&quot;:1226,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;979302225&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}]}
 
 
 
 
-21:01:22.367 features/hu-g4-06.feature:41
-* match r.statusCode == 422
-match failed: EQUALS
-  $ | not equal (NUMBER:NUMBER)
-  404
-  422
 
-features/hu-g4-06.feature:41
+
+
+
+
+
+
+
+21:24:19.007 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 55
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;contacto_id&quot;:1226,&quot;monto&quot;:&quot;0.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
+
+21:24:19.023 response time in milliseconds: 16
+1 &lt; 422
+1 &lt; date: Sat, 17 Oct 2026 02:24:18 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 73
+1 &lt; content-type: application/json
+{&quot;codigo&quot;:&quot;SOLICITUD_INVALIDA&quot;,&quot;detail&quot;:&quot;El monto debe ser mayor a cero&quot;}
+
+
+
+
 
 </pre></html>

@@ -124,6 +124,7 @@ Usuarios nuevos por escenario. Reloj global restablecido al comenzar. Ejecución
 **Karate, catálogo funcional inicial:** {stats['executed']} ejecutados; {stats['passed']} aprobados; {stats['failed']} fallaron.
 Las validaciones CT y variantes CF se presentan por separado en [resultados complementarios](resultados-complementarios.md) y [matriz revisada de Contactos](cobertura-tecnica-contactos.md). La suite completa incluye ambos conjuntos.
 El contraste entre requisitos, OpenAPI e implementación se conserva en [documentación frente a código](contraste-documentacion-codigo.md).
+Los fallos adicionales de efectos inmediatos y la preparación se analizan con fecha y evidencia en [incidencia de consistencia](incidencia-consistencia.md). No se convierten automáticamente en defectos independientes.
 Reporte bruto de esta ejecución: `{manifest['report_dir']}/karate-summary.html`. Registros redactados: [evidencias](../evidencias/).
 El número de escenarios aprobados no mide cobertura de criterios ni ausencia de defectos. Cada reporte queda vinculado con commit, huellas de fuentes e inicio/fin de su ejecución; se rechazan resultados desactualizados.
 [Schemathesis y límites de la ejecución](revision-contrato.md).

@@ -23,7 +23,7 @@ La cantidad de casos no demuestra cobertura total: revisar la matriz de cobertur
 
 5. DIFERENCIAR FUNCIONAL Y TÉCNICO
 Funcional: reglas, criterios y efectos. Técnico: required, type, pattern, longitudes y esquemas de respuesta del OpenAPI. Abrir docs/cobertura-tecnica-contactos.md y los escenarios etiquetados @CONTRATO-CONTACTOS. Mostrar una petición inválida, rechazo esperado y aserciones.
-Schemathesis: mostrar su reporte exploratorio si se solicita. No decir «cubre todo» ni convertir automáticamente sus cuatro señales históricas en cuatro defectos. Se necesita evidencia identificable para cada validación declarada.
+Schemathesis: abrir reports/schemathesis-detallado.html, filtrar required y desplegar el caso sin alias. Mostrar cuerpo enviado, 422, error body.alias, metadato object_missing_required_property y check negative_data_rejection. Luego ubicar type, length, range, pattern y auth; los CT explícitos complementan condiciones que esa exploración no demuestra. No decir «cubre todo» ni convertir automáticamente sus cuatro señales históricas en cuatro defectos. Se necesita evidencia identificable para cada validación declarada.
 
 6. EJECUTAR TODO EN VIVO
 ./.venv/Scripts/python.exe scripts/run_qa.py karate
@@ -50,3 +50,8 @@ PREGUNTAS QUE DEBES PODER RESPONDER
 ¿Todos verdes significa cobertura completa? No. Se puede haber omitido una regla o una variante. La matriz permite revisar los huecos.
 ¿Las capturas son de hoy? Las de la galería están fechadas. La terminal y su reporte corresponden a la ejecución actual; no mezclar cifras.
 ¿Dónde está la otra HU? Seleccionarla, explicar todos sus CA y ejecutar su tag en vivo.
+
+
+CIERRE Y TIEMPO (última indicación de la docente)
+Ensayar 10 minutos de exposición y 5 de preguntas. Explicar una HU, ejecutar TODO el alcance, revisar fallos y responder otra HU por tag. Cerrar con conclusiones y lecciones aprendidas. Las capturas son respaldo de estudio; la demostración final es en vivo.
+En la diapositiva 9: el esperado sale de requisitos y contrato; no de imitar la implementación. Cada validación necesita evidencia; los problemas de preparación se registran aparte.

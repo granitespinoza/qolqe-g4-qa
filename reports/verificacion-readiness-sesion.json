@@ -1,0 +1,100 @@
+{
+  "report_dir": "reports/raw/readiness-sesion-20261016",
+  "executed": 8,
+  "passed": 8,
+  "failed": 0,
+  "observed_readiness_logs": [
+    "21:21:29.727 READINESS usuario registrado aún no autenticable; intento 1 de 20 (plazo 2000ms); siguiente sondeo en 25ms",
+    "21:21:32.167 READINESS usuario registrado aún no autenticable; intento 1 de 20 (plazo 2000ms); siguiente sondeo en 25ms"
+  ],
+  "cases": [
+    {
+      "feature": "features.hu-g4-04.karate-json.txt",
+      "name": "Eliminar contacto conserva transferencia",
+      "tags": [
+        "CA1",
+        "HU-G4-04",
+        "api",
+        "G4-028"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-04.karate-json.txt",
+      "name": "Solicitud pendiente enviada impide eliminar",
+      "tags": [
+        "HU-G4-04",
+        "CA2",
+        "api",
+        "G4-029"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-04.karate-json.txt",
+      "name": "Solicitud pendiente recibida impide eliminar",
+      "tags": [
+        "HU-G4-04",
+        "CA2",
+        "G4-030",
+        "api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-04.karate-json.txt",
+      "name": "Solicitud vencida permite eliminar",
+      "tags": [
+        "G4-031",
+        "HU-G4-04",
+        "CA2",
+        "api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-07.karate-json.txt",
+      "name": "Separar solicitudes enviadas y recibidas y filtrar",
+      "tags": [
+        "CA1",
+        "HU-G4-07",
+        "api",
+        "G4-045"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-07.karate-json.txt",
+      "name": "Estado al transcurrir 2879 minutos",
+      "tags": [
+        "CA2",
+        "HU-G4-07",
+        "G4-046",
+        "api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-07.karate-json.txt",
+      "name": "Estado al transcurrir 2880 minutos",
+      "tags": [
+        "CA2",
+        "HU-G4-07",
+        "G4-047",
+        "api"
+      ],
+      "status": "APROBADO"
+    },
+    {
+      "feature": "features.hu-g4-07.karate-json.txt",
+      "name": "Estado al transcurrir 2881 minutos",
+      "tags": [
+        "CA2",
+        "HU-G4-07",
+        "api",
+        "G4-048"
+      ],
+      "status": "APROBADO"
+    }
+  ]
+}

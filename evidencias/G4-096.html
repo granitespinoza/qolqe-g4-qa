@@ -5,7 +5,7 @@
 
 
 
-21:01:36.616 request:
+21:24:44.871 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;919311631&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+{&quot;celular&quot;:&quot;998883899&quot;,&quot;alias&quot;:&quot;Ana&quot;}
 
-21:01:36.626 response time in milliseconds: 10
+21:24:44.879 response time in milliseconds: 8
 1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
-1 &lt; content-length: 84
+1 &lt; content-length: 85
 1 &lt; content-type: application/json
-{&quot;id&quot;:908,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;919311631&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:1248,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;998883899&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
 
 
 
@@ -33,26 +33,52 @@
 
 
 
-
-
-21:01:36.630 request:
-1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+21:24:44.882 request:
+1 &gt; GET http://127.0.0.1:8000/api/contactos?pagina=1
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 55
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;contacto_id&quot;:908,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
 
-21:01:36.632 response time in milliseconds: 2
+
+21:24:44.888 response time in milliseconds: 6
+1 &lt; 200
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 170
+1 &lt; content-type: application/json
+{&quot;buscar&quot;:null,&quot;pagina&quot;:1,&quot;por_pagina&quot;:10,&quot;total&quot;:1,&quot;total_paginas&quot;:1,&quot;contactos&quot;:[{&quot;id&quot;:1248,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;998883899&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}]}
+
+
+
+
+
+
+
+
+
+
+
+
+21:24:44.888 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 56
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;contacto_id&quot;:1248,&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;}
+
+21:24:44.895 response time in milliseconds: 7
 1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 318
 1 &lt; content-type: application/json
-{&quot;id&quot;:367,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;933077681&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;919311631&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-16T21:01:36&quot;,&quot;vence_en&quot;:&quot;2026-10-18T21:01:36&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
+{&quot;id&quot;:489,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;990049250&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;998883899&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-16T21:24:44&quot;,&quot;vence_en&quot;:&quot;2026-10-18T21:24:44&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}
 
 
 
@@ -65,7 +91,7 @@
 
 
 
-21:01:36.636 request:
+21:24:44.899 request:
 1 &gt; PUT http://127.0.0.1:8000/api/pruebas/saldo
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -74,11 +100,11 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;919311631&quot;,&quot;saldo&quot;:&quot;1000.00&quot;}
+{&quot;celular&quot;:&quot;998883899&quot;,&quot;saldo&quot;:&quot;1000.00&quot;}
 
-21:01:36.639 response time in milliseconds: 3
+21:24:44.904 response time in milliseconds: 5
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 44
 1 &lt; content-type: application/json
@@ -94,7 +120,7 @@
 
 
 
-21:01:36.639 request:
+21:24:44.906 request:
 1 &gt; PUT http://127.0.0.1:8000/api/limites
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -105,9 +131,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;limite_diario&quot;:&quot;100.00&quot;}
 
-21:01:36.648 response time in milliseconds: 9
+21:24:44.912 response time in milliseconds: 6
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 175
 1 &lt; content-type: application/json
@@ -124,7 +150,7 @@
 
 
 
-21:01:36.650 request:
+21:24:44.914 request:
 1 &gt; POST http://127.0.0.1:8000/api/transferencias
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -133,15 +159,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular_destino&quot;:&quot;933077681&quot;,&quot;monto&quot;:&quot;100.00&quot;}
+{&quot;celular_destino&quot;:&quot;990049250&quot;,&quot;monto&quot;:&quot;100.00&quot;}
 
-21:01:36.749 response time in milliseconds: 98
+21:24:45.019 response time in milliseconds: 105
 1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 228
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101621013603643&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;100.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;933077681&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;900.00&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:01:36&quot;}
+{&quot;codigo_operacion&quot;:&quot;TRF26101621244404909&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;100.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;990049250&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;900.00&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:24:44&quot;}
 
 
 
@@ -154,7 +180,7 @@
 
 
 
-21:01:36.753 request:
+21:24:45.019 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -163,13 +189,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.770 response time in milliseconds: 17
+21:24:45.028 response time in milliseconds: 9
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 72
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;900.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:01:36&quot;}
+{&quot;saldo&quot;:&quot;900.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:24:44&quot;}
 
 
 
@@ -181,7 +207,7 @@
 
 
 
-21:01:36.774 request:
+21:24:45.028 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -190,13 +216,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.782 response time in milliseconds: 8
+21:24:45.041 response time in milliseconds: 13
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 72
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;100.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:01:36&quot;}
+{&quot;saldo&quot;:&quot;100.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:24:44&quot;}
 
 
 
@@ -208,7 +234,7 @@
 
 
 
-21:01:36.786 request:
+21:24:45.041 request:
 1 &gt; GET http://127.0.0.1:8000/api/limites
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -217,9 +243,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.790 response time in milliseconds: 4
+21:24:45.051 response time in milliseconds: 10
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 150
 1 &lt; content-type: application/json
@@ -235,7 +261,7 @@
 
 
 
-21:01:36.794 request:
+21:24:45.055 request:
 1 &gt; GET http://127.0.0.1:8000/api/movimientos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -244,9 +270,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.800 response time in milliseconds: 6
+21:24:45.059 response time in milliseconds: 4
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 147
 1 &lt; content-type: application/json
@@ -262,8 +288,8 @@
 
 
 
-21:01:36.800 request:
-1 &gt; POST http://127.0.0.1:8000/api/solicitudes/367/aceptar
+21:24:45.063 request:
+1 &gt; POST http://127.0.0.1:8000/api/solicitudes/489/aceptar
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -271,9 +297,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.806 response time in milliseconds: 6
+21:24:45.069 response time in milliseconds: 6
 1 &lt; 422
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 98
 1 &lt; content-type: application/json
@@ -291,7 +317,7 @@
 
 
 
-21:01:36.808 request:
+21:24:45.071 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -300,13 +326,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.814 response time in milliseconds: 6
+21:24:45.076 response time in milliseconds: 5
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 72
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;900.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:01:36&quot;}
+{&quot;saldo&quot;:&quot;900.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:24:44&quot;}
 
 
 
@@ -319,7 +345,7 @@
 
 
 
-21:01:36.816 request:
+21:24:45.076 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -328,13 +354,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.818 response time in milliseconds: 2
+21:24:45.082 response time in milliseconds: 6
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 72
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;100.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:01:36&quot;}
+{&quot;saldo&quot;:&quot;100.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:24:44&quot;}
 
 
 
@@ -347,7 +373,7 @@
 
 
 
-21:01:36.818 request:
+21:24:45.086 request:
 1 &gt; GET http://127.0.0.1:8000/api/limites
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -356,9 +382,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.826 response time in milliseconds: 8
+21:24:45.092 response time in milliseconds: 6
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 150
 1 &lt; content-type: application/json
@@ -375,7 +401,7 @@
 
 
 
-21:01:36.826 request:
+21:24:45.092 request:
 1 &gt; GET http://127.0.0.1:8000/api/movimientos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -384,9 +410,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.832 response time in milliseconds: 6
+21:24:45.100 response time in milliseconds: 8
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 147
 1 &lt; content-type: application/json
@@ -403,7 +429,7 @@
 
 
 
-21:01:36.836 request:
+21:24:45.104 request:
 1 &gt; GET http://127.0.0.1:8000/api/solicitudes
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -412,13 +438,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:36.840 response time in milliseconds: 4
+21:24:45.111 response time in milliseconds: 4
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:36 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:24:44 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 348
 1 &lt; content-type: application/json
-{&quot;enviadas&quot;:[{&quot;id&quot;:367,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;933077681&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;919311631&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-16T21:01:36&quot;,&quot;vence_en&quot;:&quot;2026-10-18T21:01:36&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}],&quot;recibidas&quot;:[]}
+{&quot;enviadas&quot;:[{&quot;id&quot;:489,&quot;solicitante&quot;:{&quot;nombre&quot;:&quot;Granit P.&quot;,&quot;celular&quot;:&quot;990049250&quot;},&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;998883899&quot;},&quot;monto&quot;:&quot;10.00&quot;,&quot;motivo&quot;:&quot;Almuerzo&quot;,&quot;estado&quot;:&quot;PENDIENTE&quot;,&quot;creada_en&quot;:&quot;2026-10-16T21:24:44&quot;,&quot;vence_en&quot;:&quot;2026-10-18T21:24:44&quot;,&quot;resuelta_en&quot;:null,&quot;motivo_rechazo&quot;:null,&quot;codigo_operacion&quot;:null}],&quot;recibidas&quot;:[]}
 
 
 

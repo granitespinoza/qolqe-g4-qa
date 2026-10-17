@@ -26,7 +26,9 @@ def build():
                 steps = background + scenario.get('steps', [])
                 statuses = [s.get('result', {}).get('status') for s in steps]
                 status = 'FALLÓ' if 'failed' in statuses else ('PENDIENTE' if 'skipped' in statuses else 'APROBADO')
-                logs = '\n'.join(s.get('doc_string', {}).get('value', '') + '\n' + s.get('result', {}).get('error_message', '') for s in steps)
+                background_failed = any(s.get('result', {}).get('status')=='failed' for s in background)
+                evidence_steps = steps if background_failed else scenario.get('steps', [])
+                logs = '\n'.join(s.get('doc_string', {}).get('value', '') + '\n' + s.get('result', {}).get('error_message', '') for s in evidence_steps)
                 logs = re.sub(r'eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+', '<TOKEN_OCULTO>', logs)
                 title = scenario.get('name', tag)
                 target = f'evidencias/{key}.html'

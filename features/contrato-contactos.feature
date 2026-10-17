@@ -143,3 +143,33 @@ Background:
       | POST   | false   | {celular:b.cell, alias:'Otro'} |
       | PUT    | true    | {alias:'Nuevo'}                 |
       | DELETE | true    | null                           |
+
+  @CT-08 @HU-G4-01 @HU-G4-02 @HU-G4-03 @HU-G4-04
+  Scenario Outline: Bearer con token malformado no autentica operaciones protegidas
+    # HTTPBearer declarado en OpenAPI; no se inventan otras cabeceras obligatorias.
+    * def created = ctx.add(b.cell, 'Ana', a.token)
+    * match created.statusCode == 201
+    * def route = '/api/contactos' + (member ? '/' + created.result.id : '')
+    * def r = req(route, method, body, 'no-es-un-jwt', {})
+    * match r.statusCode == 401
+    * match r.result contains {codigo:'NO_AUTENTICADO', detail:'#string'}
+    * def list = req('/api/contactos', 'GET', null, a.token, {})
+    * match list.statusCode == 200
+    * match list.result.contactos == [ '#(created.result)' ]
+    Examples:
+      | method | member! | body!                          |
+      | GET    | false   | null                           |
+      | POST   | false   | {celular:b.cell, alias:'Otro'} |
+      | PUT    | true    | {alias:'Nuevo'}                 |
+      | DELETE | true    | null                           |
+
+  @CT-09 @HU-G4-03
+  Scenario: Editar alias con símbolo prohibido conserva el contacto
+    # CambioContacto.alias describe mismas reglas que al agregar (R-G4-02).
+    * def created = ctx.add(b.cell, 'Ana', a.token)
+    * match created.statusCode == 201
+    * def r = req('/api/contactos/' + created.result.id, 'PUT', {alias:'Ana@'}, a.token, {})
+    * match r.statusCode == 422
+    * match r.result.codigo == 'ALIAS_INVALIDO'
+    * def list = req('/api/contactos', 'GET', null, a.token, {})
+    * match list.result.contactos == [ '#(created.result)' ]

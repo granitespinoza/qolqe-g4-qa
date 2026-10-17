@@ -1,63 +1,11 @@
-<html lang="es"><meta charset="utf-8"><title>G4-110</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-110 · Celular duplicado responde conflicto</h1><p>Resultado: FALLÓ · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre>No se pudo autenticar contexto
-classpath:features/support/setup.feature:20
-features/hu-n-01.feature:9</pre><pre>21:01:52.705 features/hu-n-01.feature:9
-* def ctx = call read(&#x27;classpath:features/support/setup.feature&#x27;)
-No se pudo autenticar contexto
-classpath:features/support/setup.feature:20
-features/hu-n-01.feature:9
+<html lang="es"><meta charset="utf-8"><title>G4-110</title><style>body{font:15px Segoe UI;margin:40px;background:#faf9f5;color:#172b29}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf0e8;padding:20px}</style><h1>G4-110 · Celular duplicado responde conflicto</h1><p>Resultado: APROBADO · Karate 1.5.2 · referencia 8c7d2f0c939e</p><p>Registro real de ejecución; tokens ocultos.</p><pre></pre><pre>
 
 
 
 
 
 
-
-
-
-
-21:01:52.609 request:
-1 &gt; DELETE http://127.0.0.1:8000/api/pruebas/reloj
-1 &gt; Authorization: null
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-
-
-21:01:52.609 response time in milliseconds: 0
-1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:52 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 49
-1 &lt; content-type: application/json
-{&quot;ahora&quot;:&quot;2026-10-16T21:01:52&quot;,&quot;desfasado&quot;:false}
-
-
-
-
-
-
-function(name) {
-  var n = random();
-  var cell = &#x27;9&#x27; + n;
-  var reg = karate.call(http, { route: &#x27;/api/usuarios&#x27;, method: &#x27;POST&#x27;, body: {dni:n, nombres:name, celular:cell, pin:&#x27;4826&#x27;} });
-  if (reg.statusCode != 201) karate.fail(&#x27;No se pudo crear contexto: &#x27; + JSON.stringify(reg.result));
-  var login = karate.call(http, {route:&#x27;/api/auth/login&#x27;,method:&#x27;POST&#x27;,body:{celular:cell,pin:&#x27;4826&#x27;}});
-  if (login.statusCode != 200) karate.fail(&#x27;No se pudo autenticar contexto&#x27;);
-  return {cell:cell, token:login.result.access_token, id:reg.result.id};
-}
-21:01:52.705 classpath:features/support/setup.feature:20
-* def a = create(&#x27;Granit Prueba&#x27;)
-No se pudo autenticar contexto
-classpath:features/support/setup.feature:20
-
-
-
-
-
-
-
-21:01:52.615 request:
+21:25:21.740 request:
 1 &gt; POST http://127.0.0.1:8000/api/usuarios
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -66,59 +14,15 @@ classpath:features/support/setup.feature:20
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;dni&quot;:&quot;53769940&quot;,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;953769940&quot;,&quot;pin&quot;:&quot;4826&quot;}
+{&quot;dni&quot;:&quot;12345678&quot;,&quot;nombres&quot;:&quot;Nuevo Usuario&quot;,&quot;celular&quot;:&quot;916507319&quot;,&quot;pin&quot;:&quot;4826&quot;}
 
-21:01:52.689 response time in milliseconds: 74
-1 &lt; 201
-1 &lt; date: Sat, 17 Oct 2026 02:01:52 GMT
+21:25:21.756 response time in milliseconds: 16
+1 &lt; 409
+1 &lt; date: Sat, 17 Oct 2026 02:25:21 GMT
 1 &lt; server: uvicorn
-1 &lt; content-length: 107
+1 &lt; content-length: 73
 1 &lt; content-type: application/json
-{&quot;id&quot;:3718,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;953769940&quot;,&quot;correo&quot;:null,&quot;creado_en&quot;:&quot;2026-10-16T21:01:52&quot;}
-
-
-
-
-
-
-
-
-
-
-21:01:52.689 request:
-1 &gt; POST http://127.0.0.1:8000/api/auth/login
-1 &gt; Authorization: null
-1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 36
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;953769940&quot;,&quot;pin&quot;:&quot;4826&quot;}
-
-21:01:52.705 response time in milliseconds: 16
-1 &lt; 401
-1 &lt; date: Sat, 17 Oct 2026 02:01:52 GMT
-1 &lt; server: uvicorn
-1 &lt; content-length: 72
-1 &lt; content-type: application/json
-{&quot;codigo&quot;:&quot;CREDENCIALES_INVALIDAS&quot;,&quot;detail&quot;:&quot;Celular o PIN incorrectos&quot;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{&quot;codigo&quot;:&quot;CELULAR_REGISTRADO&quot;,&quot;detail&quot;:&quot;El celular ya está registrado&quot;}
 
 
 

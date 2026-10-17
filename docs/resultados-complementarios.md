@@ -1,8 +1,8 @@
 # Resultados complementarios
 
-Ejecución: `20261017T015949Z-a4941f`. Separados del catálogo inicial de 116 casos.
+Ejecución: `20261017T022208Z-161b94`. Separados del catálogo inicial de 116 casos.
 
-60 escenarios: 54 aprobados, 6 fallidos, 0 pendientes.
+65 escenarios: 59 aprobados, 6 fallidos, 0 pendientes.
 
 | Tag | Variante ejecutada | Resultado | Evidencia |
 |---|---|---|---|
@@ -66,3 +66,8 @@ Ejecución: `20261017T015949Z-a4941f`. Separados del catálogo inicial de 116 ca
 | CT-07 | Operaciones protegidas rechazan peticiones sin token | APROBADO | [HTTP real](../evidencias/CT-07-143.html) |
 | CT-07 | Operaciones protegidas rechazan peticiones sin token | APROBADO | [HTTP real](../evidencias/CT-07-144.html) |
 | CT-07 | Operaciones protegidas rechazan peticiones sin token | APROBADO | [HTTP real](../evidencias/CT-07-145.html) |
+| CT-08 | Bearer con token malformado no autentica operaciones protegidas | APROBADO | [HTTP real](../evidencias/CT-08-161.html) |
+| CT-08 | Bearer con token malformado no autentica operaciones protegidas | APROBADO | [HTTP real](../evidencias/CT-08-162.html) |
+| CT-08 | Bearer con token malformado no autentica operaciones protegidas | APROBADO | [HTTP real](../evidencias/CT-08-163.html) |
+| CT-08 | Bearer con token malformado no autentica operaciones protegidas | APROBADO | [HTTP real](../evidencias/CT-08-164.html) |
+| CT-09 | Editar alias con símbolo prohibido conserva el contacto | APROBADO | [HTTP real](../evidencias/CT-09-167.html) |

@@ -41,6 +41,8 @@ ejecución histórica de 116 casos del 13 de octubre.
 | PUT/DELETE contacto_id integer | Ruta no-entero: 422 | CT-05 |
 | Respuestas Contacto y PaginaContactos | Campos requeridos, tipos, patrón celular, página ≥1, tamaño10 y lista de Contacto; CRUD con 201/200/204 sin cuerpo | CT-06 |
 | Security HTTPBearer en las cuatro operaciones | Sin token: 401 NO_AUTENTICADO; no basta comprobarlo solo en GET | CT-07 |
+| Authorization Bearer con JWT malformado en las cuatro operaciones | 401 NO_AUTENTICADO; verificar que el contacto original se conserva | CT-08 |
+| PUT alias con símbolo prohibido | R-G4-02 y descripción CambioContacto (mismas reglas al agregar): 422 ALIAS_INVALIDO y sin modificación | CT-09 |
 
 `CT-*` están en `features/contrato-contactos.feature` y llevan tags de sus HU.
 Los casos técnicos aplican partición de equivalencia por tipo/ausencia/nulo y
@@ -48,10 +50,20 @@ valores límite por longitud/página. No se exige un campo opcional ni se prohí
 null donde OpenAPI lo admite. Los campos adicionales no se rechazan: el contrato
 no declara `additionalProperties:false`.
 
+La única cabecera de autenticación exigida aquí se deriva de HTTPBearer:
+`Authorization: Bearer <token>`. No se inventan cabeceras obligatorias ajenas al
+contrato. CT-07 comprueba ausencia y CT-08 token malformado. Los cuerpos de estas
+pruebas usan JSON; el alcance actual no demuestra todas las variantes de tipo
+de contenido ni JSON sintácticamente mal formado.
+
 ## Ejecución y lectura del resultado
 
-Verificación de esta revisión: **60 escenarios ejecutados, 54 aprobados y 6
-fallidos**, con usuarios propios por escenario y sin mocks. Los seis fallos se
+Primera verificación, anterior a CT-08/CT-09: **60 escenarios ejecutados,
+54 aprobados y 6 fallidos**, con usuarios propios por escenario y sin mocks.
+El diseño actual contiene 53 filas CT y 12 CF (65 complementarias).
+CT-08/CT-09 se verificaron posteriormente junto con dos casos funcionales:
+7 seleccionados, 7 aprobados; [detalle y límites](incidencia-consistencia.md).
+Los seis fallos de la primera revisión se
 agrupan en tres comportamientos; no son seis defectos independientes:
 
 - CF-01, alias «Niño» al editar: esperado 200, obtenido 422; amplía la
@@ -76,6 +88,10 @@ diferencia respecto de OpenAPI como hallazgo técnico, separado del defecto
 funcional del alias ñ. No alterar el esperado para que coincida con la respuesta.
 
 ## Límites y pendientes que debemos reconocer
+
+- La corrida completa posterior reveló una incidencia de disponibilidad de
+  registros recién creados. Se documentan los fallos originales y la política
+  explícita de sondeo de preparación en [incidencia de consistencia](incidencia-consistencia.md).
 
 - La auditoría detallada de esta tabla cubre HU-G4-01 a HU-G4-04. HU-G4-05 a
   HU-G4-10 y núcleo siguen en `docs/cobertura.md`, con pendientes propios.

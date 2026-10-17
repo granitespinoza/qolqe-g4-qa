@@ -5,7 +5,7 @@
 
 
 
-21:01:57.178 request:
+21:25:32.935 request:
 1 &gt; POST http://127.0.0.1:8000/api/auth/login
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,42 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;999690290&quot;,&quot;pin&quot;:&quot;4826&quot;}
+{&quot;celular&quot;:&quot;955161466&quot;,&quot;pin&quot;:&quot;4826&quot;}
 
-21:01:57.283 response time in milliseconds: 105
+21:25:33.079 response time in milliseconds: 144
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:56 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:25:32 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 370
 1 &lt; content-type: application/json
-{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:3637,&quot;usuario&quot;:{&quot;id&quot;:3735,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;999690290&quot;}}
+{&quot;access_token&quot;:&quot;&lt;TOKEN_OCULTO&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:1800,&quot;sesion_id&quot;:4941,&quot;usuario&quot;:{&quot;id&quot;:5007,&quot;nombres&quot;:&quot;Granit Prueba&quot;,&quot;celular&quot;:&quot;955161466&quot;}}
+
+
+
+
+
+function(token) {
+  var observations = [];
+  var started = Date.now();
+  var ready = false;
+  for (var attempt = 1; attempt &lt;= 20 &amp;&amp; Date.now() - started &lt; 2000; attempt++) {
+    var r = karate.call(&#x27;classpath:features/support/http.feature&#x27;, {
+      route:&#x27;/api/cuentas/me/saldo&#x27;, method:&#x27;GET&#x27;, token:token
+    });
+    observations.push({attempt:attempt,status:r.statusCode,codigo:r.result.codigo || null});
+    if (r.statusCode == 200) { ready = true; break; }
+    if (r.statusCode != 401 || r.result.codigo != &#x27;NO_AUTENTICADO&#x27; || r.result.detail != &#x27;La sesión fue cerrada&#x27;) {
+      karate.embed(JSON.stringify({phase:&#x27;readiness-sesion&#x27;,observations:observations}), &#x27;application/json&#x27;);
+      karate.fail(&#x27;Preparación: nueva sesión no consultable, respuesta inesperada &#x27; + r.statusCode + &#x27; &#x27; + r.result.codigo);
+    }
+    karate.log(&#x27;READINESS sesión recién emitida aún no visible; intento&#x27;, attempt, &#x27;de 20 (plazo 2000ms); siguiente sondeo en 25ms&#x27;);
+    if (attempt &lt; 20) Java.type(&#x27;java.lang.Thread&#x27;).sleep(25);
+  }
+  if (observations.length &gt; 1 || !ready) {
+    karate.embed(JSON.stringify({phase:&#x27;readiness-sesion&#x27;,max_attempts:20,deadline_ms:2000,elapsed_ms:Date.now()-started,interval_ms:25,observations:observations}), &#x27;application/json&#x27;);
+  }
+  if (!ready) karate.fail(&#x27;READINESS agotado: token recién emitido 200 no tiene sesión visible; ver adjunto&#x27;);
+}
 
 
 
@@ -30,38 +57,7 @@
 
 
 
-
-
-
-
-21:01:57.291 request:
-1 &gt; POST http://127.0.0.1:8000/api/auth/logout
-1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
-1 &gt; Host: 127.0.0.1:8000
-1 &gt; Connection: Keep-Alive
-1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
-1 &gt; Accept-Encoding: gzip,deflate
-
-
-21:01:57.312 response time in milliseconds: 21
-1 &lt; 204
-1 &lt; date: Sat, 17 Oct 2026 02:01:56 GMT
-1 &lt; server: uvicorn
-1 &lt; content-type: application/json
-
-
-
-
-
-
-
-
-
-
-
-
-
-21:01:57.312 request:
+21:25:33.090 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -70,13 +66,67 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-21:01:57.312 response time in milliseconds: 0
+21:25:33.095 response time in milliseconds: 5
 1 &lt; 200
-1 &lt; date: Sat, 17 Oct 2026 02:01:56 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:25:32 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 70
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:01:56&quot;}
+{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:25:31&quot;}
+
+
+
+
+
+
+
+
+
+
+
+21:25:33.095 request:
+1 &gt; POST http://127.0.0.1:8000/api/auth/logout
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+21:25:33.111 response time in milliseconds: 16
+1 &lt; 204
+1 &lt; date: Sat, 17 Oct 2026 02:25:32 GMT
+1 &lt; server: uvicorn
+1 &lt; content-type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+21:25:33.111 request:
+1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
+1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
+1 &gt; Host: 127.0.0.1:8000
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+21:25:33.127 response time in milliseconds: 16
+1 &lt; 200
+1 &lt; date: Sat, 17 Oct 2026 02:25:32 GMT
+1 &lt; server: uvicorn
+1 &lt; content-length: 70
+1 &lt; content-type: application/json
+{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:25:31&quot;}
 
 
 
