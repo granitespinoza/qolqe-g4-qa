@@ -11,3 +11,10 @@ reports/raw/
 .env
 *.log
 tmp/
+
+# Material personal de estudio y ensayo (solo local)
+presentacion/[Gg]uion*
+presentacion/Como-estudiar-*.txt
+presentacion/Levantar-y-probar-*.txt
+docs/como-estudiar.md
+output/pdf/Guia-de-estudio-*.pdf

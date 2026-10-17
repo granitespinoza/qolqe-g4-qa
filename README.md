@@ -11,7 +11,7 @@ Trabajo de QA asistido con IA: decisiones justificadas, pruebas reproducibles y 
 3. [Diseño por historia](docs/diseno-pruebas.md) y [pendientes por criterio](docs/cobertura.md).
 4. [Defectos reproducidos](docs/defectos.md).
 5. [Documentación HTML](apidoc/index.html): endpoints, búsqueda, escenarios y resultados.
-6. Presentación principal en el HTML; [PPT de respaldo](presentacion/G4-contactos.pptx). [Guion personal TXT](presentacion/Guion-Granit.txt), separado de la presentación.
+6. Presentación principal en el HTML; [PPT de respaldo](presentacion/G4-contactos.pptx).
 7. [Estado verificado del pipeline](docs/ci.md).
 8. [Evaluación de usabilidad propuesta](docs/usabilidad.md): complemento para la Parte 2.
 
