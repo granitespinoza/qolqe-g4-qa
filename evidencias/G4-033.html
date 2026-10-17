@@ -5,7 +5,7 @@
 
 
 
-01:00:28.693 request:
+21:01:20.805 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;971604185&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+{&quot;celular&quot;:&quot;963654772&quot;,&quot;alias&quot;:&quot;Ana&quot;}
 
-01:00:28.703 response time in milliseconds: 10
+21:01:20.810 response time in milliseconds: 4
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 06:00:28 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:20 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 84
 1 &lt; content-type: application/json
-{&quot;id&quot;:666,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;971604185&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:884,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;963654772&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-01:00:28.707 request:
+21:01:20.812 request:
 1 &gt; POST http://127.0.0.1:8000/api/transferencias
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -44,11 +44,11 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;contacto_id&quot;:666,&quot;monto&quot;:&quot;10.00&quot;}
+{&quot;contacto_id&quot;:884,&quot;monto&quot;:&quot;10.00&quot;}
 
-01:00:28.716 response time in milliseconds: 9
+21:01:20.817 response time in milliseconds: 5
 1 &lt; 422
-1 &lt; date: Tue, 13 Oct 2026 06:00:28 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:20 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 89
 1 &lt; content-type: application/json
@@ -66,7 +66,7 @@
 
 
 
-01:00:28.719 request:
+21:01:20.818 request:
 1 &gt; GET http://127.0.0.1:8000/api/cuentas/me/saldo
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -75,13 +75,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-01:00:28.725 response time in milliseconds: 6
+21:01:20.823 response time in milliseconds: 5
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 06:00:28 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:20 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 70
 1 &lt; content-type: application/json
-{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-13T01:00:28&quot;}
+{&quot;saldo&quot;:&quot;0.00&quot;,&quot;moneda&quot;:&quot;PEN&quot;,&quot;actualizado_en&quot;:&quot;2026-10-16T21:01:20&quot;}
 
 
 

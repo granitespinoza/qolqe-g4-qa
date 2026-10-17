@@ -1,0 +1,430 @@
+{
+  "run_id": "20261017T015949Z-a4941f",
+  "stats": {
+    "APROBADO": 54,
+    "FALLÓ": 6,
+    "PENDIENTE": 0
+  },
+  "cases": [
+    {
+      "id": "CF-01-27",
+      "tag": "CF-01",
+      "name": "Editar alias válido en límites y clases permitidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-01-27.html"
+    },
+    {
+      "id": "CF-01-28",
+      "tag": "CF-01",
+      "name": "Editar alias válido en límites y clases permitidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-01-28.html"
+    },
+    {
+      "id": "CF-01-29",
+      "tag": "CF-01",
+      "name": "Editar alias válido en límites y clases permitidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-01-29.html"
+    },
+    {
+      "id": "CF-01-30",
+      "tag": "CF-01",
+      "name": "Editar alias válido en límites y clases permitidas",
+      "status": "FALLÓ",
+      "evidence": "evidencias/CF-01-30.html"
+    },
+    {
+      "id": "CF-01-31",
+      "tag": "CF-01",
+      "name": "Editar alias válido en límites y clases permitidas",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-01-31.html"
+    },
+    {
+      "id": "CF-02-45",
+      "tag": "CF-02",
+      "name": "Editar alias inválido conserva el contacto original",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-02-45.html"
+    },
+    {
+      "id": "CF-02-46",
+      "tag": "CF-02",
+      "name": "Editar alias inválido conserva el contacto original",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-02-46.html"
+    },
+    {
+      "id": "CF-02-47",
+      "tag": "CF-02",
+      "name": "Editar alias inválido conserva el contacto original",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-02-47.html"
+    },
+    {
+      "id": "CF-03-61",
+      "tag": "CF-03",
+      "name": "Editar alias duplicado tras normalizar",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-03-61.html"
+    },
+    {
+      "id": "CF-03-62",
+      "tag": "CF-03",
+      "name": "Editar alias duplicado tras normalizar",
+      "status": "FALLÓ",
+      "evidence": "evidencias/CF-03-62.html"
+    },
+    {
+      "id": "CF-04-65",
+      "tag": "CF-04",
+      "name": "Buscar por fragmento del alias",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-04-65.html"
+    },
+    {
+      "id": "CF-05-75",
+      "tag": "CF-05",
+      "name": "Eliminar contacto ajeno responde 404 y conserva el recurso",
+      "status": "APROBADO",
+      "evidence": "evidencias/CF-05-75.html"
+    },
+    {
+      "id": "CT-01-29",
+      "tag": "CT-01",
+      "name": "POST rechaza alias omitido sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-29.html"
+    },
+    {
+      "id": "CT-01-30",
+      "tag": "CT-01",
+      "name": "POST rechaza celular omitido sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-30.html"
+    },
+    {
+      "id": "CT-01-31",
+      "tag": "CT-01",
+      "name": "POST rechaza alias nulo sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-31.html"
+    },
+    {
+      "id": "CT-01-32",
+      "tag": "CT-01",
+      "name": "POST rechaza celular nulo sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-32.html"
+    },
+    {
+      "id": "CT-01-33",
+      "tag": "CT-01",
+      "name": "POST rechaza alias numerico sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-33.html"
+    },
+    {
+      "id": "CT-01-34",
+      "tag": "CT-01",
+      "name": "POST rechaza alias booleano sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-34.html"
+    },
+    {
+      "id": "CT-01-35",
+      "tag": "CT-01",
+      "name": "POST rechaza alias objeto sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-35.html"
+    },
+    {
+      "id": "CT-01-36",
+      "tag": "CT-01",
+      "name": "POST rechaza alias arreglo sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-36.html"
+    },
+    {
+      "id": "CT-01-37",
+      "tag": "CT-01",
+      "name": "POST rechaza celular numerico sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-37.html"
+    },
+    {
+      "id": "CT-01-38",
+      "tag": "CT-01",
+      "name": "POST rechaza celular booleano sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-38.html"
+    },
+    {
+      "id": "CT-01-39",
+      "tag": "CT-01",
+      "name": "POST rechaza celular objeto sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-39.html"
+    },
+    {
+      "id": "CT-01-40",
+      "tag": "CT-01",
+      "name": "POST rechaza celular arreglo sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-40.html"
+    },
+    {
+      "id": "CT-01-41",
+      "tag": "CT-01",
+      "name": "POST rechaza cuerpo ausente sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-41.html"
+    },
+    {
+      "id": "CT-01-42",
+      "tag": "CT-01",
+      "name": "POST rechaza cuerpo arreglo sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-42.html"
+    },
+    {
+      "id": "CT-01-43",
+      "tag": "CT-01",
+      "name": "POST rechaza cuerpo objeto vacio sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-43.html"
+    },
+    {
+      "id": "CT-01-44",
+      "tag": "CT-01",
+      "name": "POST rechaza celular ocho digitos sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-44.html"
+    },
+    {
+      "id": "CT-01-45",
+      "tag": "CT-01",
+      "name": "POST rechaza celular diez digitos sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-45.html"
+    },
+    {
+      "id": "CT-01-46",
+      "tag": "CT-01",
+      "name": "POST rechaza celular inicia en 8 sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-46.html"
+    },
+    {
+      "id": "CT-01-47",
+      "tag": "CT-01",
+      "name": "POST rechaza celular con letras sin crear contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-01-47.html"
+    },
+    {
+      "id": "CT-02-61",
+      "tag": "CT-02",
+      "name": "PUT rechaza alias numerico sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-61.html"
+    },
+    {
+      "id": "CT-02-62",
+      "tag": "CT-02",
+      "name": "PUT rechaza alias booleano sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-62.html"
+    },
+    {
+      "id": "CT-02-63",
+      "tag": "CT-02",
+      "name": "PUT rechaza alias objeto sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-63.html"
+    },
+    {
+      "id": "CT-02-64",
+      "tag": "CT-02",
+      "name": "PUT rechaza alias arreglo sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-64.html"
+    },
+    {
+      "id": "CT-02-65",
+      "tag": "CT-02",
+      "name": "PUT rechaza alias menor a 3 sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-65.html"
+    },
+    {
+      "id": "CT-02-66",
+      "tag": "CT-02",
+      "name": "PUT rechaza alias mayor a 20 sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-66.html"
+    },
+    {
+      "id": "CT-02-67",
+      "tag": "CT-02",
+      "name": "PUT rechaza favorito texto true sin modificar contacto",
+      "status": "FALLÓ",
+      "evidence": "evidencias/CT-02-67.html"
+    },
+    {
+      "id": "CT-02-68",
+      "tag": "CT-02",
+      "name": "PUT rechaza favorito texto false sin modificar contacto",
+      "status": "FALLÓ",
+      "evidence": "evidencias/CT-02-68.html"
+    },
+    {
+      "id": "CT-02-69",
+      "tag": "CT-02",
+      "name": "PUT rechaza favorito entero uno sin modificar contacto",
+      "status": "FALLÓ",
+      "evidence": "evidencias/CT-02-69.html"
+    },
+    {
+      "id": "CT-02-70",
+      "tag": "CT-02",
+      "name": "PUT rechaza favorito entero cero sin modificar contacto",
+      "status": "FALLÓ",
+      "evidence": "evidencias/CT-02-70.html"
+    },
+    {
+      "id": "CT-02-71",
+      "tag": "CT-02",
+      "name": "PUT rechaza favorito objeto sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-71.html"
+    },
+    {
+      "id": "CT-02-72",
+      "tag": "CT-02",
+      "name": "PUT rechaza favorito arreglo sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-72.html"
+    },
+    {
+      "id": "CT-02-73",
+      "tag": "CT-02",
+      "name": "PUT rechaza cuerpo ausente sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-73.html"
+    },
+    {
+      "id": "CT-02-74",
+      "tag": "CT-02",
+      "name": "PUT rechaza cuerpo arreglo sin modificar contacto",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-02-74.html"
+    },
+    {
+      "id": "CT-03-85",
+      "tag": "CT-03",
+      "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-03-85.html"
+    },
+    {
+      "id": "CT-03-86",
+      "tag": "CT-03",
+      "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-03-86.html"
+    },
+    {
+      "id": "CT-03-87",
+      "tag": "CT-03",
+      "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-03-87.html"
+    },
+    {
+      "id": "CT-03-88",
+      "tag": "CT-03",
+      "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-03-88.html"
+    },
+    {
+      "id": "CT-04-97",
+      "tag": "CT-04",
+      "name": "GET rechaza pagina fuera del contrato",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-04-97.html"
+    },
+    {
+      "id": "CT-04-98",
+      "tag": "CT-04",
+      "name": "GET rechaza pagina fuera del contrato",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-04-98.html"
+    },
+    {
+      "id": "CT-04-99",
+      "tag": "CT-04",
+      "name": "GET rechaza pagina fuera del contrato",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-04-99.html"
+    },
+    {
+      "id": "CT-04-100",
+      "tag": "CT-04",
+      "name": "GET rechaza pagina fuera del contrato",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-04-100.html"
+    },
+    {
+      "id": "CT-05-109",
+      "tag": "CT-05",
+      "name": "Identificador de ruta debe ser entero",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-05-109.html"
+    },
+    {
+      "id": "CT-05-110",
+      "tag": "CT-05",
+      "name": "Identificador de ruta debe ser entero",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-05-110.html"
+    },
+    {
+      "id": "CT-06-113",
+      "tag": "CT-06",
+      "name": "Contrato de respuestas en recorrido CRUD válido",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-06-113.html"
+    },
+    {
+      "id": "CT-07-142",
+      "tag": "CT-07",
+      "name": "Operaciones protegidas rechazan peticiones sin token",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-07-142.html"
+    },
+    {
+      "id": "CT-07-143",
+      "tag": "CT-07",
+      "name": "Operaciones protegidas rechazan peticiones sin token",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-07-143.html"
+    },
+    {
+      "id": "CT-07-144",
+      "tag": "CT-07",
+      "name": "Operaciones protegidas rechazan peticiones sin token",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-07-144.html"
+    },
+    {
+      "id": "CT-07-145",
+      "tag": "CT-07",
+      "name": "Operaciones protegidas rechazan peticiones sin token",
+      "status": "APROBADO",
+      "evidence": "evidencias/CT-07-145.html"
+    }
+  ]
+}

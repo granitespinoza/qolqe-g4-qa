@@ -5,7 +5,7 @@
 
 
 
-01:01:21.357 request:
+21:02:10.170 request:
 1 &gt; PUT http://127.0.0.1:8000/api/pruebas/saldo
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,11 +14,11 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;990000817&quot;,&quot;saldo&quot;:&quot;200.00&quot;}
+{&quot;celular&quot;:&quot;923483860&quot;,&quot;saldo&quot;:&quot;200.00&quot;}
 
-01:01:21.361 response time in milliseconds: 4
+21:02:10.175 response time in milliseconds: 4
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 06:01:21 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:02:10 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 43
 1 &lt; content-type: application/json
@@ -34,7 +34,7 @@
 
 
 
-01:01:21.363 request:
+21:02:10.177 request:
 1 &gt; POST http://127.0.0.1:8000/api/transferencias
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -45,13 +45,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;tipo&quot;:&quot;INTERBANCARIA&quot;,&quot;cci&quot;:&quot;12345678901234567890&quot;,&quot;monto&quot;:&quot;100.00&quot;}
 
-01:01:21.451 response time in milliseconds: 88
+21:02:10.281 response time in milliseconds: 104
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 06:01:21 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:02:10 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 239
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101301012102725&quot;,&quot;tipo&quot;:&quot;INTERBANCARIA&quot;,&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;1.50&quot;,&quot;total&quot;:&quot;101.50&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:null,&quot;celular&quot;:null,&quot;cci&quot;:&quot;****************7890&quot;},&quot;saldo&quot;:&quot;98.50&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:01:21&quot;}
+{&quot;codigo_operacion&quot;:&quot;TRF26101621021003793&quot;,&quot;tipo&quot;:&quot;INTERBANCARIA&quot;,&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;1.50&quot;,&quot;total&quot;:&quot;101.50&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:null,&quot;celular&quot;:null,&quot;cci&quot;:&quot;****************7890&quot;},&quot;saldo&quot;:&quot;98.50&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:02:10&quot;}
 
 
 
@@ -66,8 +66,8 @@
 
 
 
-01:01:21.453 request:
-1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101301012102725
+21:02:10.288 request:
+1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101621021003793
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -75,13 +75,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-01:01:21.458 response time in milliseconds: 5
+21:02:10.299 response time in milliseconds: 11
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 06:01:21 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:02:10 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 319
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101301012102725&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:01:21&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Transferencia interbancaria a CCI ****************7890&quot;,&quot;contraparte&quot;:&quot;****************7890&quot;,&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;1.50&quot;,&quot;importe&quot;:&quot;-101.50&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
+{&quot;codigo_operacion&quot;:&quot;TRF26101621021003793&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:02:10&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Transferencia interbancaria a CCI ****************7890&quot;,&quot;contraparte&quot;:&quot;****************7890&quot;,&quot;monto&quot;:&quot;100.00&quot;,&quot;comision&quot;:&quot;1.50&quot;,&quot;importe&quot;:&quot;-101.50&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
 
 
 

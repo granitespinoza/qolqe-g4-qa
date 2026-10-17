@@ -11,9 +11,11 @@ Nivel: pruebas HTTP contra la aplicación FastAPI real con SQLite, sin mocks. No
 ## 2. Pruebas de API
 [Diseño detallado por HU](diseno-pruebas.md). [Contrato original](../data/openapi-original.json).
 Usuarios nuevos por escenario. Reloj global restablecido al comenzar. Ejecución secuencial porque cambiar el reloj afecta toda la aplicación; no se promete paralelismo seguro.
-**Última generación de evidencia:** 2026-10-13T01:01:24-05:00.
-**Karate:** 116 ejecutados; 110 aprobados; 6 fallaron.
-Reporte bruto de esta ejecución: `reports/raw/karate/20261013T055948Z-62af58/karate-summary.html`. Registros redactados: [evidencias](../evidencias/).
+**Última generación de evidencia:** 2026-10-16T21:02:13-05:00.
+**Karate, catálogo funcional inicial:** 116 ejecutados; 103 aprobados; 13 fallaron.
+Las validaciones CT y variantes CF se presentan por separado en [resultados complementarios](resultados-complementarios.md) y [matriz revisada de Contactos](cobertura-tecnica-contactos.md). La suite completa incluye ambos conjuntos.
+El contraste entre requisitos, OpenAPI e implementación se conserva en [documentación frente a código](contraste-documentacion-codigo.md).
+Reporte bruto de esta ejecución: `reports/raw/karate/20261017T015949Z-a4941f/karate-summary.html`. Registros redactados: [evidencias](../evidencias/).
 El número de escenarios aprobados no mide cobertura de criterios ni ausencia de defectos. Cada reporte queda vinculado con commit, huellas de fuentes e inicio/fin de su ejecución; se rechazan resultados desactualizados.
 [Schemathesis y límites de la ejecución](revision-contrato.md).
 

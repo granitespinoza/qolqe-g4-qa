@@ -1,10 +1,14 @@
 {
-  "run_id": "20261013T055948Z-62af58",
+  "run_id": "20261017T015949Z-a4941f",
   "tool": "karate",
-  "started_at": "2026-10-13T05:59:48.764003+00:00",
-  "report_dir": "reports/raw/karate/20261013T055948Z-62af58",
+  "scope": "all",
+  "tag": null,
+  "started_at": "2026-10-17T01:59:49.173417+00:00",
+  "report_dir": "reports/raw/karate/20261017T015949Z-a4941f",
   "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
   "source_hashes": {
+    "features/complemento-contactos.feature": "2a0d04f34caa24553c34991eb60972936bbbc1584a3e9e5ac7a4e64199f9650b",
+    "features/contrato-contactos.feature": "c619bf8c2658ab3b5d2b0ae0e9b08ff10dc713bf0e860f6ab234ca0e47beb332",
     "features/hu-g4-01.feature": "9dfb5e6c66dcb0f47f9f0f1475a29276e56a70c8bd29c5f2e224ec6c51daf84f",
     "features/hu-g4-02.feature": "6cfbf14b93614cb8bd88d83dc8cc8ebe78f2f19b9016a9fcc593ecd74b8ea946",
     "features/hu-g4-03.feature": "bc90c0997b2313fc5759cd95c2131f48a49673e5f55e5b0e90e3f2a37553a04a",
@@ -31,6 +35,6 @@
     "scripts/concurrency_probe.py": "ffb9d7230dbc4195bc3e6dca73055354b057857af33460b53676eb78154a76a3"
   },
   "openapi_sha256": "4247ee6fe4d1ede34b325c4de4e9d6e6dd258240720dd406bfa0ee647e794b69",
-  "finished_at": "2026-10-13T06:01:24.570398+00:00",
+  "finished_at": "2026-10-17T02:02:13.634789+00:00",
   "exit_code": 1
 }

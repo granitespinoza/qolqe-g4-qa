@@ -1,0 +1,192 @@
+{
+  "run_id": "20261017T020510Z-9ea00f",
+  "started_at": "2026-10-17T02:05:10.925507+00:00",
+  "finished_at": "2026-10-17T02:05:33.689871+00:00",
+  "tool": "Schemathesis 4.17.0",
+  "scope": "9 operaciones contactos y solicitudes, 69 en contrato completo",
+  "phases": [
+    "examples",
+    "coverage",
+    "fuzzing"
+  ],
+  "stateful": false,
+  "seed": 20261013,
+  "fuzzing_max_examples_per_operation": 20,
+  "generated": 562,
+  "skipped": 138,
+  "unique_signals": 4,
+  "hook_errors": 0,
+  "warnings": 2,
+  "exit_code": 1,
+  "hook_hash_matches": true,
+  "controls": [
+    {
+      "case_id": "uoWBrN",
+      "method": "POST",
+      "path": "/api/contactos",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "response_status": 201
+    },
+    {
+      "case_id": "2FguwN",
+      "method": "GET",
+      "path": "/api/contactos",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "response_status": 200
+    },
+    {
+      "case_id": "HhFdC2",
+      "method": "GET",
+      "path": "/api/solicitudes",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "response_status": 200
+    },
+    {
+      "case_id": "T5TU2c",
+      "method": "PUT",
+      "path": "/api/contactos/{contacto_id}",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "contacto_id": 946,
+      "response_status": 200
+    },
+    {
+      "case_id": "GtsVgW",
+      "method": "POST",
+      "path": "/api/solicitudes",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "contacto_id": 947,
+      "response_status": 201
+    },
+    {
+      "case_id": "jlnfAb",
+      "method": "DELETE",
+      "path": "/api/contactos/{contacto_id}",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "contacto_id": 948,
+      "response_status": 204
+    },
+    {
+      "case_id": "iWGTWX",
+      "method": "POST",
+      "path": "/api/solicitudes/{solicitud_id}/aceptar",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "contacto_id": 949,
+      "solicitud_id": 398,
+      "rol": "destinatario",
+      "response_status": 200
+    },
+    {
+      "case_id": "ogF7hA",
+      "method": "POST",
+      "path": "/api/solicitudes/{solicitud_id}/cancelar",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "contacto_id": 950,
+      "solicitud_id": 399,
+      "rol": "solicitante",
+      "response_status": 200
+    },
+    {
+      "case_id": "McCHNM",
+      "method": "POST",
+      "path": "/api/solicitudes/{solicitud_id}/rechazar",
+      "kind": "ejemplo de control con contexto real",
+      "status": "enviado",
+      "contacto_id": 951,
+      "solicitud_id": 400,
+      "rol": "destinatario",
+      "response_status": 200
+    }
+  ],
+  "preparation": [
+    {
+      "operation": "login tras registro",
+      "attempt": 1,
+      "response_status": 401,
+      "codigo": "CREDENCIALES_INVALIDAS",
+      "detail": "Celular o PIN incorrectos",
+      "action": "reintento de preparaciÃ³n tras 0.2 segundos"
+    },
+    {
+      "operation": "contacto propio visible tras alta",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "contacto propio visible tras alta",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "contacto propio visible tras alta",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "contacto propio visible tras alta",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "solicitud visible para el participante correcto",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "contacto propio visible tras alta",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "solicitud visible para el participante correcto",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "login tras registro",
+      "attempt": 1,
+      "response_status": 401,
+      "codigo": "CREDENCIALES_INVALIDAS",
+      "detail": "Celular o PIN incorrectos",
+      "action": "reintento de preparaciÃ³n tras 0.2 segundos"
+    },
+    {
+      "operation": "contacto propio visible tras alta",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    },
+    {
+      "operation": "solicitud visible para el participante correcto",
+      "attempts": 1,
+      "response_status": 200,
+      "result": "precondiciÃ³n visible"
+    }
+  ],
+  "generator_preparation_retries": [],
+  "http_status_counts": {
+    "201": 4,
+    "401": 177,
+    "409": 10,
+    "200": 62,
+    "404": 137,
+    "422": 130,
+    "204": 3,
+    "405": 39
+  },
+  "interpretation": "9 controles con contexto real respondieron los estados de éxito esperados; 4 señales de generación requieren revisión y no equivalen a 4 defectos confirmados. Persisten advertencias en datos generados; no se declara cobertura total."
+}

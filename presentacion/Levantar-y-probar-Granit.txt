@@ -1,0 +1,75 @@
+GRANIT: LEVANTAR Y PROBAR EN VIVO
+
+Abre PowerShell en la carpeta del proyecto. En cada terminal nueva:
+Set-Location 'C:\Users\LEGION\Documents\ChatGPT\proyecto de VyS'
+
+PREPARACIÓN UNA SOLA VEZ (necesita Git, Python 3.12 e internet):
+./scripts/bootstrap.ps1
+
+TERMINAL 1: API. Deja esta terminal abierta.
+./.venv/Scripts/python.exe scripts/serve_api.py
+
+Abre http://127.0.0.1:8000/docs para ver Swagger.
+Contrato JSON: http://127.0.0.1:8000/openapi.json
+
+TERMINAL 2: HTML Y REPORTES. Déjala abierta.
+./.venv/Scripts/python.exe -m http.server 8765 --bind 127.0.0.1
+
+Presentación: http://localhost:8765/apidoc/#presentacion
+Capturas: http://localhost:8765/apidoc/#demostracion
+
+TERMINAL 3: KARATE. Ejecuta un comando por vez.
+
+Ver tags disponibles (no necesita API):
+./.venv/Scripts/python.exe scripts/run_qa.py karate --list-tags
+
+Un caso:
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@G4-001'
+
+Una historia completa:
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@HU-G4-01'
+
+Si la profesora elige la historia 5:
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@HU-G4-05'
+
+Fallo conocido de alias «Niño» (esperado 201; API devuelve 422):
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@G4-004'
+
+Validaciones técnicas del contrato de contactos:
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@CONTRATO-CONTACTOS'
+
+Funcionalidad G4: contactos Y solicitudes, sin núcleo común ni contrato separado:
+./.venv/Scripts/python.exe scripts/run_qa.py karate --scope g4
+
+Todo el repositorio: G4, núcleo común y contrato técnico:
+./.venv/Scripts/python.exe scripts/run_qa.py karate
+
+Exploración técnica con Schemathesis (ejecuta después de Karate):
+./.venv/Scripts/python.exe scripts/run_qa.py schemathesis
+
+Conserva generación por OpenAPI y añade ejemplos con contexto real.
+La carpeta está indicada en reports/latest-schemathesis.json. Revisa
+controles-contexto.json y los reportes JUnit, NDJSON y HAR. Un 404 por
+recurso inexistente o un 422 por campo obligatorio omitido puede ser
+correcto: investiga cada señal antes de llamarla defecto.
+
+ABRIR EL RESULTADO
+La consola imprime el enlace del reporte recién ejecutado. Ábrelo en el
+navegador. Entra al feature y despliega los pasos para ver petición,
+respuesta y match. No confundas capturas antiguas con ejecución nueva.
+Las selecciones no reemplazan el registro de la última suite completa.
+
+Un rojo en la aserción requiere comparar requisito, esperado y obtenido.
+Un rojo en login, Background o conexión puede impedir probar la regla.
+No cambies el esperado para conseguir verde. No prometas cobertura total
+por cantidad de escenarios aprobados. No ejecutes suites simultáneas.
+
+ORDEN PARA EXPONER
+Herramienta y motivo -> alcance -> HU con todos sus CA -> técnica y datos
+-> feature -> ejecución por tag -> reporte y explicación del resultado.
+El guion personal va fuera del HTML que muestras a la docente.
+
+CERRAR
+Cuando termines, pulsa Ctrl+C en las terminales de API y HTML.
+
+GUÍA COMPLETA: docs/levantar-y-probar.md

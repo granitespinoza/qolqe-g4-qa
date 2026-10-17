@@ -1,0 +1,939 @@
+{
+  "recorded_at": "2026-10-16T20:59:38.358139-05:00",
+  "report_dir": "reports/raw/revision-contactos-final-20261016",
+  "executed": 60,
+  "passed": 54,
+  "failed": 6,
+  "scope": "Solo revisión nueva: 48 filas técnicas CT y 12 funcionales CF; separadas de los 116 escenarios históricos",
+  "cases": [
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias válido en límites y clases permitidas",
+      "row": 2,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-01",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias válido en límites y clases permitidas",
+      "row": 4,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-01",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias válido en límites y clases permitidas",
+      "row": 6,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-01",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias válido en límites y clases permitidas",
+      "row": 8,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-01",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "FALLO",
+      "failed_step": "match r.statusCode == 200",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  422\n  200\n\nfeatures/complemento-contactos.feature:21"
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias válido en límites y clases permitidas",
+      "row": 10,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-01",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias inválido conserva el contacto original",
+      "row": 12,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-02",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias inválido conserva el contacto original",
+      "row": 14,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-02",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias inválido conserva el contacto original",
+      "row": 16,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@CF-02",
+        "@COMPLEMENTO-CONTACTOS"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias duplicado tras normalizar",
+      "row": 18,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@COMPLEMENTO-CONTACTOS",
+        "@CF-03"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Editar alias duplicado tras normalizar",
+      "row": 20,
+      "tags": [
+        "@HU-G4-03",
+        "@CA1",
+        "@funcional",
+        "@api",
+        "@COMPLEMENTO-CONTACTOS",
+        "@CF-03"
+      ],
+      "status": "FALLO",
+      "failed_step": "match r.statusCode == 409",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409\n\nfeatures/complemento-contactos.feature:57"
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Buscar por fragmento del alias",
+      "row": 22,
+      "tags": [
+        "@HU-G4-02",
+        "@CA2",
+        "@funcional",
+        "@api",
+        "@COMPLEMENTO-CONTACTOS",
+        "@CF-04"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.complemento-contactos.json",
+      "scenario": "Eliminar contacto ajeno responde 404 y conserva el recurso",
+      "row": 24,
+      "tags": [
+        "@CA1",
+        "@HU-G4-04",
+        "@funcional",
+        "@api",
+        "@COMPLEMENTO-CONTACTOS",
+        "@CF-05"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza alias omitido sin crear contacto",
+      "row": 2,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular omitido sin crear contacto",
+      "row": 4,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza alias nulo sin crear contacto",
+      "row": 6,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular nulo sin crear contacto",
+      "row": 8,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza alias numerico sin crear contacto",
+      "row": 10,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza alias booleano sin crear contacto",
+      "row": 12,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza alias objeto sin crear contacto",
+      "row": 14,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza alias arreglo sin crear contacto",
+      "row": 16,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular numerico sin crear contacto",
+      "row": 18,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular booleano sin crear contacto",
+      "row": 20,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular objeto sin crear contacto",
+      "row": 22,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular arreglo sin crear contacto",
+      "row": 24,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza cuerpo ausente sin crear contacto",
+      "row": 26,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza cuerpo arreglo sin crear contacto",
+      "row": 28,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza cuerpo objeto vacio sin crear contacto",
+      "row": 30,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular ocho digitos sin crear contacto",
+      "row": 32,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular diez digitos sin crear contacto",
+      "row": 34,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular inicia en 8 sin crear contacto",
+      "row": 36,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "POST rechaza celular con letras sin crear contacto",
+      "row": 38,
+      "tags": [
+        "@HU-G4-01",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-01",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza alias numerico sin modificar contacto",
+      "row": 40,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza alias booleano sin modificar contacto",
+      "row": 42,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza alias objeto sin modificar contacto",
+      "row": 44,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza alias arreglo sin modificar contacto",
+      "row": 46,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza alias menor a 3 sin modificar contacto",
+      "row": 48,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza alias mayor a 20 sin modificar contacto",
+      "row": 50,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza favorito texto true sin modificar contacto",
+      "row": 52,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "FALLO",
+      "failed_step": "match r.statusCode == 422",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422\n\nfeatures/contrato-contactos.feature:54"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza favorito texto false sin modificar contacto",
+      "row": 54,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "FALLO",
+      "failed_step": "match r.statusCode == 422",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422\n\nfeatures/contrato-contactos.feature:54"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza favorito entero uno sin modificar contacto",
+      "row": 56,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "FALLO",
+      "failed_step": "match r.statusCode == 422",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422\n\nfeatures/contrato-contactos.feature:54"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza favorito entero cero sin modificar contacto",
+      "row": 58,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "FALLO",
+      "failed_step": "match r.statusCode == 422",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422\n\nfeatures/contrato-contactos.feature:54"
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza favorito objeto sin modificar contacto",
+      "row": 60,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza favorito arreglo sin modificar contacto",
+      "row": 62,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza cuerpo ausente sin modificar contacto",
+      "row": 64,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT rechaza cuerpo arreglo sin modificar contacto",
+      "row": 66,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@tecnica",
+        "@CT-02",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "row": 68,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@CT-03",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "row": 70,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@CT-03",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "row": 72,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@CT-03",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "PUT permite campos opcionales y nulos expresamente admitidos",
+      "row": 74,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@CT-03",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "GET rechaza pagina fuera del contrato",
+      "row": 76,
+      "tags": [
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@CT-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "GET rechaza pagina fuera del contrato",
+      "row": 78,
+      "tags": [
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@CT-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "GET rechaza pagina fuera del contrato",
+      "row": 80,
+      "tags": [
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@CT-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "GET rechaza pagina fuera del contrato",
+      "row": 82,
+      "tags": [
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@CT-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Identificador de ruta debe ser entero",
+      "row": 84,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@CT-05",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Identificador de ruta debe ser entero",
+      "row": 86,
+      "tags": [
+        "@HU-G4-03",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@CT-05",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Contrato de respuestas en recorrido CRUD válido",
+      "row": 88,
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@HU-G4-02",
+        "@CONTRATO-CONTACTOS",
+        "@CT-06",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Operaciones protegidas rechazan peticiones sin token",
+      "row": 90,
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@HU-G4-02",
+        "@CT-07",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Operaciones protegidas rechazan peticiones sin token",
+      "row": 92,
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@HU-G4-02",
+        "@CT-07",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Operaciones protegidas rechazan peticiones sin token",
+      "row": 94,
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@HU-G4-02",
+        "@CT-07",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    },
+    {
+      "feature": "features.contrato-contactos.json",
+      "scenario": "Operaciones protegidas rechazan peticiones sin token",
+      "row": 96,
+      "tags": [
+        "@HU-G4-01",
+        "@HU-G4-03",
+        "@HU-G4-02",
+        "@CT-07",
+        "@CONTRATO-CONTACTOS",
+        "@HU-G4-04",
+        "@tecnica",
+        "@api"
+      ],
+      "status": "APROBADO",
+      "failed_step": null,
+      "error": null
+    }
+  ]
+}

@@ -5,12 +5,13 @@
 Trabajo de QA asistido con IA: decisiones justificadas, pruebas reproducibles y evidencia real. La aplicación original se conserva sin modificaciones.
 
 ## Recorrido para la docente
+0. [Levantar y probar paso a paso](docs/levantar-y-probar.md): API, HTML, selección por HU/caso y ejecución completa.
 1. [Informe](docs/informe.md).
 2. [Decisiones y alternativas](docs/decisiones.md).
 3. [Diseño por historia](docs/diseno-pruebas.md) y [pendientes por criterio](docs/cobertura.md).
 4. [Defectos reproducidos](docs/defectos.md).
 5. [Documentación HTML](apidoc/index.html): endpoints, búsqueda, escenarios y resultados.
-6. [PPT editable](presentacion/G4-contactos.pptx) y [guion de sustentación](presentacion/guion.md).
+6. Presentación principal en el HTML; [PPT de respaldo](presentacion/G4-contactos.pptx). [Guion personal TXT](presentacion/Guion-Granit.txt), separado de la presentación.
 7. [Estado verificado del pipeline](docs/ci.md).
 8. [Evaluación de usabilidad propuesta](docs/usabilidad.md): complemento para la Parte 2.
 
@@ -18,7 +19,6 @@ Trabajo de QA asistido con IA: decisiones justificadas, pruebas reproducibles y 
 Requisitos: Git y Python 3.12. Java 17 se descarga localmente si falta.
 ```powershell
 ./scripts/bootstrap.ps1
-./.venv/Scripts/python.exe scripts/build_suite.py
 ```
 Terminal 1:
 ```powershell
@@ -37,11 +37,13 @@ Para abrir el portal con sus documentos y evidencias:
 Visitar http://localhost:8765/apidoc/. También abre `apidoc/index.html` directamente: los datos están incorporados y no dependen de un CDN.
 
 ## Reproducir un caso
-Con Java disponible:
+El lanzador localiza Java y configura el intérprete de los auxiliares:
 ```powershell
-java -cp ".tools/karate.jar;." com.intuit.karate.Main -T 1 -t "@G4-004" -r reports/raw/reproduccion features
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@G4-004'
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@HU-G4-01'
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@CONTRATO-CONTACTOS'
 ```
-Si Java se descargó en `.tools/java`, usar su `bin/java.exe` en lugar de `java`.
+Los tags se escriben entre comillas en PowerShell. Cada selección conserva un reporte independiente y no reemplaza el manifiesto de la suite completa.
 Karate devuelve salida no cero cuando fallan pruebas. No se desactivan los casos que detectan defectos.
 
 ## Referencia y alcance

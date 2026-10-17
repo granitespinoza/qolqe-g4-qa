@@ -27,18 +27,23 @@ def build():
         if not isinstance(features,list): continue
         for feature in features:
             if not isinstance(feature,dict) or feature.get('keyword')!='Feature':continue
+            background_steps=[]
             for e in feature.get('elements',[]):
+                if e.get('type')=='background':
+                    background_steps=e.get('steps',[])
+                    continue
                 tags=[t['name'].lstrip('@') for t in e.get('tags',[])]
                 case_id=next((t for t in tags if re.fullmatch('G4-\\d+',t)),None)
                 if not case_id: continue
-                steps=e.get('steps',[])
+                steps=background_steps+e.get('steps',[])
                 failed=[s for s in steps if s.get('result',{}).get('status')=='failed']
                 skipped=any(s.get('result',{}).get('status')=='skipped' for s in steps)
                 status='FALLÓ' if failed else ('PENDIENTE' if skipped else 'APROBADO')
                 error=redact(failed[0]['result'].get('error_message','')) if failed else ''
                 design=next((c for c in cases if c['id']==case_id),None)
                 first=next((i for i,s in enumerate(steps) if design and s.get('name')==design['steps'][0]),0)
-                logs='\n'.join(redact(s.get('doc_string',{}).get('value','')) for s in steps[first:])
+                evidence_steps=steps if failed and steps.index(failed[0])<first else steps[first:]
+                logs='\n'.join(redact(s.get('doc_string',{}).get('value','')) for s in evidence_steps)
                 attachments=[]
                 for step in steps[first:]:
                     for attached in step.get('embeddings',[]):
@@ -73,7 +78,11 @@ def build():
                 curl+=" \\\n  -H 'Content-Type: application/json' \\\n  --data '"+json.dumps(sample,ensure_ascii=False)+"'"
             operations.append(dict(id=id,path=path,method=method,operation=op,curl=curl))
     stamp=datetime.datetime.fromisoformat(manifest['finished_at']).astimezone(ZoneInfo('America/Lima')).isoformat(timespec='seconds')
-    data=dict(commit=commit,timestamp=stamp,cases=cases,results=results,stats=stats,findings=findings,operations=operations,openapi=schema)
+    from build_supplementary import build as build_extra
+    build_extra()
+    extra=json.loads((ROOT/'reports/complementarios.json').read_text(encoding='utf-8'))
+    schema_run=json.loads((ROOT/'reports/schemathesis-actual.json').read_text(encoding='utf-8')) if (ROOT/'reports/schemathesis-actual.json').exists() else None
+    data=dict(commit=commit,timestamp=stamp,report_dir=manifest['report_dir'],cases=cases,results=results,stats=stats,findings=findings,operations=operations,openapi=schema,supplementary=extra,schemathesis=schema_run)
     write('apidoc/data.js','window.QA_DATA = '+json.dumps(data,ensure_ascii=False)+';\n')
     write('reports/resultados.json',json.dumps(dict(timestamp=stamp,commit=commit,stats=stats,results=results,findings=findings),ensure_ascii=False,indent=2))
     # Cada CA permanece visible, incluidos los que solo tienen cobertura parcial.
@@ -112,7 +121,9 @@ Nivel: pruebas HTTP contra la aplicación FastAPI real con SQLite, sin mocks. No
 [Diseño detallado por HU](diseno-pruebas.md). [Contrato original](../data/openapi-original.json).
 Usuarios nuevos por escenario. Reloj global restablecido al comenzar. Ejecución secuencial porque cambiar el reloj afecta toda la aplicación; no se promete paralelismo seguro.
 **Última generación de evidencia:** {stamp}.
-**Karate:** {stats['executed']} ejecutados; {stats['passed']} aprobados; {stats['failed']} fallaron.
+**Karate, catálogo funcional inicial:** {stats['executed']} ejecutados; {stats['passed']} aprobados; {stats['failed']} fallaron.
+Las validaciones CT y variantes CF se presentan por separado en [resultados complementarios](resultados-complementarios.md) y [matriz revisada de Contactos](cobertura-tecnica-contactos.md). La suite completa incluye ambos conjuntos.
+El contraste entre requisitos, OpenAPI e implementación se conserva en [documentación frente a código](contraste-documentacion-codigo.md).
 Reporte bruto de esta ejecución: `{manifest['report_dir']}/karate-summary.html`. Registros redactados: [evidencias](../evidencias/).
 El número de escenarios aprobados no mide cobertura de criterios ni ausencia de defectos. Cada reporte queda vinculado con commit, huellas de fuentes e inicio/fin de su ejecución; se rechazan resultados desactualizados.
 [Schemathesis y límites de la ejecución](revision-contrato.md).
@@ -132,5 +143,5 @@ No se modificó Qolqe ni se ocultaron errores con expectativas ajustadas a su co
 La suite inicial permite defender técnicas y reproducir fallos. Completar los pendientes por CA antes de afirmar cobertura total o crear el tag de entrega `parte-1`.
 La documentación HTML ayuda a localizar pruebas; el análisis se conserva en este informe y el diseño.
 ''')
-    print(json.dumps(stats),f'{len(findings)} hallazgos confirmados registrados')
+    print(json.dumps(stats),f'{len(findings)} hallazgos confirmados registrados; estadísticas del catálogo funcional inicial')
 if __name__=='__main__':build()

@@ -5,7 +5,7 @@
 
 
 
-01:00:24.937 request:
+21:01:17.764 request:
 1 &gt; POST http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -14,15 +14,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;922071819&quot;,&quot;alias&quot;:&quot;Ana&quot;}
+{&quot;celular&quot;:&quot;980286839&quot;,&quot;alias&quot;:&quot;Ana&quot;}
 
-01:00:24.945 response time in milliseconds: 7
+21:01:17.768 response time in milliseconds: 4
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 06:00:24 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 84
 1 &lt; content-type: application/json
-{&quot;id&quot;:660,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;922071819&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
+{&quot;id&quot;:879,&quot;alias&quot;:&quot;Ana&quot;,&quot;celular&quot;:&quot;980286839&quot;,&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;favorito&quot;:false}
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-01:00:24.956 request:
+21:01:17.777 request:
 1 &gt; PUT http://127.0.0.1:8000/api/pruebas/saldo
 1 &gt; Authorization: null
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -44,11 +44,11 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;celular&quot;:&quot;957492078&quot;,&quot;saldo&quot;:&quot;100.00&quot;}
+{&quot;celular&quot;:&quot;996610472&quot;,&quot;saldo&quot;:&quot;100.00&quot;}
 
-01:00:24.962 response time in milliseconds: 6
+21:01:17.783 response time in milliseconds: 5
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 06:00:24 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 43
 1 &lt; content-type: application/json
@@ -64,7 +64,7 @@
 
 
 
-01:00:24.967 request:
+21:01:17.785 request:
 1 &gt; POST http://127.0.0.1:8000/api/transferencias
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Content-Type: application/json; charset=UTF-8
@@ -73,15 +73,15 @@
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;contacto_id&quot;:660,&quot;monto&quot;:&quot;10.00&quot;}
+{&quot;contacto_id&quot;:879,&quot;monto&quot;:&quot;10.00&quot;}
 
-01:00:25.090 response time in milliseconds: 123
+21:01:17.917 response time in milliseconds: 132
 1 &lt; 201
-1 &lt; date: Tue, 13 Oct 2026 06:00:24 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 225
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101301002402478&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;10.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;922071819&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;90.00&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:00:24&quot;}
+{&quot;codigo_operacion&quot;:&quot;TRF26101621011703556&quot;,&quot;tipo&quot;:&quot;QOLQE&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;total&quot;:&quot;10.00&quot;,&quot;destinatario&quot;:{&quot;nombre&quot;:&quot;Franco P.&quot;,&quot;celular&quot;:&quot;980286839&quot;,&quot;cci&quot;:null},&quot;saldo&quot;:&quot;90.00&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:01:17&quot;}
 
 
 
@@ -94,8 +94,8 @@
 
 
 
-01:00:25.095 request:
-1 &gt; DELETE http://127.0.0.1:8000/api/contactos/660
+21:01:17.920 request:
+1 &gt; DELETE http://127.0.0.1:8000/api/contactos/879
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -103,9 +103,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-01:00:25.102 response time in milliseconds: 7
+21:01:17.947 response time in milliseconds: 27
 1 &lt; 204
-1 &lt; date: Tue, 13 Oct 2026 06:00:24 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-type: application/json
 
@@ -121,7 +121,7 @@
 
 
 
-01:00:25.106 request:
+21:01:17.951 request:
 1 &gt; GET http://127.0.0.1:8000/api/contactos
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
@@ -130,9 +130,9 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-01:00:25.114 response time in milliseconds: 8
+21:01:17.958 response time in milliseconds: 7
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 06:00:24 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 85
 1 &lt; content-type: application/json
@@ -149,8 +149,8 @@
 
 
 
-01:00:25.120 request:
-1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101301002402478
+21:01:17.961 request:
+1 &gt; GET http://127.0.0.1:8000/api/movimientos/TRF26101621011703556
 1 &gt; Authorization: Bearer &lt;TOKEN_OCULTO&gt;
 1 &gt; Host: 127.0.0.1:8000
 1 &gt; Connection: Keep-Alive
@@ -158,13 +158,13 @@
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-01:00:25.129 response time in milliseconds: 9
+21:01:17.967 response time in milliseconds: 6
 1 &lt; 200
-1 &lt; date: Tue, 13 Oct 2026 06:00:24 GMT
+1 &lt; date: Sat, 17 Oct 2026 02:01:17 GMT
 1 &lt; server: uvicorn
 1 &lt; content-length: 277
 1 &lt; content-type: application/json
-{&quot;codigo_operacion&quot;:&quot;TRF26101301002402478&quot;,&quot;fecha&quot;:&quot;2026-10-13T01:00:24&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Transferencia a Franco P.&quot;,&quot;contraparte&quot;:&quot;922071819&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
+{&quot;codigo_operacion&quot;:&quot;TRF26101621011703556&quot;,&quot;fecha&quot;:&quot;2026-10-16T21:01:17&quot;,&quot;tipo&quot;:&quot;TRANSFERENCIA_ENVIADA&quot;,&quot;descripcion&quot;:&quot;Transferencia a Franco P.&quot;,&quot;contraparte&quot;:&quot;980286839&quot;,&quot;monto&quot;:&quot;10.00&quot;,&quot;comision&quot;:&quot;0.00&quot;,&quot;importe&quot;:&quot;-10.00&quot;,&quot;saldo_posterior&quot;:null,&quot;categoria&quot;:null,&quot;nota&quot;:null}
 
 
 

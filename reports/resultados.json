@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-10-13T01:01:24-05:00",
+  "timestamp": "2026-10-16T21:02:13-05:00",
   "commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
   "stats": {
     "executed": 116,
-    "passed": 110,
-    "failed": 6
+    "passed": 103,
+    "failed": 13
   },
   "results": {
     "G4-001": {
@@ -256,12 +256,12 @@
       "failure_phase": null
     },
     "G4-029": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-g4-04.feature:9",
       "feature": "features/hu-g4-04.feature",
       "name": "Solicitud pendiente enviada impide eliminar",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
+      "failure_phase": "preparacion"
     },
     "G4-030": {
       "status": "APROBADO",
@@ -304,20 +304,20 @@
       "failure_phase": null
     },
     "G4-034": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-g4-06.feature:9",
       "feature": "features/hu-g4-06.feature",
       "name": "Crear solicitud pendiente con vigencia 48 h y SMS",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
+      "failure_phase": "preparacion"
     },
     "G4-035": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  404\n  422\n\nfeatures/hu-g4-06.feature:41",
       "feature": "features/hu-g4-06.feature",
       "name": "Monto solicitado 0.00",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "match r.statusCode == 422",
+      "failure_phase": "asercion"
     },
     "G4-036": {
       "status": "APROBADO",
@@ -576,12 +576,12 @@
       "failure_phase": null
     },
     "G4-098": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-g4-09.feature:9",
       "feature": "features/hu-g4-09.feature",
       "name": "No rechazar desde ACEPTADA",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
+      "failure_phase": "preparacion"
     },
     "G4-101": {
       "status": "APROBADO",
@@ -696,28 +696,28 @@
       "failure_phase": null
     },
     "G4-110": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-n-01.feature:9",
       "feature": "features/hu-n-01.feature",
       "name": "Celular duplicado responde conflicto",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
+      "failure_phase": "preparacion"
     },
     "G4-111": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:22\nfeatures/hu-n-01.feature:9",
       "feature": "features/hu-n-01.feature",
       "name": "Correo duplicado ignora mayúsculas",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
+      "failure_phase": "preparacion"
     },
     "G4-072": {
-      "status": "APROBADO",
-      "error": "",
+      "status": "FALLÓ",
+      "error": "No se pudo autenticar contexto\nclasspath:features/support/setup.feature:20\nfeatures/hu-n-02.feature:9",
       "feature": "features/hu-n-02.feature",
       "name": "Login crea sesión con vigencia de 30 minutos",
-      "failed_step": "",
-      "failure_phase": null
+      "failed_step": "def ctx = call read('classpath:features/support/setup.feature')",
+      "failure_phase": "preparacion"
     },
     "G4-073": {
       "status": "APROBADO",
@@ -903,35 +903,35 @@
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101301011902721",
+                  "codigo_operacion": "TRF26101621020803789",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "993408600",
+                    "celular": "954227300",
                     "cci": null
                   },
                   "saldo": "100.00",
-                  "fecha": "2026-10-13T01:01:19"
+                  "fecha": "2026-10-16T21:02:08"
                 }
               ],
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101301011902721",
+                  "codigo_operacion": "TRF26101621020803789",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "993408600",
+                    "celular": "954227300",
                     "cci": null
                   },
                   "saldo": "-300.00",
-                  "fecha": "2026-10-13T01:01:19"
+                  "fecha": "2026-10-16T21:02:08"
                 }
               ]
             ],
@@ -939,7 +939,7 @@
             "saldo": {
               "saldo": "-300.00",
               "moneda": "PEN",
-              "actualizado_en": "2026-10-13T01:01:19"
+              "actualizado_en": "2026-10-16T21:02:08"
             },
             "limits": {
               "limite_por_operacion": "500.00",
@@ -958,35 +958,35 @@
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101301012002723",
+                  "codigo_operacion": "TRF26101621020903791",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "944312600",
+                    "celular": "918209500",
                     "cci": null
                   },
-                  "saldo": "1600.00",
-                  "fecha": "2026-10-13T01:01:20"
+                  "saldo": "1200.00",
+                  "fecha": "2026-10-16T21:02:09"
                 }
               ],
               [
                 201,
                 {
-                  "codigo_operacion": "TRF26101301012002723",
+                  "codigo_operacion": "TRF26101621020903791",
                   "tipo": "QOLQE",
                   "monto": "400.00",
                   "comision": "0.00",
                   "total": "400.00",
                   "destinatario": {
                     "nombre": "Concurrencia P.",
-                    "celular": "944312600",
+                    "celular": "918209500",
                     "cci": null
                   },
-                  "saldo": "1200.00",
-                  "fecha": "2026-10-13T01:01:20"
+                  "saldo": "1600.00",
+                  "fecha": "2026-10-16T21:02:09"
                 }
               ]
             ],
@@ -994,7 +994,7 @@
             "saldo": {
               "saldo": "1200.00",
               "moneda": "PEN",
-              "actualizado_en": "2026-10-13T01:01:20"
+              "actualizado_en": "2026-10-16T21:02:09"
             },
             "limits": {
               "limite_por_operacion": "500.00",

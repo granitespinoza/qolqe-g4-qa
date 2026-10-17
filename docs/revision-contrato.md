@@ -1,6 +1,40 @@
 # Revisión de contrato — Schemathesis
 
-## Ejecución exploratoria real
+## Nueva ejecución con contexto real: 16 de octubre de 2026, 21:05 (Lima)
+
+Ejecución `20261017T020510Z-9ea00f`, Schemathesis 4.17.0: **562 casos generados, 138 omitidos, 4 señales únicas, 0 errores de hooks y 2 advertencias**. Salida 1: no es una ejecución completamente aprobada. La fecha del identificador está en UTC. [Resumen público de esta ejecución](../reports/schemathesis-actual.json).
+
+Se añadieron nueve ejemplos de control independientes de los datos aleatorios. Todos alcanzaron una respuesta de éxito con recursos propios y rol correcto:
+
+| Operación | Respuesta del control |
+|---|---|
+| POST contactos | 201 |
+| GET contactos | 200 |
+| PUT contacto propio | 200 |
+| DELETE contacto propio sin pendientes | 204 |
+| POST solicitudes | 201 |
+| GET solicitudes | 200 |
+| Aceptar como destinatario con saldo | 200 |
+| Rechazar como destinatario | 200 |
+| Cancelar como solicitante | 200 |
+
+La preparación verifica que el contacto y la solicitud creados sean visibles mediante consultas antes de enviar la operación bajo prueba. Hubo **dos reintentos de preparación de login** tras 401 `CREDENCIALES_INVALIDAS`, registrados en `preparacion-contexto.json` y en el resumen público. No se repitió una operación funcional fallida para convertirla en aprobada. La confirmación de BD después de responder en la dependencia de FastAPI es una causa posible de esa falta de visibilidad; requiere investigación separada, no se atribuye al comportamiento del CRUD evaluado.
+
+Se conservaron las comprobaciones de autenticación: el HAR contiene también **177 respuestas 401**. Los controles manuales se declaran explícitamente autenticados en los metadatos de Schemathesis 4.17; de lo contrario el analizador los interpreta como tokens aleatorios aunque sean JWT reales. Esto no excluye `ignored_auth` ni reinyecta tokens en sus peticiones sin credenciales. El código del hook coincide con la huella SHA256 guardada al inicio de esta ejecución.
+
+Las cuatro señales corresponden a las mismas categorías de interpretación de la tabla inferior. Siguen siendo señales por investigar, **no cuatro defectos confirmados**. Persisten advertencias por 404 en cinco operaciones y discrepancias de validación en cinco operaciones durante la generación automática; los nueve controles exitosos no borran esas limitaciones ni demuestran todos los CA.
+
+Se mantienen sin modificar el esquema original, sus restricciones, las entradas generadas y las respuestas obtenidas. Los reportes completos JUnit/NDJSON/HAR son locales; el resumen público no contiene tokens. [Contraste con el código y los requisitos](contraste-documentacion-codigo.md).
+
+## Complemento explícito tras la revisión docente
+
+La exploración descrita abajo no prueba todos los tipos y campos obligatorios.
+Se añadieron casos Karate verificables por campo para el CRUD de Contactos:
+[matriz funcional y técnica](cobertura-tecnica-contactos.md),
+`features/contrato-contactos.feature` y `features/complemento-contactos.feature`.
+Sus ejecuciones y hallazgos se registran aparte de los 116 casos históricos.
+
+## Ejecución exploratoria histórica
 Schemathesis 4.17.0; fases examples, coverage y fuzzing. Stateful desactivado. Semilla 20261013, un worker, máximo 20 ejemplos de fuzzing por operación (no 20 peticiones totales).
 9 operaciones G4 seleccionadas de 69; 400 casos generados, 72 omitidos, 4 fallos únicos señalados y 2 advertencias. [Salida redactada](../reports/schemathesis.txt).
 
