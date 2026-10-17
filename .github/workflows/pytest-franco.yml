@@ -1,0 +1,39 @@
+name: Franco — pytest login y usuarios
+on:
+  push:
+    branches: [franco-pytest-login-usuarios]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pytest-franco:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preparar Qolqe original y dependencias
+        run: |
+          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
+          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
+          mkdir -p .tools
+          python -m pip install -r referencias/qolqe-wallet/requirements.txt -r tests/pytest_franco/requirements.txt
+      - name: Ejecutar suite pytest de Franco contra API real
+        run: |
+          python scripts/serve_api.py > /tmp/qolqe-franco-api.log 2>&1 &
+          echo $! > /tmp/qolqe-franco.pid
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:8000/openapi.json > /dev/null; then break; fi
+            sleep 1
+          done
+          python -m pytest tests/pytest_franco -v --tb=short --junitxml=reports/pytest-franco.xml | tee reports/pytest-franco.txt
+      - name: Guardar evidencias de pytest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-pytest-franco
+          path: |
+            reports/pytest-franco.xml
+            reports/pytest-franco.txt
+          retention-days: 7
