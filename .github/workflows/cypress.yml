@@ -1,0 +1,36 @@
+name: Cypress contactos E2E
+on:
+  push:
+    paths: ['cypress/**', 'scripts/cypress/**', 'cypress.config.ts', 'package*.json', 'tsconfig.json', '.github/workflows/cypress.yml']
+  pull_request:
+    paths: ['cypress/**', 'scripts/cypress/**', 'cypress.config.ts', 'package*.json', 'tsconfig.json', '.github/workflows/cypress.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contactos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm run cy:setup
+      - run: npm run cy:typecheck
+      - name: Suite real sin dependencia de IA
+        run: npm run cy:regression
+        env:
+          CY_BROWSER: electron
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-evidence-${{ github.run_id }}
+          path: reports/cypress/
+          retention-days: 7
+          if-no-files-found: warn

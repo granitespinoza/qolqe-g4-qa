@@ -64,3 +64,7 @@ Explicar una HU con sus CA y diseño; ejecutar toda la automatización; revisar 
 Schemathesis dispone de [peticiones y checks detallados](reports/schemathesis-detallado.html), con filtros basados en metadatos y credenciales ocultas. Los casos CT explícitos y la matriz complementan las condiciones no demostradas por la exploración. El detalle se genera al ejecutar Schemathesis; también puede reconstruirse desde su evidencia local con `scripts/build_schemathesis_report.py`.
 
 La preparación de usuarios, contactos y sesiones comprueba disponibilidad mediante sondeos acotados y registrados. No se reintentan operaciones financieras ni se cambian sus aserciones. [Incidencia y comparación de ejecuciones](docs/incidencia-consistencia.md).
+
+## Automatización web con Cypress
+
+Suite E2E de Contactos, Page Objects y demo IA. [Instalación y comandos](docs/cypress/README.md) · [Trazabilidad](docs/cypress/trazabilidad.md) · [Arquitectura](docs/cypress/arquitectura.md).

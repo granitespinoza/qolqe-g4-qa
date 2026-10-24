@@ -18,3 +18,7 @@ presentacion/Como-estudiar-*.txt
 presentacion/Levantar-y-probar-*.txt
 docs/como-estudiar.md
 output/pdf/Guia-de-estudio-*.pdf
+
+# Cypress: evidencia local y configuración Cloud
+reports/cypress/
+cypress.env.json

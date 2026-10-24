@@ -1,0 +1,48 @@
+{
+  "sut": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "cypress": "16.2.0",
+  "note": "Validación de cambios locales aún no commiteados. El intento inicial IA falló; una ejecución interactiva posterior pasó según captura aportada por el usuario. Failure es intencional.",
+  "executions": [
+    {
+      "mode": "smoke",
+      "exitCode": 0,
+      "directory": "reports/cypress/2026-10-24T14-56-17-686Z-smoke",
+      "started": "2026-10-24T14:56:17.815Z",
+      "ended": "2026-10-24T14:57:13.594Z"
+    },
+    {
+      "mode": "regression",
+      "exitCode": 0,
+      "directory": "reports/cypress/2026-10-24T14-58-44-711Z-regression",
+      "started": "2026-10-24T14:58:44.857Z",
+      "ended": "2026-10-24T14:59:23.237Z"
+    },
+    {
+      "mode": "failure",
+      "exitCode": 1,
+      "directory": "reports/cypress/2026-10-24T14-59-37-642Z-failure",
+      "started": "2026-10-24T14:59:37.657Z",
+      "ended": "2026-10-24T15:00:00.899Z"
+    },
+    {
+      "mode": "ai",
+      "exitCode": 1,
+      "directory": "reports/cypress/2026-10-24T15-00-46-538Z-ai",
+      "started": "2026-10-24T15:00:46.562Z",
+      "ended": "2026-10-24T15:01:17.075Z"
+    }
+  ],
+  "interactiveAi": {
+    "status": "passed",
+    "evidence": "evidencias/cypress-ia-aprobada.png",
+    "source": "Captura aportada por el usuario el 24 de octubre de 2026",
+    "observed": [
+      "1 test aprobado",
+      "POST 201",
+      "recarga",
+      "1 contacto",
+      "alias y celular comprobados"
+    ],
+    "scope": "Ejecución interactiva. No afirma verificación headless ni CI."
+  }
+}
