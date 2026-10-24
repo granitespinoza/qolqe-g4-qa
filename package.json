@@ -1,0 +1,25 @@
+{
+  "name": "qolqe-g4-cypress",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0 || >=26.0.0"
+  },
+  "scripts": {
+    "cy:setup": "node scripts/cypress/setup.mjs",
+    "cy:open": "node scripts/cypress/run.mjs open",
+    "cy:smoke": "node scripts/cypress/run.mjs smoke",
+    "cy:regression": "node scripts/cypress/run.mjs regression",
+    "cy:ai": "node scripts/cypress/run.mjs ai",
+    "cy:ai:open": "node scripts/cypress/run.mjs ai-open",
+    "cy:demo-failure": "node scripts/cypress/run.mjs failure",
+    "cy:typecheck": "tsc --noEmit",
+    "cy:report": "node scripts/cypress/report.mjs"
+  },
+  "devDependencies": {
+    "cypress": "16.2.0",
+    "typescript": "5.9.3",
+    "@types/node": "24.10.0",
+    "cypress-mochawesome-reporter": "5.0.0"
+  }
+}
