@@ -1,0 +1,67 @@
+﻿COMANDOS DE LA EXPOSICIÓN CYPRESS
+Ejecutar por bloques, no pegar todo de una sola vez.
+
+TERMINAL 1: PRESENTACIÓN WEB
+Set-Location 'C:\Users\Franco\qolqe-g4-qa'
+.\.venv\Scripts\python.exe -m http.server 8766 --bind 127.0.0.1
+
+Deja esa terminal abierta. Si ya hay un servidor del proyecto en 8766, reutilízalo.
+Abre en el navegador: http://127.0.0.1:8766/apidoc/cypress/#presentacion
+También puedes entrar por http://localhost:8766/apidoc/#presentacion y pulsar Demo Cypress.
+
+TERMINAL 2: CYPRESS
+Set-Location 'C:\Users\Franco\qolqe-g4-qa'
+$env:CYPRESS_PROJECT_ID = '6k5v4s'
+Start-Process 'http://127.0.0.1:8766/apidoc/cypress/#presentacion'
+
+1. HAPPY PATH VISIBLE
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 open
+En Cypress, abre contactos-happy-path.cy.ts.
+Explica POST 201, la fila, favorito desactivado y persistencia tras reload.
+CIERRA CYPRESS Y EL NAVEGADOR DE PRUEBAS antes del siguiente bloque.
+
+2. IA EN VIVO
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 ai-open
+Abre contactos-ia.cy.ts. Inicia sesión personalmente si Cypress la pide.
+Explica cy.prompt y las aserciones explícitas posteriores.
+CIERRA CYPRESS Y EL NAVEGADOR DE PRUEBAS antes del siguiente bloque.
+
+3. REGRESIÓN Y REPORTE
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 regression
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
+Esperado: 3 escenarios aprobados. Lee el resultado real.
+
+4. FALLO INTENCIONAL Y REPORTE
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 failure
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
+Esperado: 1 escenario fallido por exigir dos contactos y encontrar uno.
+La salida 1 es intencional solo en este modo.
+
+5. CARPETA DE EVIDENCIA DE LA ÚLTIMA EJECUCIÓN RUN
+$demoLast = Get-Content '.\reports\cypress\latest.json' -Raw | ConvertFrom-Json
+Start-Process (Resolve-Path $demoLast.runDir).Path
+Abre html/index.html, screenshots y videos si se generaron.
+Un spec aprobado elimina su video mediante nuestra configuración.
+
+6. OPCIONAL: TERMINAR MOSTRANDO LA SUITE VERDE
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 regression
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
+
+ANTES DE EXPONER (NO INSTALAR DURANTE LA DEMO)
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 typecheck
+Solo si faltan dependencias o es una instalación nueva:
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 install
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 setup
+
+OPCIONAL: SOLO UN CASO SIN INTERFAZ INTERACTIVA
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 smoke
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
+
+REPOSITORIO Y CI
+Start-Process 'https://github.com/granitespinoza/qolqe-g4-qa'
+Start-Process 'https://github.com/granitespinoza/qolqe-g4-qa/actions'
+
+AL TERMINAR
+Cierra Cypress. En la terminal del servidor web, Ctrl+C.
+El puerto 8766 sirve la presentación. El lanzador Cypress administra Qolqe en 8011.
+No necesitas iniciar manualmente la API en 8000 para esta demo.
