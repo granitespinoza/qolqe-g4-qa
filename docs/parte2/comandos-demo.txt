@@ -1,0 +1,33 @@
+ENTREGA 2 — COMANDOS PARA ENSAYAR
+
+TERMINAL 1 — PRESENTACIÓN / MATRIZ
+Set-Location 'C:\Users\Franco\qolqe-g4-qa'
+.venv/Scripts/python.exe -m http.server 8765 --bind 127.0.0.1
+Abrir: http://localhost:8765/apidoc/parte2/#presentacion
+
+TERMINAL 2 — CYPRESS VISUAL (cerrar antes de otro modo)
+Set-Location 'C:\Users\Franco\qolqe-g4-qa'
+$env:CY_VIDEO = '0'
+$env:CY_KEEP_DB = '0'
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 open
+Elegir Web/cypress/e2e/contactos-happy-path.cy.ts
+
+ALTERNATIVA BREVE
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 smoke
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
+
+REVISAR GATE DE LAS ÚLTIMAS TRES CORRIDAS COMPLETAS
+.venv/Scripts/python.exe scripts/quality_gate.py web
+.venv/Scripts/python.exe scripts/ci_run.py reporting
+Get-Content reports/gate/resumen.md
+
+EVIDENCIA NUEVA COMPLETA (antes de exponer; tarda varios minutos)
+.venv/Scripts/python.exe scripts/ci_run.py api
+.venv/Scripts/python.exe scripts/ci_run.py web
+.venv/Scripts/python.exe scripts/build_web_coverage.py
+.venv/Scripts/python.exe scripts/ci_run.py reporting
+.venv/Scripts/python.exe scripts/build_delivery.py
+
+RESULTADO ESPERADO DEL GATE: approved=true, scenario=A, unknown_failure=0, flaky=0.
+Los reportes crudos conservan los FAIL conocidos. No se presenta esto como 54 PASS.
+Canvas: presentacion/Entrega2-Qolqe-Cypress.pptx

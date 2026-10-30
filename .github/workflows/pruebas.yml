@@ -1,0 +1,161 @@
+name: Pipeline CI/CD - Entrega 2
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: entrega2-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  job_api:
+    name: API y contratos — Quality Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Preparar Qolqe intacto y dependencias fijadas
+        run: |
+          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
+          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
+          mkdir -p .tools
+          curl -fL https://github.com/karatelabs/karate/releases/download/v1.5.2/karate-1.5.2.jar -o .tools/karate.jar
+          python -m pip install -r requirements-lock.txt
+          python -m pip check
+      - name: Verificar el Quality Gate contra falsos verdes
+        run: python -m unittest discover -s tests -p test_quality_gate.py
+      - name: Ejecutar Karate y Schemathesis y evaluar Escenario A
+        run: python scripts/ci_run.py api
+      - name: Publicar resultados crudos y decisiones API
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reports/raw/
+            reports/latest-karate.json
+            reports/latest-schemathesis.json
+            reports/gate/karate.json
+            reports/gate/schemathesis.json
+            results/api-results.xml
+            API/openapi.json
+            .tools/api-runs/*/server.log
+          retention-days: 7
+          compression-level: 9
+  job_web:
+    name: Web E2E — tres corridas y Quality Gate
+    needs: [job_api]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CY_BROWSER: chrome
+      CY_VIDEO: '0'
+      CY_KEEP_DB: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        id: python
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Preparar Qolqe intacto y Cypress
+        run: |
+          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
+          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
+          python -m pip install -r requirements-lock.txt
+          python -m pip check
+          npm ci --no-audit --no-fund
+          npx cypress verify
+          npm run cy:typecheck
+          npm run cy:check-evidence
+          python scripts/build_scope.py --check
+      - name: Ejecutar todas las pruebas tres veces y decidir el gate
+        env:
+          QA_PYTHON: ${{ steps.python.outputs.python-path }}
+        run: python scripts/ci_run.py web
+      - name: Consolidar cobertura web
+        if: always()
+        run: python scripts/build_web_coverage.py
+      - name: Publicar reportes y clasificación Web
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reports/cypress/
+            reports/gate/web.json
+            results/web-results.xml
+            data/parte2-web-verificacion.json
+            docs/parte2/verificacion-web.md
+          retention-days: 7
+          compression-level: 9
+  job_reporting:
+    name: Reportería, matriz y decisión final
+    needs: [job_api, job_web]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Descargar evidencia del mismo run e intento
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-results-${{ github.run_id }}-${{ github.run_attempt }}'
+          merge-multiple: true
+          path: .
+      - name: Preparar referencia para verificar procedencia
+        run: |
+          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
+          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
+      - name: Aplicar decisión consolidada sin esconder fallos
+        if: always()
+        run: python scripts/ci_run.py reporting
+      - name: Generar matriz actual y presentación navegable
+        if: always()
+        run: |
+          python -c "from pathlib import Path; [Path(p).unlink(missing_ok=True) for p in ['data/trazabilidad-parte2.json','docs/parte2/trazabilidad.md','apidoc/parte2/index.html']]"
+          python scripts/build_delivery.py
+      - name: Publicar entrega consolidada
+        id: artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: entrega-parte2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            apidoc/parte2/
+            data/trazabilidad-parte2.json
+            data/trazabilidad-parte2.csv
+            data/quality-policy.json
+            docs/parte2/
+            reports/raw/
+            reports/cypress/
+            reports/gate/
+            results/
+            API/features/
+            Web/cypress/
+            presentacion/Entrega2-Qolqe-Cypress.pptx
+          retention-days: 7
+          compression-level: 9
+      - name: Enlace al reporte final
+        if: always()
+        env:
+          QA_ARTIFACT: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          python -c "import os; from pathlib import Path; Path(os.environ['GITHUB_STEP_SUMMARY']).open('a',encoding='utf-8').write('\n[Descargar matriz, reportes y presentación]('+os.environ.get('QA_ARTIFACT','')+'). Extraer y abrir apidoc/parte2/index.html.\n')"

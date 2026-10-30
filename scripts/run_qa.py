@@ -2,7 +2,7 @@
 from pathlib import Path
 import argparse, datetime, hashlib, json, os, shutil, socket, subprocess, sys, time, uuid
 import urllib.request
-from qa_provenance import snapshot
+from qa_provenance import snapshot, execution_context
 
 ROOT = Path(__file__).resolve().parents[1]
 def api(route, body=None):
@@ -12,21 +12,24 @@ def run(mode, tag=None, scope='all'):
     started=datetime.datetime.now(datetime.timezone.utc)
     run_id=started.strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:6]
     report_dir='reports/raw/'+mode+'/'+run_id
-    manifest={'run_id':run_id,'tool':mode,'scope':scope,'tag':tag,'started_at':started.isoformat(),'report_dir':report_dir,**snapshot()}
+    manifest={'run_id':run_id,'tool':mode,'scope':scope,'tag':tag,'started_at':started.isoformat(),'report_dir':report_dir,**snapshot(),**execution_context()}
     schema_bytes=json.dumps(api('/openapi.json'),ensure_ascii=False,indent=2).encode('utf-8')
     manifest['openapi_sha256']=hashlib.sha256(schema_bytes).hexdigest()
     if mode=='karate':
         java=shutil.which('java') or next((str(p) for p in (ROOT/'.tools/java').rglob('java.exe')),None)
         if not java: raise SystemExit('Falta Java 17: ejecutar scripts/bootstrap.ps1')
-        args=[java,'-DqaPython='+sys.executable,'-cp',str(ROOT/'.tools/karate.jar')+os.pathsep+str(ROOT),'com.intuit.karate.Main','-T','1','-f','cucumber:json,junit:xml','-r',report_dir,'features']
+        args=[java,'-DqaPython='+sys.executable,'-cp',str(ROOT/'.tools/karate.jar')+os.pathsep+str(ROOT),'com.intuit.karate.Main','-T','1','-f','cucumber:json,junit:xml','-r',report_dir,'API/features']
         if scope == 'g4':
-            args[-1:] = [str(p.relative_to(ROOT)) for p in sorted((ROOT/'features').glob('hu-g4-*.feature'))]
+            args[-1:] = [str(p.relative_to(ROOT)) for p in sorted((ROOT/'API/features').glob('hu-g4-*.feature'))]
         if tag:
             # Se pasa como argumento, sin ejecutar texto en un shell.
             args[args.index('-r'):args.index('-r')] = ['-t', tag]
     else:
         manifest['context_hooks_sha256']=hashlib.sha256((ROOT/'scripts/schemathesis_context.py').read_bytes()).hexdigest()
         manifest['phases']=['examples','coverage','fuzzing']
+        manifest['seed']=20261013
+        manifest['max_examples']=20
+        manifest['stateful']=False
         manifest['context_policy']='Controles explícitos con recursos reales; generación aleatoria sin corregir; respuestas sin modificar.'
         # Usuario dedicado: no se imprimen ni guardan sus credenciales de sesión.
         n=str(time.time_ns()%90000000+10000000)
@@ -66,14 +69,12 @@ def run(mode, tag=None, scope='all'):
     if mode == 'schemathesis':
         # Se publica el detalle de esta ejecución, no un resumen antiguo.
         exporter=subprocess.run([sys.executable,str(ROOT/'scripts/build_schemathesis_report.py'),
-            '--manifest',f'reports/{pointer}.json'],cwd=ROOT,capture_output=True,text=True,encoding='utf-8')
+            '--manifest',f'reports/{pointer}.json','--output-dir',report_dir],cwd=ROOT,capture_output=True,text=True,encoding='utf-8')
         if exporter.returncode:
             print('No se pudo generar el reporte detallado de Schemathesis. Los reportes originales se conservaron.')
             print(exporter.stderr)
             return result.returncode or exporter.returncode
-        for name in ['schemathesis-detallado.html','schemathesis-detallado.json']:
-            shutil.copy2(ROOT/'reports'/name,ROOT/report_dir/name)
-        print('Detalle: http://localhost:8765/reports/schemathesis-detallado.html')
+        print(f'Detalle: http://localhost:8765/{report_dir}/schemathesis-detallado.html')
     print(f'{mode}: salida {result.returncode}; alcance {scope}; tag {tag or "todos"}')
     print(f'Registro local: {log}')
     if mode == 'karate':
@@ -98,7 +99,7 @@ if __name__=='__main__':
     if a.mode != 'karate' and (a.tag or a.scope != 'all' or a.list_tags):
         p.error('--tag, --scope y --list-tags se utilizan solo con karate')
     if a.list_tags:
-        selected=(ROOT/'features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'features').rglob('*.feature')
+        selected=(ROOT/'API/features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'API/features').rglob('*.feature')
         for path in sorted(selected):
             tags=sorted({tag for line in path.read_text(encoding='utf-8').splitlines() if line.lstrip().startswith('@') for tag in line.split() if tag.startswith('@')})
             if tags and tags != ['@ignore']:
@@ -107,18 +108,24 @@ if __name__=='__main__':
     if a.tag and (not a.tag.startswith('@') or any(c.isspace() for c in a.tag) or ',' in a.tag or '~' in a.tag):
         p.error('--tag debe ser un único tag, por ejemplo @HU-G4-01')
     if a.tag:
-        selected=(ROOT/'features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'features').rglob('*.feature')
+        selected=(ROOT/'API/features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'API/features').rglob('*.feature')
         if not any(a.tag in text.split() for path in selected for text in path.read_text(encoding='utf-8').splitlines() if text.lstrip().startswith('@')):
             p.error('El tag no existe en el alcance elegido. Revisa el encabezado de la HU o del escenario.')
     proc=None
+    server_log=None
     try:
         if a.start_api:
             with socket.socket() as sock:
                 if sock.connect_ex(('127.0.0.1',8000))==0:
                     raise SystemExit('El puerto 8000 ya está ocupado. --start-api no reutiliza otra instancia; libera el puerto o ejecuta sin esa opción conscientemente.')
-            proc=subprocess.Popen([sys.executable,str(ROOT/'scripts/serve_api.py')],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            # Every owned run gets its own database and test clock. Never reuse manual data.
+            database_dir=ROOT/'.tools'/'api-runs'/uuid.uuid4().hex
+            database_dir.mkdir(parents=True)
+            os.environ['QA_RUN_DB_DIR']=str(database_dir)
+            server_log=(database_dir/'server.log').open('w',encoding='utf-8')
+            proc=subprocess.Popen([sys.executable,str(ROOT/'scripts/serve_api.py')],cwd=ROOT,stdout=server_log,stderr=subprocess.STDOUT)
             for _ in range(180):
-                if proc.poll() is not None:raise SystemExit('La API iniciada terminó antes de estar disponible')
+                if proc.poll() is not None:raise SystemExit(f'La API iniciada terminó antes de estar disponible; revisar {database_dir}/server.log')
                 try: api('/openapi.json');break
                 except Exception: time.sleep(1)
             else: raise SystemExit('La API no estuvo disponible en 180 segundos')
@@ -127,3 +134,14 @@ if __name__=='__main__':
         raise SystemExit(f'No se pudo ejecutar la prueba: {error}. Comprueba el entorno y que la API esté disponible en http://127.0.0.1:8000/docs.')
     finally:
         if proc and proc.poll() is None: proc.terminate();proc.wait(timeout=15)
+
+        if server_log: server_log.close()
+        # Solo las bases de la instancia creada por este proceso. El server.log se conserva.
+        if proc is not None and a.start_api:
+            owned=database_dir.resolve();base=(ROOT/'.tools/api-runs').resolve()
+            if owned.parent!=base:raise RuntimeError('Directorio temporal fuera del ámbito esperado')
+            for filename in ('qolqe-qa.db','plantilla-qa.db'):
+                for suffix in ('','-shm','-wal'):
+                    target=owned/(filename+suffix)
+                    try:target.unlink(missing_ok=True)
+                    except OSError as error:print('No se pudo retirar base temporal:',target.name,str(error))

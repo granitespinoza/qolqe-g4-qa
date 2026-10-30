@@ -1,5 +1,7 @@
 # Alcance y trazabilidad de Cypress
 
+> Parte 2: [matriz G4 actual y backlog web](../parte2/alcance-y-matriz.md). Esta página conserva el alcance anterior. [Implementación y resultados actuales de pasos 3–4](../parte2/verificacion-web.md); presencia de pruebas no implica aprobación.
+
 Fuente normativa: `referencias/qolqe-wallet/docs/requisitos.md`, revisión `8c7d2f0c939ede7765b7b80b98c10c3905693fda`.
 
 | Caso | Requisito | Datos y técnica | Oráculo | Prioridad |

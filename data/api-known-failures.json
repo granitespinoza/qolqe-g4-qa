@@ -1,0 +1,187 @@
+{
+  "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "reviewed_run": "20261029T163543Z-48b5c9",
+  "policy": "Solo diagnóstico: FAIL sigue FAIL. No es una lista de exclusión ni autorización para aprobar el pipeline.",
+  "failures": [
+    {
+      "key": "features/complemento-contactos.feature::30",
+      "name": "Editar alias válido en límites y clases permitidas",
+      "cases": [
+        "CF-01"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 200",
+          "error_sha256": "8b310f4d77be563f9302fd92aec4e14e0dfdcbbf17262708fc511d37da590ca5"
+        }
+      ],
+      "defect": "D-01",
+      "source_sha256": "2a0d04f34caa24553c34991eb60972936bbbc1584a3e9e5ac7a4e64199f9650b"
+    },
+    {
+      "key": "features/complemento-contactos.feature::62",
+      "name": "Editar alias duplicado tras normalizar",
+      "cases": [
+        "CF-03"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 409",
+          "error_sha256": "57e451396b1b66df6a6673e0ac27ddb9dd0cb709b129d6301b067b54de95679b"
+        }
+      ],
+      "defect": "D-02",
+      "source_sha256": "2a0d04f34caa24553c34991eb60972936bbbc1584a3e9e5ac7a4e64199f9650b"
+    },
+    {
+      "key": "features/contrato-contactos.feature::67",
+      "name": "PUT rechaza favorito texto true sin modificar contacto",
+      "cases": [
+        "CT-02"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 422",
+          "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+        }
+      ],
+      "defect": "D-06",
+      "source_sha256": "3cc2d8d5814eafd5cfa12d774e4d4c990cf1f65b734c050ca6004833dcac8d7c"
+    },
+    {
+      "key": "features/contrato-contactos.feature::68",
+      "name": "PUT rechaza favorito texto false sin modificar contacto",
+      "cases": [
+        "CT-02"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 422",
+          "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+        }
+      ],
+      "defect": "D-06",
+      "source_sha256": "3cc2d8d5814eafd5cfa12d774e4d4c990cf1f65b734c050ca6004833dcac8d7c"
+    },
+    {
+      "key": "features/contrato-contactos.feature::69",
+      "name": "PUT rechaza favorito entero uno sin modificar contacto",
+      "cases": [
+        "CT-02"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 422",
+          "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+        }
+      ],
+      "defect": "D-06",
+      "source_sha256": "3cc2d8d5814eafd5cfa12d774e4d4c990cf1f65b734c050ca6004833dcac8d7c"
+    },
+    {
+      "key": "features/contrato-contactos.feature::70",
+      "name": "PUT rechaza favorito entero cero sin modificar contacto",
+      "cases": [
+        "CT-02"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 422",
+          "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+        }
+      ],
+      "defect": "D-06",
+      "source_sha256": "3cc2d8d5814eafd5cfa12d774e4d4c990cf1f65b734c050ca6004833dcac8d7c"
+    },
+    {
+      "key": "features/hu-g4-01.feature::52",
+      "name": "Crear contacto con alias 'Niño'",
+      "cases": [
+        "G4-004"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 201",
+          "error_sha256": "8af8066f1c8fde500046c7cf061031a6831122a8b2a3f2942ac4c549d906a223"
+        }
+      ],
+      "defect": "D-01",
+      "source_sha256": "9dfb5e6c66dcb0f47f9f0f1475a29276e56a70c8bd29c5f2e224ec6c51daf84f"
+    },
+    {
+      "key": "features/hu-g4-01.feature::187",
+      "name": "Alias duplicado tras normalizar ' Ana '",
+      "cases": [
+        "G4-018"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 409",
+          "error_sha256": "3b685864217958aa2a69e5653ff9147ddf4a75a7395e8831e575c875c25f93f4"
+        }
+      ],
+      "defect": "D-02",
+      "source_sha256": "9dfb5e6c66dcb0f47f9f0f1475a29276e56a70c8bd29c5f2e224ec6c51daf84f"
+    },
+    {
+      "key": "features/hu-g4-08.feature::82",
+      "name": "Aceptar a los 2880 minutos",
+      "cases": [
+        "G4-053"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 409",
+          "error_sha256": "64941ff75ab0d3b8ab26940baf17fddfa3b1a719506621c4d348578f31d44804"
+        }
+      ],
+      "defect": "D-03",
+      "source_sha256": "0920d069c22ae6e4f47bc0be67452e4628608f453e7152579e92e3062204c533"
+    },
+    {
+      "key": "features/hu-g4-08.feature::97",
+      "name": "Aceptar a los 2881 minutos",
+      "cases": [
+        "G4-054"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 409",
+          "error_sha256": "1acbfa4bd83a230d433298b7d8682365a1ca0f0776f24e4e87fa7bfa1d1c4d97"
+        }
+      ],
+      "defect": "D-03",
+      "source_sha256": "0920d069c22ae6e4f47bc0be67452e4628608f453e7152579e92e3062204c533"
+    },
+    {
+      "key": "features/hu-n-03.feature::22",
+      "name": "Cerrar sesión revoca solo ese token",
+      "cases": [
+        "G4-074"
+      ],
+      "failed_steps": [
+        {
+          "step": "match r.statusCode == 401",
+          "error_sha256": "34587570b0ba934c9b93bc556a467b4c15c1825ab83af4aab9fa325cbb2e00ea"
+        }
+      ],
+      "defect": "D-04",
+      "source_sha256": "89b000a25d00e1c2fe4185782acb2f5958ed33d972250e39251e054097d79435"
+    },
+    {
+      "key": "features/hu-n-07.feature::80",
+      "name": "Concurrencia conserva saldo y límite diario",
+      "cases": [
+        "G4-116"
+      ],
+      "failed_steps": [
+        {
+          "step": "match probe.ok == true",
+          "error_sha256": "be64a0ceeb1601e3065ce672d76cdac5b53524ff10f9006202a73d99897a534c"
+        }
+      ],
+      "defect": "D-05",
+      "source_sha256": "605e3e98c4f6c1ea07755a9f6c441f360a5e8ff5d0b9f857237f3bdb56166e0a"
+    }
+  ]
+}

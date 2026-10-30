@@ -14,7 +14,9 @@
     "cy:ai:open": "node scripts/cypress/run.mjs ai-open",
     "cy:demo-failure": "node scripts/cypress/run.mjs failure",
     "cy:typecheck": "tsc --noEmit",
-    "cy:report": "node scripts/cypress/report.mjs"
+    "cy:report": "node scripts/cypress/report.mjs",
+    "cy:stability": "node scripts/cypress/stability.mjs",
+    "cy:check-evidence": "node --test scripts/cypress/test-evidence.mjs"
   },
   "devDependencies": {
     "cypress": "16.2.0",

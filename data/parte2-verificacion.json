@@ -1,0 +1,2694 @@
+{
+  "verified_at": "2026-10-29T22:32:46.571427+00:00",
+  "scope": {
+    "criteria": 18,
+    "partial_web": 2,
+    "pending_web": 16,
+    "complete_web": 0,
+    "existing_web_tests": 3,
+    "planned_web_groups": 36
+  },
+  "branch": "codex/parte2-alcance-api",
+  "reference_unchanged": true,
+  "clean_environment": {
+    "path": ".tools/qa-step2-venv",
+    "installed_from_lock": true,
+    "freeze_matches_lock": true,
+    "lock_sha256": "e6543b8b0e5fc46ebed7518002339a3f7935ba1202cc01e496a3dd1ccdd03f25"
+  },
+  "checks": [
+    {
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "output": "No broken requirements found."
+    },
+    {
+      "command": "python scripts/build_scope.py --check",
+      "exit_code": 0,
+      "output": "Alcance validado: 18 CA G4; referencias a casos y archivos verificadas."
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_parte2_tools.py -v",
+      "exit_code": 0,
+      "output": "test_changed_reference_or_test_invalidates_classification (test_parte2_tools.ClassificationTests.test_changed_reference_or_test_invalidates_classification) ... ok\ntest_different_signature_not_hidden_under_known_case (test_parte2_tools.ClassificationTests.test_different_signature_not_hidden_under_known_case) ... ok\ntest_exact_failure_classified_but_not_changed_to_pass (test_parte2_tools.ClassificationTests.test_exact_failure_classified_but_not_changed_to_pass) ... ok\ntest_new_step_not_hidden (test_parte2_tools.ClassificationTests.test_new_step_not_hidden) ... ok\ntest_passed_case_is_not_expected_failure (test_parte2_tools.ClassificationTests.test_passed_case_is_not_expected_failure) ... ok\ntest_preparation_failure_not_functional_defect (test_parte2_tools.ClassificationTests.test_preparation_failure_not_functional_defect) ... ok\ntest_background_failure_is_not_a_passed_or_skipped_test (test_parte2_tools.EvidenceTests.test_background_failure_is_not_a_passed_or_skipped_test) ... ok\ntest_empty_or_incomplete_report_rejected (test_parte2_tools.EvidenceTests.test_empty_or_incomplete_report_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.019s\n\nOK"
+    }
+  ],
+  "karate": {
+    "tool": "karate",
+    "run_id": "20261029T221847Z-373ae7",
+    "report_dir": "reports/raw/karate/20261029T221847Z-373ae7",
+    "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+    "qa_worktree_dirty": true,
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "exit_code": 1,
+    "counts": {
+      "passed": 169,
+      "failed": 12
+    },
+    "known_failure_instances": 12,
+    "unknown_failures": 0,
+    "background_failures": 0,
+    "known_cases_not_reproduced": [],
+    "policy": "Clasificación informativa. Ningún defecto conocido cambia FAIL a PASS.",
+    "cases": [
+      {
+        "key": "features/complemento-contactos.feature::27",
+        "file": "features/complemento-contactos.feature",
+        "line": 27,
+        "name": "Editar alias válido en límites y clases permitidas",
+        "cases": [
+          "CF-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::28",
+        "file": "features/complemento-contactos.feature",
+        "line": 28,
+        "name": "Editar alias válido en límites y clases permitidas",
+        "cases": [
+          "CF-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::29",
+        "file": "features/complemento-contactos.feature",
+        "line": 29,
+        "name": "Editar alias válido en límites y clases permitidas",
+        "cases": [
+          "CF-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::30",
+        "file": "features/complemento-contactos.feature",
+        "line": 30,
+        "name": "Editar alias válido en límites y clases permitidas",
+        "cases": [
+          "CF-01"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 200",
+            "error_sha256": "8b310f4d77be563f9302fd92aec4e14e0dfdcbbf17262708fc511d37da590ca5"
+          }
+        ],
+        "defect": "D-01",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/complemento-contactos.feature::31",
+        "file": "features/complemento-contactos.feature",
+        "line": 31,
+        "name": "Editar alias válido en límites y clases permitidas",
+        "cases": [
+          "CF-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::45",
+        "file": "features/complemento-contactos.feature",
+        "line": 45,
+        "name": "Editar alias inválido conserva el contacto original",
+        "cases": [
+          "CF-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::46",
+        "file": "features/complemento-contactos.feature",
+        "line": 46,
+        "name": "Editar alias inválido conserva el contacto original",
+        "cases": [
+          "CF-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::47",
+        "file": "features/complemento-contactos.feature",
+        "line": 47,
+        "name": "Editar alias inválido conserva el contacto original",
+        "cases": [
+          "CF-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::61",
+        "file": "features/complemento-contactos.feature",
+        "line": 61,
+        "name": "Editar alias duplicado tras normalizar",
+        "cases": [
+          "CF-03"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::62",
+        "file": "features/complemento-contactos.feature",
+        "line": 62,
+        "name": "Editar alias duplicado tras normalizar",
+        "cases": [
+          "CF-03"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 409",
+            "error_sha256": "57e451396b1b66df6a6673e0ac27ddb9dd0cb709b129d6301b067b54de95679b"
+          }
+        ],
+        "defect": "D-02",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/complemento-contactos.feature::65",
+        "file": "features/complemento-contactos.feature",
+        "line": 65,
+        "name": "Buscar por fragmento del alias",
+        "cases": [
+          "CF-04"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/complemento-contactos.feature::75",
+        "file": "features/complemento-contactos.feature",
+        "line": 75,
+        "name": "Eliminar contacto ajeno responde 404 y conserva el recurso",
+        "cases": [
+          "CF-05"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::29",
+        "file": "features/contrato-contactos.feature",
+        "line": 29,
+        "name": "POST rechaza alias omitido sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::30",
+        "file": "features/contrato-contactos.feature",
+        "line": 30,
+        "name": "POST rechaza celular omitido sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::31",
+        "file": "features/contrato-contactos.feature",
+        "line": 31,
+        "name": "POST rechaza alias nulo sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::32",
+        "file": "features/contrato-contactos.feature",
+        "line": 32,
+        "name": "POST rechaza celular nulo sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::33",
+        "file": "features/contrato-contactos.feature",
+        "line": 33,
+        "name": "POST rechaza alias numerico sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::34",
+        "file": "features/contrato-contactos.feature",
+        "line": 34,
+        "name": "POST rechaza alias booleano sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::35",
+        "file": "features/contrato-contactos.feature",
+        "line": 35,
+        "name": "POST rechaza alias objeto sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::36",
+        "file": "features/contrato-contactos.feature",
+        "line": 36,
+        "name": "POST rechaza alias arreglo sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::37",
+        "file": "features/contrato-contactos.feature",
+        "line": 37,
+        "name": "POST rechaza celular numerico sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::38",
+        "file": "features/contrato-contactos.feature",
+        "line": 38,
+        "name": "POST rechaza celular booleano sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::39",
+        "file": "features/contrato-contactos.feature",
+        "line": 39,
+        "name": "POST rechaza celular objeto sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::40",
+        "file": "features/contrato-contactos.feature",
+        "line": 40,
+        "name": "POST rechaza celular arreglo sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::41",
+        "file": "features/contrato-contactos.feature",
+        "line": 41,
+        "name": "POST rechaza cuerpo ausente sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::42",
+        "file": "features/contrato-contactos.feature",
+        "line": 42,
+        "name": "POST rechaza cuerpo arreglo sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::43",
+        "file": "features/contrato-contactos.feature",
+        "line": 43,
+        "name": "POST rechaza cuerpo objeto vacio sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::44",
+        "file": "features/contrato-contactos.feature",
+        "line": 44,
+        "name": "POST rechaza celular ocho digitos sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::45",
+        "file": "features/contrato-contactos.feature",
+        "line": 45,
+        "name": "POST rechaza celular diez digitos sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::46",
+        "file": "features/contrato-contactos.feature",
+        "line": 46,
+        "name": "POST rechaza celular inicia en 8 sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::47",
+        "file": "features/contrato-contactos.feature",
+        "line": 47,
+        "name": "POST rechaza celular con letras sin crear contacto",
+        "cases": [
+          "CT-01"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::61",
+        "file": "features/contrato-contactos.feature",
+        "line": 61,
+        "name": "PUT rechaza alias numerico sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::62",
+        "file": "features/contrato-contactos.feature",
+        "line": 62,
+        "name": "PUT rechaza alias booleano sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::63",
+        "file": "features/contrato-contactos.feature",
+        "line": 63,
+        "name": "PUT rechaza alias objeto sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::64",
+        "file": "features/contrato-contactos.feature",
+        "line": 64,
+        "name": "PUT rechaza alias arreglo sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::65",
+        "file": "features/contrato-contactos.feature",
+        "line": 65,
+        "name": "PUT rechaza alias menor a 3 sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::66",
+        "file": "features/contrato-contactos.feature",
+        "line": 66,
+        "name": "PUT rechaza alias mayor a 20 sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::67",
+        "file": "features/contrato-contactos.feature",
+        "line": 67,
+        "name": "PUT rechaza favorito texto true sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 422",
+            "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+          }
+        ],
+        "defect": "D-06",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/contrato-contactos.feature::68",
+        "file": "features/contrato-contactos.feature",
+        "line": 68,
+        "name": "PUT rechaza favorito texto false sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 422",
+            "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+          }
+        ],
+        "defect": "D-06",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/contrato-contactos.feature::69",
+        "file": "features/contrato-contactos.feature",
+        "line": 69,
+        "name": "PUT rechaza favorito entero uno sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 422",
+            "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+          }
+        ],
+        "defect": "D-06",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/contrato-contactos.feature::70",
+        "file": "features/contrato-contactos.feature",
+        "line": 70,
+        "name": "PUT rechaza favorito entero cero sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 422",
+            "error_sha256": "c097b74b84b3254e9359294e635fec42d6e1b7daed5d98fe030836326ad6aff8"
+          }
+        ],
+        "defect": "D-06",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/contrato-contactos.feature::71",
+        "file": "features/contrato-contactos.feature",
+        "line": 71,
+        "name": "PUT rechaza favorito objeto sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::72",
+        "file": "features/contrato-contactos.feature",
+        "line": 72,
+        "name": "PUT rechaza favorito arreglo sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::73",
+        "file": "features/contrato-contactos.feature",
+        "line": 73,
+        "name": "PUT rechaza cuerpo ausente sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::74",
+        "file": "features/contrato-contactos.feature",
+        "line": 74,
+        "name": "PUT rechaza cuerpo arreglo sin modificar contacto",
+        "cases": [
+          "CT-02"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::85",
+        "file": "features/contrato-contactos.feature",
+        "line": 85,
+        "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+        "cases": [
+          "CT-03"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::86",
+        "file": "features/contrato-contactos.feature",
+        "line": 86,
+        "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+        "cases": [
+          "CT-03"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::87",
+        "file": "features/contrato-contactos.feature",
+        "line": 87,
+        "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+        "cases": [
+          "CT-03"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::88",
+        "file": "features/contrato-contactos.feature",
+        "line": 88,
+        "name": "PUT permite campos opcionales y nulos expresamente admitidos",
+        "cases": [
+          "CT-03"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::97",
+        "file": "features/contrato-contactos.feature",
+        "line": 97,
+        "name": "GET rechaza pagina fuera del contrato",
+        "cases": [
+          "CT-04"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::98",
+        "file": "features/contrato-contactos.feature",
+        "line": 98,
+        "name": "GET rechaza pagina fuera del contrato",
+        "cases": [
+          "CT-04"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::99",
+        "file": "features/contrato-contactos.feature",
+        "line": 99,
+        "name": "GET rechaza pagina fuera del contrato",
+        "cases": [
+          "CT-04"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::100",
+        "file": "features/contrato-contactos.feature",
+        "line": 100,
+        "name": "GET rechaza pagina fuera del contrato",
+        "cases": [
+          "CT-04"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::109",
+        "file": "features/contrato-contactos.feature",
+        "line": 109,
+        "name": "Identificador de ruta debe ser entero",
+        "cases": [
+          "CT-05"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::110",
+        "file": "features/contrato-contactos.feature",
+        "line": 110,
+        "name": "Identificador de ruta debe ser entero",
+        "cases": [
+          "CT-05"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::113",
+        "file": "features/contrato-contactos.feature",
+        "line": 113,
+        "name": "Contrato de respuestas en recorrido CRUD válido",
+        "cases": [
+          "CT-06"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::142",
+        "file": "features/contrato-contactos.feature",
+        "line": 142,
+        "name": "Operaciones protegidas rechazan peticiones sin token",
+        "cases": [
+          "CT-07"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::143",
+        "file": "features/contrato-contactos.feature",
+        "line": 143,
+        "name": "Operaciones protegidas rechazan peticiones sin token",
+        "cases": [
+          "CT-07"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::144",
+        "file": "features/contrato-contactos.feature",
+        "line": 144,
+        "name": "Operaciones protegidas rechazan peticiones sin token",
+        "cases": [
+          "CT-07"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::145",
+        "file": "features/contrato-contactos.feature",
+        "line": 145,
+        "name": "Operaciones protegidas rechazan peticiones sin token",
+        "cases": [
+          "CT-07"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::161",
+        "file": "features/contrato-contactos.feature",
+        "line": 161,
+        "name": "Bearer con token malformado no autentica operaciones protegidas",
+        "cases": [
+          "CT-08"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::162",
+        "file": "features/contrato-contactos.feature",
+        "line": 162,
+        "name": "Bearer con token malformado no autentica operaciones protegidas",
+        "cases": [
+          "CT-08"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::163",
+        "file": "features/contrato-contactos.feature",
+        "line": 163,
+        "name": "Bearer con token malformado no autentica operaciones protegidas",
+        "cases": [
+          "CT-08"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::164",
+        "file": "features/contrato-contactos.feature",
+        "line": 164,
+        "name": "Bearer con token malformado no autentica operaciones protegidas",
+        "cases": [
+          "CT-08"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/contrato-contactos.feature::167",
+        "file": "features/contrato-contactos.feature",
+        "line": 167,
+        "name": "Editar alias con símbolo prohibido conserva el contacto",
+        "cases": [
+          "CT-09"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::22",
+        "file": "features/hu-g4-01.feature",
+        "line": 22,
+        "name": "Crear contacto con alias 'Ana'",
+        "cases": [
+          "G4-001"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::32",
+        "file": "features/hu-g4-01.feature",
+        "line": 32,
+        "name": "Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA'",
+        "cases": [
+          "G4-002"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::42",
+        "file": "features/hu-g4-01.feature",
+        "line": 42,
+        "name": "Crear contacto con alias 'José'",
+        "cases": [
+          "G4-003"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::52",
+        "file": "features/hu-g4-01.feature",
+        "line": 52,
+        "name": "Crear contacto con alias 'Niño'",
+        "cases": [
+          "G4-004"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 201",
+            "error_sha256": "8af8066f1c8fde500046c7cf061031a6831122a8b2a3f2942ac4c549d906a223"
+          }
+        ],
+        "defect": "D-01",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/hu-g4-01.feature::62",
+        "file": "features/hu-g4-01.feature",
+        "line": 62,
+        "name": "Crear contacto con alias 'A1 B'",
+        "cases": [
+          "G4-005"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::72",
+        "file": "features/hu-g4-01.feature",
+        "line": 72,
+        "name": "Crear contacto con alias ' Ana '",
+        "cases": [
+          "G4-006"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::82",
+        "file": "features/hu-g4-01.feature",
+        "line": 82,
+        "name": "Rechazar alias 'Lu'",
+        "cases": [
+          "G4-007"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::91",
+        "file": "features/hu-g4-01.feature",
+        "line": 91,
+        "name": "Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA'",
+        "cases": [
+          "G4-008"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::100",
+        "file": "features/hu-g4-01.feature",
+        "line": 100,
+        "name": "Rechazar alias ''",
+        "cases": [
+          "G4-009"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::109",
+        "file": "features/hu-g4-01.feature",
+        "line": 109,
+        "name": "Rechazar alias '   '",
+        "cases": [
+          "G4-010"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::118",
+        "file": "features/hu-g4-01.feature",
+        "line": 118,
+        "name": "Rechazar alias 'Ana@'",
+        "cases": [
+          "G4-011"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::127",
+        "file": "features/hu-g4-01.feature",
+        "line": 127,
+        "name": "Rechazar celular: CONTACTO_PROPIO",
+        "cases": [
+          "G4-012"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::136",
+        "file": "features/hu-g4-01.feature",
+        "line": 136,
+        "name": "Rechazar celular: CELULAR_INVALIDO",
+        "cases": [
+          "G4-013"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::145",
+        "file": "features/hu-g4-01.feature",
+        "line": 145,
+        "name": "Rechazar celular: CELULAR_NO_REGISTRADO",
+        "cases": [
+          "G4-014"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::154",
+        "file": "features/hu-g4-01.feature",
+        "line": 154,
+        "name": "Celular válido sin registro",
+        "cases": [
+          "G4-015"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::165",
+        "file": "features/hu-g4-01.feature",
+        "line": 165,
+        "name": "Contacto duplicado",
+        "cases": [
+          "G4-016"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::176",
+        "file": "features/hu-g4-01.feature",
+        "line": 176,
+        "name": "Alias duplicado tras normalizar 'ANA'",
+        "cases": [
+          "G4-017"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::187",
+        "file": "features/hu-g4-01.feature",
+        "line": 187,
+        "name": "Alias duplicado tras normalizar ' Ana '",
+        "cases": [
+          "G4-018"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 409",
+            "error_sha256": "3b685864217958aa2a69e5653ff9147ddf4a75a7395e8831e575c875c25f93f4"
+          }
+        ],
+        "defect": "D-02",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/hu-g4-01.feature::198",
+        "file": "features/hu-g4-01.feature",
+        "line": 198,
+        "name": "Permitir contacto 15 y rechazar contacto 16",
+        "cases": [
+          "G4-019"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-01.feature::213",
+        "file": "features/hu-g4-01.feature",
+        "line": 213,
+        "name": "Celular válido aún no registrado",
+        "cases": [
+          "G4-106"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-02.feature::22",
+        "file": "features/hu-g4-02.feature",
+        "line": 22,
+        "name": "Buscar ignorando mayúsculas y tildes",
+        "cases": [
+          "G4-020"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-02.feature::34",
+        "file": "features/hu-g4-02.feature",
+        "line": 34,
+        "name": "Ordenar favoritos antes del resto",
+        "cases": [
+          "G4-021"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-02.feature::44",
+        "file": "features/hu-g4-02.feature",
+        "line": 44,
+        "name": "Paginación con 11 contactos",
+        "cases": [
+          "G4-022"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-02.feature::58",
+        "file": "features/hu-g4-02.feature",
+        "line": 58,
+        "name": "Búsqueda sin coincidencias",
+        "cases": [
+          "G4-023"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-02.feature::67",
+        "file": "features/hu-g4-02.feature",
+        "line": 67,
+        "name": "Orden alfabético dentro de cada grupo",
+        "cases": [
+          "G4-107"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-03.feature::22",
+        "file": "features/hu-g4-03.feature",
+        "line": 22,
+        "name": "Editar alias sin compararlo consigo mismo",
+        "cases": [
+          "G4-024"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-03.feature::32",
+        "file": "features/hu-g4-03.feature",
+        "line": 32,
+        "name": "Marcar y desmarcar favorito",
+        "cases": [
+          "G4-025"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-03.feature::45",
+        "file": "features/hu-g4-03.feature",
+        "line": 45,
+        "name": "Quinto favorito permitido; sexto rechazado",
+        "cases": [
+          "G4-026"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-03.feature::59",
+        "file": "features/hu-g4-03.feature",
+        "line": 59,
+        "name": "Rechazar edición de contacto ajeno",
+        "cases": [
+          "G4-027"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-03.feature::68",
+        "file": "features/hu-g4-03.feature",
+        "line": 68,
+        "name": "Editar solo alias conserva favorito",
+        "cases": [
+          "G4-108"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-04.feature::22",
+        "file": "features/hu-g4-04.feature",
+        "line": 22,
+        "name": "Eliminar contacto conserva transferencia",
+        "cases": [
+          "G4-028"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-04.feature::37",
+        "file": "features/hu-g4-04.feature",
+        "line": 37,
+        "name": "Solicitud pendiente enviada impide eliminar",
+        "cases": [
+          "G4-029"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-04.feature::50",
+        "file": "features/hu-g4-04.feature",
+        "line": 50,
+        "name": "Solicitud pendiente recibida impide eliminar",
+        "cases": [
+          "G4-030"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-04.feature::62",
+        "file": "features/hu-g4-04.feature",
+        "line": 62,
+        "name": "Solicitud vencida permite eliminar",
+        "cases": [
+          "G4-031"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-05.feature::22",
+        "file": "features/hu-g4-05.feature",
+        "line": 22,
+        "name": "Transferir por contacto acredita ambos saldos",
+        "cases": [
+          "G4-032"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-05.feature::37",
+        "file": "features/hu-g4-05.feature",
+        "line": 37,
+        "name": "Saldo insuficiente no produce transferencia",
+        "cases": [
+          "G4-033"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-05.feature::48",
+        "file": "features/hu-g4-05.feature",
+        "line": 48,
+        "name": "Límite diario agotado impide operación",
+        "cases": [
+          "G4-095"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::22",
+        "file": "features/hu-g4-06.feature",
+        "line": 22,
+        "name": "Crear solicitud pendiente con vigencia 48 h y SMS",
+        "cases": [
+          "G4-034"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::36",
+        "file": "features/hu-g4-06.feature",
+        "line": 36,
+        "name": "Monto solicitado 0.00",
+        "cases": [
+          "G4-035"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::45",
+        "file": "features/hu-g4-06.feature",
+        "line": 45,
+        "name": "Monto solicitado 0.01",
+        "cases": [
+          "G4-036"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::53",
+        "file": "features/hu-g4-06.feature",
+        "line": 53,
+        "name": "Monto solicitado 500.00",
+        "cases": [
+          "G4-037"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::61",
+        "file": "features/hu-g4-06.feature",
+        "line": 61,
+        "name": "Monto solicitado 500.01",
+        "cases": [
+          "G4-038"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::70",
+        "file": "features/hu-g4-06.feature",
+        "line": 70,
+        "name": "Monto solicitado 10.005",
+        "cases": [
+          "G4-039"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::79",
+        "file": "features/hu-g4-06.feature",
+        "line": 79,
+        "name": "Motivo de 2 caracteres",
+        "cases": [
+          "G4-040"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::88",
+        "file": "features/hu-g4-06.feature",
+        "line": 88,
+        "name": "Motivo de 3 caracteres",
+        "cases": [
+          "G4-041"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::96",
+        "file": "features/hu-g4-06.feature",
+        "line": 96,
+        "name": "Motivo de 60 caracteres",
+        "cases": [
+          "G4-042"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::104",
+        "file": "features/hu-g4-06.feature",
+        "line": 104,
+        "name": "Motivo de 61 caracteres",
+        "cases": [
+          "G4-043"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::113",
+        "file": "features/hu-g4-06.feature",
+        "line": 113,
+        "name": "Décima pendiente permitida y undécima rechazada",
+        "cases": [
+          "G4-044"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-06.feature::126",
+        "file": "features/hu-g4-06.feature",
+        "line": 126,
+        "name": "Contacto de otro usuario no permite solicitar",
+        "cases": [
+          "G4-109"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-07.feature::22",
+        "file": "features/hu-g4-07.feature",
+        "line": 22,
+        "name": "Separar solicitudes enviadas y recibidas y filtrar",
+        "cases": [
+          "G4-045"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-07.feature::38",
+        "file": "features/hu-g4-07.feature",
+        "line": 38,
+        "name": "Estado al transcurrir 2879 minutos",
+        "cases": [
+          "G4-046"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-07.feature::50",
+        "file": "features/hu-g4-07.feature",
+        "line": 50,
+        "name": "Estado al transcurrir 2880 minutos",
+        "cases": [
+          "G4-047"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-07.feature::62",
+        "file": "features/hu-g4-07.feature",
+        "line": 62,
+        "name": "Estado al transcurrir 2881 minutos",
+        "cases": [
+          "G4-048"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::22",
+        "file": "features/hu-g4-08.feature",
+        "line": 22,
+        "name": "Aceptar genera transferencia, código y SMS",
+        "cases": [
+          "G4-049"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::42",
+        "file": "features/hu-g4-08.feature",
+        "line": 42,
+        "name": "Saldo insuficiente conserva PENDIENTE",
+        "cases": [
+          "G4-050"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::57",
+        "file": "features/hu-g4-08.feature",
+        "line": 57,
+        "name": "Tercero no puede aceptar",
+        "cases": [
+          "G4-051"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::68",
+        "file": "features/hu-g4-08.feature",
+        "line": 68,
+        "name": "Aceptar a los 2879 minutos",
+        "cases": [
+          "G4-052"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::82",
+        "file": "features/hu-g4-08.feature",
+        "line": 82,
+        "name": "Aceptar a los 2880 minutos",
+        "cases": [
+          "G4-053"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 409",
+            "error_sha256": "64941ff75ab0d3b8ab26940baf17fddfa3b1a719506621c4d348578f31d44804"
+          }
+        ],
+        "defect": "D-03",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/hu-g4-08.feature::97",
+        "file": "features/hu-g4-08.feature",
+        "line": 97,
+        "name": "Aceptar a los 2881 minutos",
+        "cases": [
+          "G4-054"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 409",
+            "error_sha256": "1acbfa4bd83a230d433298b7d8682365a1ca0f0776f24e4e87fa7bfa1d1c4d97"
+          }
+        ],
+        "defect": "D-03",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/hu-g4-08.feature::112",
+        "file": "features/hu-g4-08.feature",
+        "line": 112,
+        "name": "No aceptar dos veces",
+        "cases": [
+          "G4-055"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::129",
+        "file": "features/hu-g4-08.feature",
+        "line": 129,
+        "name": "Límite diario agotado impide operación",
+        "cases": [
+          "G4-096"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::161",
+        "file": "features/hu-g4-08.feature",
+        "line": 161,
+        "name": "No aceptar desde ACEPTADA",
+        "cases": [
+          "G4-097"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::176",
+        "file": "features/hu-g4-08.feature",
+        "line": 176,
+        "name": "No aceptar desde RECHAZADA",
+        "cases": [
+          "G4-100"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-08.feature::191",
+        "file": "features/hu-g4-08.feature",
+        "line": 191,
+        "name": "No aceptar desde CANCELADA",
+        "cases": [
+          "G4-103"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::22",
+        "file": "features/hu-g4-09.feature",
+        "line": 22,
+        "name": "Rechazar solicitud pendiente",
+        "cases": [
+          "G4-056"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::35",
+        "file": "features/hu-g4-09.feature",
+        "line": 35,
+        "name": "Rechazar acción de tercero",
+        "cases": [
+          "G4-057"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::46",
+        "file": "features/hu-g4-09.feature",
+        "line": 46,
+        "name": "No resolver solicitud vencida",
+        "cases": [
+          "G4-058"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::60",
+        "file": "features/hu-g4-09.feature",
+        "line": 60,
+        "name": "No repetir resolución",
+        "cases": [
+          "G4-059"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::73",
+        "file": "features/hu-g4-09.feature",
+        "line": 73,
+        "name": "Motivo opcional y aviso al solicitante",
+        "cases": [
+          "G4-064"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::86",
+        "file": "features/hu-g4-09.feature",
+        "line": 86,
+        "name": "Motivo de rechazo longitud 60",
+        "cases": [
+          "G4-065"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::96",
+        "file": "features/hu-g4-09.feature",
+        "line": 96,
+        "name": "Motivo de rechazo longitud 61",
+        "cases": [
+          "G4-066"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::107",
+        "file": "features/hu-g4-09.feature",
+        "line": 107,
+        "name": "No rechazar desde ACEPTADA",
+        "cases": [
+          "G4-098"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::122",
+        "file": "features/hu-g4-09.feature",
+        "line": 122,
+        "name": "No rechazar desde RECHAZADA",
+        "cases": [
+          "G4-101"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-09.feature::137",
+        "file": "features/hu-g4-09.feature",
+        "line": 137,
+        "name": "No rechazar desde CANCELADA",
+        "cases": [
+          "G4-104"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::22",
+        "file": "features/hu-g4-10.feature",
+        "line": 22,
+        "name": "Cancelar solicitud pendiente",
+        "cases": [
+          "G4-060"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::35",
+        "file": "features/hu-g4-10.feature",
+        "line": 35,
+        "name": "Rechazar acción de tercero",
+        "cases": [
+          "G4-061"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::46",
+        "file": "features/hu-g4-10.feature",
+        "line": 46,
+        "name": "No resolver solicitud vencida",
+        "cases": [
+          "G4-062"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::60",
+        "file": "features/hu-g4-10.feature",
+        "line": 60,
+        "name": "No repetir resolución",
+        "cases": [
+          "G4-063"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::73",
+        "file": "features/hu-g4-10.feature",
+        "line": 73,
+        "name": "No cancelar desde ACEPTADA",
+        "cases": [
+          "G4-099"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::88",
+        "file": "features/hu-g4-10.feature",
+        "line": 88,
+        "name": "No cancelar desde RECHAZADA",
+        "cases": [
+          "G4-102"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-g4-10.feature::103",
+        "file": "features/hu-g4-10.feature",
+        "line": 103,
+        "name": "No cancelar desde CANCELADA",
+        "cases": [
+          "G4-105"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::22",
+        "file": "features/hu-n-01.feature",
+        "line": 22,
+        "name": "Registro crea saldo cero, límite y bienvenida",
+        "cases": [
+          "G4-067"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::33",
+        "file": "features/hu-n-01.feature",
+        "line": 33,
+        "name": "Rechazar dni inválido",
+        "cases": [
+          "G4-068"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::43",
+        "file": "features/hu-n-01.feature",
+        "line": 43,
+        "name": "Rechazar celular inválido",
+        "cases": [
+          "G4-069"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::53",
+        "file": "features/hu-n-01.feature",
+        "line": 53,
+        "name": "Rechazar pin inválido",
+        "cases": [
+          "G4-070"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::63",
+        "file": "features/hu-n-01.feature",
+        "line": 63,
+        "name": "Rechazar correo inválido",
+        "cases": [
+          "G4-071"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::73",
+        "file": "features/hu-n-01.feature",
+        "line": 73,
+        "name": "Celular duplicado responde conflicto",
+        "cases": [
+          "G4-110"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-01.feature::80",
+        "file": "features/hu-n-01.feature",
+        "line": 80,
+        "name": "Correo duplicado ignora mayúsculas",
+        "cases": [
+          "G4-111"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-02.feature::22",
+        "file": "features/hu-n-02.feature",
+        "line": 22,
+        "name": "Login crea sesión con vigencia de 30 minutos",
+        "cases": [
+          "G4-072"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-02.feature::30",
+        "file": "features/hu-n-02.feature",
+        "line": 30,
+        "name": "Bloqueo tras tres intentos y acceso después de 15 min",
+        "cases": [
+          "G4-073"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-02.feature::47",
+        "file": "features/hu-n-02.feature",
+        "line": 47,
+        "name": "Cuenta cerrada no puede ingresar",
+        "cases": [
+          "G4-092"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-02.feature::56",
+        "file": "features/hu-n-02.feature",
+        "line": 56,
+        "name": "Nuevo dispositivo permite login y genera alerta",
+        "cases": [
+          "G4-093"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-03.feature::22",
+        "file": "features/hu-n-03.feature",
+        "line": 22,
+        "name": "Cerrar sesión revoca solo ese token",
+        "cases": [
+          "G4-074"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match r.statusCode == 401",
+            "error_sha256": "34587570b0ba934c9b93bc556a467b4c15c1825ab83af4aab9fa325cbb2e00ea"
+          }
+        ],
+        "defect": "D-04",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/hu-n-03.feature::34",
+        "file": "features/hu-n-03.feature",
+        "line": 34,
+        "name": "Cerrar una sesión no afecta otra",
+        "cases": [
+          "G4-094"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-04.feature::22",
+        "file": "features/hu-n-04.feature",
+        "line": 22,
+        "name": "Saldo PEN y perfil enmascarado",
+        "cases": [
+          "G4-075"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-04.feature::34",
+        "file": "features/hu-n-04.feature",
+        "line": 34,
+        "name": "Acceso sin autenticación null",
+        "cases": [
+          "G4-076"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-04.feature::41",
+        "file": "features/hu-n-04.feature",
+        "line": 41,
+        "name": "Acceso sin autenticación 'invalid'",
+        "cases": [
+          "G4-077"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-04.feature::48",
+        "file": "features/hu-n-04.feature",
+        "line": 48,
+        "name": "Token vencido",
+        "cases": [
+          "G4-078"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-05.feature::22",
+        "file": "features/hu-n-05.feature",
+        "line": 22,
+        "name": "Editar perfil ignora DNI y celular y envía SMS",
+        "cases": [
+          "G4-079"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-06.feature::22",
+        "file": "features/hu-n-06.feature",
+        "line": 22,
+        "name": "Cerrar cuenta con saldo cero revoca acceso",
+        "cases": [
+          "G4-080"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-06.feature::33",
+        "file": "features/hu-n-06.feature",
+        "line": 33,
+        "name": "Solicitud pendiente impide cerrar cuenta",
+        "cases": [
+          "G4-081"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-06.feature::44",
+        "file": "features/hu-n-06.feature",
+        "line": 44,
+        "name": "PIN incorrecto impide cierre",
+        "cases": [
+          "G4-112"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-06.feature::53",
+        "file": "features/hu-n-06.feature",
+        "line": 53,
+        "name": "Saldo pendiente impide cierre",
+        "cases": [
+          "G4-113"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::22",
+        "file": "features/hu-n-07.feature",
+        "line": 22,
+        "name": "Transferencia monto 0.00",
+        "cases": [
+          "G4-082"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::30",
+        "file": "features/hu-n-07.feature",
+        "line": 30,
+        "name": "Transferencia monto 0.01",
+        "cases": [
+          "G4-083"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::37",
+        "file": "features/hu-n-07.feature",
+        "line": 37,
+        "name": "Transferencia monto 500.00",
+        "cases": [
+          "G4-084"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::44",
+        "file": "features/hu-n-07.feature",
+        "line": 44,
+        "name": "Transferencia monto 500.01",
+        "cases": [
+          "G4-085"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::52",
+        "file": "features/hu-n-07.feature",
+        "line": 52,
+        "name": "Transferencia monto 10.005",
+        "cases": [
+          "G4-086"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::60",
+        "file": "features/hu-n-07.feature",
+        "line": 60,
+        "name": "Comprobante y movimientos con mismo código",
+        "cases": [
+          "G4-087"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::73",
+        "file": "features/hu-n-07.feature",
+        "line": 73,
+        "name": "Transferencia a sí mismo rechazada",
+        "cases": [
+          "G4-114"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-07.feature::80",
+        "file": "features/hu-n-07.feature",
+        "line": 80,
+        "name": "Concurrencia conserva saldo y límite diario",
+        "cases": [
+          "G4-116"
+        ],
+        "status": "failed",
+        "background_failed": false,
+        "failed_steps": [
+          {
+            "step": "match probe.ok == true",
+            "error_sha256": "be64a0ceeb1601e3065ce672d76cdac5b53524ff10f9006202a73d99897a534c"
+          }
+        ],
+        "defect": "D-05",
+        "classification": "defecto conocido reproducido"
+      },
+      {
+        "key": "features/hu-n-08.feature::22",
+        "file": "features/hu-n-08.feature",
+        "line": 22,
+        "name": "Transferencia interbancaria cobra comisión y enmascara CCI",
+        "cases": [
+          "G4-088"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-08.feature::34",
+        "file": "features/hu-n-08.feature",
+        "line": 34,
+        "name": "CCI inválido rechazado",
+        "cases": [
+          "G4-115"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-09.feature::22",
+        "file": "features/hu-n-09.feature",
+        "line": 22,
+        "name": "Simular comisión para 1.00 sin debitar",
+        "cases": [
+          "G4-089"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-09.feature::31",
+        "file": "features/hu-n-09.feature",
+        "line": 31,
+        "name": "Simular comisión para 100.00 sin debitar",
+        "cases": [
+          "G4-090"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      },
+      {
+        "key": "features/hu-n-09.feature::40",
+        "file": "features/hu-n-09.feature",
+        "line": 40,
+        "name": "Simular comisión para 500.00 sin debitar",
+        "cases": [
+          "G4-091"
+        ],
+        "status": "passed",
+        "background_failed": false,
+        "failed_steps": [],
+        "defect": null,
+        "classification": "passed"
+      }
+    ]
+  },
+  "schemathesis": {
+    "tool": "schemathesis",
+    "run_id": "20261029T223124Z-2fed46",
+    "report_dir": "reports/raw/schemathesis/20261029T223124Z-2fed46",
+    "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+    "qa_worktree_dirty": true,
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "exit_code": 1,
+    "interactions": 562,
+    "failure_occurrences": 27,
+    "failure_groups": [
+      {
+        "operation": "GET /api/solicitudes",
+        "check": "positive_data_acceptance",
+        "occurrences": 4
+      },
+      {
+        "operation": "POST /api/contactos",
+        "check": "negative_data_rejection",
+        "occurrences": 3
+      },
+      {
+        "operation": "POST /api/contactos",
+        "check": "positive_data_acceptance",
+        "occurrences": 12
+      },
+      {
+        "operation": "POST /api/solicitudes",
+        "check": "positive_data_acceptance",
+        "occurrences": 8
+      }
+    ],
+    "junit_failures": 4,
+    "junit_errors": 0,
+    "context_controls": 9,
+    "context_successful_controls": 9,
+    "policy": "Señales de contrato; no equivalen a defectos únicos confirmados. No se suprimen checks."
+  },
+  "limitations": [
+    "Resultados locales Windows/Python 3.13.3, no ejecución nueva de GitHub.",
+    "Cambios sin commit durante las ejecuciones; consultar hashes y manifests.",
+    "Defectos conservan FAIL; no existe autorización implícita para excluirlos.",
+    "Los pasos 3–7 no se implementaron en esta etapa."
+  ]
+}

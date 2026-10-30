@@ -1,0 +1,522 @@
+{
+  "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "expected_api_tests": 181,
+  "expected_web_tests": 54,
+  "policy": "Escenario A académico: aceptar solo firmas exactas documentadas en datos ficticios aislados. No certifica aptitud productiva. Flakiness, preparación, omisiones y causas nuevas bloquean.",
+  "acceptance": "Aplicación del criterio docente solicitada por el equipo en esta conversación. Admisión limitada a ejecución académica aislada; no es aprobación individual de la docente ni aceptación para producción.",
+  "defects": {
+    "D-01": {
+      "title": "Alias con ñ rechazado",
+      "product_severity": "Media",
+      "impact": "Impide altas o ediciones válidas",
+      "reproduction": "Usar Niño en crear/editar; esperado 201/200, observado 422",
+      "cases": [
+        "G4-004",
+        "CF-01",
+        "E2E-G4-102",
+        "E2E-G4-113"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Media. Fuera de este contexto no se admite la excepción."
+    },
+    "D-02": {
+      "title": "Duplicados normalizados permitidos",
+      "product_severity": "Media",
+      "impact": "Permite alias duplicados con espacios",
+      "reproduction": "Crear Ana y luego otro contacto con alias espacio-Ana-espacio; esperado 409, observado 201/200",
+      "cases": [
+        "G4-018",
+        "CF-03",
+        "E2E-G4-104",
+        "E2E-G4-115"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Media. Fuera de este contexto no se admite la excepción."
+    },
+    "D-03": {
+      "title": "Aceptación de solicitud vencida",
+      "product_severity": "Alta",
+      "impact": "Una solicitud fuera de vigencia puede mover dinero",
+      "reproduction": "Cargar pendiente, avanzar a 2880 minutos y aceptar; esperado 409, observado 200",
+      "cases": [
+        "G4-053",
+        "G4-054",
+        "E2E-G4-324"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Alta. Fuera de este contexto no se admite la excepción."
+    },
+    "D-04": {
+      "title": "Token válido después de logout",
+      "product_severity": "Crítica",
+      "impact": "Revocación de autenticación inefectiva",
+      "reproduction": "Logout y reutilizar token; esperado 401, observado 200",
+      "cases": [
+        "G4-074"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Crítica. Fuera de este contexto no se admite la excepción."
+    },
+    "D-05": {
+      "title": "Invariantes monetarias concurrentes",
+      "product_severity": "Crítica",
+      "impact": "Saldo o límite no protegido bajo concurrencia",
+      "reproduction": "Dos peticiones sincronizadas, comprobar probe.ok; esperado true, observado false",
+      "cases": [
+        "G4-116"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Crítica. Fuera de este contexto no se admite la excepción."
+    },
+    "D-06": {
+      "title": "Coerción de favorito fuera de contrato",
+      "product_severity": "Media",
+      "impact": "Acepta texto o números donde el contrato declara booleano",
+      "reproduction": "PUT favorito con texto true/false o entero 0/1; esperado 422, observado 200",
+      "cases": [
+        "CT-02"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Media. Fuera de este contexto no se admite la excepción."
+    },
+    "D-07": {
+      "title": "Historial omite el último día",
+      "product_severity": "Alta",
+      "impact": "Movimientos existentes no aparecen en el historial del día",
+      "reproduction": "Transferir y consultar historial hoy; esperado movimiento, observado tabla vacía",
+      "cases": [
+        "E2E-G4-117",
+        "E2E-G4-201",
+        "E2E-G4-202"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Alta. Fuera de este contexto no se admite la excepción."
+    },
+    "D-08": {
+      "title": "Transferencia a cuenta cerrada",
+      "product_severity": "Alta",
+      "impact": "Permite enviar fondos a un destinatario inactivo",
+      "reproduction": "Cerrar cuenta destino sin saldo, transferir desde contacto; esperado rechazo 422, observado 201",
+      "cases": [
+        "E2E-G4-206"
+      ],
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Entorno local/CI de pruebas, datos y dinero ficticios, base exclusiva; sin despliegue ni acceso a cuentas reales. La severidad del producto permanece Alta. Fuera de este contexto no se admite la excepción."
+    },
+    "K-C01": {
+      "title": "Ejemplos incompletos y restricciones de monto no expresadas completamente en OpenAPI",
+      "product_severity": "Observación técnica de contrato",
+      "impact": "Señal de contrato/generador; no equivale automáticamente a un defecto funcional",
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Perfil revisado de exploración en entorno aislado. Solo se aceptan huellas exactas de petición/respuesta/check; una señal nueva bloquea.",
+      "reproduction": "Semilla 20261013, máximo 20 ejemplos; revisar detalle Schemathesis y su firma registrada.",
+      "cases": [
+        "Schemathesis"
+      ]
+    },
+    "K-C02": {
+      "title": "Prioridad de validación: contacto existente devuelve rechazo 409 antes del alias inválido",
+      "product_severity": "Observación técnica de contrato",
+      "impact": "Señal de contrato/generador; no equivale automáticamente a un defecto funcional",
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Perfil revisado de exploración en entorno aislado. Solo se aceptan huellas exactas de petición/respuesta/check; una señal nueva bloquea.",
+      "reproduction": "Semilla 20261013, máximo 20 ejemplos; revisar detalle Schemathesis y su firma registrada.",
+      "cases": [
+        "Schemathesis"
+      ]
+    },
+    "K-C03": {
+      "title": "Patrón de celular con dígitos Unicode frente a validación ASCII",
+      "product_severity": "Observación técnica de contrato",
+      "impact": "Señal de contrato/generador; no equivale automáticamente a un defecto funcional",
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Perfil revisado de exploración en entorno aislado. Solo se aceptan huellas exactas de petición/respuesta/check; una señal nueva bloquea.",
+      "reproduction": "Semilla 20261013, máximo 20 ejemplos; revisar detalle Schemathesis y su firma registrada.",
+      "cases": [
+        "Schemathesis"
+      ]
+    },
+    "K-C04": {
+      "title": "Null de query representado por el generador como texto estado=null",
+      "product_severity": "Observación técnica de contrato",
+      "impact": "Señal de contrato/generador; no equivale automáticamente a un defecto funcional",
+      "accepted_for_academic_gate": true,
+      "scope": "isolated-academic-tests",
+      "non_blocking_reason": "Perfil revisado de exploración en entorno aislado. Solo se aceptan huellas exactas de petición/respuesta/check; una señal nueva bloquea.",
+      "reproduction": "Semilla 20261013, máximo 20 ejemplos; revisar detalle Schemathesis y su firma registrada.",
+      "cases": [
+        "Schemathesis"
+      ]
+    }
+  },
+  "api_rules": [
+    {
+      "key": "API/features/complemento-contactos.feature::30",
+      "defect": "D-01",
+      "failures": [
+        {
+          "step": "match r.statusCode == 200",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  422\n  200"
+        }
+      ]
+    },
+    {
+      "key": "API/features/complemento-contactos.feature::62",
+      "defect": "D-02",
+      "failures": [
+        {
+          "step": "match r.statusCode == 409",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409"
+        }
+      ]
+    },
+    {
+      "key": "API/features/contrato-contactos.feature::67",
+      "defect": "D-06",
+      "failures": [
+        {
+          "step": "match r.statusCode == 422",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422"
+        }
+      ]
+    },
+    {
+      "key": "API/features/contrato-contactos.feature::68",
+      "defect": "D-06",
+      "failures": [
+        {
+          "step": "match r.statusCode == 422",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422"
+        }
+      ]
+    },
+    {
+      "key": "API/features/contrato-contactos.feature::69",
+      "defect": "D-06",
+      "failures": [
+        {
+          "step": "match r.statusCode == 422",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422"
+        }
+      ]
+    },
+    {
+      "key": "API/features/contrato-contactos.feature::70",
+      "defect": "D-06",
+      "failures": [
+        {
+          "step": "match r.statusCode == 422",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  422"
+        }
+      ]
+    },
+    {
+      "key": "API/features/hu-g4-01.feature::52",
+      "defect": "D-01",
+      "failures": [
+        {
+          "step": "match r.statusCode == 201",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  422\n  201"
+        }
+      ]
+    },
+    {
+      "key": "API/features/hu-g4-01.feature::187",
+      "defect": "D-02",
+      "failures": [
+        {
+          "step": "match r.statusCode == 409",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  201\n  409"
+        }
+      ]
+    },
+    {
+      "key": "API/features/hu-g4-08.feature::82",
+      "defect": "D-03",
+      "failures": [
+        {
+          "step": "match r.statusCode == 409",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409"
+        }
+      ]
+    },
+    {
+      "key": "API/features/hu-g4-08.feature::97",
+      "defect": "D-03",
+      "failures": [
+        {
+          "step": "match r.statusCode == 409",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  409"
+        }
+      ]
+    },
+    {
+      "key": "API/features/hu-n-03.feature::22",
+      "defect": "D-04",
+      "failures": [
+        {
+          "step": "match r.statusCode == 401",
+          "signature": "match failed: EQUALS\n  $ | not equal (NUMBER:NUMBER)\n  200\n  401"
+        }
+      ]
+    },
+    {
+      "key": "API/features/hu-n-07.feature::80",
+      "defect": "D-05",
+      "failures": [
+        {
+          "step": "match probe.ok == true",
+          "signature": "match failed: EQUALS\n  $ | not equal (BOOLEAN:BOOLEAN)\n  false\n  true"
+        }
+      ]
+    }
+  ],
+  "web_rules": {
+    "E2E-G4-102": {
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "defect": "D-01",
+      "error": "AssertionError: expected 422 to equal 201"
+    },
+    "E2E-G4-104": {
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "defect": "D-02",
+      "error": "AssertionError: expected 201 to equal 409"
+    },
+    "E2E-G4-113": {
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "defect": "D-01",
+      "error": "AssertionError: expected 422 to equal 200"
+    },
+    "E2E-G4-115": {
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "defect": "D-02",
+      "error": "AssertionError: expected 200 to equal 409"
+    },
+    "E2E-G4-117": {
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "defect": "D-07",
+      "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '10.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+    },
+    "E2E-G4-324": {
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "defect": "D-03",
+      "error": "AssertionError: expected 200 to equal 409"
+    },
+    "E2E-G4-201": {
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "defect": "D-07",
+      "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '0.01', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+    },
+    "E2E-G4-202": {
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "defect": "D-07",
+      "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '500.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+    },
+    "E2E-G4-206": {
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "defect": "D-08",
+      "error": "AssertionError: expected 201 to equal 422"
+    }
+  },
+  "contract_rules": {
+    "0ec58da326b11e854ccf020b51f874e4c9c625307bc56408edf034d2474bb104": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "0b90a99a1c526cc5e9f094d8149cd8b7ce4381a5f64b5085427a684a94c55b57": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "0e802eeba04e80f323f8789b6bfa0f3fd1c484a4dd10e5b4f7216702c69c2df1": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "4a94021566ce5aeb953f8034981cf86d23d20bda5918d51f99297cdcbf284587": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "5d24828a880eb647d0b257591904f46a6c25ddf0de3adcaf73a90194b014367a": {
+      "defect": "K-C02",
+      "operation": "POST /api/contactos",
+      "check": "negative_data_rejection",
+      "response_status": 409
+    },
+    "7b501e4df381502aeb9262ad02c582f842c14aa7af3a7b7bfb01e07b74af4d08": {
+      "defect": "K-C04",
+      "operation": "GET /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "69ab56d62d21a70da1a35c70f96698bf0250f098a2770e028377549fd68ae4c6": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "44c476eb747a8e45a6edee7f2502febea0fad83625d50afd6685f6749d36800b": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "598e7569cc7be5d4a0c82eaf605161f28a5c6747acde30fc8157c0c525c776bc": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "cc1133a7330f67acbe0bf08326bf881a6fd4d8dc1187f5b4b5e701d98f297814": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "997e81750c683f6d2d67a8a69ee932a2b9c75381d90a2330e667b79e4024ab9e": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "c9ff4b1a007441bec0534db26e8419b0b62aecaf79014b37d30f2bb7512efef8": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "52d201e92fed721abeae33eb80f322ef44a3d453c73f981677d1e92a7435f0d1": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "7755defbce2248b75f981a13d542cfa935afc95282ca02c2c614210265397788": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "fbeeb2e43d6edc0a77521cd4235b82a62f0e6de35b72191e07931e13ce43b7db": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "3394cc55fcba781a9b159783e30152cdedbf3c97cbf9b3cb6f48012be8b6b054": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "f6fa29e99335f92340a2d05f9c4bd575fae9e250d5e5c8307fea879565b6b775": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "8eede13aa61728151b896e7b5eaa6cda24e2c5057b4866f48e3c670234f86496": {
+      "defect": "K-C03",
+      "operation": "POST /api/contactos",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "efd68772dde240d474e7401dd8726e760580ffbf85ef7033877526096ec475e5": {
+      "defect": "K-C04",
+      "operation": "GET /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "e210402114dd3f741475f6ed496d051e38336ce50bcb16a24cfae91c3aced5ba": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "30fca87180b93dcf5e44e378638fbc35e7a3abca88afcb347db1615846ea5745": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "e63acb8d0dc9742131118c6a6a13534d51942780fe992b093960ef19e64cec7d": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    },
+    "da3e10c19554a8fb8b6d43692085df5bf14b744216dfc57dfc2732140797e21d": {
+      "defect": "K-C01",
+      "operation": "POST /api/solicitudes",
+      "check": "positive_data_acceptance",
+      "response_status": 422
+    }
+  },
+  "source_hashes": {
+    "API/features/complemento-contactos.feature": "993d5a0236ce7a516caa8de879a3325b42e278cece27cbb7b32e095e1e21da4a",
+    "API/features/contrato-contactos.feature": "efa73b99b4d98404ae5b5ad04137dd991c4e90c45e7120066ac87b0ee19ac101",
+    "API/features/hu-g4-01.feature": "8d3c6a3b5224b5a61e1477831e2a3f5f1b9eaabf8bed716629cd3ea48d7af389",
+    "API/features/hu-g4-02.feature": "1c6ff5e01da2c0b3d8b2afd59f2d43f104364f6be7750085ccc19847e06d04e1",
+    "API/features/hu-g4-03.feature": "c5b370a85b53456778d364107bde65939e6799a5a6b7960e56c9a86c50012435",
+    "API/features/hu-g4-04.feature": "d30d2a97820f4c71f9a99d2f60fdff24dd399f1427b9fc43f05bc03790c48241",
+    "API/features/hu-g4-05.feature": "9e58002e3231b4e53debfb0fb1f87e55dded641f70c20908564482e18e4e9654",
+    "API/features/hu-g4-06.feature": "0cd3392346d8648dd32e799c459668601c97650c76f0bc6ad39fb106eb1f62fb",
+    "API/features/hu-g4-07.feature": "da59d5de33468857850b87b7ed7c6d50e9c8a4347addf0c76bec9984b049e036",
+    "API/features/hu-g4-08.feature": "f0c7b665efb034e2c5fe2931a7ae5658f60371efc5c8ed864ac75c715b7a53a6",
+    "API/features/hu-g4-09.feature": "4b01e5114b71593bd8633d805234eb8c363d261a6b1cfa1bfa0723e3c06dbf2f",
+    "API/features/hu-g4-10.feature": "5829f0dc861f78cb7e5388e65e99d6470fbefcd2db8d1eef24eda415f890a5da",
+    "API/features/hu-n-01.feature": "8a3578ed3c09ffcca67dd058b734ef1ad7708c6057adb5b09c2bbe504dc529a6",
+    "API/features/hu-n-02.feature": "d6329a589bf15598d9ee11c0f5a82ff9bfd9895193b29be6303520dd73eac73b",
+    "API/features/hu-n-03.feature": "af35f144f278b1153e4b1700404580eb79b0ca886518df8a63f309da708b6106",
+    "API/features/hu-n-04.feature": "5859b2bc8f658389378a197eb8a53feb1cb41e2f18b8ca2d4ba4ec800181d7a9",
+    "API/features/hu-n-05.feature": "7925a454dcb05070c4bcc9a5776f8b5e503d630919cec0bf81f2849d8058b72b",
+    "API/features/hu-n-06.feature": "727bf7d0baf73eff2e18e67e53f094ad18aacc85766a9664a235a9637ce1ded8",
+    "API/features/hu-n-07.feature": "7842058c3203f9271f98f26596091b5dfdcd780552d9ab4c8680a64e595a71c5",
+    "API/features/hu-n-08.feature": "782eb6dd9747aed3782eaff36682f6c982f9f5eec81f6db17947595c22cdbc90",
+    "API/features/hu-n-09.feature": "27287ce476eca5bd1a4a12209d05f3bdd5f6ff51424965c3b1693de234ed3edc",
+    "API/features/support/http.feature": "10d04bc36c21c8d197c5fb6f303ccf4425425d530ecd37e0b18b373e758725a7",
+    "API/features/support/session-ready.feature": "71ca30c336af82cc56f0db3a5f438bd9fc1041ef847fae662b92ac7ea635a9ad",
+    "API/features/support/setup.feature": "471ec5a14b29a26792c7124c2abc725751f9d8a698fe3c82a129fdb7755f353a",
+    "Web/cypress/demos/contactos-ia.cy.ts": "202ccd31164426eb0860c1d7bac8f871fc61f4544391f25c614cf923fded42f5",
+    "Web/cypress/demos/evidencia-fallo.cy.ts": "e248700c3bdf4f3327e386603806eeda9c9b1cf0e6080d23e35ed873274e9d12",
+    "Web/cypress/e2e/contactos-completo.cy.ts": "915c76f7179ecbf1ecced90ddfed0688b3b51a680a516472ddb34b2d1fdceb75",
+    "Web/cypress/e2e/contactos-happy-path.cy.ts": "3b89b067bdb97f3c092916d88bc3d38d709142ba2e7979747df257a521edb117",
+    "Web/cypress/e2e/contactos-validaciones.cy.ts": "b9f2969e4bbbc9b37f981a59221f7b03d3817a0c49d7e7edd4ad7945f7897390",
+    "Web/cypress/e2e/solicitudes-completo.cy.ts": "ae0acd3a5a2d6a5f016b2a3adbc61ace94593c43eee9e2aff60f54106d55ea73",
+    "Web/cypress/e2e/transferencias-contactos.cy.ts": "720dec91d158657fdb008c6765939640e19f0058b7663ac12953e0bb279be1b3",
+    "Web/cypress/pages/ContactosPage.ts": "98ac7665abb2ef9853533cecc3ed474099a703ac0f18cd2131498ea57dd9b73e",
+    "Web/cypress/pages/LoginPage.ts": "30baaf86e906b1cc3f634994478a92acb81c36874fe396dd0f265f876fabf741",
+    "Web/cypress/pages/SolicitudesPage.ts": "9d9606e106e733039699858a530cdb9130887b0ed969f441f71f9913ffeccf84",
+    "Web/cypress/pages/TransferenciasPage.ts": "c14bbe3e2ff76e0de856c49b435b200b9f78d394ed030f060db357989ef69187",
+    "Web/cypress/pages/Ui.ts": "43da6a31b17030924df7909418dc2d8e8292658e8a401f8253d5d52faf02d44e",
+    "Web/cypress/support/commands.ts": "e05a36293484e14ddabc95d6fef17fa3a5fdf218c500d59b7b9167cac1d20a91",
+    "Web/cypress/support/e2e.ts": "a231984cd3033a1108ad9b960f10eca8de9f97e22a7e4413f6e537b710a615fc",
+    "Web/cypress/support/fixtures.ts": "3c5ec479e18cf64fc616dca940d4f6c3fd9111fd0748d7641a809eea5c4356f1",
+    "requirements-lock.txt": "aaf01bd528693d4a1231f374108401f9104a3e31663a2ffad9ac25b953e11ee6",
+    "cypress.config.ts": "99e61aa7634af62c877638c5191b09c00616f5c4e8ff48b97c1589489a7a38a5",
+    "tsconfig.json": "9308f713e7207831627d8df5dbcb6c10b446f367f7d2dd09e39dd6f04272ce19",
+    "data/casos.json": "651f28ccebab37bcc321de1e420851c5354015f6d6a0bfd94595cc9b160cfc2c"
+  },
+  "contract_schema_sha256": "4247ee6fe4d1ede34b325c4de4e9d6e6dd258240720dd406bfa0ee647e794b69",
+  "runtime_versions": {
+    "fastapi": "0.117.1",
+    "starlette": "0.48.0"
+  }
+}

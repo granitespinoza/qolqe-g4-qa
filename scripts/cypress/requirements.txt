@@ -1,5 +1,2 @@
-fastapi==0.143.3
-uvicorn==0.54.0
-PyJWT==2.15.1
-pydantic==2.14.1
-starlette==1.8.0
+# API y navegador prueban las mismas versiones de Qolqe y sus dependencias.
+-r ../../requirements-lock.txt

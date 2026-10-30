@@ -1,3 +1,29 @@
+# Entrega 2 — Qolqe G4 y Quality Gate Escenario A
+
+**Estado local:** tres corridas web estables con 45 PASS y 9 known issues; API con 169 PASS y 12 known issues. Los fallos crudos permanecen visibles. Qolqe no se modifica. La aprobación se limita al entorno académico aislado.
+
+- [Guía final de ensayo, comandos y publicación](docs/parte2/entrega.md)
+- [PowerPoint para Canvas: 13 diapositivas](presentacion/Entrega2-Qolqe-Cypress.pptx)
+- [Presentación web y matriz](apidoc/parte2/index.html)
+- [Matriz CSV](data/trazabilidad-parte2.csv) · [Matriz detallada](docs/parte2/trazabilidad.md)
+- [Política del gate](docs/parte2/quality-gate.md) · [Defectos y riesgos](docs/parte2/defectos-conocidos.md)
+
+Estructura exigida: `API/features/` y `API/openapi.json`, `Web/cypress/`, `scripts/`, `.github/workflows/pruebas.yml`. El workflow ejecuta API → Web → Reportería en push/PR a main y manualmente. Antes de entregar hay que publicar/integrar los cambios y verificar el run remoto del commit final.
+
+Con las dependencias instaladas, ejecutar desde la raíz:
+
+```powershell
+.venv/Scripts/python.exe scripts/ci_run.py api
+.venv/Scripts/python.exe scripts/ci_run.py web
+.venv/Scripts/python.exe scripts/build_web_coverage.py
+.venv/Scripts/python.exe scripts/ci_run.py reporting
+.venv/Scripts/python.exe scripts/build_delivery.py
+```
+
+No se usa `continue-on-error` ni se omiten pruebas. Los lanzadores crudos pueden devolver fallo por defectos; `ci_run.py` decide el gate tras contrastar la evidencia. Vídeos desactivados y bases web retiradas al terminar. La explicación de instalación y los materiales anteriores se conservan abajo; para la entrega actual prevalece la guía final enlazada arriba.
+
+---
+
 # Qolqe G4 · Contactos y solicitudes de dinero
 
 **Granit y Franco · CS5383 — Pruebas y Verificación de Software**
@@ -54,17 +80,38 @@ Restful Booker se usa como referencia didáctica; no se incorporaron sus reglas 
 API: http://localhost:8000/docs · OpenAPI: http://localhost:8000/openapi.json.
 
 ## Evidencias y límites
-`reports/raw/` contiene reportes locales completos; puede incluir tokens de prueba y no se versiona. `evidencias/` contiene registros HTML con tokens ocultos. GitHub Actions conserva reportes de prueba como artefactos privados por 7 días.
+`reports/raw/` contiene reportes locales completos; puede incluir tokens de prueba y no se versiona. `evidencias/` contiene registros HTML con tokens ocultos. GitHub Actions conserva reportes por 7 días; su acceso depende de la visibilidad y permisos del repositorio.
 La suite es secuencial por el reloj compartido. No se declara cobertura total mientras existan pendientes en `docs/cobertura.md`. No se crea `parte-1` hasta completar y revisar la entrega.
 Cada ejecución nueva conserva un directorio propio y `reports/latest-karate.json`, con commit, huellas de fuentes e inicio/fin. La documentación rechaza resultados de otro diseño y usa el OpenAPI capturado en esa ejecución. `--start-api` rechaza un puerto ocupado para evitar probar otra instancia por accidente.
 
 ## Sustentación en vivo (última indicación de la docente)
 Explicar una HU con sus CA y diseño; ejecutar toda la automatización; revisar el reporte; defender otra HU por tag. Ensayar 10 minutos y reservar 5 de preguntas, cerrando con conclusiones. Las capturas son archivo de estudio.
 
-Schemathesis dispone de [peticiones y checks detallados](reports/schemathesis-detallado.html), con filtros basados en metadatos y credenciales ocultas. Los casos CT explícitos y la matriz complementan las condiciones no demostradas por la exploración. El detalle se genera al ejecutar Schemathesis; también puede reconstruirse desde su evidencia local con `scripts/build_schemathesis_report.py`.
+Schemathesis conserva un [archivo histórico de peticiones y checks](reports/schemathesis-detallado.html), con filtros basados en metadatos y credenciales ocultas. Los casos CT explícitos y la matriz complementan las condiciones no demostradas por la exploración. El detalle actual se genera en el directorio propio de cada ejecución (el comando imprime su enlace); también puede reconstruirse desde su evidencia local con `scripts/build_schemathesis_report.py`.
 
 La preparación de usuarios, contactos y sesiones comprueba disponibilidad mediante sondeos acotados y registrados. No se reintentan operaciones financieras ni se cambian sus aserciones. [Incidencia y comparación de ejecuciones](docs/incidencia-consistencia.md).
 
 ## Automatización web con Cypress
 
 Suite E2E de Contactos, Page Objects y demo IA. [Instalación y comandos](docs/cypress/README.md) · [Trazabilidad](docs/cypress/trazabilidad.md) · [Arquitectura](docs/cypress/arquitectura.md).
+
+
+## Parte 2 — avance de los pasos 1 y 2
+
+- [Alcance y matriz web/API](docs/parte2/alcance-y-matriz.md): 18 criterios G4 y variantes pendientes; no declara cobertura web completa.
+- [Diagnóstico API y comandos](docs/parte2/diagnostico-api.md): dependencias fijadas, aislamiento, seis problemas identificados y análisis de Schemathesis. Los defectos conservan el resultado fallido.
+- [Verificación de esta implementación](docs/parte2/verificacion.md).
+
+`python scripts/build_scope.py --check` comprueba que la matriz coincide con los requisitos y que sus casos existentes tienen archivos reales. El lock compartido no reemplaza la verificación remota en Linux.
+
+## Parte 2: avance de pasos 3 y 4
+
+Regresión web G4: 54 pruebas, 18 CA y 36 grupos de variantes con Page Object Model. [Resultados de tres corridas y comandos](docs/parte2/verificacion-web.md) · [Diagnóstico de defectos](docs/parte2/diagnostico-web.md). La referencia original se conserva; los defectos siguen fallando y no se declara el criterio de tres verdes cumplido. La publicación en CI corresponde a los siguientes pasos.
+
+Pipeline Parte 2: [trabajos, reportes y uso reducido de disco](docs/parte2/pipeline.md). Cypress no graba vídeo por defecto y retira la base temporal al terminar; conserva la evidencia de resultados.
+
+## Entrega 2: trazabilidad y exposición
+
+[Presentación navegable y matriz](apidoc/parte2/index.html) · [Guía de ejecución y entrega](docs/parte2/entrega.md) · [Matriz HU → CA → caso → ejecución](docs/parte2/trazabilidad.md). Regenerar con `python scripts/build_delivery.py` después de producir los reportes. En GitHub, el trabajo final consolida la evidencia del mismo run e intento y publica la entrega navegable.
+
+La evidencia local sigue mostrando fallos. Antes de declarar lista la entrega deben verificarse el run remoto del commit entregado, sus artefactos y los requisitos de API/web y tres corridas en verde.

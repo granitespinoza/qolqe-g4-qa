@@ -82,7 +82,7 @@ window.CYPRESS_SLIDES = [
     ],
     "why": "cy.intercept observa la petición sin simular su respuesta. La recarga comprueba que la UI recupera el contacto guardado.",
     "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 open",
-    "link": "../../cypress/e2e/contactos-happy-path.cy.ts",
+    "link": "../../Web/cypress/e2e/contactos-happy-path.cy.ts",
     "action": "Ver el test completo"
   },
   {
@@ -96,7 +96,7 @@ window.CYPRESS_SLIDES = [
     ],
     "why": "Mostramos generación y ejecución de acciones. No declaramos haber probado self-healing.",
     "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 ai-open",
-    "link": "../../cypress/demos/contactos-ia.cy.ts",
+    "link": "../../Web/cypress/demos/contactos-ia.cy.ts",
     "action": "Ver prueba con IA"
   },
   {
@@ -155,7 +155,7 @@ window.CYPRESS_SLIDES = [
     ],
     "why": "Esta aserción falsa permite explicar el diagnóstico. No constituye un defecto de Qolqe y está fuera de regresión y CI.",
     "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 failure\npowershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report",
-    "link": "../../cypress/demos/evidencia-fallo.cy.ts",
+    "link": "../../Web/cypress/demos/evidencia-fallo.cy.ts",
     "action": "Ver el fallo didáctico"
   },
   {
