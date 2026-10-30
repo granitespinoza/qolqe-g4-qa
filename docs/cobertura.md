@@ -1,5 +1,7 @@
 # Cobertura por criterio
 
+> Parte 2: [matriz G4 actual y backlog web](parte2/alcance-y-matriz.md). Esta página conserva el alcance anterior. [Implementación y resultados actuales de pasos 3–4](parte2/verificacion-web.md); presencia de pruebas no implica aprobación.
+
 Los casos asociados demuestran presencia de pruebas, no cobertura exhaustiva. Un CA compuesto puede requerir variantes adicionales.
 
 | HU / CA | Pruebas asociadas | Estado de diseño |
@@ -62,4 +64,4 @@ Los casos asociados demuestran presencia de pruebas, no cobertura exhaustiva. Un
 - Ampliar filtros de solicitudes a cada estado y verificar su contenido.
 - Validar contenido exacto de todos los SMS, no solo su presencia.
 - CI: revisar resultados del workflow; la ejecución local no sustituye el pipeline.
-- Web y rendimiento corresponden a entregas posteriores.
+- Web: alcance de la Parte 2 definido en la matriz enlazada. Rendimiento queda fuera de esta rúbrica.

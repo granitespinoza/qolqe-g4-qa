@@ -1,0 +1,918 @@
+{
+  "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "classification": "Clasificación técnica del alcance G4 aprobada para el plan; no es una clasificación emitida por la docente.",
+  "scope": "18 CA de HU-G4-01 a HU-G4-10. Núcleo solo como dependencia de estos flujos. API histórica de núcleo se conserva.",
+  "shared_dependencies": [
+    {
+      "hu": "HU-N-02",
+      "ca": [
+        1
+      ],
+      "role": "Login UI como precondición; no acredita todos los CA de autenticación"
+    },
+    {
+      "hu": "HU-N-04",
+      "ca": [
+        1
+      ],
+      "role": "Saldo observable tras operaciones; verificar precisión por API"
+    },
+    {
+      "hu": "HU-N-07",
+      "ca": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "role": "CA1–4 por web+API en transferencias G4; CA5 concurrencia por API"
+    },
+    {
+      "hu": "HU-N-03",
+      "ca": [
+        1,
+        2
+      ],
+      "role": "API de revocación conservada; logout UI no reemplaza prueba de token"
+    }
+  ],
+  "excluded": "Otros módulos G1/G2/G3/G5/G6 independientes; IA y fallo didáctico no cuentan como cobertura de regresión.",
+  "criteria": [
+    {
+      "id": "HU-G4-01-CA1",
+      "hu": "HU-G4-01",
+      "ca": 1,
+      "title": "Alta de contactos",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "parcial",
+      "existing_web_cases": [
+        "E2E-G4-001",
+        "E2E-G4-002",
+        "E2E-G4-003"
+      ],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-01-CA1-01",
+          "objective": "Alta válida y persistencia; alias de 3 y 20 caracteres, tildes, ñ, números y espacios",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-01-CA1-02",
+          "objective": "Normalización de espacios; alias duplicado por mayúsculas y por espacios",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-01-CA1-03",
+          "objective": "Alias vacío, 2 y 21 caracteres, símbolos no permitidos",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-01-CA1-04",
+          "objective": "Celular inválido, propio, inexistente, cerrado y contacto duplicado",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-01-CA1-05",
+          "objective": "Límite: crear el contacto 15 y rechazar el 16 sin alterar la lista",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API complementa tipos JSON, autenticación y propiedad; R-G4-03 favoritos se ejerce en edición.",
+      "api_cases": [
+        {
+          "id": "G4-001",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-002",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-003",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-004",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-005",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-006",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-007",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-008",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-009",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-010",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-011",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-012",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-013",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-014",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-015",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-016",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-017",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-018",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-019",
+          "file": "API/features/hu-g4-01.feature"
+        },
+        {
+          "id": "G4-106",
+          "file": "API/features/hu-g4-01.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {
+        "E2E-G4-001": "Web/cypress/e2e/contactos-happy-path.cy.ts",
+        "E2E-G4-002": "Web/cypress/e2e/contactos-validaciones.cy.ts",
+        "E2E-G4-003": "Web/cypress/e2e/contactos-validaciones.cy.ts"
+      }
+    },
+    {
+      "id": "HU-G4-02-CA1",
+      "hu": "HU-G4-02",
+      "ca": 1,
+      "title": "Orden y paginación",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-02-CA1-01",
+          "objective": "Lista vacía; favoritos primero y orden por alias dentro de cada grupo",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-02-CA1-02",
+          "objective": "10 por página: 10/11/15 contactos, navegación anterior/siguiente y total",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API comprueba parámetros de paginación inválidos.",
+      "api_cases": [
+        {
+          "id": "G4-021",
+          "file": "API/features/hu-g4-02.feature"
+        },
+        {
+          "id": "G4-022",
+          "file": "API/features/hu-g4-02.feature"
+        },
+        {
+          "id": "G4-107",
+          "file": "API/features/hu-g4-02.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-02-CA2",
+      "hu": "HU-G4-02",
+      "ca": 2,
+      "title": "Búsqueda",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-02-CA2-01",
+          "objective": "Fragmento, mayúsculas y tildes: jose encuentra José",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-02-CA2-02",
+          "objective": "Sin coincidencias y limpiar búsqueda restaura la lista",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API confirma la búsqueda sobre datos propios.",
+      "api_cases": [
+        {
+          "id": "G4-020",
+          "file": "API/features/hu-g4-02.feature"
+        },
+        {
+          "id": "G4-023",
+          "file": "API/features/hu-g4-02.feature"
+        }
+      ],
+      "api_supplemental_cases": [
+        {
+          "id": "CF-04",
+          "file": "API/features/complemento-contactos.feature"
+        }
+      ],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-02-CA3",
+      "hu": "HU-G4-02",
+      "ca": 3,
+      "title": "Datos visibles",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "parcial",
+      "existing_web_cases": [
+        "E2E-G4-001"
+      ],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-02-CA3-01",
+          "objective": "Alias, nombre enmascarado, celular e indicador de favorito",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "No basta verificar solamente alias y celular.",
+      "api_cases": [
+        {
+          "id": "G4-020",
+          "file": "API/features/hu-g4-02.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {
+        "E2E-G4-001": "Web/cypress/e2e/contactos-happy-path.cy.ts"
+      }
+    },
+    {
+      "id": "HU-G4-03-CA1",
+      "hu": "HU-G4-03",
+      "ca": 1,
+      "title": "Edición y favoritos",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-03-CA1-01",
+          "objective": "Editar alias válido y conservarlo sin considerarlo duplicado consigo mismo; persistencia",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-03-CA1-02",
+          "objective": "Límites 2/3/20/21, ñ, símbolos y duplicados normalizados al editar",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-03-CA1-03",
+          "objective": "Marcar y desmarcar; permitir favorito 5 y rechazar 6 sin modificar los demás",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API cubre tipos no representables en el formulario y acceso a recursos ajenos.",
+      "api_cases": [
+        {
+          "id": "G4-024",
+          "file": "API/features/hu-g4-03.feature"
+        },
+        {
+          "id": "G4-025",
+          "file": "API/features/hu-g4-03.feature"
+        },
+        {
+          "id": "G4-026",
+          "file": "API/features/hu-g4-03.feature"
+        },
+        {
+          "id": "G4-027",
+          "file": "API/features/hu-g4-03.feature"
+        },
+        {
+          "id": "G4-108",
+          "file": "API/features/hu-g4-03.feature"
+        }
+      ],
+      "api_supplemental_cases": [
+        {
+          "id": "CF-01",
+          "file": "API/features/complemento-contactos.feature"
+        },
+        {
+          "id": "CF-02",
+          "file": "API/features/complemento-contactos.feature"
+        },
+        {
+          "id": "CF-03",
+          "file": "API/features/complemento-contactos.feature"
+        }
+      ],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-04-CA1",
+      "hu": "HU-G4-04",
+      "ca": 1,
+      "title": "Eliminación e historial",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-04-CA1-01",
+          "objective": "Eliminar y comprobar ausencia tras recargar",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-04-CA1-02",
+          "objective": "Transferencias previas permanecen visibles en movimientos",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API verifica que los movimientos financieros no se borraron.",
+      "api_cases": [
+        {
+          "id": "G4-028",
+          "file": "API/features/hu-g4-04.feature"
+        }
+      ],
+      "api_supplemental_cases": [
+        {
+          "id": "CF-05",
+          "file": "API/features/complemento-contactos.feature"
+        }
+      ],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-04-CA2",
+      "hu": "HU-G4-04",
+      "ca": 2,
+      "title": "Bloqueo de eliminación",
+      "level": "web+api",
+      "route": "/contactos",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-04-CA2-01",
+          "objective": "Bloquear eliminación con solicitud pendiente enviada y recibida",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-04-CA2-02",
+          "objective": "Permitir cuando resuelta o vencida; verificar mensaje y conservación del contacto si falla",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "Preparar cada estado por API y reloj de pruebas, sin esperar 48 horas.",
+      "api_cases": [
+        {
+          "id": "G4-029",
+          "file": "API/features/hu-g4-04.feature"
+        },
+        {
+          "id": "G4-030",
+          "file": "API/features/hu-g4-04.feature"
+        },
+        {
+          "id": "G4-031",
+          "file": "API/features/hu-g4-04.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-05-CA1",
+      "hu": "HU-G4-05",
+      "ca": 1,
+      "title": "Transferencia desde contacto",
+      "level": "web+api",
+      "route": "/contactos → /transferir",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-05-CA1-01",
+          "objective": "Seleccionar contacto y transferir: destinatario, comprobante y persistencia",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-05-CA1-02",
+          "objective": "Monto 0/0.01/500/500.01 y más de 2 decimales; descripción hasta 60",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-05-CA1-03",
+          "objective": "Saldo insuficiente, límite diario y destino cerrado: error sin débito",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "HU-N-07 CA1–4; concurrencia CA5 y manipulación de destinatario ajeno/propio se verifican por API.",
+      "api_cases": [
+        {
+          "id": "G4-032",
+          "file": "API/features/hu-g4-05.feature"
+        },
+        {
+          "id": "G4-033",
+          "file": "API/features/hu-g4-05.feature"
+        },
+        {
+          "id": "G4-095",
+          "file": "API/features/hu-g4-05.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-06-CA1",
+      "hu": "HU-G4-06",
+      "ca": 1,
+      "title": "Crear solicitud",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-06-CA1-01",
+          "objective": "Elegir contacto, monto y motivo válidos; límites de monto y motivo 2/3/60/61",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-06-CA1-02",
+          "objective": "Sin contacto y datos inválidos: mensaje sin crear solicitud",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-06-CA1-03",
+          "objective": "Permitir pendiente 10 y rechazar 11",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API comprueba ID de contacto ajeno/inexistente y tipos no representables en UI.",
+      "api_cases": [
+        {
+          "id": "G4-034",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-035",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-036",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-037",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-038",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-039",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-040",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-041",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-042",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-043",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-044",
+          "file": "API/features/hu-g4-06.feature"
+        },
+        {
+          "id": "G4-109",
+          "file": "API/features/hu-g4-06.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-06-CA2",
+      "hu": "HU-G4-06",
+      "ca": 2,
+      "title": "Estado, vencimiento y aviso",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-06-CA2-01",
+          "objective": "Nueva solicitud en enviadas/recibidas: PENDIENTE y vencimiento mostrado",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API verifica diferencia exacta de 48 horas y contenido/destinatario del SMS simulado.",
+      "api_cases": [
+        {
+          "id": "G4-034",
+          "file": "API/features/hu-g4-06.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-07-CA1",
+      "hu": "HU-G4-07",
+      "ca": 1,
+      "title": "Vistas y filtros",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-07-CA1-01",
+          "objective": "Separar enviadas y recibidas para dos actores",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-07-CA1-02",
+          "objective": "Filtrar PENDIENTE/ACEPTADA/RECHAZADA/CANCELADA/VENCIDA y Todos; lista vacía",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API cubre aislamiento entre usuarios y filtro inválido.",
+      "api_cases": [
+        {
+          "id": "G4-045",
+          "file": "API/features/hu-g4-07.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-07-CA2",
+      "hu": "HU-G4-07",
+      "ca": 2,
+      "title": "Vencimiento visible",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-07-CA2-01",
+          "objective": "Antes de 48h pendiente; a las 48h y después vencida al actualizar",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "Preparar reloj controlado y renovar sesión; no esperar tiempo real.",
+      "api_cases": [
+        {
+          "id": "G4-046",
+          "file": "API/features/hu-g4-07.feature"
+        },
+        {
+          "id": "G4-047",
+          "file": "API/features/hu-g4-07.feature"
+        },
+        {
+          "id": "G4-048",
+          "file": "API/features/hu-g4-07.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-08-CA1",
+      "hu": "HU-G4-08",
+      "ca": 1,
+      "title": "Aceptar y transferir",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-08-CA1-01",
+          "objective": "Destinatario acepta con saldo y límite disponibles; saldo y movimiento correctos",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API complementa invariantes monetarias de HU-N-07 y concurrencia.",
+      "api_cases": [
+        {
+          "id": "G4-049",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-096",
+          "file": "API/features/hu-g4-08.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-08-CA2",
+      "hu": "HU-G4-08",
+      "ca": 2,
+      "title": "Aceptación fallida",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-08-CA2-01",
+          "objective": "Saldo insuficiente y límite diario: error visible, conserva PENDIENTE y dinero",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "Comprobar ausencia de transferencia por API además del estado mostrado.",
+      "api_cases": [
+        {
+          "id": "G4-050",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-096",
+          "file": "API/features/hu-g4-08.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-08-CA3",
+      "hu": "HU-G4-08",
+      "ca": 3,
+      "title": "Resultado de aceptación",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-08-CA3-01",
+          "objective": "Estado ACEPTADA, código de operación asociado y persistencia",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API verifica SMS al solicitante y código compartido de movimientos.",
+      "api_cases": [
+        {
+          "id": "G4-049",
+          "file": "API/features/hu-g4-08.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-08-CA4",
+      "hu": "HU-G4-08",
+      "ca": 4,
+      "title": "Permisos y transición",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-08-CA4-01",
+          "objective": "Acción aceptar disponible solo al destinatario en solicitud pendiente vigente",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-08-CA4-02",
+          "objective": "Solicitud resuelta o vencida no permite nueva aceptación desde UI",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API verifica 404 ajeno y 409 al invocar directamente, incluida la frontera 48h sin listar antes.",
+      "api_cases": [
+        {
+          "id": "G4-049",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-051",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-052",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-053",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-054",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-055",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-097",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-100",
+          "file": "API/features/hu-g4-08.feature"
+        },
+        {
+          "id": "G4-103",
+          "file": "API/features/hu-g4-08.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-09-CA1",
+      "hu": "HU-G4-09",
+      "ca": 1,
+      "title": "Rechazo",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-09-CA1-01",
+          "objective": "Rechazar sin motivo y con motivo de hasta 60; persistencia RECHAZADA",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-09-CA1-02",
+          "objective": "Motivo 61 inválido; acciones según actor, estado y vencimiento",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API verifica SMS, permisos y transición directa sin depender de botones ocultos.",
+      "api_cases": [
+        {
+          "id": "G4-056",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-057",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-058",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-059",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-064",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-065",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-066",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-098",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-101",
+          "file": "API/features/hu-g4-09.feature"
+        },
+        {
+          "id": "G4-104",
+          "file": "API/features/hu-g4-09.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    },
+    {
+      "id": "HU-G4-10-CA1",
+      "hu": "HU-G4-10",
+      "ca": 1,
+      "title": "Cancelación",
+      "level": "web+api",
+      "route": "/solicitudes",
+      "web_status": "pendiente",
+      "existing_web_cases": [],
+      "planned_web_cases": [
+        {
+          "id": "WEB-G4-10-CA1-01",
+          "objective": "Solicitante cancela pendiente vigente; persistencia CANCELADA",
+          "status": "diseñado, no implementado"
+        },
+        {
+          "id": "WEB-G4-10-CA1-02",
+          "objective": "Otros actores, resueltas y vencidas no ofrecen cancelación válida",
+          "status": "diseñado, no implementado"
+        }
+      ],
+      "api_complement": "API verifica 404 ajeno y 409 de transición directa.",
+      "api_cases": [
+        {
+          "id": "G4-060",
+          "file": "API/features/hu-g4-10.feature"
+        },
+        {
+          "id": "G4-061",
+          "file": "API/features/hu-g4-10.feature"
+        },
+        {
+          "id": "G4-062",
+          "file": "API/features/hu-g4-10.feature"
+        },
+        {
+          "id": "G4-063",
+          "file": "API/features/hu-g4-10.feature"
+        },
+        {
+          "id": "G4-099",
+          "file": "API/features/hu-g4-10.feature"
+        },
+        {
+          "id": "G4-102",
+          "file": "API/features/hu-g4-10.feature"
+        },
+        {
+          "id": "G4-105",
+          "file": "API/features/hu-g4-10.feature"
+        }
+      ],
+      "api_supplemental_cases": [],
+      "web_files": {}
+    }
+  ],
+  "requirements_sha256": "9a993385bbb3efe368519e6338ceab66ca892906312c1f27e6d9fe1c2722e0db",
+  "requirements_hash_format": "UTF-8 con saltos de linea LF",
+  "summary": {
+    "criteria": 18,
+    "partial_web": 2,
+    "pending_web": 16,
+    "complete_web": 0,
+    "existing_web_tests": 3,
+    "planned_web_groups": 36
+  }
+}

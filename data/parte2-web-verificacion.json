@@ -1,0 +1,2003 @@
+{
+  "scope": "G4 aprobado: 18 CA y 36 grupos de variantes; no todos los módulos Qolqe",
+  "evidence": "reports/cypress/stability-2026-10-30T16-45-12-153Z/stability.json",
+  "evidence_sha256": "d9606ff461cfd278846c57814df45627e33196550bda65996fc9137f8e920b2d",
+  "source_hash": "05d3d87a0498357dc839a020515f07935a9148937750cce7478ee02818c81a96",
+  "verdict": {
+    "sameTests": true,
+    "sameSources": true,
+    "completeSuite": true,
+    "sameEnvironment": true,
+    "allPassed": false,
+    "achieved": false
+  },
+  "criteria": [
+    {
+      "id": "HU-G4-01-CA1",
+      "groups": [
+        "WEB-G4-01-CA1-01",
+        "WEB-G4-01-CA1-02",
+        "WEB-G4-01-CA1-03",
+        "WEB-G4-01-CA1-04",
+        "WEB-G4-01-CA1-05"
+      ],
+      "tests": [
+        "E2E-G4-101",
+        "E2E-G4-102",
+        "E2E-G4-103",
+        "E2E-G4-104",
+        "E2E-G4-105",
+        "E2E-G4-106",
+        "E2E-G4-107",
+        "E2E-G4-108"
+      ],
+      "status": "Escenario A: fallo conocido"
+    },
+    {
+      "id": "HU-G4-02-CA1",
+      "groups": [
+        "WEB-G4-02-CA1-01",
+        "WEB-G4-02-CA1-02"
+      ],
+      "tests": [
+        "E2E-G4-108",
+        "E2E-G4-109",
+        "E2E-G4-110"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-02-CA2",
+      "groups": [
+        "WEB-G4-02-CA2-01",
+        "WEB-G4-02-CA2-02"
+      ],
+      "tests": [
+        "E2E-G4-111"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-02-CA3",
+      "groups": [
+        "WEB-G4-02-CA3-01"
+      ],
+      "tests": [
+        "E2E-G4-110"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-03-CA1",
+      "groups": [
+        "WEB-G4-03-CA1-01",
+        "WEB-G4-03-CA1-02",
+        "WEB-G4-03-CA1-03"
+      ],
+      "tests": [
+        "E2E-G4-112",
+        "E2E-G4-113",
+        "E2E-G4-114",
+        "E2E-G4-115",
+        "E2E-G4-116"
+      ],
+      "status": "Escenario A: fallo conocido"
+    },
+    {
+      "id": "HU-G4-04-CA1",
+      "groups": [
+        "WEB-G4-04-CA1-01",
+        "WEB-G4-04-CA1-02"
+      ],
+      "tests": [
+        "E2E-G4-117"
+      ],
+      "status": "Escenario A: fallo conocido"
+    },
+    {
+      "id": "HU-G4-04-CA2",
+      "groups": [
+        "WEB-G4-04-CA2-01",
+        "WEB-G4-04-CA2-02"
+      ],
+      "tests": [
+        "E2E-G4-118",
+        "E2E-G4-119",
+        "E2E-G4-120",
+        "E2E-G4-121"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-05-CA1",
+      "groups": [
+        "WEB-G4-05-CA1-01",
+        "WEB-G4-05-CA1-02",
+        "WEB-G4-05-CA1-03"
+      ],
+      "tests": [
+        "E2E-G4-201",
+        "E2E-G4-202",
+        "E2E-G4-203",
+        "E2E-G4-204",
+        "E2E-G4-205",
+        "E2E-G4-206"
+      ],
+      "status": "Escenario A: fallo conocido"
+    },
+    {
+      "id": "HU-G4-06-CA1",
+      "groups": [
+        "WEB-G4-06-CA1-01",
+        "WEB-G4-06-CA1-02",
+        "WEB-G4-06-CA1-03"
+      ],
+      "tests": [
+        "E2E-G4-301",
+        "E2E-G4-302",
+        "E2E-G4-303",
+        "E2E-G4-304",
+        "E2E-G4-305",
+        "E2E-G4-306"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-06-CA2",
+      "groups": [
+        "WEB-G4-06-CA2-01"
+      ],
+      "tests": [
+        "E2E-G4-301"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-07-CA1",
+      "groups": [
+        "WEB-G4-07-CA1-01",
+        "WEB-G4-07-CA1-02"
+      ],
+      "tests": [
+        "E2E-G4-307"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-07-CA2",
+      "groups": [
+        "WEB-G4-07-CA2-01"
+      ],
+      "tests": [
+        "E2E-G4-308",
+        "E2E-G4-309",
+        "E2E-G4-310"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-08-CA1",
+      "groups": [
+        "WEB-G4-08-CA1-01"
+      ],
+      "tests": [
+        "E2E-G4-311"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-08-CA2",
+      "groups": [
+        "WEB-G4-08-CA2-01"
+      ],
+      "tests": [
+        "E2E-G4-312",
+        "E2E-G4-313"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-08-CA3",
+      "groups": [
+        "WEB-G4-08-CA3-01"
+      ],
+      "tests": [
+        "E2E-G4-311"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-08-CA4",
+      "groups": [
+        "WEB-G4-08-CA4-01",
+        "WEB-G4-08-CA4-02"
+      ],
+      "tests": [
+        "E2E-G4-308",
+        "E2E-G4-309",
+        "E2E-G4-310",
+        "E2E-G4-314",
+        "E2E-G4-315",
+        "E2E-G4-316",
+        "E2E-G4-317",
+        "E2E-G4-324"
+      ],
+      "status": "Escenario A: fallo conocido"
+    },
+    {
+      "id": "HU-G4-09-CA1",
+      "groups": [
+        "WEB-G4-09-CA1-01",
+        "WEB-G4-09-CA1-02"
+      ],
+      "tests": [
+        "E2E-G4-314",
+        "E2E-G4-315",
+        "E2E-G4-316",
+        "E2E-G4-317",
+        "E2E-G4-318",
+        "E2E-G4-319",
+        "E2E-G4-320",
+        "E2E-G4-322"
+      ],
+      "status": "aprobado en 3 corridas"
+    },
+    {
+      "id": "HU-G4-10-CA1",
+      "groups": [
+        "WEB-G4-10-CA1-01",
+        "WEB-G4-10-CA1-02"
+      ],
+      "tests": [
+        "E2E-G4-314",
+        "E2E-G4-315",
+        "E2E-G4-316",
+        "E2E-G4-317",
+        "E2E-G4-321",
+        "E2E-G4-323"
+      ],
+      "status": "aprobado en 3 corridas"
+    }
+  ],
+  "tests": [
+    {
+      "id": "E2E-G4-101",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-101 @HU-G4-01 @TC-E2E-G4-101 | WEB-G4-01-CA1-01 | Alta en límites 3/20, tildes, números y persistencia",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-102",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-102 @HU-G4-01 @TC-E2E-G4-102 @known_issue @D-01 | WEB-G4-01-CA1-01 | [D-01] ñ debe ser válida al crear",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: expected 422 to equal 201"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: expected 422 to equal 201"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: expected 422 to equal 201"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-103",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-103 @HU-G4-01 @TC-E2E-G4-103 | WEB-G4-01-CA1-02 | Recorta espacios y rechaza duplicado por mayúsculas",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-104",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-104 @HU-G4-01 @TC-E2E-G4-104 @known_issue @D-02 | WEB-G4-01-CA1-02 | [D-02] duplicado con espacios debe rechazarse",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: expected 201 to equal 409"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: expected 201 to equal 409"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: expected 201 to equal 409"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-105",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-105 @HU-G4-01 @TC-E2E-G4-105 | WEB-G4-01-CA1-03 | Alias vacío, espacios, 2/21 caracteres y símbolos no crean datos",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-03"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-106",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-106 @HU-G4-01 @TC-E2E-G4-106 | WEB-G4-01-CA1-04 | Celular inválido, propio e inexistente; límite de longitud UI",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-04"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-107",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-107 @HU-G4-01 @TC-E2E-G4-107 | WEB-G4-01-CA1-04 | Cuenta cerrada se trata como celular no registrado",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-04"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-108",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-108 @HU-G4-01 @HU-G4-02 @TC-E2E-G4-108 | WEB-G4-01-CA1-05 WEB-G4-02-CA1-02 | Contacto 15 permitido, 16 rechazado; paginación 10+5",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-01-CA1-05",
+        "WEB-G4-02-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-109",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-109 @HU-G4-02 @TC-E2E-G4-109 | WEB-G4-02-CA1-01 WEB-G4-02-CA1-02 | Lista vacía y frontera de páginas 10/11",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-02-CA1-01",
+        "WEB-G4-02-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-110",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-110 @HU-G4-02 @TC-E2E-G4-110 | WEB-G4-02-CA1-01 WEB-G4-02-CA3-01 | Favoritos primero, orden y nombre enmascarado",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-02-CA1-01",
+        "WEB-G4-02-CA3-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-111",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-111 @HU-G4-02 @TC-E2E-G4-111 | WEB-G4-02-CA2-01 WEB-G4-02-CA2-02 | Búsqueda parcial sin mayúsculas/tildes, vacío y limpiar",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-02-CA2-01",
+        "WEB-G4-02-CA2-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-112",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-112 @HU-G4-03 @TC-E2E-G4-112 | WEB-G4-03-CA1-01 WEB-G4-03-CA1-02 | Editar sin duplicarse a sí mismo; límites, tilde y persistencia",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-03-CA1-01",
+        "WEB-G4-03-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-113",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-113 @HU-G4-03 @TC-E2E-G4-113 @known_issue @D-01 | WEB-G4-03-CA1-02 | [D-01] ñ debe ser válida al editar",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-03-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: expected 422 to equal 200"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: expected 422 to equal 200"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: expected 422 to equal 200"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-114",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-114 @HU-G4-03 @TC-E2E-G4-114 | WEB-G4-03-CA1-02 | Edición inválida y duplicado por mayúsculas conservan datos",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-03-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-115",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-115 @HU-G4-03 @TC-E2E-G4-115 @known_issue @D-02 | WEB-G4-03-CA1-02 | [D-02] alias duplicado con espacios al editar debe rechazarse",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-03-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: expected 200 to equal 409"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: expected 200 to equal 409"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: expected 200 to equal 409"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-116",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-116 @HU-G4-03 @TC-E2E-G4-116 | WEB-G4-03-CA1-03 | Favoritos 5/6, desmarcar y persistencia",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-03-CA1-03"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-117",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-117 @HU-G4-04 @TC-E2E-G4-117 @known_issue @D-07 | WEB-G4-04-CA1-01 WEB-G4-04-CA1-02 | Eliminar conserva la transferencia y su movimiento",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-04-CA1-01",
+        "WEB-G4-04-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '10.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '10.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '10.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-118",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-118 @HU-G4-04 @TC-E2E-G4-118 | WEB-G4-04-CA2-01 | Bloquear eliminación con solicitud enviada",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-04-CA2-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-119",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-119 @HU-G4-04 @TC-E2E-G4-119 | WEB-G4-04-CA2-01 | Bloquear eliminación con solicitud recibida",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-04-CA2-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-120",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-120 @HU-G4-04 @TC-E2E-G4-120 | WEB-G4-04-CA2-02 | Eliminar con solicitud resuelta",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-04-CA2-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-121",
+      "title": "Parte 2 | Contactos | requisitos reales sin exclusiones E2E-G4-121 @HU-G4-04 @TC-E2E-G4-121 | WEB-G4-04-CA2-02 | Eliminar con solicitud vencida",
+      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "groups": [
+        "WEB-G4-04-CA2-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-001",
+      "title": "Smoke | HU-G4-01 CA1 | Contactos reales E2E-G4-001 @HU-G4-01 @TC-E2E-G4-001 agrega un contacto y conserva sus datos al recargar",
+      "file": "Web/cypress/e2e/contactos-happy-path.cy.ts",
+      "groups": [],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-002",
+      "title": "Regresión | HU-G4-01 CA1 E2E-G4-002 @HU-G4-01 @TC-E2E-G4-002 rechaza alias de 2 caracteres sin crear un contacto",
+      "file": "Web/cypress/e2e/contactos-validaciones.cy.ts",
+      "groups": [],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-003",
+      "title": "Regresión | HU-G4-01 CA1 E2E-G4-003 @HU-G4-01 @TC-E2E-G4-003 rechaza celular duplicado y conserva un único contacto",
+      "file": "Web/cypress/e2e/contactos-validaciones.cy.ts",
+      "groups": [],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-301",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-301 @HU-G4-06 @TC-E2E-G4-301 | WEB-G4-06-CA1-01 WEB-G4-06-CA2-01 | Crear solicitud por UI; 48 horas, SMS y ambas vistas",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-06-CA1-01",
+        "WEB-G4-06-CA2-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-302",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-302 @HU-G4-06 @TC-E2E-G4-302 | WEB-G4-06-CA1-01 | Límites válidos: 0.01, motivo 3",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-06-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-303",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-303 @HU-G4-06 @TC-E2E-G4-303 | WEB-G4-06-CA1-01 | Límites válidos: 500.00, motivo 60",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-06-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-304",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-304 @HU-G4-06 @TC-E2E-G4-304 | WEB-G4-06-CA1-01 WEB-G4-06-CA1-02 | Montos y motivos inválidos no crean solicitudes",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-06-CA1-01",
+        "WEB-G4-06-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-305",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-305 @HU-G4-06 @TC-E2E-G4-305 | WEB-G4-06-CA1-02 | Sin contacto el formulario explica el error",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-06-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-306",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-306 @HU-G4-06 @TC-E2E-G4-306 | WEB-G4-06-CA1-03 | Pendiente 10 permitida, 11 rechazada sin alterar el total",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-06-CA1-03"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-307",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-307 @HU-G4-07 @TC-E2E-G4-307 | WEB-G4-07-CA1-01 WEB-G4-07-CA1-02 | Vistas separadas y filtros de los cinco estados",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-07-CA1-01",
+        "WEB-G4-07-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-308",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-308 @HU-G4-07 @HU-G4-08 @TC-E2E-G4-308 | WEB-G4-07-CA2-01 WEB-G4-08-CA4-02 | Frontera 2879 minutos sin esperas reales",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-07-CA2-01",
+        "WEB-G4-08-CA4-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-309",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-309 @HU-G4-07 @HU-G4-08 @TC-E2E-G4-309 | WEB-G4-07-CA2-01 WEB-G4-08-CA4-02 | Frontera 2880 minutos sin esperas reales",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-07-CA2-01",
+        "WEB-G4-08-CA4-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-310",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-310 @HU-G4-07 @HU-G4-08 @TC-E2E-G4-310 | WEB-G4-07-CA2-01 WEB-G4-08-CA4-02 | Frontera 2881 minutos sin esperas reales",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-07-CA2-01",
+        "WEB-G4-08-CA4-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-311",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-311 @HU-G4-08 @TC-E2E-G4-311 | WEB-G4-08-CA1-01 WEB-G4-08-CA3-01 | Aceptar: dinero, operación, SMS y persistencia",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA1-01",
+        "WEB-G4-08-CA3-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-312",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-312 @HU-G4-08 @TC-E2E-G4-312 | WEB-G4-08-CA2-01 | Aceptar con error de saldo: conserva pendiente y dinero",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA2-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-313",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-313 @HU-G4-08 @TC-E2E-G4-313 | WEB-G4-08-CA2-01 | Aceptar con error de limite: conserva pendiente y dinero",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA2-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-314",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-314 @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-314 | WEB-G4-08-CA4-01 WEB-G4-09-CA1-02 WEB-G4-10-CA1-02 | Acciones visibles solo para el actor correcto",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA4-01",
+        "WEB-G4-09-CA1-02",
+        "WEB-G4-10-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-315",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-315 @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-315 | WEB-G4-08-CA4-02 WEB-G4-09-CA1-02 WEB-G4-10-CA1-02 | Solicitud resuelta (aceptar) no ofrece otra transición",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA4-02",
+        "WEB-G4-09-CA1-02",
+        "WEB-G4-10-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-316",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-316 @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-316 | WEB-G4-08-CA4-02 WEB-G4-09-CA1-02 WEB-G4-10-CA1-02 | Solicitud resuelta (rechazar) no ofrece otra transición",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA4-02",
+        "WEB-G4-09-CA1-02",
+        "WEB-G4-10-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-317",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-317 @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-317 | WEB-G4-08-CA4-02 WEB-G4-09-CA1-02 WEB-G4-10-CA1-02 | Solicitud resuelta (cancelar) no ofrece otra transición",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA4-02",
+        "WEB-G4-09-CA1-02",
+        "WEB-G4-10-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-318",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-318 @HU-G4-09 @TC-E2E-G4-318 | WEB-G4-09-CA1-01 | Rechazar con motivo de longitud 0, SMS y persistencia",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-09-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-319",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-319 @HU-G4-09 @TC-E2E-G4-319 | WEB-G4-09-CA1-01 | Rechazar con motivo de longitud 60, SMS y persistencia",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-09-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-320",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-320 @HU-G4-09 @TC-E2E-G4-320 | WEB-G4-09-CA1-02 | Motivo de rechazo de 61 caracteres conserva pendiente",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-09-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-321",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-321 @HU-G4-10 @TC-E2E-G4-321 | WEB-G4-10-CA1-01 | Solicitante cancela por UI y persiste CANCELADA",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-10-CA1-01"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-322",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-322 @HU-G4-09 @TC-E2E-G4-322 | WEB-G4-09-CA1-02 | Formulario cargado antes de vencer: rechazar debe responder 409 al vencer",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-09-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-323",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-323 @HU-G4-10 @TC-E2E-G4-323 | WEB-G4-10-CA1-02 | Formulario cargado antes de vencer: cancelar debe responder 409 al vencer",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-10-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-324",
+      "title": "Parte 2 | Solicitudes G4 | estados, permisos y dinero E2E-G4-324 @HU-G4-08 @TC-E2E-G4-324 @known_issue @D-03 | WEB-G4-08-CA4-02 | [D-03] Formulario cargado antes de vencer: aceptar debe responder 409 al vencer",
+      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "groups": [
+        "WEB-G4-08-CA4-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: expected 200 to equal 409"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: expected 200 to equal 409"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: expected 200 to equal 409"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-201",
+      "title": "Parte 2 | HU-G4-05 | Transferencias desde contactos E2E-G4-201 @HU-G4-05 @TC-E2E-G4-201 @known_issue @D-07 | WEB-G4-05-CA1-01 WEB-G4-05-CA1-02 | Transferir 0.01, comprobante y movimientos persistentes",
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "groups": [
+        "WEB-G4-05-CA1-01",
+        "WEB-G4-05-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '0.01', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '0.01', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '0.01', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-202",
+      "title": "Parte 2 | HU-G4-05 | Transferencias desde contactos E2E-G4-202 @HU-G4-05 @TC-E2E-G4-202 @known_issue @D-07 | WEB-G4-05-CA1-01 WEB-G4-05-CA1-02 | Transferir 500.00, comprobante y movimientos persistentes",
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "groups": [
+        "WEB-G4-05-CA1-01",
+        "WEB-G4-05-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '500.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '500.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '500.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-203",
+      "title": "Parte 2 | HU-G4-05 | Transferencias desde contactos E2E-G4-203 @HU-G4-05 @TC-E2E-G4-203 | WEB-G4-05-CA1-02 | Montos 0, negativo, 500.01 y tres decimales: sin transferencia",
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "groups": [
+        "WEB-G4-05-CA1-02"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-204",
+      "title": "Parte 2 | HU-G4-05 | Transferencias desde contactos E2E-G4-204 @HU-G4-05 @TC-E2E-G4-204 | WEB-G4-05-CA1-03 | Error saldo conserva el dinero",
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "groups": [
+        "WEB-G4-05-CA1-03"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-205",
+      "title": "Parte 2 | HU-G4-05 | Transferencias desde contactos E2E-G4-205 @HU-G4-05 @TC-E2E-G4-205 | WEB-G4-05-CA1-03 | Error limite conserva el dinero",
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "groups": [
+        "WEB-G4-05-CA1-03"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 2,
+          "state": "passed",
+          "error": ""
+        },
+        {
+          "run": 3,
+          "state": "passed",
+          "error": ""
+        }
+      ]
+    },
+    {
+      "id": "E2E-G4-206",
+      "title": "Parte 2 | HU-G4-05 | Transferencias desde contactos E2E-G4-206 @HU-G4-05 @TC-E2E-G4-206 @known_issue @D-08 | WEB-G4-05-CA1-03 | Error cerrado conserva el dinero",
+      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "groups": [
+        "WEB-G4-05-CA1-03"
+      ],
+      "results": [
+        {
+          "run": 1,
+          "state": "failed",
+          "error": "AssertionError: expected 201 to equal 422"
+        },
+        {
+          "run": 2,
+          "state": "failed",
+          "error": "AssertionError: expected 201 to equal 422"
+        },
+        {
+          "run": 3,
+          "state": "failed",
+          "error": "AssertionError: expected 201 to equal 422"
+        }
+      ]
+    }
+  ],
+  "gate": {
+    "approved": true,
+    "scenario": "A",
+    "counts": {
+      "passed": 45,
+      "known_issue": 9,
+      "unknown_failure": 0,
+      "flaky": 0
+    },
+    "blockers": [],
+    "tests": [
+      {
+        "case": "E2E-G4-001",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-002",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-003",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-101",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-102",
+        "status": "known_issue",
+        "defect": "D-01"
+      },
+      {
+        "case": "E2E-G4-103",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-104",
+        "status": "known_issue",
+        "defect": "D-02"
+      },
+      {
+        "case": "E2E-G4-105",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-106",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-107",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-108",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-109",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-110",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-111",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-112",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-113",
+        "status": "known_issue",
+        "defect": "D-01"
+      },
+      {
+        "case": "E2E-G4-114",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-115",
+        "status": "known_issue",
+        "defect": "D-02"
+      },
+      {
+        "case": "E2E-G4-116",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-117",
+        "status": "known_issue",
+        "defect": "D-07"
+      },
+      {
+        "case": "E2E-G4-118",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-119",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-120",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-121",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-201",
+        "status": "known_issue",
+        "defect": "D-07"
+      },
+      {
+        "case": "E2E-G4-202",
+        "status": "known_issue",
+        "defect": "D-07"
+      },
+      {
+        "case": "E2E-G4-203",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-204",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-205",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-206",
+        "status": "known_issue",
+        "defect": "D-08"
+      },
+      {
+        "case": "E2E-G4-301",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-302",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-303",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-304",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-305",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-306",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-307",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-308",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-309",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-310",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-311",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-312",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-313",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-314",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-315",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-316",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-317",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-318",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-319",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-320",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-321",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-322",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-323",
+        "status": "passed",
+        "defect": null
+      },
+      {
+        "case": "E2E-G4-324",
+        "status": "known_issue",
+        "defect": "D-03"
+      }
+    ],
+    "raw_runs": [
+      {
+        "total": 54,
+        "passed": 45,
+        "failed": 9,
+        "pending": 0,
+        "skipped": 0
+      },
+      {
+        "total": 54,
+        "passed": 45,
+        "failed": 9,
+        "pending": 0,
+        "skipped": 0
+      },
+      {
+        "total": 54,
+        "passed": 45,
+        "failed": 9,
+        "pending": 0,
+        "skipped": 0
+      }
+    ],
+    "raw_exit_codes": [
+      9,
+      9,
+      9
+    ],
+    "report_dir": "reports/cypress/stability-2026-10-30T16-45-12-153Z",
+    "pipeline_url": null,
+    "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+    "policy_sha256": "00220b634109c008eea4a0e456a5cc245152337ab8c1636ad47a8b6025e24294",
+    "tool": "web"
+  },
+  "runs": [
+    {
+      "runDir": "reports/cypress/2026-10-30T16-45-13-067Z-regression",
+      "started": "2026-10-30T16:45:13.079Z",
+      "ended": "2026-10-30T16:48:54.278Z",
+      "code": 9,
+      "counts": {
+        "total": 54,
+        "passed": 45,
+        "failed": 9,
+        "pending": 0,
+        "skipped": 0
+      },
+      "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "browser": "chrome",
+      "revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+      "worktreeDirty": true,
+      "pipelineUrl": null
+    },
+    {
+      "runDir": "reports/cypress/2026-10-30T16-48-55-110Z-regression",
+      "started": "2026-10-30T16:48:55.122Z",
+      "ended": "2026-10-30T16:53:16.713Z",
+      "code": 9,
+      "counts": {
+        "total": 54,
+        "passed": 45,
+        "failed": 9,
+        "pending": 0,
+        "skipped": 0
+      },
+      "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "browser": "chrome",
+      "revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+      "worktreeDirty": true,
+      "pipelineUrl": null
+    },
+    {
+      "runDir": "reports/cypress/2026-10-30T16-53-17-738Z-regression",
+      "started": "2026-10-30T16:53:17.754Z",
+      "ended": "2026-10-30T16:57:50.216Z",
+      "code": 9,
+      "counts": {
+        "total": 54,
+        "passed": 45,
+        "failed": 9,
+        "pending": 0,
+        "skipped": 0
+      },
+      "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+      "browser": "chrome",
+      "revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+      "worktreeDirty": true,
+      "pipelineUrl": null
+    }
+  ]
+}

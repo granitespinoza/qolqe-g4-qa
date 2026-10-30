@@ -17,7 +17,7 @@
     "noEmit": true
   },
   "include": [
-    "cypress/**/*.ts",
+    "Web/cypress/**/*.ts",
     "cypress.config.ts"
   ]
 }

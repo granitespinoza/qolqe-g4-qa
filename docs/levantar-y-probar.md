@@ -166,7 +166,7 @@ Ensaya 10 minutos de exposición y reserva 5 para preguntas: herramienta y alcan
 
 ## Mostrar el detalle técnico de Schemathesis
 
-Al ejecutar `scripts/run_qa.py schemathesis` se genera automáticamente [el reporte navegable](../reports/schemathesis-detallado.html). Filtra por categoría (required, type, length, pattern o auth), abre una petición y muestra su dato, respuesta y checks. Conserva los metadatos que explican la categoría. Sin metadatos suficientes se indica sin categoría demostrada; eso no cuenta como cobertura probada. Distingue checks propios de peticiones auxiliares evaluadas por un padre.
+Al ejecutar `scripts/run_qa.py schemathesis` se genera automáticamente el reporte navegable dentro de su directorio `reports/raw/schemathesis/<run_id>/`; la terminal imprime el enlace exacto. El [reporte versionado](../reports/schemathesis-detallado.html) es un archivo histórico. Filtra por categoría (required, type, length, pattern o auth), abre una petición y muestra su dato, respuesta y checks. Conserva los metadatos que explican la categoría. Sin metadatos suficientes se indica sin categoría demostrada; eso no cuenta como cobertura probada. Distingue checks propios de peticiones auxiliares evaluadas por un padre.
 
 Para reconstruirlo desde la última ejecución guardada sin consumir la API:
 

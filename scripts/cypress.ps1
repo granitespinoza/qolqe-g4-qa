@@ -1,4 +1,4 @@
-param([ValidateSet('install','setup','open','smoke','regression','ai','ai-open','failure','typecheck','report')][string]$Action = 'smoke')
+param([ValidateSet('install','setup','open','smoke','regression','ai','ai-open','failure','typecheck','report','stability')][string]$Action = 'smoke')
 $ErrorActionPreference = 'Stop'
 Set-Location (Split-Path $PSScriptRoot -Parent)
 $nodeCy = (Get-Command node -ErrorAction SilentlyContinue).Source
@@ -22,6 +22,7 @@ switch ($Action) {
     }
     'setup' { & $nodeCy scripts/cypress/setup.mjs }
     'typecheck' { & $nodeCy node_modules/typescript/bin/tsc --noEmit }
+    'stability' { & $nodeCy scripts/cypress/stability.mjs }
     'report' { & $nodeCy scripts/cypress/report.mjs }
     default { & $nodeCy scripts/cypress/run.mjs $Action }
 }

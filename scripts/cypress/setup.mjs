@@ -25,4 +25,5 @@ if (!existsSync(python)) {
   else run('python3', ['-m', 'venv', '.venv'])
 }
 run(python, ['-m', 'pip', 'install', '-r', 'scripts/cypress/requirements.txt'])
+run(python, ['-m', 'pip', 'check'])
 console.log('Preparado. npm run cy:smoke inicia y detiene su propio servidor.')

@@ -1,0 +1,259 @@
+# Trazabilidad de la entrega — Parte 2
+
+18 CA de HU-G4-01 a HU-G4-10. Núcleo solo como dependencia de estos flujos. API histórica de núcleo se conserva.
+
+Ejecución de GitHub: **pendiente; evidencia local**.
+
+La evidencia local combina fechas distintas y no representa un pipeline remoto. Schemathesis es complemento de contrato; sus peticiones aleatorias no se asignan a CA como casos diseñados.
+
+## HU → CA → casos → ejecución
+
+| Criterio | API (caso: resultado) | Web (caso: corridas 1/2/3) |
+|---|---|---|
+| HU-G4-01-CA1 | G4-001: passed; G4-002: passed; G4-003: passed; G4-004: failed; G4-005: passed; G4-006: passed; G4-007: passed; G4-008: passed; G4-009: passed; G4-010: passed; G4-011: passed; G4-012: passed; G4-013: passed; G4-014: passed; G4-015: passed; G4-016: passed; G4-017: passed; G4-018: failed; G4-019: passed; G4-106: passed | E2E-G4-101: passed/passed/passed; E2E-G4-102: failed/failed/failed; E2E-G4-103: passed/passed/passed; E2E-G4-104: failed/failed/failed; E2E-G4-105: passed/passed/passed; E2E-G4-106: passed/passed/passed; E2E-G4-107: passed/passed/passed; E2E-G4-108: passed/passed/passed; E2E-G4-001: passed/passed/passed; E2E-G4-002: passed/passed/passed; E2E-G4-003: passed/passed/passed |
+| HU-G4-02-CA1 | G4-021: passed; G4-022: passed; G4-107: passed | E2E-G4-108: passed/passed/passed; E2E-G4-109: passed/passed/passed; E2E-G4-110: passed/passed/passed |
+| HU-G4-02-CA2 | G4-020: passed; G4-023: passed; CF-04: passed | E2E-G4-111: passed/passed/passed |
+| HU-G4-02-CA3 | G4-020: passed | E2E-G4-110: passed/passed/passed; E2E-G4-001: passed/passed/passed |
+| HU-G4-03-CA1 | G4-024: passed; G4-025: passed; G4-026: passed; G4-027: passed; G4-108: passed; CF-01: failed; CF-02: passed; CF-03: failed | E2E-G4-112: passed/passed/passed; E2E-G4-113: failed/failed/failed; E2E-G4-114: passed/passed/passed; E2E-G4-115: failed/failed/failed; E2E-G4-116: passed/passed/passed |
+| HU-G4-04-CA1 | G4-028: passed; CF-05: passed | E2E-G4-117: failed/failed/failed |
+| HU-G4-04-CA2 | G4-029: passed; G4-030: passed; G4-031: passed | E2E-G4-118: passed/passed/passed; E2E-G4-119: passed/passed/passed; E2E-G4-120: passed/passed/passed; E2E-G4-121: passed/passed/passed |
+| HU-G4-05-CA1 | G4-032: passed; G4-033: passed; G4-095: passed | E2E-G4-201: failed/failed/failed; E2E-G4-202: failed/failed/failed; E2E-G4-203: passed/passed/passed; E2E-G4-204: passed/passed/passed; E2E-G4-205: passed/passed/passed; E2E-G4-206: failed/failed/failed |
+| HU-G4-06-CA1 | G4-034: passed; G4-035: passed; G4-036: passed; G4-037: passed; G4-038: passed; G4-039: passed; G4-040: passed; G4-041: passed; G4-042: passed; G4-043: passed; G4-044: passed; G4-109: passed | E2E-G4-301: passed/passed/passed; E2E-G4-302: passed/passed/passed; E2E-G4-303: passed/passed/passed; E2E-G4-304: passed/passed/passed; E2E-G4-305: passed/passed/passed; E2E-G4-306: passed/passed/passed |
+| HU-G4-06-CA2 | G4-034: passed | E2E-G4-301: passed/passed/passed |
+| HU-G4-07-CA1 | G4-045: passed | E2E-G4-307: passed/passed/passed |
+| HU-G4-07-CA2 | G4-046: passed; G4-047: passed; G4-048: passed | E2E-G4-308: passed/passed/passed; E2E-G4-309: passed/passed/passed; E2E-G4-310: passed/passed/passed |
+| HU-G4-08-CA1 | G4-049: passed; G4-096: passed | E2E-G4-311: passed/passed/passed |
+| HU-G4-08-CA2 | G4-050: passed; G4-096: passed | E2E-G4-312: passed/passed/passed; E2E-G4-313: passed/passed/passed |
+| HU-G4-08-CA3 | G4-049: passed | E2E-G4-311: passed/passed/passed |
+| HU-G4-08-CA4 | G4-049: passed; G4-051: passed; G4-052: passed; G4-053: failed; G4-054: failed; G4-055: passed; G4-097: passed; G4-100: passed; G4-103: passed | E2E-G4-308: passed/passed/passed; E2E-G4-309: passed/passed/passed; E2E-G4-310: passed/passed/passed; E2E-G4-314: passed/passed/passed; E2E-G4-315: passed/passed/passed; E2E-G4-316: passed/passed/passed; E2E-G4-317: passed/passed/passed; E2E-G4-324: failed/failed/failed |
+| HU-G4-09-CA1 | G4-056: passed; G4-057: passed; G4-058: passed; G4-059: passed; G4-064: passed; G4-065: passed; G4-066: passed; G4-098: passed; G4-101: passed; G4-104: passed | E2E-G4-314: passed/passed/passed; E2E-G4-315: passed/passed/passed; E2E-G4-316: passed/passed/passed; E2E-G4-317: passed/passed/passed; E2E-G4-318: passed/passed/passed; E2E-G4-319: passed/passed/passed; E2E-G4-320: passed/passed/passed; E2E-G4-322: passed/passed/passed |
+| HU-G4-10-CA1 | G4-060: passed; G4-061: passed; G4-062: passed; G4-063: passed; G4-099: passed; G4-102: passed; G4-105: passed | E2E-G4-314: passed/passed/passed; E2E-G4-315: passed/passed/passed; E2E-G4-316: passed/passed/passed; E2E-G4-317: passed/passed/passed; E2E-G4-321: passed/passed/passed; E2E-G4-323: passed/passed/passed |
+
+## Reportes y procedencia
+
+- karate: `20261030T164709Z-3f163e`, salida `1`. [Reporte](../../reports/raw/karate/20261030T164709Z-3f163e/karate-summary.html). Run remoto: no existe para esta ejecución local.
+- schemathesis: `20261030T165256Z-01f388`, salida `1`. [Reporte](../../reports/raw/schemathesis/20261030T165256Z-01f388/schemathesis-detallado.html). Run remoto: no existe para esta ejecución local.
+- Cypress 1: `2026-10-30T16:45:13.079Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. [Reporte](../../reports/cypress/2026-10-30T16-45-13-067Z-regression/html/index.html). Run remoto: local.
+- Cypress 2: `2026-10-30T16:48:55.122Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. [Reporte](../../reports/cypress/2026-10-30T16-48-55-110Z-regression/html/index.html). Run remoto: local.
+- Cypress 3: `2026-10-30T16:53:17.754Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. [Reporte](../../reports/cypress/2026-10-30T16-53-17-738Z-regression/html/index.html). Run remoto: local.
+
+Los resultados API de un escenario parametrizado conservan sus variantes en el JSON. Un caso solo figura passed cuando todas sus variantes ejecutadas pasan. La tabla por criterio se limita a 18 CA G4. La matriz exigida también incluye todos los casos API del núcleo compartido y sus variantes ejecutadas.
+
+Regenerar: `python scripts/build_delivery.py`. En CI se descargan y combinan los artefactos de los tres trabajos de esta misma ejecución. Una evidencia de otro run se informa como ausente.
+
+Evidencia ausente: ninguna herramienta; los resultados locales no sustituyen al run remoto. Horas y revisiones están en el [JSON](../../data/trazabilidad-parte2.json).
+
+
+## Matriz exigida por la docente
+
+| HU | TC | Escenario | Capa | Tags en código | Estado de prueba en pipeline | Defecto asociado |
+|---|---|---|---|---|---|---|
+| HU-G4-01 | TC-G4-001 | Crear contacto con alias 'Ana' | API | @CA1 @G4-001 @HU-G4-01 @TC-G4-001 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-002 | Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA' | API | @CA1 @G4-002 @HU-G4-01 @TC-G4-002 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-003 | Crear contacto con alias 'José' | API | @CA1 @G4-003 @HU-G4-01 @TC-G4-003 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-004 | Crear contacto con alias 'Niño' | API | @CA1 @D-01 @G4-004 @HU-G4-01 @TC-G4-004 @api @known_issue | FALLA / KNOWN ISSUE | D-01 |
+| HU-G4-01 | TC-G4-005 | Crear contacto con alias 'A1 B' | API | @CA1 @G4-005 @HU-G4-01 @TC-G4-005 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-006 | Crear contacto con alias ' Ana ' | API | @CA1 @G4-006 @HU-G4-01 @TC-G4-006 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-007 | Rechazar alias 'Lu' | API | @CA1 @G4-007 @HU-G4-01 @TC-G4-007 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-008 | Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA' | API | @CA1 @G4-008 @HU-G4-01 @TC-G4-008 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-009 | Rechazar alias '' | API | @CA1 @G4-009 @HU-G4-01 @TC-G4-009 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-010 | Rechazar alias '   ' | API | @CA1 @G4-010 @HU-G4-01 @TC-G4-010 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-011 | Rechazar alias 'Ana@' | API | @CA1 @G4-011 @HU-G4-01 @TC-G4-011 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-012 | Rechazar celular: CONTACTO_PROPIO | API | @CA1 @G4-012 @HU-G4-01 @TC-G4-012 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-013 | Rechazar celular: CELULAR_INVALIDO | API | @CA1 @G4-013 @HU-G4-01 @TC-G4-013 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-014 | Rechazar celular: CELULAR_NO_REGISTRADO | API | @CA1 @G4-014 @HU-G4-01 @TC-G4-014 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-015 | Celular válido sin registro | API | @CA1 @G4-015 @HU-G4-01 @TC-G4-015 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-016 | Contacto duplicado | API | @CA1 @G4-016 @HU-G4-01 @TC-G4-016 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-017 | Alias duplicado tras normalizar 'ANA' | API | @CA1 @G4-017 @HU-G4-01 @TC-G4-017 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-018 | Alias duplicado tras normalizar ' Ana ' | API | @CA1 @D-02 @G4-018 @HU-G4-01 @TC-G4-018 @api @known_issue | FALLA / KNOWN ISSUE | D-02 |
+| HU-G4-01 | TC-G4-019 | Permitir contacto 15 y rechazar contacto 16 | API | @CA1 @G4-019 @HU-G4-01 @TC-G4-019 @api | PASA | N/A |
+| HU-G4-01 | TC-G4-106 | Celular válido aún no registrado | API | @CA1 @G4-106 @HU-G4-01 @TC-G4-106 @api | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-101 | Alta en límites 3/20, tildes, números y persistencia | Web | @HU-G4-01 @TC-E2E-G4-101 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-102 | [D-01] ñ debe ser válida al crear | Web | @D-01 @HU-G4-01 @TC-E2E-G4-102 @known_issue | FALLA / KNOWN ISSUE | D-01 |
+| HU-G4-01 | TC-E2E-G4-103 | Recorta espacios y rechaza duplicado por mayúsculas | Web | @HU-G4-01 @TC-E2E-G4-103 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-104 | [D-02] duplicado con espacios debe rechazarse | Web | @D-02 @HU-G4-01 @TC-E2E-G4-104 @known_issue | FALLA / KNOWN ISSUE | D-02 |
+| HU-G4-01 | TC-E2E-G4-105 | Alias vacío, espacios, 2/21 caracteres y símbolos no crean datos | Web | @HU-G4-01 @TC-E2E-G4-105 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-106 | Celular inválido, propio e inexistente; límite de longitud UI | Web | @HU-G4-01 @TC-E2E-G4-106 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-107 | Cuenta cerrada se trata como celular no registrado | Web | @HU-G4-01 @TC-E2E-G4-107 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-108 | Contacto 15 permitido, 16 rechazado; paginación 10+5 | Web | @HU-G4-01 @HU-G4-02 @TC-E2E-G4-108 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-001 | Contactos reales E2E-G4-001 @HU-G4-01 @TC-E2E-G4-001 agrega un contacto y conserva sus datos al recargar | Web | @HU-G4-01 @TC-E2E-G4-001 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-002 | HU-G4-01 CA1 E2E-G4-002 @HU-G4-01 @TC-E2E-G4-002 rechaza alias de 2 caracteres sin crear un contacto | Web | @HU-G4-01 @TC-E2E-G4-002 | PASA | N/A |
+| HU-G4-01 | TC-E2E-G4-003 | HU-G4-01 CA1 E2E-G4-003 @HU-G4-01 @TC-E2E-G4-003 rechaza celular duplicado y conserva un único contacto | Web | @HU-G4-01 @TC-E2E-G4-003 | PASA | N/A |
+| HU-G4-02 | TC-G4-021 | Ordenar favoritos antes del resto | API | @CA1 @G4-021 @HU-G4-02 @TC-G4-021 @api | PASA | N/A |
+| HU-G4-02 | TC-G4-022 | Paginación con 11 contactos | API | @CA1 @G4-022 @HU-G4-02 @TC-G4-022 @api | PASA | N/A |
+| HU-G4-02 | TC-G4-107 | Orden alfabético dentro de cada grupo | API | @CA1 @G4-107 @HU-G4-02 @TC-G4-107 @api | PASA | N/A |
+| HU-G4-02 | TC-E2E-G4-108 | Contacto 15 permitido, 16 rechazado; paginación 10+5 | Web | @HU-G4-01 @HU-G4-02 @TC-E2E-G4-108 | PASA | N/A |
+| HU-G4-02 | TC-E2E-G4-109 | Lista vacía y frontera de páginas 10/11 | Web | @HU-G4-02 @TC-E2E-G4-109 | PASA | N/A |
+| HU-G4-02 | TC-E2E-G4-110 | Favoritos primero, orden y nombre enmascarado | Web | @HU-G4-02 @TC-E2E-G4-110 | PASA | N/A |
+| HU-G4-02 | TC-G4-020 | Buscar ignorando mayúsculas y tildes | API | @CA2 @CA3 @G4-020 @HU-G4-02 @TC-G4-020 @api | PASA | N/A |
+| HU-G4-02 | TC-G4-023 | Búsqueda sin coincidencias | API | @CA2 @G4-023 @HU-G4-02 @TC-G4-023 @api | PASA | N/A |
+| HU-G4-02 | TC-CF-04 | Buscar por fragmento del alias | API | @CA2 @CF-04 @COMPLEMENTO-CONTACTOS @HU-G4-02 @TC-CF-04 @api @funcional | PASA | N/A |
+| HU-G4-02 | TC-E2E-G4-111 | Búsqueda parcial sin mayúsculas/tildes, vacío y limpiar | Web | @HU-G4-02 @TC-E2E-G4-111 | PASA | N/A |
+| HU-G4-02 | TC-G4-020 | Buscar ignorando mayúsculas y tildes | API | @CA2 @CA3 @G4-020 @HU-G4-02 @TC-G4-020 @api | PASA | N/A |
+| HU-G4-02 | TC-E2E-G4-110 | Favoritos primero, orden y nombre enmascarado | Web | @HU-G4-02 @TC-E2E-G4-110 | PASA | N/A |
+| HU-G4-02 | TC-E2E-G4-001 | Contactos reales E2E-G4-001 @HU-G4-01 @TC-E2E-G4-001 agrega un contacto y conserva sus datos al recargar | Web | @HU-G4-01 @TC-E2E-G4-001 | PASA | N/A |
+| HU-G4-03 | TC-G4-024 | Editar alias sin compararlo consigo mismo | API | @CA1 @G4-024 @HU-G4-03 @TC-G4-024 @api | PASA | N/A |
+| HU-G4-03 | TC-G4-025 | Marcar y desmarcar favorito | API | @CA1 @G4-025 @HU-G4-03 @TC-G4-025 @api | PASA | N/A |
+| HU-G4-03 | TC-G4-026 | Quinto favorito permitido; sexto rechazado | API | @CA1 @G4-026 @HU-G4-03 @TC-G4-026 @api | PASA | N/A |
+| HU-G4-03 | TC-G4-027 | Rechazar edición de contacto ajeno | API | @CA1 @G4-027 @HU-G4-03 @TC-G4-027 @api | PASA | N/A |
+| HU-G4-03 | TC-G4-108 | Editar solo alias conserva favorito | API | @CA1 @G4-108 @HU-G4-03 @TC-G4-108 @api | PASA | N/A |
+| HU-G4-03 | TC-CF-01 | Editar alias válido en límites y clases permitidas | API | @CA1 @CF-01 @COMPLEMENTO-CONTACTOS @D-01 @HU-G4-03 @TC-CF-01 @api @funcional @known_issue | FALLA / KNOWN ISSUE | D-01 |
+| HU-G4-03 | TC-CF-02 | Editar alias inválido conserva el contacto original | API | @CA1 @CF-02 @COMPLEMENTO-CONTACTOS @HU-G4-03 @TC-CF-02 @api @funcional | PASA | N/A |
+| HU-G4-03 | TC-CF-03 | Editar alias duplicado tras normalizar | API | @CA1 @CF-03 @COMPLEMENTO-CONTACTOS @D-02 @HU-G4-03 @TC-CF-03 @api @funcional @known_issue | FALLA / KNOWN ISSUE | D-02 |
+| HU-G4-03 | TC-E2E-G4-112 | Editar sin duplicarse a sí mismo; límites, tilde y persistencia | Web | @HU-G4-03 @TC-E2E-G4-112 | PASA | N/A |
+| HU-G4-03 | TC-E2E-G4-113 | [D-01] ñ debe ser válida al editar | Web | @D-01 @HU-G4-03 @TC-E2E-G4-113 @known_issue | FALLA / KNOWN ISSUE | D-01 |
+| HU-G4-03 | TC-E2E-G4-114 | Edición inválida y duplicado por mayúsculas conservan datos | Web | @HU-G4-03 @TC-E2E-G4-114 | PASA | N/A |
+| HU-G4-03 | TC-E2E-G4-115 | [D-02] alias duplicado con espacios al editar debe rechazarse | Web | @D-02 @HU-G4-03 @TC-E2E-G4-115 @known_issue | FALLA / KNOWN ISSUE | D-02 |
+| HU-G4-03 | TC-E2E-G4-116 | Favoritos 5/6, desmarcar y persistencia | Web | @HU-G4-03 @TC-E2E-G4-116 | PASA | N/A |
+| HU-G4-04 | TC-G4-028 | Eliminar contacto conserva transferencia | API | @CA1 @G4-028 @HU-G4-04 @TC-G4-028 @api | PASA | N/A |
+| HU-G4-04 | TC-CF-05 | Eliminar contacto ajeno responde 404 y conserva el recurso | API | @CA1 @CF-05 @COMPLEMENTO-CONTACTOS @HU-G4-04 @TC-CF-05 @api @funcional | PASA | N/A |
+| HU-G4-04 | TC-E2E-G4-117 | Eliminar conserva la transferencia y su movimiento | Web | @D-07 @HU-G4-04 @TC-E2E-G4-117 @known_issue | FALLA / KNOWN ISSUE | D-07 |
+| HU-G4-04 | TC-G4-029 | Solicitud pendiente enviada impide eliminar | API | @CA2 @G4-029 @HU-G4-04 @TC-G4-029 @api | PASA | N/A |
+| HU-G4-04 | TC-G4-030 | Solicitud pendiente recibida impide eliminar | API | @CA2 @G4-030 @HU-G4-04 @TC-G4-030 @api | PASA | N/A |
+| HU-G4-04 | TC-G4-031 | Solicitud vencida permite eliminar | API | @CA2 @G4-031 @HU-G4-04 @TC-G4-031 @api | PASA | N/A |
+| HU-G4-04 | TC-E2E-G4-118 | Bloquear eliminación con solicitud enviada | Web | @HU-G4-04 @TC-E2E-G4-118 | PASA | N/A |
+| HU-G4-04 | TC-E2E-G4-119 | Bloquear eliminación con solicitud recibida | Web | @HU-G4-04 @TC-E2E-G4-119 | PASA | N/A |
+| HU-G4-04 | TC-E2E-G4-120 | Eliminar con solicitud resuelta | Web | @HU-G4-04 @TC-E2E-G4-120 | PASA | N/A |
+| HU-G4-04 | TC-E2E-G4-121 | Eliminar con solicitud vencida | Web | @HU-G4-04 @TC-E2E-G4-121 | PASA | N/A |
+| HU-G4-05 | TC-G4-032 | Transferir por contacto acredita ambos saldos | API | @CA1 @G4-032 @HU-G4-05 @TC-G4-032 @api | PASA | N/A |
+| HU-G4-05 | TC-G4-033 | Saldo insuficiente no produce transferencia | API | @CA1 @G4-033 @HU-G4-05 @TC-G4-033 @api | PASA | N/A |
+| HU-G4-05 | TC-G4-095 | Límite diario agotado impide operación | API | @CA1 @G4-095 @HU-G4-05 @TC-G4-095 @api | PASA | N/A |
+| HU-G4-05 | TC-E2E-G4-201 | Transferir 0.01, comprobante y movimientos persistentes | Web | @D-07 @HU-G4-05 @TC-E2E-G4-201 @known_issue | FALLA / KNOWN ISSUE | D-07 |
+| HU-G4-05 | TC-E2E-G4-202 | Transferir 500.00, comprobante y movimientos persistentes | Web | @D-07 @HU-G4-05 @TC-E2E-G4-202 @known_issue | FALLA / KNOWN ISSUE | D-07 |
+| HU-G4-05 | TC-E2E-G4-203 | Montos 0, negativo, 500.01 y tres decimales: sin transferencia | Web | @HU-G4-05 @TC-E2E-G4-203 | PASA | N/A |
+| HU-G4-05 | TC-E2E-G4-204 | Error saldo conserva el dinero | Web | @HU-G4-05 @TC-E2E-G4-204 | PASA | N/A |
+| HU-G4-05 | TC-E2E-G4-205 | Error limite conserva el dinero | Web | @HU-G4-05 @TC-E2E-G4-205 | PASA | N/A |
+| HU-G4-05 | TC-E2E-G4-206 | Error cerrado conserva el dinero | Web | @D-08 @HU-G4-05 @TC-E2E-G4-206 @known_issue | FALLA / KNOWN ISSUE | D-08 |
+| HU-G4-06 | TC-G4-034 | Crear solicitud pendiente con vigencia 48 h y SMS | API | @CA1 @CA2 @G4-034 @HU-G4-06 @TC-G4-034 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-035 | Monto solicitado 0.00 | API | @CA1 @G4-035 @HU-G4-06 @TC-G4-035 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-036 | Monto solicitado 0.01 | API | @CA1 @G4-036 @HU-G4-06 @TC-G4-036 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-037 | Monto solicitado 500.00 | API | @CA1 @G4-037 @HU-G4-06 @TC-G4-037 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-038 | Monto solicitado 500.01 | API | @CA1 @G4-038 @HU-G4-06 @TC-G4-038 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-039 | Monto solicitado 10.005 | API | @CA1 @G4-039 @HU-G4-06 @TC-G4-039 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-040 | Motivo de 2 caracteres | API | @CA1 @G4-040 @HU-G4-06 @TC-G4-040 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-041 | Motivo de 3 caracteres | API | @CA1 @G4-041 @HU-G4-06 @TC-G4-041 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-042 | Motivo de 60 caracteres | API | @CA1 @G4-042 @HU-G4-06 @TC-G4-042 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-043 | Motivo de 61 caracteres | API | @CA1 @G4-043 @HU-G4-06 @TC-G4-043 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-044 | Décima pendiente permitida y undécima rechazada | API | @CA1 @G4-044 @HU-G4-06 @TC-G4-044 @api | PASA | N/A |
+| HU-G4-06 | TC-G4-109 | Contacto de otro usuario no permite solicitar | API | @CA1 @G4-109 @HU-G4-06 @TC-G4-109 @api | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-301 | Crear solicitud por UI; 48 horas, SMS y ambas vistas | Web | @HU-G4-06 @TC-E2E-G4-301 | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-302 | Límites válidos: 0.01, motivo 3 | Web | @HU-G4-06 @TC-E2E-G4-302 | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-303 | Límites válidos: 500.00, motivo 60 | Web | @HU-G4-06 @TC-E2E-G4-303 | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-304 | Montos y motivos inválidos no crean solicitudes | Web | @HU-G4-06 @TC-E2E-G4-304 | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-305 | Sin contacto el formulario explica el error | Web | @HU-G4-06 @TC-E2E-G4-305 | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-306 | Pendiente 10 permitida, 11 rechazada sin alterar el total | Web | @HU-G4-06 @TC-E2E-G4-306 | PASA | N/A |
+| HU-G4-06 | TC-G4-034 | Crear solicitud pendiente con vigencia 48 h y SMS | API | @CA1 @CA2 @G4-034 @HU-G4-06 @TC-G4-034 @api | PASA | N/A |
+| HU-G4-06 | TC-E2E-G4-301 | Crear solicitud por UI; 48 horas, SMS y ambas vistas | Web | @HU-G4-06 @TC-E2E-G4-301 | PASA | N/A |
+| HU-G4-07 | TC-G4-045 | Separar solicitudes enviadas y recibidas y filtrar | API | @CA1 @G4-045 @HU-G4-07 @TC-G4-045 @api | PASA | N/A |
+| HU-G4-07 | TC-E2E-G4-307 | Vistas separadas y filtros de los cinco estados | Web | @HU-G4-07 @TC-E2E-G4-307 | PASA | N/A |
+| HU-G4-07 | TC-G4-046 | Estado al transcurrir 2879 minutos | API | @CA2 @G4-046 @HU-G4-07 @TC-G4-046 @api | PASA | N/A |
+| HU-G4-07 | TC-G4-047 | Estado al transcurrir 2880 minutos | API | @CA2 @G4-047 @HU-G4-07 @TC-G4-047 @api | PASA | N/A |
+| HU-G4-07 | TC-G4-048 | Estado al transcurrir 2881 minutos | API | @CA2 @G4-048 @HU-G4-07 @TC-G4-048 @api | PASA | N/A |
+| HU-G4-07 | TC-E2E-G4-308 | Frontera 2879 minutos sin esperas reales | Web | @HU-G4-07 @HU-G4-08 @TC-E2E-G4-308 | PASA | N/A |
+| HU-G4-07 | TC-E2E-G4-309 | Frontera 2880 minutos sin esperas reales | Web | @HU-G4-07 @HU-G4-08 @TC-E2E-G4-309 | PASA | N/A |
+| HU-G4-07 | TC-E2E-G4-310 | Frontera 2881 minutos sin esperas reales | Web | @HU-G4-07 @HU-G4-08 @TC-E2E-G4-310 | PASA | N/A |
+| HU-G4-08 | TC-G4-049 | Aceptar genera transferencia, código y SMS | API | @CA1 @CA3 @CA4 @G4-049 @HU-G4-08 @TC-G4-049 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-096 | Límite diario agotado impide operación | API | @CA1 @CA2 @G4-096 @HU-G4-08 @TC-G4-096 @api | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-311 | Aceptar: dinero, operación, SMS y persistencia | Web | @HU-G4-08 @TC-E2E-G4-311 | PASA | N/A |
+| HU-G4-08 | TC-G4-050 | Saldo insuficiente conserva PENDIENTE | API | @CA2 @G4-050 @HU-G4-08 @TC-G4-050 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-096 | Límite diario agotado impide operación | API | @CA1 @CA2 @G4-096 @HU-G4-08 @TC-G4-096 @api | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-312 | Aceptar con error de saldo: conserva pendiente y dinero | Web | @HU-G4-08 @TC-E2E-G4-312 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-313 | Aceptar con error de limite: conserva pendiente y dinero | Web | @HU-G4-08 @TC-E2E-G4-313 | PASA | N/A |
+| HU-G4-08 | TC-G4-049 | Aceptar genera transferencia, código y SMS | API | @CA1 @CA3 @CA4 @G4-049 @HU-G4-08 @TC-G4-049 @api | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-311 | Aceptar: dinero, operación, SMS y persistencia | Web | @HU-G4-08 @TC-E2E-G4-311 | PASA | N/A |
+| HU-G4-08 | TC-G4-049 | Aceptar genera transferencia, código y SMS | API | @CA1 @CA3 @CA4 @G4-049 @HU-G4-08 @TC-G4-049 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-051 | Tercero no puede aceptar | API | @CA4 @G4-051 @HU-G4-08 @TC-G4-051 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-052 | Aceptar a los 2879 minutos | API | @CA4 @G4-052 @HU-G4-08 @TC-G4-052 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-053 | Aceptar a los 2880 minutos | API | @CA4 @D-03 @G4-053 @HU-G4-08 @TC-G4-053 @api @known_issue | FALLA / KNOWN ISSUE | D-03 |
+| HU-G4-08 | TC-G4-054 | Aceptar a los 2881 minutos | API | @CA4 @D-03 @G4-054 @HU-G4-08 @TC-G4-054 @api @known_issue | FALLA / KNOWN ISSUE | D-03 |
+| HU-G4-08 | TC-G4-055 | No aceptar dos veces | API | @CA4 @G4-055 @HU-G4-08 @TC-G4-055 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-097 | No aceptar desde ACEPTADA | API | @CA4 @G4-097 @HU-G4-08 @TC-G4-097 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-100 | No aceptar desde RECHAZADA | API | @CA4 @G4-100 @HU-G4-08 @TC-G4-100 @api | PASA | N/A |
+| HU-G4-08 | TC-G4-103 | No aceptar desde CANCELADA | API | @CA4 @G4-103 @HU-G4-08 @TC-G4-103 @api | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-308 | Frontera 2879 minutos sin esperas reales | Web | @HU-G4-07 @HU-G4-08 @TC-E2E-G4-308 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-309 | Frontera 2880 minutos sin esperas reales | Web | @HU-G4-07 @HU-G4-08 @TC-E2E-G4-309 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-310 | Frontera 2881 minutos sin esperas reales | Web | @HU-G4-07 @HU-G4-08 @TC-E2E-G4-310 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-314 | Acciones visibles solo para el actor correcto | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-314 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-315 | Solicitud resuelta (aceptar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-315 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-316 | Solicitud resuelta (rechazar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-316 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-317 | Solicitud resuelta (cancelar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-317 | PASA | N/A |
+| HU-G4-08 | TC-E2E-G4-324 | [D-03] Formulario cargado antes de vencer: aceptar debe responder 409 al vencer | Web | @D-03 @HU-G4-08 @TC-E2E-G4-324 @known_issue | FALLA / KNOWN ISSUE | D-03 |
+| HU-G4-09 | TC-G4-056 | Rechazar solicitud pendiente | API | @CA1 @G4-056 @HU-G4-09 @TC-G4-056 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-057 | Rechazar acción de tercero | API | @CA1 @G4-057 @HU-G4-09 @TC-G4-057 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-058 | No resolver solicitud vencida | API | @CA1 @G4-058 @HU-G4-09 @TC-G4-058 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-059 | No repetir resolución | API | @CA1 @G4-059 @HU-G4-09 @TC-G4-059 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-064 | Motivo opcional y aviso al solicitante | API | @CA1 @G4-064 @HU-G4-09 @TC-G4-064 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-065 | Motivo de rechazo longitud 60 | API | @CA1 @G4-065 @HU-G4-09 @TC-G4-065 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-066 | Motivo de rechazo longitud 61 | API | @CA1 @G4-066 @HU-G4-09 @TC-G4-066 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-098 | No rechazar desde ACEPTADA | API | @CA1 @G4-098 @HU-G4-09 @TC-G4-098 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-101 | No rechazar desde RECHAZADA | API | @CA1 @G4-101 @HU-G4-09 @TC-G4-101 @api | PASA | N/A |
+| HU-G4-09 | TC-G4-104 | No rechazar desde CANCELADA | API | @CA1 @G4-104 @HU-G4-09 @TC-G4-104 @api | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-314 | Acciones visibles solo para el actor correcto | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-314 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-315 | Solicitud resuelta (aceptar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-315 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-316 | Solicitud resuelta (rechazar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-316 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-317 | Solicitud resuelta (cancelar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-317 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-318 | Rechazar con motivo de longitud 0, SMS y persistencia | Web | @HU-G4-09 @TC-E2E-G4-318 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-319 | Rechazar con motivo de longitud 60, SMS y persistencia | Web | @HU-G4-09 @TC-E2E-G4-319 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-320 | Motivo de rechazo de 61 caracteres conserva pendiente | Web | @HU-G4-09 @TC-E2E-G4-320 | PASA | N/A |
+| HU-G4-09 | TC-E2E-G4-322 | Formulario cargado antes de vencer: rechazar debe responder 409 al vencer | Web | @HU-G4-09 @TC-E2E-G4-322 | PASA | N/A |
+| HU-G4-10 | TC-G4-060 | Cancelar solicitud pendiente | API | @CA1 @G4-060 @HU-G4-10 @TC-G4-060 @api | PASA | N/A |
+| HU-G4-10 | TC-G4-061 | Rechazar acción de tercero | API | @CA1 @G4-061 @HU-G4-10 @TC-G4-061 @api | PASA | N/A |
+| HU-G4-10 | TC-G4-062 | No resolver solicitud vencida | API | @CA1 @G4-062 @HU-G4-10 @TC-G4-062 @api | PASA | N/A |
+| HU-G4-10 | TC-G4-063 | No repetir resolución | API | @CA1 @G4-063 @HU-G4-10 @TC-G4-063 @api | PASA | N/A |
+| HU-G4-10 | TC-G4-099 | No cancelar desde ACEPTADA | API | @CA1 @G4-099 @HU-G4-10 @TC-G4-099 @api | PASA | N/A |
+| HU-G4-10 | TC-G4-102 | No cancelar desde RECHAZADA | API | @CA1 @G4-102 @HU-G4-10 @TC-G4-102 @api | PASA | N/A |
+| HU-G4-10 | TC-G4-105 | No cancelar desde CANCELADA | API | @CA1 @G4-105 @HU-G4-10 @TC-G4-105 @api | PASA | N/A |
+| HU-G4-10 | TC-E2E-G4-314 | Acciones visibles solo para el actor correcto | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-314 | PASA | N/A |
+| HU-G4-10 | TC-E2E-G4-315 | Solicitud resuelta (aceptar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-315 | PASA | N/A |
+| HU-G4-10 | TC-E2E-G4-316 | Solicitud resuelta (rechazar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-316 | PASA | N/A |
+| HU-G4-10 | TC-E2E-G4-317 | Solicitud resuelta (cancelar) no ofrece otra transición | Web | @HU-G4-08 @HU-G4-09 @HU-G4-10 @TC-E2E-G4-317 | PASA | N/A |
+| HU-G4-10 | TC-E2E-G4-321 | Solicitante cancela por UI y persiste CANCELADA | Web | @HU-G4-10 @TC-E2E-G4-321 | PASA | N/A |
+| HU-G4-10 | TC-E2E-G4-323 | Formulario cargado antes de vencer: cancelar debe responder 409 al vencer | Web | @HU-G4-10 @TC-E2E-G4-323 | PASA | N/A |
+| HU-G4-01 | TC-CT-01 | POST rechaza alias omitido sin crear contacto | API | @CONTRATO-CONTACTOS @CT-01 @HU-G4-01 @TC-CT-01 @api @tecnica | PASA | N/A |
+| HU-G4-03 | TC-CT-02 | PUT rechaza alias numerico sin modificar contacto | API | @CONTRATO-CONTACTOS @CT-02 @D-06 @HU-G4-03 @TC-CT-02 @api @known_issue @tecnica | FALLA / KNOWN ISSUE | D-06 |
+| HU-G4-03 | TC-CT-03 | PUT permite campos opcionales y nulos expresamente admitidos | API | @CONTRATO-CONTACTOS @CT-03 @HU-G4-03 @TC-CT-03 @api @tecnica | PASA | N/A |
+| HU-G4-02 | TC-CT-04 | GET rechaza pagina fuera del contrato | API | @CONTRATO-CONTACTOS @CT-04 @HU-G4-02 @TC-CT-04 @api @tecnica | PASA | N/A |
+| HU-G4-03, HU-G4-04 | TC-CT-05 | Identificador de ruta debe ser entero | API | @CONTRATO-CONTACTOS @CT-05 @HU-G4-03 @HU-G4-04 @TC-CT-05 @api @tecnica | PASA | N/A |
+| HU-G4-01, HU-G4-02, HU-G4-03, HU-G4-04 | TC-CT-06 | Contrato de respuestas en recorrido CRUD válido | API | @CONTRATO-CONTACTOS @CT-06 @HU-G4-01 @HU-G4-02 @HU-G4-03 @HU-G4-04 @TC-CT-06 @api @tecnica | PASA | N/A |
+| HU-G4-01, HU-G4-02, HU-G4-03, HU-G4-04 | TC-CT-07 | Operaciones protegidas rechazan peticiones sin token | API | @CONTRATO-CONTACTOS @CT-07 @HU-G4-01 @HU-G4-02 @HU-G4-03 @HU-G4-04 @TC-CT-07 @api @tecnica | PASA | N/A |
+| HU-G4-01, HU-G4-02, HU-G4-03, HU-G4-04 | TC-CT-08 | Bearer con token malformado no autentica operaciones protegidas | API | @CONTRATO-CONTACTOS @CT-08 @HU-G4-01 @HU-G4-02 @HU-G4-03 @HU-G4-04 @TC-CT-08 @api @tecnica | PASA | N/A |
+| HU-G4-03 | TC-CT-09 | Editar alias con símbolo prohibido conserva el contacto | API | @CONTRATO-CONTACTOS @CT-09 @HU-G4-03 @TC-CT-09 @api @tecnica | PASA | N/A |
+| HU-N-01 | TC-G4-067 | Registro crea saldo cero, límite y bienvenida | API | @CA1 @CA6 @G4-067 @HU-N-01 @TC-G4-067 @api | PASA | N/A |
+| HU-N-01 | TC-G4-068 | Rechazar dni inválido | API | @CA2 @G4-068 @HU-N-01 @TC-G4-068 @api | PASA | N/A |
+| HU-N-01 | TC-G4-069 | Rechazar celular inválido | API | @CA3 @G4-069 @HU-N-01 @TC-G4-069 @api | PASA | N/A |
+| HU-N-01 | TC-G4-070 | Rechazar pin inválido | API | @CA4 @G4-070 @HU-N-01 @TC-G4-070 @api | PASA | N/A |
+| HU-N-01 | TC-G4-071 | Rechazar correo inválido | API | @CA5 @G4-071 @HU-N-01 @TC-G4-071 @api | PASA | N/A |
+| HU-N-02 | TC-G4-072 | Login crea sesión con vigencia de 30 minutos | API | @CA1 @G4-072 @HU-N-02 @TC-G4-072 @api | PASA | N/A |
+| HU-N-02 | TC-G4-073 | Bloqueo tras tres intentos y acceso después de 15 min | API | @CA2 @CA3 @CA4 @G4-073 @HU-N-02 @TC-G4-073 @api | PASA | N/A |
+| HU-N-03 | TC-G4-074 | Cerrar sesión revoca solo ese token | API | @CA1 @CA2 @D-04 @G4-074 @HU-N-03 @TC-G4-074 @api @known_issue | FALLA / KNOWN ISSUE | D-04 |
+| HU-N-04 | TC-G4-075 | Saldo PEN y perfil enmascarado | API | @CA1 @CA2 @G4-075 @HU-N-04 @TC-G4-075 @api | PASA | N/A |
+| HU-N-04 | TC-G4-076 | Acceso sin autenticación null | API | @CA3 @G4-076 @HU-N-04 @TC-G4-076 @api | PASA | N/A |
+| HU-N-04 | TC-G4-077 | Acceso sin autenticación 'invalid' | API | @CA3 @G4-077 @HU-N-04 @TC-G4-077 @api | PASA | N/A |
+| HU-N-04 | TC-G4-078 | Token vencido | API | @CA3 @G4-078 @HU-N-04 @TC-G4-078 @api | PASA | N/A |
+| HU-N-05 | TC-G4-079 | Editar perfil ignora DNI y celular y envía SMS | API | @CA1 @CA2 @CA3 @G4-079 @HU-N-05 @TC-G4-079 @api | PASA | N/A |
+| HU-N-06 | TC-G4-080 | Cerrar cuenta con saldo cero revoca acceso | API | @CA1 @CA2 @CA4 @G4-080 @HU-N-06 @TC-G4-080 @api | PASA | N/A |
+| HU-N-06 | TC-G4-081 | Solicitud pendiente impide cerrar cuenta | API | @CA3 @G4-081 @HU-N-06 @TC-G4-081 @api | PASA | N/A |
+| HU-N-07 | TC-G4-082 | Transferencia monto 0.00 | API | @CA1 @CA2 @G4-082 @HU-N-07 @TC-G4-082 @api | PASA | N/A |
+| HU-N-07 | TC-G4-083 | Transferencia monto 0.01 | API | @CA1 @CA2 @G4-083 @HU-N-07 @TC-G4-083 @api | PASA | N/A |
+| HU-N-07 | TC-G4-084 | Transferencia monto 500.00 | API | @CA1 @CA2 @G4-084 @HU-N-07 @TC-G4-084 @api | PASA | N/A |
+| HU-N-07 | TC-G4-085 | Transferencia monto 500.01 | API | @CA1 @CA2 @G4-085 @HU-N-07 @TC-G4-085 @api | PASA | N/A |
+| HU-N-07 | TC-G4-086 | Transferencia monto 10.005 | API | @CA1 @CA2 @G4-086 @HU-N-07 @TC-G4-086 @api | PASA | N/A |
+| HU-N-07 | TC-G4-087 | Comprobante y movimientos con mismo código | API | @CA3 @CA4 @G4-087 @HU-N-07 @TC-G4-087 @api | PASA | N/A |
+| HU-N-08 | TC-G4-088 | Transferencia interbancaria cobra comisión y enmascara CCI | API | @CA1 @CA2 @CA3 @G4-088 @HU-N-08 @TC-G4-088 @api | PASA | N/A |
+| HU-N-09 | TC-G4-089 | Simular comisión para 1.00 sin debitar | API | @CA1 @G4-089 @HU-N-09 @TC-G4-089 @api | PASA | N/A |
+| HU-N-09 | TC-G4-090 | Simular comisión para 100.00 sin debitar | API | @CA1 @G4-090 @HU-N-09 @TC-G4-090 @api | PASA | N/A |
+| HU-N-09 | TC-G4-091 | Simular comisión para 500.00 sin debitar | API | @CA1 @G4-091 @HU-N-09 @TC-G4-091 @api | PASA | N/A |
+| HU-N-02 | TC-G4-092 | Cuenta cerrada no puede ingresar | API | @CA5 @G4-092 @HU-N-02 @TC-G4-092 @api | PASA | N/A |
+| HU-N-02 | TC-G4-093 | Nuevo dispositivo permite login y genera alerta | API | @CA6 @G4-093 @HU-N-02 @TC-G4-093 @api | PASA | N/A |
+| HU-N-03 | TC-G4-094 | Cerrar una sesión no afecta otra | API | @CA2 @G4-094 @HU-N-03 @TC-G4-094 @api | PASA | N/A |
+| HU-N-01 | TC-G4-110 | Celular duplicado responde conflicto | API | @CA3 @G4-110 @HU-N-01 @TC-G4-110 @api | PASA | N/A |
+| HU-N-01 | TC-G4-111 | Correo duplicado ignora mayúsculas | API | @CA5 @G4-111 @HU-N-01 @TC-G4-111 @api | PASA | N/A |
+| HU-N-06 | TC-G4-112 | PIN incorrecto impide cierre | API | @CA1 @G4-112 @HU-N-06 @TC-G4-112 @api | PASA | N/A |
+| HU-N-06 | TC-G4-113 | Saldo pendiente impide cierre | API | @CA2 @G4-113 @HU-N-06 @TC-G4-113 @api | PASA | N/A |
+| HU-N-07 | TC-G4-114 | Transferencia a sí mismo rechazada | API | @CA2 @G4-114 @HU-N-07 @TC-G4-114 @api | PASA | N/A |
+| HU-N-08 | TC-G4-115 | CCI inválido rechazado | API | @CA1 @G4-115 @HU-N-08 @TC-G4-115 @api | PASA | N/A |
+| HU-N-07 | TC-G4-116 | Concurrencia conserva saldo y límite diario | API | @CA5 @D-05 @G4-116 @HU-N-07 @TC-G4-116 @api @known_issue | FALLA / KNOWN ISSUE | D-05 |
+
+Quality Gate: **A**, aprobado: **True**. Los FAIL crudos no se cambian a PASS.
+
+[Defectos y riesgos](defectos-conocidos.md) · [Política del gate](quality-gate.md)

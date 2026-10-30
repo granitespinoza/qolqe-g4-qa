@@ -8,6 +8,7 @@ import base64
 from collections import Counter, defaultdict
 import html
 import json
+import os
 from pathlib import Path
 import re
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
@@ -149,6 +150,8 @@ def build(manifest_path, output_dir):
         raise SystemExit('Se detectó un JWT en el resultado; no se publica.')
     output_json.write_text(serialized, encoding='utf-8')
     template = Path(__file__).with_name('schemathesis_report_template.html').read_text(encoding='utf-8')
+    interpretation_link = os.path.relpath(ROOT/'docs/revision-contrato.md', output_dir).replace('\\', '/')
+    template = template.replace('../docs/revision-contrato.md', interpretation_link)
     embedded = serialized.replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     (output_dir/'schemathesis-detallado.html').write_text(template.replace('/*DATA*/null', embedded), encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=True, indent=2))

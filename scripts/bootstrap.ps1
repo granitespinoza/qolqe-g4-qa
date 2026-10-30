@@ -6,7 +6,10 @@ if (!(Test-Path referencias/qolqe-wallet/.git)) {
 }
 git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
 if (!(Test-Path .venv)) { python -m venv .venv }
-& ./.venv/Scripts/python.exe -m pip install -r referencias/qolqe-wallet/requirements.txt -r requirements-qa.txt
+& ./.venv/Scripts/python.exe -m pip install -r requirements-lock.txt
+if ($LASTEXITCODE -ne 0) { throw "No se pudo instalar el entorno QA fijado" }
+& ./.venv/Scripts/python.exe -m pip check
+if ($LASTEXITCODE -ne 0) { throw "Dependencias incompatibles" }
 if (!(Test-Path .tools/karate.jar)) {
     Invoke-WebRequest https://github.com/karatelabs/karate/releases/download/v1.5.2/karate-1.5.2.jar -OutFile .tools/karate.jar
 }
