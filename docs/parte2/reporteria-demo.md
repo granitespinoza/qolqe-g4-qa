@@ -13,6 +13,38 @@ La reportería sale del run de GitHub Actions y de su artefacto `entrega-parte2-
 | 5 | Reporte final consolidado, y los XML de API y Web | `results/reporte-final.html`, `results/api-results.xml`, `results/web-results.xml` |
 | 6 | Reportes por herramienta | Karate: `reports/raw/karate/<run>/karate-summary.html` · Cypress: `reports/cypress/<run>-regression/html/index.html` (una por corrida) · Schemathesis: `reports/raw/schemathesis/<run>/schemathesis-detallado.html` |
 
+## Karate y Schemathesis: dónde se ven
+
+**Karate (API)**
+
+| Qué | Dónde |
+|---|---|
+| Resumen de la ejecución | `reports/raw/karate/<run>/karate-summary.html` del artefacto `entrega-parte2` |
+| Una página por historia | En esa misma carpeta: `API.features.hu-g4-01.html`, etc. |
+| Registro de un caso concreto | [`evidencias/G4-004.html`](../../evidencias/G4-004.html) (la ñ) o [`evidencias/G4-018.html`](../../evidencias/G4-018.html) (duplicado con espacios), en el repo, con los tokens ocultos |
+| Resultados consolidados | `results/api-results.xml` y `results/reporte-final.html` del artefacto |
+
+**Schemathesis (contrato)**
+
+| Qué | Dónde |
+|---|---|
+| Reporte detallado: cada petición, respuesta y check, con filtros | `reports/raw/schemathesis/<run>/schemathesis-detallado.html` del artefacto |
+| Copia permanente de una ejecución anterior | [`reports/schemathesis-detallado.html`](../../reports/schemathesis-detallado.html) en el repo |
+| Decisión del gate sobre las ocurrencias de contrato | `reports/gate/schemathesis.json` del artefacto y [`resultado-gate.md`](resultado-gate.md) |
+
+En el reporte de Schemathesis, filtrar por categoría (`required`, `type`, `length`, `pattern`, `auth`), abrir un registro y mostrar el dato enviado, la respuesta y el check. Una señal no es un defecto hasta investigarla.
+
+**Ejecutarlos en vivo**, desde la raíz y con la API encendida (`scripts/serve_api.py`):
+
+```powershell
+./.venv/Scripts/python.exe scripts/run_qa.py karate --tag '@G4-004'
+./.venv/Scripts/python.exe scripts/run_qa.py schemathesis
+```
+
+El primero corre solo el caso de la ñ. El segundo tarda unos 20 segundos; la suite completa de Karate, unos 75 s en CI. Cada uno imprime el enlace de su reporte nuevo al terminar.
+
+**Cómo se complementan:** Karate verifica las reglas de negocio con casos diseñados y un esperado justificado; Schemathesis explora el contrato con datos generados. Lo que falla en una se confirma con la otra.
+
 ## Verlo en local
 
 Los HTML hay que servirlos; no se abren bien desde el artefacto comprimido. Descargar el del run final y servirlo:
