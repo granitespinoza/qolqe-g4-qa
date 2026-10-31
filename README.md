@@ -1,5 +1,18 @@
 # Entrega 2 — Qolqe G4 y Quality Gate Escenario A
 
+## Mapa rápido
+
+| Quiero ver… | Ir a |
+|---|---|
+| **Qué hay y dónde** (flujo de requisito a reporte) | [Mapa del repositorio](docs/parte2/mapa-del-repo.md) |
+| Pruebas web (Cypress) | [`Web/cypress/`](Web/cypress/) · [`tests/e2e/`](tests/e2e/README.md) |
+| Pruebas de API (Karate) y contrato | [`API/features/`](API/features/) · [`API/openapi.json`](API/openapi.json) |
+| Pipeline de CI | [`.github/workflows/pruebas.yml`](.github/workflows/pruebas.yml) · [pipeline](docs/parte2/pipeline.md) |
+| Trazabilidad HU → caso → ejecución | [CSV](data/trazabilidad-parte2.csv) · [matriz detallada](docs/parte2/trazabilidad.md) |
+| Defectos encontrados | [defectos-conocidos.md](docs/parte2/defectos-conocidos.md) |
+| Informe | [docs/informe.md](docs/informe.md) |
+
+
 **Estado local:** tres corridas web estables con 45 PASS y 9 known issues; API con 169 PASS y 12 known issues. Los fallos crudos permanecen visibles. Qolqe no se modifica. La aprobación se limita al entorno académico aislado.
 
 - [Guía final de ensayo, comandos y publicación](docs/parte2/entrega.md)
