@@ -10,7 +10,6 @@ La implementación local está verificada con **Quality Gate Escenario A aprobad
 - Matriz en CSV: `data/trazabilidad-parte2.csv`; JSON con variantes y procedencia: `data/trazabilidad-parte2.json`.
 - Defectos y riesgos: `docs/parte2/defectos-conocidos.md`.
 - Política: `docs/parte2/quality-gate.md` y `data/quality-policy.json`.
-- Guion personal: `presentacion/Guion-parte2.txt`, ignorado por Git.
 - Comandos para Bloc de notas: `docs/parte2/comandos-demo.txt`.
 
 La matriz contiene 130 TC API y 54 TC web únicos. Los Scenario Outline de API producen 181 ejecuciones. Un TC puede aparecer en varios criterios; no contar las filas de matriz como tests independientes.
