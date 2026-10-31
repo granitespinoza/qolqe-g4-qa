@@ -76,3 +76,37 @@ Para cada criterio: qué hicimos, por qué lo hicimos así y dónde está la evi
 **Por qué así.** El pipeline ya produce toda la evidencia: mostrarla desde ahí demuestra que no es un material armado aparte. Los resultados se anuncian después de verlos en pantalla.
 
 **Evidencia.** [PPT](../../presentacion/Entrega2-Qolqe-Cypress.pptx) · [comandos-demo.txt](comandos-demo.txt) · [entrega.md](entrega.md).
+
+---
+
+# Resumen y conclusiones
+
+![Resumen de la Entrega 2](img/resumen.svg)
+
+## Cuánto tardó cada cosa
+
+![Tiempos del pipeline](img/tiempos.svg)
+
+Medido en el run verde de `main` ([41152595167](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167)).
+
+| Qué | Duración | Fuente |
+|---|---|---|
+| Run completo, de reloj | 14 min 19 s | GitHub Actions |
+| Espera antes del primer job | 6 min 33 s | GitHub Actions |
+| `job_api`: API y contratos | 2 min 07 s | GitHub Actions |
+| &nbsp;&nbsp;Karate | 75 s | `execution.json` de Karate |
+| &nbsp;&nbsp;Schemathesis | 20 s | `execution.json` de Schemathesis |
+| `job_web`: Web E2E, tres corridas | 5 min 25 s | GitHub Actions |
+| &nbsp;&nbsp;Cypress, corridas 1, 2 y 3 | 105 s, 94 s y 94 s | manifiesto de estabilidad |
+| `job_reporting`: reportería y matriz | 9 s | GitHub Actions |
+| Ejecución real de los tres jobs | 7 min 41 s | suma de los tres jobs |
+
+La mayor parte de la ejecución real es Cypress, que corre tres veces para comprobar estabilidad. La espera inicial no la consume el trabajo, sino el run: esperó a que terminaran otros runs en curso.
+
+## Conclusiones
+
+- **Cumple lo que pide la rúbrica con evidencia.** Hay 54 tests web para los 18 criterios de G4, un pipeline con API, web y reportería en verde en `main`, una matriz de trazabilidad exportada y una suite estable en tres corridas.
+- **Encontramos 8 defectos del producto**, de los que 2 son críticos (token válido tras cerrar sesión, concurrencia que supera saldo o límite), 3 altos y 3 medios. Qolqe no se modificó y ninguna expectativa se ajustó para ponerlo en verde.
+- **El pipeline remoto enseñó lo que el local no mostraba.** La firma de contrato K-C03 dependía de la plataforma, y el historial dependía de la hora (Qolqe valida con hora de Lima y un runner en UTC enviaba una fecha futura). Ambos se corrigieron sin cambiar tests ni ocultar fallos.
+- **«Aprobado» significa Escenario A, no producción.** El gate aprueba solo firmas conocidas y documentadas en una instancia académica aislada: 45 de 54 tests web pasan y 9 fallan por defectos conocidos. No equivale a 54 pruebas aprobadas.
+- **Lo que queda abierto.** Confirmar con la docente si `Web/cypress/` sirve como `tests/e2e/` y si la matriz CSV con su portal vale como herramienta de gestión de casos. Los artefactos del run caducan a los 7 días, por eso el resumen permanente está en este repositorio.

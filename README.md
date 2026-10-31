@@ -28,7 +28,7 @@
 | **Diseño y estabilidad: patrón mantenible, sin esperas fijas, pasa 3 veces (3)** | Page Object y comandos propios, selectores `data-testid`, ninguna espera fija (`cy.wait` con número). Tres corridas completas con el mismo resultado: 45 aprobados y 9 fallos conocidos | [`Web/cypress/pages/`](Web/cypress/pages/) · [`Web/cypress/support/`](Web/cypress/support/) · [verificación web](docs/parte2/verificacion-web.md) |
 | **Exposición y demo en vivo (4)** | Presentación de 13 diapositivas, comandos de la demo y guía de ensayo | [PPT](presentacion/Entrega2-Qolqe-Cypress.pptx) · [comandos de la demo](docs/parte2/comandos-demo.txt) · [guía de ensayo](docs/parte2/entrega.md) |
 
-El porqué de cada criterio, con su gráfico (por ejemplo, el Page Object y su quiebre): [por-que-rubrica.md](docs/parte2/por-que-rubrica.md). Dónde mostrar la reportería: [reporteria-demo.md](docs/parte2/reporteria-demo.md).
+El porqué de cada criterio, con su gráfico (por ejemplo, el Page Object y su quiebre): [por-que-rubrica.md](docs/parte2/por-que-rubrica.md), con el [resumen, los tiempos y las conclusiones](docs/parte2/por-que-rubrica.md#resumen-y-conclusiones) al final. Dónde mostrar la reportería: [reporteria-demo.md](docs/parte2/reporteria-demo.md).
 
 ![Trazabilidad por historia de usuario](docs/parte2/img/trazabilidad.svg)
 

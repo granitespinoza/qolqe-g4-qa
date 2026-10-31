@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="484" viewBox="0 0 1000 484" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Tiempos del pipeline</title><desc>Línea de tiempo del run y duración de cada paso</desc>
+<rect width="1000" height="484" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" fill="#1f2937" font-weight="bold" text-anchor="start">Cuánto tardó cada cosa</text>
+<text x="24" y="54" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Run 41152595167 de main: 14 min 19 s de reloj (7 min 41 s de ejecución real y 6 min 33 s de espera antes del primer job; el resto, pausas entre jobs).</text>
+<rect x="24.0" y="82" width="432.6" height="34" fill="#cbd5e1"/>
+<text x="240.28805620608898" y="104" font-size="12" fill="#1f2937" font-weight="bold" text-anchor="middle">Espera en cola · 6 min 33 s</text>
+<rect x="456.6" y="82" width="139.8" height="34" fill="#3b82c4"/>
+<text x="526.4707259953161" y="104" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">job_api · 2 min 07 s</text>
+<rect x="596.4" y="82" width="357.7" height="34" fill="#1f9aa6"/>
+<text x="775.2295081967212" y="104" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">job_web · 5 min 25 s</text>
+<rect x="954.1" y="82" width="9.9" height="34" fill="#7c5cbf"/>
+<text x="24" y="138" font-size="11" fill="#5b6b7a" font-weight="normal" text-anchor="start">Los segmentos finos (reportería: 9 s) no caben con etiqueta; el detalle está abajo.</text>
+<text x="24" y="170" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Detalle por paso</text>
+<text x="24" y="200" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Preparar Qolqe y dependencias (API)</text>
+<rect x="270" y="184" width="57.6" height="20" rx="2" fill="#3b82c4"/>
+<text x="335.6" y="199" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">16 s</text>
+<text x="24" y="230" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Karate</text>
+<rect x="270" y="214" width="270.0" height="20" rx="2" fill="#3b82c4"/>
+<text x="548.0" y="229" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">1 min 15 s</text>
+<text x="24" y="260" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Schemathesis</text>
+<rect x="270" y="244" width="72.0" height="20" rx="2" fill="#3b82c4"/>
+<text x="350.0" y="259" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">20 s</text>
+<text x="24" y="290" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Preparar Qolqe y Cypress (Web)</text>
+<rect x="270" y="274" width="72.0" height="20" rx="2" fill="#1f9aa6"/>
+<text x="350.0" y="289" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">20 s</text>
+<text x="24" y="320" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Cypress, corrida 1</text>
+<rect x="270" y="304" width="378.0" height="20" rx="2" fill="#1f9aa6"/>
+<text x="656.0" y="319" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">1 min 45 s</text>
+<text x="24" y="350" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Cypress, corrida 2</text>
+<rect x="270" y="334" width="338.4" height="20" rx="2" fill="#1f9aa6"/>
+<text x="616.4000000000001" y="349" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">1 min 34 s</text>
+<text x="24" y="380" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Cypress, corrida 3</text>
+<rect x="270" y="364" width="338.4" height="20" rx="2" fill="#1f9aa6"/>
+<text x="616.4000000000001" y="379" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">1 min 34 s</text>
+<text x="24" y="410" font-size="12" fill="#1f2937" font-weight="normal" text-anchor="start">Reportería y matriz</text>
+<rect x="270" y="394" width="32.4" height="20" rx="2" fill="#7c5cbf"/>
+<text x="310.4" y="409" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">9 s</text>
+<text x="24" y="444" font-size="11" fill="#5b6b7a" font-weight="normal" text-anchor="start">Karate 75 s y Schemathesis 20 s salen del execution.json de cada herramienta; las tres corridas de Cypress, de su manifiesto de estabilidad.</text>
+<text x="24" y="462" font-size="11" fill="#5b6b7a" font-weight="normal" text-anchor="start">El resto de cada job son el gate, la consolidación y la publicación de artefactos.</text>
+</svg>

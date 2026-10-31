@@ -260,8 +260,72 @@ def reporteria():
     return svg(1120, 284, b, 'Reportería de la demo', 'Cinco pasos para mostrar la reportería, del run de Actions a los reportes por herramienta')
 
 
+# Tiempos del run remoto 41152595167 (GitHub Actions y execution.json de cada herramienta), en segundos
+PURPLE = '#7c5cbf'
+TIEMPOS_RUN = [('Espera en cola', 393, '#cbd5e1'), ('job_api', 127, BLUE), ('job_web', 325, TEAL), ('job_reporting', 9, PURPLE)]
+TIEMPOS_PASOS = [
+    ('Preparar Qolqe y dependencias (API)', 16, BLUE), ('Karate', 75, BLUE), ('Schemathesis', 20, BLUE),
+    ('Preparar Qolqe y Cypress (Web)', 20, TEAL), ('Cypress, corrida 1', 105, TEAL), ('Cypress, corrida 2', 94, TEAL),
+    ('Cypress, corrida 3', 94, TEAL), ('Reportería y matriz', 9, PURPLE),
+]
+
+
+def fmt(sec):
+    m, s = divmod(int(sec), 60)
+    return f'{m} min {s:02d} s' if m else f'{s} s'
+
+
+def tiempos():
+    total = sum(v for _, v, _ in TIEMPOS_RUN)
+    work = sum(v for n, v, _ in TIEMPOS_RUN if n != 'Espera en cola')
+    b = text(24, 34, 'Cuánto tardó cada cosa', 18, INK, 'bold')
+    b += text(24, 54, f'Run 41152595167 de main: 14 min 19 s de reloj ({fmt(work)} de ejecución real y {fmt(393)} de espera antes del primer job; el resto, pausas entre jobs).', 12, MUTED)
+    width, x = 940.0, 24.0
+    for name, v, color in TIEMPOS_RUN:
+        w = width * v / total
+        b += f'<rect x="{x:.1f}" y="82" width="{w:.1f}" height="34" fill="{color}"/>\n'
+        if w >= 70:
+            fill = INK if name == 'Espera en cola' else '#ffffff'
+            b += text(x + w / 2, 104, f'{name} · {fmt(v)}', 12, fill, 'bold', 'middle')
+        x += w
+    b += text(24, 138, 'Los segmentos finos (reportería: 9 s) no caben con etiqueta; el detalle está abajo.', 11, MUTED)
+    b += text(24, 170, 'Detalle por paso', 14, INK, 'bold')
+    scale = 3.6
+    for i, (name, v, color) in enumerate(TIEMPOS_PASOS):
+        y = 184 + i * 30
+        b += text(24, y + 16, name, 12, INK)
+        b += f'<rect x="270" y="{y}" width="{v * scale:.1f}" height="20" rx="2" fill="{color}"/>\n'
+        b += text(270 + v * scale + 8, y + 15, fmt(v), 12, MUTED)
+    ly = 184 + len(TIEMPOS_PASOS) * 30 + 6
+    b += text(24, ly + 14, 'Karate 75 s y Schemathesis 20 s salen del execution.json de cada herramienta; las tres corridas de Cypress, de su manifiesto de estabilidad.', 11, MUTED)
+    b += text(24, ly + 32, 'El resto de cada job son el gate, la consolidación y la publicación de artefactos.', 11, MUTED)
+    return svg(1000, ly + 54, b, 'Tiempos del pipeline', 'Línea de tiempo del run y duración de cada paso')
+
+
+def resumen():
+    tiles = [
+        ('54', 'tests web', '18 criterios de G4'), ('181', 'ejecuciones de API', '130 casos · 169 PASS · 12 conocidos'),
+        ('27', 'ocurrencias de contrato', 'todas conocidas · 9 controles'), ('3 de 3', 'corridas web iguales', '45 PASS · 9 conocidos'),
+        ('8', 'defectos del producto', '2 críticos · 3 altos · 3 medios'), ('205', 'filas de trazabilidad', '135 API · 70 Web'),
+        ('7 min 41 s', 'de ejecución real', 'tres jobs, sin contar la cola'), ('Gate A', 'aprobado', 'sin desconocidos ni intermitencia'),
+    ]
+    b = text(24, 34, 'Resumen de la Entrega 2', 18, INK, 'bold')
+    b += text(24, 54, 'Cifras del run verde de main (41152595167) y de la matriz de trazabilidad.', 12, MUTED)
+    w, h, gap = 224, 104, 14
+    colors = [BLUE, GREEN, AMBER, TEAL, RED, BLUE, PURPLE, GREEN]
+    for i, (big, label, sub) in enumerate(tiles):
+        x = 24 + (i % 4) * (w + gap)
+        y = 78 + (i // 4) * (h + gap)
+        b += f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="#f8fafc" stroke="{LINE}"/>\n'
+        b += f'<rect x="{x}" y="{y}" width="6" height="{h}" rx="3" fill="{colors[i]}"/>\n'
+        b += text(x + 22, y + 44, big, 28 if len(big) < 8 else 24, INK, 'bold')
+        b += text(x + 22, y + 66, label, 13, INK, 'bold')
+        b += text(x + 22, y + 86, sub, 11, MUTED)
+    return svg(1000, 78 + 2 * (h + gap) + 6, b, 'Resumen', 'Ocho cifras clave de la entrega')
+
+
 if __name__ == '__main__':
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, fn in [('pipeline', pipeline), ('gate', gate), ('trazabilidad', trazabilidad), ('cobertura', cobertura), ('flujo-trazabilidad', flujo_trazabilidad), ('page-object', page_object), ('estabilidad', estabilidad), ('reporteria', reporteria)]:
+    for name, fn in [('pipeline', pipeline), ('gate', gate), ('trazabilidad', trazabilidad), ('cobertura', cobertura), ('flujo-trazabilidad', flujo_trazabilidad), ('page-object', page_object), ('estabilidad', estabilidad), ('reporteria', reporteria), ('tiempos', tiempos), ('resumen', resumen)]:
         (OUT / f'{name}.svg').write_text(fn(), encoding='utf-8')
         print('escrito', OUT / f'{name}.svg')
