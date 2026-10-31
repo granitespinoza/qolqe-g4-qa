@@ -1,5 +1,7 @@
 # Pipeline de la entrega actual
 
+![Pipeline de CI](img/pipeline.svg)
+
 Workflow: `.github/workflows/pruebas.yml`. Tres jobs secuenciales: **job_api → job_web → job_reporting**. Se activa con push/PR a main o ejecución manual. Web y reportería usan `if: always()` para conservar evidencia aunque un trabajo anterior falle.
 
 API ejecuta Karate y Schemathesis. Web ejecuta las 54 pruebas tres veces. Cada trabajo mantiene los códigos y resultados crudos y aplica el Quality Gate del Escenario A. Reportería descarga artefactos del mismo run e intento y comprueba revisión y política antes de consolidar.

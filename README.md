@@ -2,6 +2,8 @@
 
 **Estado verificado:** el run de `main` ([41152595167](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167)) terminó en éxito en sus tres jobs. Quality Gate **Escenario A aprobado**: Karate 169 PASS y 12 conocidos, Schemathesis 27 conocidos, Web 45 PASS y 9 conocidos, sin fallos desconocidos ni intermitencia. [Resultado del gate](docs/parte2/resultado-gate.md).
 
+![Quality Gate Escenario A: Karate, Schemathesis y Web](docs/parte2/img/gate.svg)
+
 ## Mapa rápido
 
 | Quiero ver… | Ir a |
@@ -24,31 +26,15 @@
 | **Diseño y estabilidad: patrón mantenible, sin esperas fijas, pasa 3 veces (3)** | Page Object y comandos propios, selectores `data-testid`, ninguna espera fija (`cy.wait` con número). Tres corridas completas con el mismo resultado: 45 aprobados y 9 fallos conocidos | [`Web/cypress/pages/`](Web/cypress/pages/) · [`Web/cypress/support/`](Web/cypress/support/) · [verificación web](docs/parte2/verificacion-web.md) |
 | **Exposición y demo en vivo (4)** | Presentación de 13 diapositivas, comandos de la demo y guía de ensayo | [PPT](presentacion/Entrega2-Qolqe-Cypress.pptx) · [comandos de la demo](docs/parte2/comandos-demo.txt) · [guía de ensayo](docs/parte2/entrega.md) |
 
+![Trazabilidad por historia de usuario](docs/parte2/img/trazabilidad.svg)
+
 Defectos encontrados: [defectos-conocidos.md](docs/parte2/defectos-conocidos.md). El Quality Gate aprueba por Escenario A, en entorno académico aislado: no equivale a 54 pruebas aprobadas.
 
 ## Pipeline de CI
 
 Un solo workflow, [`pruebas.yml`](.github/workflows/pruebas.yml), con tres jobs en cadena. Corre en push o PR a `main` y a mano.
 
-```mermaid
-flowchart LR
-  T["Disparadores<br/>push o PR a main<br/>ejecución manual"] --> A
-  subgraph A["job_api · API y contratos"]
-    direction TB
-    A1["Karate"] --> A2["Schemathesis"] --> A3["Quality Gate API<br/>Escenario A"]
-  end
-  A --> W
-  subgraph W["job_web · Web E2E"]
-    direction TB
-    W1["Cypress<br/>3 corridas"] --> W2["Quality Gate Web<br/>Escenario A"]
-  end
-  W --> R
-  subgraph R["job_reporting · Reportería"]
-    direction TB
-    R1["Decisión final<br/>del mismo run"] --> R2["Matriz y reporte<br/>consolidado"]
-  end
-  R --> O["Artefactos<br/>7 días"]
-```
+![Pipeline de CI: job_api, job_web y job_reporting en cadena](docs/parte2/img/pipeline.svg)
 
 - Web y reportería usan `if: always()`: la evidencia se conserva aunque falle un job anterior.
 - No hay `continue-on-error`: los reportes crudos conservan los FAIL y el Quality Gate decide después.

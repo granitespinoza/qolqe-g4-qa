@@ -2,6 +2,8 @@
 
 Decisión del run remoto de `main`: [run 41152595167](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167), commit `8ee107e`. Los tres jobs terminaron en éxito: API y contratos, Web E2E con tres corridas, y Reportería.
 
+![Quality Gate Escenario A](img/gate.svg)
+
 **Decisión: Escenario A, aprobado.** Las pruebas conservan sus PASS y FAIL originales. El Escenario A admite únicamente firmas conocidas y documentadas, en una instancia académica aislada. No certifica el producto para producción.
 
 | Herramienta | Gate | PASS | Known issue | Desconocido | Flaky |

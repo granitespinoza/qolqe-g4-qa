@@ -66,3 +66,5 @@ Cypress interactivo: `powershell -NoProfile -ExecutionPolicy Bypass -File script
 - **TC:** *test case*, caso de prueba. Aparece en etiquetas como `@TC-E2E-G4-001`.
 - **Smoke / regresión:** prueba mínima del camino principal / conjunto que detecta que un cambio rompió algo.
 - **Firma conocida:** fallo documentado con su esperado y observado exactos; el gate solo admite estas.
+
+Los gráficos del README se generan con `python scripts/build_graphics.py` (sin dependencias) y se guardan en `docs/parte2/img/`.

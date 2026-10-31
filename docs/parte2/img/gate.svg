@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="338" viewBox="0 0 820 338" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Resultado del Quality Gate</title><desc>Barras de PASS y fallos conocidos de Karate, Schemathesis y Web</desc>
+<rect width="820" height="338" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" fill="#1f2937" font-weight="bold" text-anchor="start">Quality Gate, Escenario A: aprobado</text>
+<text x="24" y="54" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Run remoto de main 41152595167. Sin fallos desconocidos ni intermitencia en ninguna herramienta.</text>
+<text x="24" y="106" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Karate</text>
+<rect x="210" y="86" width="439.40000000000003" height="30" rx="3" fill="#2f9e6b"/>
+<text x="429.70000000000005" y="106" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">169 PASS</text>
+<rect x="649.4000000000001" y="86" width="31.200000000000003" height="30" rx="3" fill="#e0a526"/>
+<text x="688.6000000000001" y="106" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="start">12 conocidos</text>
+<text x="24" y="168" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Schemathesis</text>
+<rect x="210" y="148" width="70.2" height="30" rx="3" fill="#e0a526"/>
+<text x="288.2" y="168" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="start">27 conocidos</text>
+<text x="384.2" y="168" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">ocurrencias de contrato revisadas</text>
+<text x="24" y="230" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Web (Cypress, 3 corridas)</text>
+<rect x="210" y="210" width="117.0" height="30" rx="3" fill="#2f9e6b"/>
+<text x="268.5" y="230" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">45 PASS</text>
+<rect x="327.0" y="210" width="23.400000000000002" height="30" rx="3" fill="#e0a526"/>
+<text x="358.4" y="230" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="start">9 conocidos</text>
+<rect x="24" y="276" width="14" height="14" rx="2" fill="#2f9e6b"/><text x="44" y="288" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">PASS</text>
+<rect x="100" y="276" width="14" height="14" rx="2" fill="#e0a526"/><text x="120" y="288" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">fallo conocido y documentado (defecto del producto)</text>
+<text x="24" y="316" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">No equivale a 54 pruebas web aprobadas ni certifica el producto para producción.</text>
+</svg>
