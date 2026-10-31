@@ -12,6 +12,34 @@
 | Defectos encontrados | [defectos-conocidos.md](docs/parte2/defectos-conocidos.md) |
 | Informe | [docs/informe.md](docs/informe.md) |
 
+## Pipeline de CI
+
+Un solo workflow, [`pruebas.yml`](.github/workflows/pruebas.yml), con tres jobs en cadena. Corre en push o PR a `main` y a mano.
+
+```mermaid
+flowchart LR
+  T["Disparadores<br/>push o PR a main<br/>ejecución manual"] --> A
+  subgraph A["job_api · API y contratos"]
+    direction TB
+    A1["Karate"] --> A2["Schemathesis"] --> A3["Quality Gate API<br/>Escenario A"]
+  end
+  A --> W
+  subgraph W["job_web · Web E2E"]
+    direction TB
+    W1["Cypress<br/>3 corridas"] --> W2["Quality Gate Web<br/>Escenario A"]
+  end
+  W --> R
+  subgraph R["job_reporting · Reportería"]
+    direction TB
+    R1["Decisión final<br/>del mismo run"] --> R2["Matriz y reporte<br/>consolidado"]
+  end
+  R --> O["Artefactos<br/>7 días"]
+```
+
+- Web y reportería usan `if: always()`: la evidencia se conserva aunque falle un job anterior.
+- No hay `continue-on-error`: los reportes crudos conservan los FAIL y el Quality Gate decide después.
+- Detalle: [pipeline](docs/parte2/pipeline.md) · [política del gate](docs/parte2/quality-gate.md).
+
 
 **Estado local:** tres corridas web estables con 45 PASS y 9 known issues; API con 169 PASS y 12 known issues. Los fallos crudos permanecen visibles. Qolqe no se modifica. La aprobación se limita al entorno académico aislado.
 
