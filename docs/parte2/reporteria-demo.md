@@ -15,6 +15,8 @@ La reportería sale del run de GitHub Actions y de su artefacto `entrega-parte2-
 
 ## Karate y Schemathesis: dónde se ven
 
+![Karate y Schemathesis: qué prueba cada uno y dónde se ve](img/karate-schemathesis.svg)
+
 **Karate (API)**
 
 | Qué | Dónde |

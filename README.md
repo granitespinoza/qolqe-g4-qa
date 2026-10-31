@@ -30,6 +30,9 @@
 
 El porqué de cada criterio, con su gráfico (por ejemplo, el Page Object y su quiebre): [por-que-rubrica.md](docs/parte2/por-que-rubrica.md), con el [resumen, los tiempos y las conclusiones](docs/parte2/por-que-rubrica.md#resumen-y-conclusiones) al final. Dónde mostrar la reportería: [reporteria-demo.md](docs/parte2/reporteria-demo.md).
 
+![Karate y Schemathesis: qué prueba cada uno y dónde se ve](docs/parte2/img/karate-schemathesis.svg)
+
+
 ![Trazabilidad por historia de usuario](docs/parte2/img/trazabilidad.svg)
 
 Defectos encontrados: [defectos-conocidos.md](docs/parte2/defectos-conocidos.md). El Quality Gate aprueba por Escenario A, en entorno académico aislado: no equivale a 54 pruebas aprobadas.

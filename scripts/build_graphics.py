@@ -324,8 +324,41 @@ def resumen():
     return svg(1000, 78 + 2 * (h + gap) + 6, b, 'Resumen', 'Ocho cifras clave de la entrega')
 
 
+def karate_schemathesis():
+    b = text(24, 34, 'Karate y Schemathesis: qué prueba cada uno y dónde se ve', 18, INK, 'bold')
+    b += text(24, 54, 'Cifras del run verde de main 41152595167. <run> es la carpeta del run dentro del artefacto entrega-parte2.', 12, MUTED)
+    cards = [
+        (24, BLUE, 'Karate · API', [
+            ('Qué prueba', 'reglas de negocio, estados y efectos'),
+            ('Cómo', 'casos diseñados, con esperado justificado'),
+            ('Resultado', '169 PASS · 12 conocidos (181 ejecuciones)'),
+            ('Duración en CI', '75 s'),
+        ], ['reports/raw/karate/<run>/karate-summary.html', 'evidencias/G4-004.html (caso de la ñ, en el repo)']),
+        (520, TEAL, 'Schemathesis · Contrato', [
+            ('Qué prueba', 'que la API cumpla el contrato OpenAPI'),
+            ('Cómo', 'datos generados automáticamente'),
+            ('Resultado', '27 ocurrencias, todas conocidas'),
+            ('Duración en CI', '20 s'),
+        ], ['reports/raw/schemathesis/<run>/schemathesis-detallado.html', 'reports/schemathesis-detallado.html (copia en el repo)']),
+    ]
+    for x, color, title, rows, paths in cards:
+        b += f'<rect x="{x}" y="76" width="456" height="262" rx="8" fill="#ffffff" stroke="{LINE}"/>\n'
+        b += f'<rect x="{x}" y="76" width="456" height="36" rx="8" fill="{color}"/>\n'
+        b += text(x + 18, 100, title, 15, '#ffffff', 'bold')
+        for i, (k, v) in enumerate(rows):
+            y = 138 + i * 26
+            b += text(x + 18, y, k, 12, MUTED, 'bold') + text(x + 130, y, v, 13, INK)
+        b += text(x + 18, 258, 'Dónde se ve', 12, MUTED, 'bold')
+        for i, pth in enumerate(paths):
+            b += f'<rect x="{x + 18}" y="{268 + i * 30}" width="420" height="24" rx="4" fill="#f1f5f9"/>\n'
+            b += text(x + 28, 285 + i * 30, pth, 12, INK)
+    b += f'<rect x="24" y="352" width="952" height="40" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>\n'
+    b += text(500, 377, 'Se complementan: Schemathesis descubre diferencias con el contrato; Karate las confirma con un esperado justificado.', 13, INK, 'bold', 'middle')
+    return svg(1000, 416, b, 'Karate y Schemathesis', 'Qué prueba cada herramienta, su resultado, duración y dónde se ve la evidencia')
+
+
 if __name__ == '__main__':
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, fn in [('pipeline', pipeline), ('gate', gate), ('trazabilidad', trazabilidad), ('cobertura', cobertura), ('flujo-trazabilidad', flujo_trazabilidad), ('page-object', page_object), ('estabilidad', estabilidad), ('reporteria', reporteria), ('tiempos', tiempos), ('resumen', resumen)]:
+    for name, fn in [('pipeline', pipeline), ('gate', gate), ('trazabilidad', trazabilidad), ('cobertura', cobertura), ('flujo-trazabilidad', flujo_trazabilidad), ('page-object', page_object), ('estabilidad', estabilidad), ('reporteria', reporteria), ('tiempos', tiempos), ('resumen', resumen), ('karate-schemathesis', karate_schemathesis)]:
         (OUT / f'{name}.svg').write_text(fn(), encoding='utf-8')
         print('escrito', OUT / f'{name}.svg')
