@@ -56,3 +56,5 @@ Para revisar solo la evidencia existente, sin volver a ejecutar suites:
 ```
 
 La decisión se guarda en `reports/gate/overall.json` y `reports/gate/resumen.md`. Los reportes crudos y los gates se publican en el artefacto de la misma ejecución de GitHub. La matriz muestra tanto el estado de prueba como el defecto asociado.
+
+Resultado del run remoto de `main`: [resultado-gate.md](resultado-gate.md).

@@ -1,5 +1,7 @@
 # Entrega 2 — Qolqe G4 y Quality Gate Escenario A
 
+**Estado verificado:** el run de `main` ([41152595167](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167)) terminó en éxito en sus tres jobs. Quality Gate **Escenario A aprobado**: Karate 169 PASS y 12 conocidos, Schemathesis 27 conocidos, Web 45 PASS y 9 conocidos, sin fallos desconocidos ni intermitencia. [Resultado del gate](docs/parte2/resultado-gate.md).
+
 ## Mapa rápido
 
 | Quiero ver… | Ir a |
