@@ -366,77 +366,12 @@
       "check": "positive_data_acceptance",
       "response_status": 422
     },
-    "69ab56d62d21a70da1a35c70f96698bf0250f098a2770e028377549fd68ae4c6": {
+    "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46": {
       "defect": "K-C03",
       "operation": "POST /api/contactos",
       "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "44c476eb747a8e45a6edee7f2502febea0fad83625d50afd6685f6749d36800b": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "598e7569cc7be5d4a0c82eaf605161f28a5c6747acde30fc8157c0c525c776bc": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "cc1133a7330f67acbe0bf08326bf881a6fd4d8dc1187f5b4b5e701d98f297814": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "997e81750c683f6d2d67a8a69ee932a2b9c75381d90a2330e667b79e4024ab9e": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "c9ff4b1a007441bec0534db26e8419b0b62aecaf79014b37d30f2bb7512efef8": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "52d201e92fed721abeae33eb80f322ef44a3d453c73f981677d1e92a7435f0d1": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "7755defbce2248b75f981a13d542cfa935afc95282ca02c2c614210265397788": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "fbeeb2e43d6edc0a77521cd4235b82a62f0e6de35b72191e07931e13ce43b7db": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "3394cc55fcba781a9b159783e30152cdedbf3c97cbf9b3cb6f48012be8b6b054": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "f6fa29e99335f92340a2d05f9c4bd575fae9e250d5e5c8307fea879565b6b775": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
-    },
-    "8eede13aa61728151b896e7b5eaa6cda24e2c5057b4866f48e3c670234f86496": {
-      "defect": "K-C03",
-      "operation": "POST /api/contactos",
-      "check": "positive_data_acceptance",
-      "response_status": 422
+      "response_status": 422,
+      "signature_class": "unicode_digits_rejected_by_ascii_validation"
     },
     "efd68772dde240d474e7401dd8726e760580ffbf85ef7033877526096ec475e5": {
       "defect": "K-C04",

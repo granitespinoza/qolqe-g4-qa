@@ -130,6 +130,14 @@ def contract_signature(request,check):
         alias=body['alias'].strip()
         if not 3<=len(alias)<=20 or not re.fullmatch(r'[A-Za-zÁÉÍÓÚÜáéíóúüÑñ0-9 ]+',alias):
             fields['body']={'celular':body['celular'],'alias_class':'invalid_alias_rejected_by_existing_contact'}
+    # K-C03: el esquema declara ^9\d{8}$, el generador interpreta \d como dígito Unicode y Qolqe valida solo ASCII.
+    # Los dígitos y las propiedades extra del cuerpo son aleatorios y varían entre plataformas con la misma semilla;
+    # la causa no. Se conservan operación, check, estado, respuesta, fase y modo: otra respuesta o fase sigue siendo señal nueva.
+    if (request['operation']=='POST /api/contactos' and check['name']=='positive_data_acceptance'
+        and request['status']==422 and (request.get('response_body') or {}).get('codigo')=='CELULAR_INVALIDO'
+        and isinstance(body,dict) and isinstance(body.get('celular'),str)
+        and re.fullmatch(r'9\d{8}',body['celular']) and not re.fullmatch(r'9[0-9]{8}',body['celular'])):
+        fields['body']={'celular_class':'unicode_digits_rejected_by_ascii_validation'}
     return hashlib.sha256(json.dumps(fields,sort_keys=True,ensure_ascii=True).encode()).hexdigest()
 
 if __name__=='__main__':
