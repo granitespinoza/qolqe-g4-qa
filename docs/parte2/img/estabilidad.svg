@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Estabilidad de la suite web</title><desc>Tres corridas con 45 aprobados y 9 fallos conocidos cada una</desc>
+<rect width="900" height="300" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" fill="#1f2937" font-weight="bold" text-anchor="start">Estabilidad: tres corridas completas, mismo resultado</text>
+<text x="24" y="54" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Reintentos de tests: 0. Esperas fijas: 0. Las consultas y aserciones de Cypress reintentan hasta 4000 ms.</text>
+<text x="24" y="104" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Corrida 1</text>
+<rect x="120" y="84" width="315.0" height="30" rx="3" fill="#2f9e6b"/>
+<text x="277.5" y="104" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">45 PASS</text>
+<rect x="435.0" y="84" width="63.0" height="30" rx="3" fill="#e0a526"/>
+<text x="466.5" y="104" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">9</text>
+<text x="510.0" y="104" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">sin omitidos ni intermitencia</text>
+<text x="24" y="154" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Corrida 2</text>
+<rect x="120" y="134" width="315.0" height="30" rx="3" fill="#2f9e6b"/>
+<text x="277.5" y="154" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">45 PASS</text>
+<rect x="435.0" y="134" width="63.0" height="30" rx="3" fill="#e0a526"/>
+<text x="466.5" y="154" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">9</text>
+<text x="510.0" y="154" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">sin omitidos ni intermitencia</text>
+<text x="24" y="204" font-size="14" fill="#1f2937" font-weight="bold" text-anchor="start">Corrida 3</text>
+<rect x="120" y="184" width="315.0" height="30" rx="3" fill="#2f9e6b"/>
+<text x="277.5" y="204" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">45 PASS</text>
+<rect x="435.0" y="184" width="63.0" height="30" rx="3" fill="#e0a526"/>
+<text x="466.5" y="204" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">9</text>
+<text x="510.0" y="204" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">sin omitidos ni intermitencia</text>
+<text x="24" y="252" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Qué encontró el pipeline remoto: Qolqe valida «hoy» en hora de Lima; un runner en UTC enviaba una fecha futura entre 00:00 y 05:00 UTC.</text>
+<text x="24" y="272" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Se fijó TZ: America/Lima en el job Web en lugar de cambiar tests o firmas del gate.</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="336" viewBox="0 0 1100 336" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Flujo de trazabilidad</title><desc>De historia de usuario a criterio, caso, etiquetas y resultado, con dos casos reales</desc>
+<rect width="1100" height="336" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" fill="#1f2937" font-weight="bold" text-anchor="start">De la historia de usuario al resultado, con dos casos reales</text>
+<text x="24" y="54" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Cada paso es verificable: la etiqueta del código une el test con la matriz y con el defecto.</text>
+<text x="104.0" y="84" font-size="12" fill="#5b6b7a" font-weight="bold" text-anchor="middle">Historia</text>
+<text x="280.0" y="84" font-size="12" fill="#5b6b7a" font-weight="bold" text-anchor="middle">Criterio</text>
+<text x="475.0" y="84" font-size="12" fill="#5b6b7a" font-weight="bold" text-anchor="middle">Caso de prueba</text>
+<text x="706.0" y="84" font-size="12" fill="#5b6b7a" font-weight="bold" text-anchor="middle">Etiquetas en el código</text>
+<text x="957.0" y="84" font-size="12" fill="#5b6b7a" font-weight="bold" text-anchor="middle">Resultado en el pipeline</text>
+<rect x="24" y="98" width="160" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="104.0" y="136.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">HU-G4-01</text>
+<text x="104.0" y="153.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">Agregar un contacto</text>
+<line x1="186" y1="140" x2="192" y2="140" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="198,140 189,135 189,145" fill="#5b6b7a"/>
+<rect x="200" y="98" width="160" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="280.0" y="136.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">CA1 · R-G4-02</text>
+<text x="280.0" y="153.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">la ñ está permitida</text>
+<line x1="362" y1="140" x2="368" y2="140" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="374,140 365,135 365,145" fill="#5b6b7a"/>
+<rect x="376" y="98" width="198" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="475.0" y="136.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">TC-E2E-G4-102</text>
+<text x="475.0" y="153.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">alias Niño al crear</text>
+<line x1="576" y1="140" x2="582" y2="140" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="588,140 579,135 579,145" fill="#5b6b7a"/>
+<rect x="590" y="98" width="232" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="706.0" y="136.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">@HU-G4-01 @TC-E2E-G4-102</text>
+<text x="706.0" y="153.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">@known_issue @D-01</text>
+<line x1="824" y1="140" x2="830" y2="140" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="836,140 827,135 827,145" fill="#5b6b7a"/>
+<rect x="838" y="98" width="238" height="84" rx="6" fill="#fff7e6" stroke="#f3d9a4"/>
+<text x="957.0" y="136.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">Fallo conocido D-01</text>
+<text x="957.0" y="153.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">esperado 201, obtenido 422</text>
+<rect x="24" y="210" width="160" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="104.0" y="248.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">HU-G4-01</text>
+<text x="104.0" y="265.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">Agregar un contacto</text>
+<line x1="186" y1="252" x2="192" y2="252" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="198,252 189,247 189,257" fill="#5b6b7a"/>
+<rect x="200" y="210" width="160" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="280.0" y="248.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">CA1 · R-G4-01/02/03</text>
+<text x="280.0" y="265.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">alta válida y persistente</text>
+<line x1="362" y1="252" x2="368" y2="252" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="374,252 365,247 365,257" fill="#5b6b7a"/>
+<rect x="376" y="210" width="198" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="475.0" y="248.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">TC-E2E-G4-001</text>
+<text x="475.0" y="265.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">alias Ana Cypress</text>
+<line x1="576" y1="252" x2="582" y2="252" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="588,252 579,247 579,257" fill="#5b6b7a"/>
+<rect x="590" y="210" width="232" height="84" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="706.0" y="257.0" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">@HU-G4-01 @TC-E2E-G4-001</text>
+<line x1="824" y1="252" x2="830" y2="252" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="836,252 827,247 827,257" fill="#5b6b7a"/>
+<rect x="838" y="210" width="238" height="84" rx="6" fill="#e7f6ee" stroke="#b7e1c9"/>
+<text x="957.0" y="248.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">Pasa</text>
+<text x="957.0" y="265.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">POST 201 y persiste al recargar</text>
+</svg>

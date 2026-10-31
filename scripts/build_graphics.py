@@ -136,8 +136,132 @@ def trazabilidad():
     return svg(900, ly + 34, b, 'Trazabilidad por historia de usuario', 'Barras apiladas de casos de API y Web por historia, con su estado en el pipeline')
 
 
+def cobertura():
+    import re
+    items = []
+    for line in open(ROOT / 'docs' / 'parte2' / 'verificacion-web.md', encoding='utf8'):
+        m = re.match(r'\| (HU-G4-\d+-CA\d+) \| (.+?) \| (.+?) \|', line)
+        if m:
+            tests = [t for t in m.group(2).split(', ') if t.strip()]
+            items.append((m.group(1), len(tests), 'conocido' in m.group(3)))
+    scale = 38.0
+    left = 150
+    b = text(24, 34, 'Cobertura web por criterio de aceptación', 18, INK, 'bold')
+    b += text(24, 54, f'{len(items)} criterios de G4, cada uno con al menos un test web. Un test puede cubrir varios criterios (54 tests únicos).', 12, MUTED)
+    for i, (ca, n, known) in enumerate(items):
+        y = 76 + i * 25
+        b += text(24, y + 15, ca, 12, INK)
+        color = AMBER if known else GREEN
+        b += f'<rect x="{left}" y="{y}" width="{n * scale}" height="18" rx="2" fill="{color}"/>\n'
+        b += text(left + n * scale + 8, y + 14, f'{n} {"test" if n == 1 else "tests"}', 12, MUTED)
+    ly = 76 + len(items) * 25 + 8
+    b += f'<rect x="24" y="{ly}" width="14" height="14" rx="2" fill="{GREEN}"/>' + text(44, ly + 12, 'aprobado en las tres corridas', 12, MUTED)
+    b += f'<rect x="250" y="{ly}" width="14" height="14" rx="2" fill="{AMBER}"/>' + text(270, ly + 12, 'incluye un fallo conocido y documentado', 12, MUTED)
+    return svg(760, ly + 34, b, 'Cobertura web por criterio', 'Tests web por criterio de aceptación de G4, con su resultado en tres corridas')
+
+
+def flujo_trazabilidad():
+    b = text(24, 34, 'De la historia de usuario al resultado, con dos casos reales', 18, INK, 'bold')
+    b += text(24, 54, 'Cada paso es verificable: la etiqueta del código une el test con la matriz y con el defecto.', 12, MUTED)
+    heads = ['Historia', 'Criterio', 'Caso de prueba', 'Etiquetas en el código', 'Resultado en el pipeline']
+    xs = [24, 200, 376, 590, 838]
+    ws = [160, 160, 198, 232, 238]
+    for x, w, h in zip(xs, ws, heads):
+        b += text(x + w / 2, 84, h, 12, MUTED, 'bold', 'middle')
+    rows = [
+        (['HU-G4-01', 'Agregar un contacto'], ['CA1 · R-G4-02', 'la ñ está permitida'], ['TC-E2E-G4-102', 'alias Niño al crear'],
+         ['@HU-G4-01 @TC-E2E-G4-102', '@known_issue @D-01'], ['Fallo conocido D-01', 'esperado 201, obtenido 422'], '#fff7e6', '#f3d9a4'),
+        (['HU-G4-01', 'Agregar un contacto'], ['CA1 · R-G4-01/02/03', 'alta válida y persistente'], ['TC-E2E-G4-001', 'alias Ana Cypress'],
+         ['@HU-G4-01 @TC-E2E-G4-001'], ['Pasa', 'POST 201 y persiste al recargar'], '#e7f6ee', '#b7e1c9'),
+    ]
+    for r, (a, c, t, g, res, fill, stroke) in enumerate(rows):
+        y = 98 + r * 112
+        for i, content in enumerate([a, c, t, g]):
+            b += box(xs[i], y, ws[i], 84, content, '#f1f5f9')
+            if i < 3:
+                b += arrow(xs[i] + ws[i] + 2, y + 42, xs[i + 1] - 2)
+        b += arrow(xs[3] + ws[3] + 2, y + 42, xs[4] - 2)
+        b += box(xs[4], y, ws[4], 84, res, fill, stroke)
+    return svg(1100, 336, b, 'Flujo de trazabilidad', 'De historia de usuario a criterio, caso, etiquetas y resultado, con dos casos reales')
+
+
+def page_object():
+    b = text(24, 34, 'Page Object y su quiebre: qué pasa cuando cambia un selector', 18, INK, 'bold')
+    b += text(24, 54, 'Ejemplo: cambia el botón «Agregar contacto». agregar() se invoca 15 veces en 4 specs.', 12, MUTED)
+    def grid(x0, y0, color):
+        out = ''
+        for i in range(15):
+            cx = x0 + (i % 5) * 34
+            cy = y0 + (i // 5) * 34
+            out += f'<rect x="{cx}" y="{cy}" width="28" height="28" rx="4" fill="{color}" stroke="{LINE}"/>\n'
+        return out
+    # Sin Page Object
+    b += f'<rect x="24" y="78" width="500" height="280" rx="8" fill="#fff5f5" stroke="#f0c4c4"/>\n'
+    b += text(274, 104, 'Sin Page Object (hipótesis)', 14, '#9b2c2c', 'bold', 'middle')
+    b += grid(48, 128, '#ffffff')
+    b += text(133, 245, '15 llamadas repetirían el selector', 12, MUTED, anchor='middle')
+    b += arrow(228, 168, 300)
+    b += box(304, 130, 196, 76, ['selector del botón', 'escrito 15 veces'], '#fde8e8', '#f0a8a8')
+    b += box(48, 270, 452, 64, ['Cambia el botón: hay que corregir 15 sitios', 'y un olvido deja un test roto por motivos ajenos al negocio'], '#ffffff', '#f0c4c4', '#9b2c2c')
+    # Con Page Object
+    b += f'<rect x="556" y="78" width="520" height="280" rx="8" fill="#f0fbf5" stroke="#b7e1c9"/>\n'
+    b += text(816, 104, 'Con Page Object (lo que hicimos)', 14, '#1f6b46', 'bold', 'middle')
+    b += grid(580, 128, '#ffffff')
+    b += text(665, 245, '15 llamadas a agregar()', 12, MUTED, anchor='middle')
+    b += arrow(758, 168, 800)
+    b += box(804, 128, 120, 80, ['ContactosPage', '.agregar()'], '#e7f6ee', '#b7e1c9')
+    b += arrow(926, 168, 950)
+    b += box(954, 140, 108, 56, ['selector', 'definido 1 vez'], '#e7f6ee', '#b7e1c9')
+    b += box(580, 270, 482, 64, ['Cambia el botón: se corrige 1 línea en ContactosPage.ts', 'los tests y sus aserciones de negocio no se tocan'], '#ffffff', '#b7e1c9', '#1f6b46')
+    b += text(24, 388, 'Límite real: 13 selectores están centralizados en pages/, pero 15 usos de data-testid siguen directos en los tests (por ejemplo boton-favorito).', 12, MUTED)
+    b += text(24, 408, 'Por eso el patrón reduce el quiebre en los flujos más repetidos, y no lo elimina por completo.', 12, MUTED)
+    return svg(1100, 436, b, 'Page Object y su quiebre', 'Comparación entre repetir el selector en 15 tests y centralizarlo en un Page Object')
+
+
+def estabilidad():
+    b = text(24, 34, 'Estabilidad: tres corridas completas, mismo resultado', 18, INK, 'bold')
+    b += text(24, 54, 'Reintentos de tests: 0. Esperas fijas: 0. Las consultas y aserciones de Cypress reintentan hasta 4000 ms.', 12, MUTED)
+    scale = 7.0
+    for i in range(3):
+        y = 84 + i * 50
+        b += text(24, y + 20, f'Corrida {i + 1}', 14, INK, 'bold')
+        b += f'<rect x="120" y="{y}" width="{45 * scale}" height="30" rx="3" fill="{GREEN}"/>\n'
+        b += text(120 + 45 * scale / 2, y + 20, '45 PASS', 13, '#ffffff', 'bold', 'middle')
+        b += f'<rect x="{120 + 45 * scale}" y="{y}" width="{9 * scale}" height="30" rx="3" fill="{AMBER}"/>\n'
+        b += text(120 + 45 * scale + 9 * scale / 2, y + 20, '9', 13, INK, 'bold', 'middle')
+        b += text(120 + 54 * scale + 12, y + 20, 'sin omitidos ni intermitencia', 12, MUTED)
+    b += text(24, 252, 'Qué encontró el pipeline remoto: Qolqe valida «hoy» en hora de Lima; un runner en UTC enviaba una fecha futura entre 00:00 y 05:00 UTC.', 12, MUTED)
+    b += text(24, 272, 'Se fijó TZ: America/Lima en el job Web en lugar de cambiar tests o firmas del gate.', 12, MUTED)
+    return svg(900, 300, b, 'Estabilidad de la suite web', 'Tres corridas con 45 aprobados y 9 fallos conocidos cada una')
+
+
+def reporteria():
+    b = text(24, 34, 'Dónde se muestra la reportería en la demo', 18, INK, 'bold')
+    b += text(24, 54, 'Del run en Actions a los reportes por herramienta, en este orden.', 12, MUTED)
+    steps = [
+        ('1', 'Actions', ['el run con los', 'tres jobs en verde']),
+        ('2', 'Resumen del run', ['enlace al artefacto', 'entrega-parte2']),
+        ('3', 'Decisión del gate', ['reports/gate/', 'resumen.md']),
+        ('4', 'Matriz navegable', ['apidoc/parte2/', 'index.html']),
+        ('5', 'Reportes', ['Karate, Cypress y', 'Schemathesis']),
+    ]
+    w, gap, x = 188, 24, 24
+    for i, (n, title, lines) in enumerate(steps):
+        b += f'<rect x="{x}" y="84" width="{w}" height="120" rx="8" fill="#f1f5f9" stroke="{LINE}"/>\n'
+        b += f'<circle cx="{x + 24}" cy="108" r="13" fill="{BLUE}"/>' + text(x + 24, 113, n, 13, '#ffffff', 'bold', 'middle')
+        b += text(x + 44, 113, title, 13, INK, 'bold')
+        for j, ln in enumerate(lines):
+            b += text(x + w / 2, 148 + j * 18, ln, 12, MUTED, anchor='middle')
+        if i < len(steps) - 1:
+            b += arrow(x + w + 2, 144, x + w + gap - 2)
+        x += w + gap
+    b += text(24, 236, 'Los HTML hay que servirlos (python -m http.server); los enlaces a reports/ del repo no existen porque esas carpetas no se versionan.', 12, MUTED)
+    b += text(24, 256, 'El artefacto caduca a los 7 días: descargarlo antes de la exposición. El resumen permanente está en docs/parte2/resultado-gate.md.', 12, MUTED)
+    return svg(1120, 284, b, 'Reportería de la demo', 'Cinco pasos para mostrar la reportería, del run de Actions a los reportes por herramienta')
+
+
 if __name__ == '__main__':
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, fn in [('pipeline', pipeline), ('gate', gate), ('trazabilidad', trazabilidad)]:
+    for name, fn in [('pipeline', pipeline), ('gate', gate), ('trazabilidad', trazabilidad), ('cobertura', cobertura), ('flujo-trazabilidad', flujo_trazabilidad), ('page-object', page_object), ('estabilidad', estabilidad), ('reporteria', reporteria)]:
         (OUT / f'{name}.svg').write_text(fn(), encoding='utf-8')
         print('escrito', OUT / f'{name}.svg')

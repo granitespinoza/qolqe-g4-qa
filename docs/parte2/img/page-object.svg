@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="436" viewBox="0 0 1100 436" role="img" font-family="Helvetica, Arial, sans-serif">
+<title>Page Object y su quiebre</title><desc>Comparación entre repetir el selector en 15 tests y centralizarlo en un Page Object</desc>
+<rect width="1100" height="436" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" fill="#1f2937" font-weight="bold" text-anchor="start">Page Object y su quiebre: qué pasa cuando cambia un selector</text>
+<text x="24" y="54" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Ejemplo: cambia el botón «Agregar contacto». agregar() se invoca 15 veces en 4 specs.</text>
+<rect x="24" y="78" width="500" height="280" rx="8" fill="#fff5f5" stroke="#f0c4c4"/>
+<text x="274" y="104" font-size="14" fill="#9b2c2c" font-weight="bold" text-anchor="middle">Sin Page Object (hipótesis)</text>
+<rect x="48" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="82" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="116" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="150" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="184" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="48" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="82" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="116" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="150" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="184" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="48" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="82" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="116" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="150" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="184" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="133" y="245" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="middle">15 llamadas repetirían el selector</text>
+<line x1="228" y1="168" x2="294" y2="168" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="300,168 291,163 291,173" fill="#5b6b7a"/>
+<rect x="304" y="130" width="196" height="76" rx="6" fill="#fde8e8" stroke="#f0a8a8"/>
+<text x="402.0" y="164.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">selector del botón</text>
+<text x="402.0" y="181.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">escrito 15 veces</text>
+<rect x="48" y="270" width="452" height="64" rx="6" fill="#ffffff" stroke="#f0c4c4"/>
+<text x="274.0" y="298.5" font-size="13" fill="#9b2c2c" font-weight="bold" text-anchor="middle">Cambia el botón: hay que corregir 15 sitios</text>
+<text x="274.0" y="315.5" font-size="13" fill="#9b2c2c" font-weight="normal" text-anchor="middle">y un olvido deja un test roto por motivos ajenos al negocio</text>
+<rect x="556" y="78" width="520" height="280" rx="8" fill="#f0fbf5" stroke="#b7e1c9"/>
+<text x="816" y="104" font-size="14" fill="#1f6b46" font-weight="bold" text-anchor="middle">Con Page Object (lo que hicimos)</text>
+<rect x="580" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="614" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="648" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="682" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="716" y="128" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="580" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="614" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="648" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="682" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="716" y="162" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="580" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="614" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="648" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="682" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="716" y="196" width="28" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="665" y="245" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="middle">15 llamadas a agregar()</text>
+<line x1="758" y1="168" x2="794" y2="168" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="800,168 791,163 791,173" fill="#5b6b7a"/>
+<rect x="804" y="128" width="120" height="80" rx="6" fill="#e7f6ee" stroke="#b7e1c9"/>
+<text x="864.0" y="164.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">ContactosPage</text>
+<text x="864.0" y="181.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">.agregar()</text>
+<line x1="926" y1="168" x2="944" y2="168" stroke="#5b6b7a" stroke-width="2"/>
+<polygon points="950,168 941,163 941,173" fill="#5b6b7a"/>
+<rect x="954" y="140" width="108" height="56" rx="6" fill="#e7f6ee" stroke="#b7e1c9"/>
+<text x="1008.0" y="164.5" font-size="13" fill="#1f2937" font-weight="bold" text-anchor="middle">selector</text>
+<text x="1008.0" y="181.5" font-size="13" fill="#1f2937" font-weight="normal" text-anchor="middle">definido 1 vez</text>
+<rect x="580" y="270" width="482" height="64" rx="6" fill="#ffffff" stroke="#b7e1c9"/>
+<text x="821.0" y="298.5" font-size="13" fill="#1f6b46" font-weight="bold" text-anchor="middle">Cambia el botón: se corrige 1 línea en ContactosPage.ts</text>
+<text x="821.0" y="315.5" font-size="13" fill="#1f6b46" font-weight="normal" text-anchor="middle">los tests y sus aserciones de negocio no se tocan</text>
+<text x="24" y="388" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Límite real: 13 selectores están centralizados en pages/, pero 15 usos de data-testid siguen directos en los tests (por ejemplo boton-favorito).</text>
+<text x="24" y="408" font-size="12" fill="#5b6b7a" font-weight="normal" text-anchor="start">Por eso el patrón reduce el quiebre en los flujos más repetidos, y no lo elimina por completo.</text>
+</svg>

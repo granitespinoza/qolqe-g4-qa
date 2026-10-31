@@ -15,6 +15,8 @@
 | Trazabilidad HU → caso → ejecución | [CSV](data/trazabilidad-parte2.csv) · [matriz detallada](docs/parte2/trazabilidad.md) |
 | Defectos encontrados | [defectos-conocidos.md](docs/parte2/defectos-conocidos.md) |
 | Informe | [docs/informe.md](docs/informe.md) |
+| **El porqué de cada criterio**, con gráficos | [por-que-rubrica.md](docs/parte2/por-que-rubrica.md) |
+| Dónde mostrar la reportería en la demo | [reporteria-demo.md](docs/parte2/reporteria-demo.md) |
 
 ## Rúbrica de la Entrega 2: dónde está la evidencia
 
@@ -25,6 +27,8 @@
 | **Gestión de casos y trazabilidad HU → casos → ejecución (3)** | Matriz exportada con HU, caso (TC), escenario, capa, etiquetas en el código, estado en el pipeline y defecto asociado. Los tests llevan etiquetas `@HU-…` y `@TC-…` | [CSV](data/trazabilidad-parte2.csv) · [JSON](data/trazabilidad-parte2.json) · [matriz detallada](docs/parte2/trazabilidad.md) · [portal navegable](apidoc/parte2/index.html) |
 | **Diseño y estabilidad: patrón mantenible, sin esperas fijas, pasa 3 veces (3)** | Page Object y comandos propios, selectores `data-testid`, ninguna espera fija (`cy.wait` con número). Tres corridas completas con el mismo resultado: 45 aprobados y 9 fallos conocidos | [`Web/cypress/pages/`](Web/cypress/pages/) · [`Web/cypress/support/`](Web/cypress/support/) · [verificación web](docs/parte2/verificacion-web.md) |
 | **Exposición y demo en vivo (4)** | Presentación de 13 diapositivas, comandos de la demo y guía de ensayo | [PPT](presentacion/Entrega2-Qolqe-Cypress.pptx) · [comandos de la demo](docs/parte2/comandos-demo.txt) · [guía de ensayo](docs/parte2/entrega.md) |
+
+El porqué de cada criterio, con su gráfico (por ejemplo, el Page Object y su quiebre): [por-que-rubrica.md](docs/parte2/por-que-rubrica.md). Dónde mostrar la reportería: [reporteria-demo.md](docs/parte2/reporteria-demo.md).
 
 ![Trazabilidad por historia de usuario](docs/parte2/img/trazabilidad.svg)
 
