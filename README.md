@@ -12,6 +12,18 @@
 | Defectos encontrados | [defectos-conocidos.md](docs/parte2/defectos-conocidos.md) |
 | Informe | [docs/informe.md](docs/informe.md) |
 
+## Rúbrica de la Entrega 2: dónde está la evidencia
+
+| Criterio (pts) | Qué hay | Evidencia |
+|---|---|---|
+| **Cobertura de criterios web con verificaciones significativas (5)** | 54 tests Cypress para los 18 criterios de aceptación de G4, en 36 grupos de variantes. Cada test comprueba respuesta HTTP, mensaje visible y persistencia tras recargar | [`Web/cypress/e2e/`](Web/cypress/e2e/) · [cobertura por criterio](docs/parte2/verificacion-web.md) |
+| **Pipeline CI/CD con API y web, reportes y estado visible (5)** | `pruebas.yml`: job de API (Karate y Schemathesis), job de Web (tres corridas) y job de reportería. Publica reportes como artefactos y el resumen del run enlaza la matriz | [workflow](.github/workflows/pruebas.yml) · [Actions](https://github.com/granitespinoza/qolqe-g4-qa/actions) · [pipeline](docs/parte2/pipeline.md) · [política del gate](docs/parte2/quality-gate.md) |
+| **Gestión de casos y trazabilidad HU → casos → ejecución (3)** | Matriz exportada con HU, caso (TC), escenario, capa, etiquetas en el código, estado en el pipeline y defecto asociado. Los tests llevan etiquetas `@HU-…` y `@TC-…` | [CSV](data/trazabilidad-parte2.csv) · [JSON](data/trazabilidad-parte2.json) · [matriz detallada](docs/parte2/trazabilidad.md) · [portal navegable](apidoc/parte2/index.html) |
+| **Diseño y estabilidad: patrón mantenible, sin esperas fijas, pasa 3 veces (3)** | Page Object y comandos propios, selectores `data-testid`, ninguna espera fija (`cy.wait` con número). Tres corridas completas con el mismo resultado: 45 aprobados y 9 fallos conocidos | [`Web/cypress/pages/`](Web/cypress/pages/) · [`Web/cypress/support/`](Web/cypress/support/) · [verificación web](docs/parte2/verificacion-web.md) |
+| **Exposición y demo en vivo (4)** | Presentación de 13 diapositivas, comandos de la demo y guía de ensayo | [PPT](presentacion/Entrega2-Qolqe-Cypress.pptx) · [comandos de la demo](docs/parte2/comandos-demo.txt) · [guía de ensayo](docs/parte2/entrega.md) |
+
+Defectos encontrados: [defectos-conocidos.md](docs/parte2/defectos-conocidos.md). El Quality Gate aprueba por Escenario A, en entorno académico aislado: no equivale a 54 pruebas aprobadas.
+
 ## Pipeline de CI
 
 Un solo workflow, [`pruebas.yml`](.github/workflows/pruebas.yml), con tres jobs en cadena. Corre en push o PR a `main` y a mano.
