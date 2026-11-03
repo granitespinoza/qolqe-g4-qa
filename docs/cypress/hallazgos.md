@@ -1,3 +1,5 @@
+> Antecedente de la demo inicial. Para el alcance vigente, consultar [trazabilidad integrada](../parte2/trazabilidad.md) y [verificación web](../parte2/verificacion-web.md).
+
 # Hallazgos de implementación y verificación
 
 Fecha de comprobación: 24 de octubre de 2026. Entorno local Windows, Node 24.22.1, Cypress 16.2.0 y Chrome 156. Qolqe fijado en 8c7d2f0c939ede7765b7b80b98c10c3905693fda.

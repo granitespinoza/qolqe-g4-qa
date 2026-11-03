@@ -135,7 +135,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-067 — Registro crea saldo cero, límite y bienvenida
 **Técnica:** Comprobación de efectos. **Justificación:** Usuarios creados por API; se verifican consecuencias del registro.
 **Regla:** RN-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-067.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-067.html)
 ```gherkin
 * def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
 * match r.statusCode == 200
@@ -149,7 +149,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-068 — Rechazar dni inválido
 **Técnica:** Particiones de equivalencia. **Justificación:** Una entrada inválida por caso.
 **Regla:** RN-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-068.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-068.html)
 ```gherkin
 * def n = random()
 * def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#("9" + n)',pin:'4826'}
@@ -162,7 +162,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-069 — Rechazar celular inválido
 **Técnica:** Particiones de equivalencia. **Justificación:** Una entrada inválida por caso.
 **Regla:** RN-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-069.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-069.html)
 ```gherkin
 * def n = random()
 * def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#("9" + n)',pin:'4826'}
@@ -175,7 +175,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-070 — Rechazar pin inválido
 **Técnica:** Particiones de equivalencia. **Justificación:** Una entrada inválida por caso.
 **Regla:** RN-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-070.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-070.html)
 ```gherkin
 * def n = random()
 * def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#("9" + n)',pin:'4826'}
@@ -188,7 +188,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-071 — Rechazar correo inválido
 **Técnica:** Particiones de equivalencia. **Justificación:** Una entrada inválida por caso.
 **Regla:** RN-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-071.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-071.html)
 ```gherkin
 * def n = random()
 * def payload = {dni:'#(n)',nombres:'Nuevo Usuario',celular:'#("9" + n)',pin:'4826'}
@@ -201,7 +201,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-110 — Celular duplicado responde conflicto
 **Técnica:** Particiones de equivalencia. **Justificación:** Registro con celular existente y restantes datos válidos.
 **Regla:** RN-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-110.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-110.html)
 ```gherkin
 * def r = req('/api/usuarios', 'POST', {dni:'12345678',nombres:'Nuevo Usuario',celular:'#(a.cell)',pin:'4826'}, null, {})
 * match r.statusCode == 409
@@ -211,7 +211,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-111 — Correo duplicado ignora mayúsculas
 **Técnica:** Particiones de equivalencia. **Justificación:** Primera cuenta fija correo; segunda intenta su versión en mayúsculas.
 **Regla:** HU-N-01 CA5. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-01.feature) · [Evidencia](../evidencias/G4-111.html)
+[Escenario](../API/features/hu-n-01.feature) · [Evidencia](../evidencias/G4-111.html)
 ```gherkin
 * def email = a.cell + '@example.com'
 * def r = req('/api/cuentas/me', 'PUT', {correo:email}, a.token, {})
@@ -236,7 +236,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-072 — Login crea sesión con vigencia de 30 minutos
 **Técnica:** Comprobación de efectos. **Justificación:** La autenticación de contexto se vuelve a verificar explícitamente.
 **Regla:** HU-N-02 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-02.feature) · [Evidencia](../evidencias/G4-072.html)
+[Escenario](../API/features/hu-n-02.feature) · [Evidencia](../evidencias/G4-072.html)
 ```gherkin
 * def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826'}, null, {})
 * match r.statusCode == 200
@@ -247,7 +247,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-073 — Bloqueo tras tres intentos y acceso después de 15 min
 **Técnica:** Transición de estados. **Justificación:** Secuencia de intentos y frontera temporal.
 **Regla:** RN-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-02.feature) · [Evidencia](../evidencias/G4-073.html)
+[Escenario](../API/features/hu-n-02.feature) · [Evidencia](../evidencias/G4-073.html)
 ```gherkin
 * def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'0000'}, null, {})
 * match r.statusCode == 401
@@ -267,7 +267,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-092 — Cuenta cerrada no puede ingresar
 **Técnica:** Transición de estados. **Justificación:** Cerrar cuenta con saldo cero antes de intentar ingresar.
 **Regla:** HU-N-02 CA5. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-02.feature) · [Evidencia](../evidencias/G4-092.html)
+[Escenario](../API/features/hu-n-02.feature) · [Evidencia](../evidencias/G4-092.html)
 ```gherkin
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})
 * match r.statusCode == 204
@@ -279,7 +279,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-093 — Nuevo dispositivo permite login y genera alerta
 **Técnica:** Comprobación de efectos. **Justificación:** Identificador no registrado no bloquea login, pero avisa.
 **Regla:** HU-N-02 CA6. **Resultado:** FALLÓ.
-[Escenario](../features/hu-n-02.feature) · [Evidencia](../evidencias/G4-093.html)
+[Escenario](../API/features/hu-n-02.feature) · [Evidencia](../evidencias/G4-093.html)
 ```gherkin
 * def r = req('/api/auth/login', 'POST', {celular:'#(a.cell)',pin:'4826',dispositivo_id:'dispositivo-no-registrado'}, null, {})
 * match r.statusCode == 200
@@ -297,7 +297,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-074 — Cerrar sesión revoca solo ese token
 **Técnica:** Transición de estados. **Justificación:** Dos sesiones; revocación de una no afecta la otra.
 **Regla:** HU-N-03. **Resultado:** FALLÓ.
-[Escenario](../features/hu-n-03.feature) · [Evidencia](../evidencias/G4-074.html)
+[Escenario](../API/features/hu-n-03.feature) · [Evidencia](../evidencias/G4-074.html)
 ```gherkin
 * def second = login(a)
 * def r = req('/api/auth/logout', 'POST', null, a.token, {})
@@ -312,7 +312,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-094 — Cerrar una sesión no afecta otra
 **Técnica:** Transición de estados. **Justificación:** Separado del caso de revocación para que su fallo no oculte este criterio.
 **Regla:** HU-N-03 CA2. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-03.feature) · [Evidencia](../evidencias/G4-094.html)
+[Escenario](../API/features/hu-n-03.feature) · [Evidencia](../evidencias/G4-094.html)
 ```gherkin
 * def second = login(a)
 * def r = req('/api/auth/logout', 'POST', null, a.token, {})
@@ -331,7 +331,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-075 — Saldo PEN y perfil enmascarado
 **Técnica:** Comprobación de efectos. **Justificación:** No revelar DNI completo.
 **Regla:** HU-N-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-04.feature) · [Evidencia](../evidencias/G4-075.html)
+[Escenario](../API/features/hu-n-04.feature) · [Evidencia](../evidencias/G4-075.html)
 ```gherkin
 * def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
 * match r.statusCode == 200
@@ -346,7 +346,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-076 — Acceso sin autenticación null
 **Técnica:** Particiones de equivalencia. **Justificación:** Ausente e inválido son clases diferentes.
 **Regla:** HU-N-04 CA3. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-04.feature) · [Evidencia](../evidencias/G4-076.html)
+[Escenario](../API/features/hu-n-04.feature) · [Evidencia](../evidencias/G4-076.html)
 ```gherkin
 * def r = req('/api/cuentas/me/saldo', 'GET', null, null, {})
 * match r.statusCode == 401
@@ -356,7 +356,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-077 — Acceso sin autenticación 'invalid'
 **Técnica:** Particiones de equivalencia. **Justificación:** Ausente e inválido son clases diferentes.
 **Regla:** HU-N-04 CA3. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-04.feature) · [Evidencia](../evidencias/G4-077.html)
+[Escenario](../API/features/hu-n-04.feature) · [Evidencia](../evidencias/G4-077.html)
 ```gherkin
 * def r = req('/api/cuentas/me/saldo', 'GET', null, 'invalid', {})
 * match r.statusCode == 401
@@ -366,7 +366,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-078 — Token vencido
 **Técnica:** Valores límite (2 puntos). **Justificación:** A los 30 min debe rechazarse.
 **Regla:** HU-N-04 CA3. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-04.feature) · [Evidencia](../evidencias/G4-078.html)
+[Escenario](../API/features/hu-n-04.feature) · [Evidencia](../evidencias/G4-078.html)
 ```gherkin
 * def r = req('/api/pruebas/reloj', 'PUT', {avanzar_minutos:30}, null, {})
 * def r = req('/api/cuentas/me/saldo', 'GET', null, a.token, {})
@@ -385,7 +385,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-079 — Editar perfil ignora DNI y celular y envía SMS
 **Técnica:** Comprobación de efectos. **Justificación:** Actualizar permitidos sin cambiar identidad.
 **Regla:** HU-N-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-05.feature) · [Evidencia](../evidencias/G4-079.html)
+[Escenario](../API/features/hu-n-05.feature) · [Evidencia](../evidencias/G4-079.html)
 ```gherkin
 * def r = req('/api/cuentas/me', 'PUT', {nombres:'Granit Actualizado',correo:'#(a.cell + "@example.com")',dni:'11111111',celular:'999999999'}, a.token, {})
 * match r.statusCode == 200
@@ -407,7 +407,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-080 — Cerrar cuenta con saldo cero revoca acceso
 **Técnica:** Transición de estados. **Justificación:** Cierre válido y posterior login prohibido.
 **Regla:** HU-N-06. **Resultado:** FALLÓ.
-[Escenario](../features/hu-n-06.feature) · [Evidencia](../evidencias/G4-080.html)
+[Escenario](../API/features/hu-n-06.feature) · [Evidencia](../evidencias/G4-080.html)
 ```gherkin
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})
 * match r.statusCode == 204
@@ -421,7 +421,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-081 — Solicitud pendiente impide cerrar cuenta
 **Técnica:** Tabla de decisiones. **Justificación:** Saldo cero pero solicitud pendiente: rechazo de cierre.
 **Regla:** HU-N-06 CA3. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-06.feature) · [Evidencia](../evidencias/G4-081.html)
+[Escenario](../API/features/hu-n-06.feature) · [Evidencia](../evidencias/G4-081.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -435,7 +435,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-112 — PIN incorrecto impide cierre
 **Técnica:** Particiones de equivalencia. **Justificación:** Saldo cero, PIN incorrecto; conservar cuenta activa.
 **Regla:** HU-N-06 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-06.feature) · [Evidencia](../evidencias/G4-112.html)
+[Escenario](../API/features/hu-n-06.feature) · [Evidencia](../evidencias/G4-112.html)
 ```gherkin
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'0000'}, a.token, {})
 * match r.statusCode == 422
@@ -447,7 +447,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-113 — Saldo pendiente impide cierre
 **Técnica:** Particiones de equivalencia. **Justificación:** PIN correcto y saldo positivo.
 **Regla:** HU-N-06 CA2. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-06.feature) · [Evidencia](../evidencias/G4-113.html)
+[Escenario](../API/features/hu-n-06.feature) · [Evidencia](../evidencias/G4-113.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'0.01'}, null, {})
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, a.token, {})
@@ -468,7 +468,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-082 — Transferencia monto 0.00
 **Técnica:** Valores límite (2 puntos). **Justificación:** Probar rango financiero con saldo y destinatario válidos.
 **Regla:** RN-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-082.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-082.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'0.00'}, a.token, {})
@@ -479,7 +479,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-083 — Transferencia monto 0.01
 **Técnica:** Valores límite (2 puntos). **Justificación:** Probar rango financiero con saldo y destinatario válidos.
 **Regla:** RN-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-083.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-083.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'0.01'}, a.token, {})
@@ -489,7 +489,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-084 — Transferencia monto 500.00
 **Técnica:** Valores límite (2 puntos). **Justificación:** Probar rango financiero con saldo y destinatario válidos.
 **Regla:** RN-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-084.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-084.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'500.00'}, a.token, {})
@@ -499,7 +499,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-085 — Transferencia monto 500.01
 **Técnica:** Valores límite (2 puntos). **Justificación:** Probar rango financiero con saldo y destinatario válidos.
 **Regla:** RN-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-085.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-085.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'500.01'}, a.token, {})
@@ -510,7 +510,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-086 — Transferencia monto 10.005
 **Técnica:** Valores límite (2 puntos). **Justificación:** Probar rango financiero con saldo y destinatario válidos.
 **Regla:** RN-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-086.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-086.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'1000.00'}, null, {})
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'10.005'}, a.token, {})
@@ -521,7 +521,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-087 — Comprobante y movimientos con mismo código
 **Técnica:** Comprobación de efectos. **Justificación:** Verificar transferencia en ambas cuentas.
 **Regla:** RN-10. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-087.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-087.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'100.00'}, null, {})
 * def tx = req('/api/transferencias', 'POST', {celular_destino:'#(b.cell)',monto:'10.00',descripcion:'Almuerzo'}, a.token, {})
@@ -537,7 +537,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-114 — Transferencia a sí mismo rechazada
 **Técnica:** Particiones de equivalencia. **Justificación:** Monto válido y saldo suficiente; aislar destino.
 **Regla:** RN-07. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-114.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-114.html)
 ```gherkin
 * def r = req('/api/transferencias', 'POST', {celular_destino:'#(a.cell)',monto:'10.00'}, a.token, {})
 * match r.statusCode == 422
@@ -547,7 +547,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-116 — Concurrencia conserva saldo y límite diario
 **Técnica:** Tabla de decisiones y concurrencia. **Justificación:** Dos peticiones HTTP sincronizadas; comprobar límite y saldo por separado. Los reintentos de preparación, si ocurren, quedan en la evidencia.
 **Regla:** RN-06/08. **Resultado:** FALLÓ.
-[Escenario](../features/hu-n-07.feature) · [Evidencia](../evidencias/G4-116.html)
+[Escenario](../API/features/hu-n-07.feature) · [Evidencia](../evidencias/G4-116.html)
 ```gherkin
 * def command = ['#(qaPython)', 'scripts/concurrency_probe.py']
 * def runProbe = function(args){var P=Java.type('java.lang.ProcessBuilder');var S=Java.type('java.util.Scanner');var p=new P(Java.to(args,'java.lang.String[]')).redirectErrorStream(true).start();var scan=new S(p.getInputStream()).useDelimiter('\\A');var out=scan.hasNext()?scan.next():'';var code=p.waitFor();if(code!=0) throw new Error('Preparación de concurrencia: '+out);return JSON.parse(out);}
@@ -566,7 +566,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-088 — Transferencia interbancaria cobra comisión y enmascara CCI
 **Técnica:** Comprobación de efectos. **Justificación:** Monto 100: comisión 1.50; verificar CCI en movimiento.
 **Regla:** RN-09. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-08.feature) · [Evidencia](../evidencias/G4-088.html)
+[Escenario](../API/features/hu-n-08.feature) · [Evidencia](../evidencias/G4-088.html)
 ```gherkin
 * def r = req('/api/pruebas/saldo', 'PUT', {celular:'#(a.cell)',saldo:'200.00'}, null, {})
 * def tx = req('/api/transferencias', 'POST', {tipo:'INTERBANCARIA',cci:'12345678901234567890',monto:'100.00'}, a.token, {})
@@ -581,7 +581,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-115 — CCI inválido rechazado
 **Técnica:** Particiones de equivalencia. **Justificación:** CCI corto con monto válido.
 **Regla:** HU-N-08 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-08.feature) · [Evidencia](../evidencias/G4-115.html)
+[Escenario](../API/features/hu-n-08.feature) · [Evidencia](../evidencias/G4-115.html)
 ```gherkin
 * def r = req('/api/transferencias', 'POST', {tipo:'INTERBANCARIA',cci:'123',monto:'10.00'}, a.token, {})
 * match r.statusCode == 422
@@ -596,7 +596,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-089 — Simular comisión para 1.00 sin debitar
 **Técnica:** Particiones de equivalencia. **Justificación:** Mínimo, proporcional y máximo; saldo no cambia.
 **Regla:** RN-09. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-09.feature) · [Evidencia](../evidencias/G4-089.html)
+[Escenario](../API/features/hu-n-09.feature) · [Evidencia](../evidencias/G4-089.html)
 ```gherkin
 * def r = req('/api/transferencias/comision', 'GET', null, a.token, {monto:'1.00',tipo:'INTERBANCARIA'})
 * match r.statusCode == 200
@@ -608,7 +608,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-090 — Simular comisión para 100.00 sin debitar
 **Técnica:** Particiones de equivalencia. **Justificación:** Mínimo, proporcional y máximo; saldo no cambia.
 **Regla:** RN-09. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-09.feature) · [Evidencia](../evidencias/G4-090.html)
+[Escenario](../API/features/hu-n-09.feature) · [Evidencia](../evidencias/G4-090.html)
 ```gherkin
 * def r = req('/api/transferencias/comision', 'GET', null, a.token, {monto:'100.00',tipo:'INTERBANCARIA'})
 * match r.statusCode == 200
@@ -620,7 +620,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-091 — Simular comisión para 500.00 sin debitar
 **Técnica:** Particiones de equivalencia. **Justificación:** Mínimo, proporcional y máximo; saldo no cambia.
 **Regla:** RN-09. **Resultado:** APROBADO.
-[Escenario](../features/hu-n-09.feature) · [Evidencia](../evidencias/G4-091.html)
+[Escenario](../API/features/hu-n-09.feature) · [Evidencia](../evidencias/G4-091.html)
 ```gherkin
 * def r = req('/api/transferencias/comision', 'GET', null, a.token, {monto:'500.00',tipo:'INTERBANCARIA'})
 * match r.statusCode == 200
@@ -637,7 +637,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-001 — Crear contacto con alias 'Ana'
 **Técnica:** Valores límite (2 puntos). **Justificación:** Alias permitido; celular activo, ajeno y lista vacía.
 **Regla:** R-G4-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-001.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-001.html)
 ```gherkin
 * def r = add(b.cell, "Ana", a.token)
 * match r.statusCode == 201
@@ -650,7 +650,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-002 — Crear contacto con alias 'AAAAAAAAAAAAAAAAAAAA'
 **Técnica:** Valores límite (2 puntos). **Justificación:** Alias permitido; celular activo, ajeno y lista vacía.
 **Regla:** R-G4-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-002.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-002.html)
 ```gherkin
 * def r = add(b.cell, "AAAAAAAAAAAAAAAAAAAA", a.token)
 * match r.statusCode == 201
@@ -663,7 +663,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-003 — Crear contacto con alias 'José'
 **Técnica:** Particiones de equivalencia. **Justificación:** Alias permitido; celular activo, ajeno y lista vacía.
 **Regla:** R-G4-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-003.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-003.html)
 ```gherkin
 * def r = add(b.cell, "José", a.token)
 * match r.statusCode == 201
@@ -676,7 +676,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-004 — Crear contacto con alias 'Niño'
 **Técnica:** Particiones de equivalencia. **Justificación:** Alias permitido; celular activo, ajeno y lista vacía.
 **Regla:** R-G4-01/02/03. **Resultado:** FALLÓ.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-004.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-004.html)
 ```gherkin
 * def r = add(b.cell, "Niño", a.token)
 * match r.statusCode == 201
@@ -689,7 +689,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-005 — Crear contacto con alias 'A1 B'
 **Técnica:** Particiones de equivalencia. **Justificación:** Alias permitido; celular activo, ajeno y lista vacía.
 **Regla:** R-G4-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-005.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-005.html)
 ```gherkin
 * def r = add(b.cell, "A1 B", a.token)
 * match r.statusCode == 201
@@ -702,7 +702,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-006 — Crear contacto con alias ' Ana '
 **Técnica:** Particiones de equivalencia. **Justificación:** Alias permitido; celular activo, ajeno y lista vacía.
 **Regla:** R-G4-01/02/03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-006.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-006.html)
 ```gherkin
 * def r = add(b.cell, " Ana ", a.token)
 * match r.statusCode == 201
@@ -715,7 +715,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-007 — Rechazar alias 'Lu'
 **Técnica:** Valores límite (2 puntos). **Justificación:** Frontera o clase inválida, restantes condiciones válidas.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-007.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-007.html)
 ```gherkin
 * def r = add(b.cell, "Lu", a.token)
 * match r.statusCode == 422
@@ -727,7 +727,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-008 — Rechazar alias 'AAAAAAAAAAAAAAAAAAAAA'
 **Técnica:** Valores límite (2 puntos). **Justificación:** Frontera o clase inválida, restantes condiciones válidas.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-008.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-008.html)
 ```gherkin
 * def r = add(b.cell, "AAAAAAAAAAAAAAAAAAAAA", a.token)
 * match r.statusCode == 422
@@ -739,7 +739,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-009 — Rechazar alias ''
 **Técnica:** Particiones de equivalencia. **Justificación:** Frontera o clase inválida, restantes condiciones válidas.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-009.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-009.html)
 ```gherkin
 * def r = add(b.cell, "", a.token)
 * match r.statusCode == 422
@@ -751,7 +751,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-010 — Rechazar alias '   '
 **Técnica:** Particiones de equivalencia. **Justificación:** Frontera o clase inválida, restantes condiciones válidas.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-010.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-010.html)
 ```gherkin
 * def r = add(b.cell, "   ", a.token)
 * match r.statusCode == 422
@@ -763,7 +763,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-011 — Rechazar alias 'Ana@'
 **Técnica:** Particiones de equivalencia. **Justificación:** Frontera o clase inválida, restantes condiciones válidas.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-011.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-011.html)
 ```gherkin
 * def r = add(b.cell, "Ana@", a.token)
 * match r.statusCode == 422
@@ -775,7 +775,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-012 — Rechazar celular: CONTACTO_PROPIO
 **Técnica:** Particiones de equivalencia. **Justificación:** Representante de una condición distinta de negocio.
 **Regla:** R-G4-01. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-012.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-012.html)
 ```gherkin
 * def r = add(a.cell, 'Ana', a.token)
 * match r.statusCode == 422
@@ -787,7 +787,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-013 — Rechazar celular: CELULAR_INVALIDO
 **Técnica:** Particiones de equivalencia. **Justificación:** Representante de una condición distinta de negocio.
 **Regla:** R-G4-01. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-013.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-013.html)
 ```gherkin
 * def r = add('123', 'Ana', a.token)
 * match r.statusCode == 422
@@ -799,7 +799,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-014 — Rechazar celular: CELULAR_NO_REGISTRADO
 **Técnica:** Particiones de equivalencia. **Justificación:** Representante de una condición distinta de negocio.
 **Regla:** R-G4-01. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-014.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-014.html)
 ```gherkin
 * def r = add('934567812', 'Ana', a.token)
 * match r.statusCode == 404
@@ -811,7 +811,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-015 — Celular válido sin registro
 **Técnica:** Particiones de equivalencia. **Justificación:** Cerrar una cuenta propia de contexto no reutiliza datos ajenos.
 **Regla:** R-G4-01. **Resultado:** FALLÓ.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-015.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-015.html)
 ```gherkin
 * def r = req('/api/cuentas/me/cierre', 'POST', {pin:'4826'}, b.token, {})
 * match r.statusCode == 204
@@ -825,7 +825,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-016 — Contacto duplicado
 **Técnica:** Particiones de equivalencia. **Justificación:** Mismo celular con otro alias.
 **Regla:** R-G4-01. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-016.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-016.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -839,7 +839,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-017 — Alias duplicado tras normalizar 'ANA'
 **Técnica:** Particiones de equivalencia. **Justificación:** Unicidad se comprueba sin mayúsculas y tras recortar espacios.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-017.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-017.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -853,7 +853,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-018 — Alias duplicado tras normalizar ' Ana '
 **Técnica:** Particiones de equivalencia. **Justificación:** Unicidad se comprueba sin mayúsculas y tras recortar espacios.
 **Regla:** R-G4-02. **Resultado:** FALLÓ.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-018.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-018.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -867,7 +867,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-019 — Permitir contacto 15 y rechazar contacto 16
 **Técnica:** Valores límite (2 puntos). **Justificación:** Contexto con 14; comprobar frontera y ausencia de efecto al superar 15.
 **Regla:** R-G4-03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-019.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-019.html)
 ```gherkin
 * def fill = function(n){ for(var i=0;i<n;i++){ var u=create('Contacto ' + i); var x=add(u.cell,'Contacto ' + i,a.token); if(x.statusCode!=201) karate.fail('Contexto capacidad: '+JSON.stringify(x.result)); } }
 * eval fill(14)
@@ -885,7 +885,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-106 — Celular válido aún no registrado
 **Técnica:** Particiones de equivalencia. **Justificación:** Crear valor nuevo sin registrar; separado de cuenta cerrada.
 **Regla:** R-G4-01. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-106.html)
+[Escenario](../API/features/hu-g4-01.feature) · [Evidencia](../evidencias/G4-106.html)
 ```gherkin
 * def unknown = '9' + random()
 * def r = add(unknown, 'Ana', a.token)
@@ -905,7 +905,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-020 — Buscar ignorando mayúsculas y tildes
 **Técnica:** Particiones de equivalencia. **Justificación:** José debe coincidir con JOSE; se verifica máscara, teléfono y favorito.
 **Regla:** HU-G4-02 CA2/3. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-020.html)
+[Escenario](../API/features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-020.html)
 ```gherkin
 * def r = add(b.cell, 'José', a.token)
 * def r = req('/api/contactos', 'GET', null, a.token, {buscar:'JOSE'})
@@ -920,7 +920,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-021 — Ordenar favoritos antes del resto
 **Técnica:** Particiones de equivalencia. **Justificación:** Favorito con alias Z debe preceder a alias A no favorito.
 **Regla:** HU-G4-02 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-021.html)
+[Escenario](../API/features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-021.html)
 ```gherkin
 * def z = add(b.cell, 'Zeta', a.token)
 * def r = add(c.cell, 'Alfa', a.token)
@@ -933,7 +933,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-022 — Paginación con 11 contactos
 **Técnica:** Valores límite (2 puntos). **Justificación:** 10/11 distingue primera y segunda página.
 **Regla:** HU-G4-02 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-022.html)
+[Escenario](../API/features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-022.html)
 ```gherkin
 * def fill = function(n){ for(var i=0;i<n;i++){ var u=create('Contacto ' + i); var x=add(u.cell,'Contacto ' + i,a.token); if(x.statusCode!=201) karate.fail('Contexto capacidad: '+JSON.stringify(x.result)); } }
 * eval fill(11)
@@ -950,7 +950,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-023 — Búsqueda sin coincidencias
 **Técnica:** Particiones de equivalencia. **Justificación:** Consulta válida sin coincidencias devuelve lista vacía.
 **Regla:** HU-G4-02 CA2. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-023.html)
+[Escenario](../API/features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-023.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -962,7 +962,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-107 — Orden alfabético dentro de cada grupo
 **Técnica:** Particiones de equivalencia. **Justificación:** Cuatro alias comprueban ambos grupos y prioridad de favoritos.
 **Regla:** HU-G4-02 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-107.html)
+[Escenario](../API/features/hu-g4-02.feature) · [Evidencia](../evidencias/G4-107.html)
 ```gherkin
 * def u = create('Cuarto Usuario')
 * def z = add(b.cell, 'Zeta', a.token)
@@ -984,7 +984,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-024 — Editar alias sin compararlo consigo mismo
 **Técnica:** Particiones de equivalencia. **Justificación:** Mantener el mismo alias no debe ser duplicado; celular se conserva.
 **Regla:** R-G4-02. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-024.html)
+[Escenario](../API/features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-024.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -997,7 +997,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-025 — Marcar y desmarcar favorito
 **Técnica:** Transición de estados. **Justificación:** Ambas acciones conservan alias y celular.
 **Regla:** R-G4-03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-025.html)
+[Escenario](../API/features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-025.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1013,7 +1013,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-026 — Quinto favorito permitido; sexto rechazado
 **Técnica:** Valores límite (2 puntos). **Justificación:** Verificar 5/6 y que el sexto conserve estado no favorito.
 **Regla:** R-G4-03. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-026.html)
+[Escenario](../API/features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-026.html)
 ```gherkin
 * def ids = []
 * def populate = function(){for(var i=0;i<6;i++){var u=create('Favorito '+i); var x=add(u.cell,'Favorito '+i,a.token); karate.appendTo(ids,x.result.id);}}
@@ -1030,7 +1030,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-027 — Rechazar edición de contacto ajeno
 **Técnica:** Particiones de equivalencia. **Justificación:** Un tercero no puede editar un recurso ajeno.
 **Regla:** Propiedad de datos. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-027.html)
+[Escenario](../API/features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-027.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1042,7 +1042,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-108 — Editar solo alias conserva favorito
 **Técnica:** Comprobación de efectos. **Justificación:** No basta verificar el campo cambiado.
 **Regla:** HU-G4-03 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-108.html)
+[Escenario](../API/features/hu-g4-03.feature) · [Evidencia](../evidencias/G4-108.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1063,7 +1063,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-028 — Eliminar contacto conserva transferencia
 **Técnica:** Comprobación de efectos. **Justificación:** Transferir, eliminar y consultar movimiento por código.
 **Regla:** RN-11. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-028.html)
+[Escenario](../API/features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-028.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1081,7 +1081,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-029 — Solicitud pendiente enviada impide eliminar
 **Técnica:** Tabla de decisiones. **Justificación:** Contacto propio y solicitud pendiente vigente.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-029.html)
+[Escenario](../API/features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-029.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1097,7 +1097,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-030 — Solicitud pendiente recibida impide eliminar
 **Técnica:** Tabla de decisiones. **Justificación:** Comprobar dirección recibida, no solo enviada.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-030.html)
+[Escenario](../API/features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-030.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1112,7 +1112,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-031 — Solicitud vencida permite eliminar
 **Técnica:** Transición de estados. **Justificación:** Vencida no bloquea eliminación.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-031.html)
+[Escenario](../API/features/hu-g4-04.feature) · [Evidencia](../evidencias/G4-031.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1134,7 +1134,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-032 — Transferir por contacto acredita ambos saldos
 **Técnica:** Comprobación de efectos. **Justificación:** Cuenta origen 100, destino 0; transferencia 10 y SMS.
 **Regla:** HU-N-07. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-05.feature) · [Evidencia](../evidencias/G4-032.html)
+[Escenario](../API/features/hu-g4-05.feature) · [Evidencia](../evidencias/G4-032.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1152,7 +1152,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-033 — Saldo insuficiente no produce transferencia
 **Técnica:** Particiones de equivalencia. **Justificación:** Saldo cero y monto válido; no confundir con monto inválido.
 **Regla:** RN-08. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-05.feature) · [Evidencia](../evidencias/G4-033.html)
+[Escenario](../API/features/hu-g4-05.feature) · [Evidencia](../evidencias/G4-033.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1166,7 +1166,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-095 — Límite diario agotado impide operación
 **Técnica:** Tabla de decisiones. **Justificación:** Saldo suficiente pero límite agotado: aislar rechazo diario.
 **Regla:** RN-06. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-05.feature) · [Evidencia](../evidencias/G4-095.html)
+[Escenario](../API/features/hu-g4-05.feature) · [Evidencia](../evidencias/G4-095.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1202,7 +1202,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-034 — Crear solicitud pendiente con vigencia 48 h y SMS
 **Técnica:** Comprobación de efectos. **Justificación:** El monto pedido no debita saldo antes de aceptar.
 **Regla:** R-G4-04/05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-034.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-034.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1219,7 +1219,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-035 — Monto solicitado 0.00
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras monetarias y clase con demasiados decimales.
 **Regla:** RN-05 / R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-035.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-035.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1231,7 +1231,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-036 — Monto solicitado 0.01
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras monetarias y clase con demasiados decimales.
 **Regla:** RN-05 / R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-036.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-036.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1242,7 +1242,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-037 — Monto solicitado 500.00
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras monetarias y clase con demasiados decimales.
 **Regla:** RN-05 / R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-037.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-037.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1253,7 +1253,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-038 — Monto solicitado 500.01
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras monetarias y clase con demasiados decimales.
 **Regla:** RN-05 / R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-038.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-038.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1265,7 +1265,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-039 — Monto solicitado 10.005
 **Técnica:** Particiones de equivalencia. **Justificación:** Fronteras monetarias y clase con demasiados decimales.
 **Regla:** RN-05 / R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-039.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-039.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1277,7 +1277,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-040 — Motivo de 2 caracteres
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras 3/60 con monto y contacto válidos.
 **Regla:** R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-040.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-040.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1289,7 +1289,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-041 — Motivo de 3 caracteres
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras 3/60 con monto y contacto válidos.
 **Regla:** R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-041.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-041.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1300,7 +1300,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-042 — Motivo de 60 caracteres
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras 3/60 con monto y contacto válidos.
 **Regla:** R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-042.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-042.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1311,7 +1311,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-043 — Motivo de 61 caracteres
 **Técnica:** Valores límite (2 puntos). **Justificación:** Fronteras 3/60 con monto y contacto válidos.
 **Regla:** R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-043.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-043.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1323,7 +1323,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-044 — Décima pendiente permitida y undécima rechazada
 **Técnica:** Valores límite (2 puntos). **Justificación:** Límite independiente del número de contactos.
 **Regla:** R-G4-04. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-044.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-044.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1339,7 +1339,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-109 — Contacto de otro usuario no permite solicitar
 **Técnica:** Particiones de equivalencia. **Justificación:** Un id válido ajeno debe ser tratado como inexistente.
 **Regla:** Propiedad de datos. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-109.html)
+[Escenario](../API/features/hu-g4-06.feature) · [Evidencia](../evidencias/G4-109.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1357,7 +1357,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-045 — Separar solicitudes enviadas y recibidas y filtrar
 **Técnica:** Particiones de equivalencia. **Justificación:** Mismo recurso aparece según rol; filtro sin coincidencias.
 **Regla:** HU-G4-07 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-045.html)
+[Escenario](../API/features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-045.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1376,7 +1376,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-046 — Estado al transcurrir 2879 minutos
 **Técnica:** Valores límite (3 puntos). **Justificación:** Antes, exactamente y después de 48 h; renovar token porque expira a los 30 min.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-046.html)
+[Escenario](../API/features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-046.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1391,7 +1391,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-047 — Estado al transcurrir 2880 minutos
 **Técnica:** Valores límite (3 puntos). **Justificación:** Antes, exactamente y después de 48 h; renovar token porque expira a los 30 min.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-047.html)
+[Escenario](../API/features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-047.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1406,7 +1406,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-048 — Estado al transcurrir 2881 minutos
 **Técnica:** Valores límite (3 puntos). **Justificación:** Antes, exactamente y después de 48 h; renovar token porque expira a los 30 min.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-048.html)
+[Escenario](../API/features/hu-g4-07.feature) · [Evidencia](../evidencias/G4-048.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1429,7 +1429,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-049 — Aceptar genera transferencia, código y SMS
 **Técnica:** Transición de estados. **Justificación:** Destinatario vigente con saldo; vincular operación y solicitud.
 **Regla:** HU-N-07 / R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-049.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-049.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1452,7 +1452,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-050 — Saldo insuficiente conserva PENDIENTE
 **Técnica:** Transición de estados. **Justificación:** Error financiero no resuelve solicitud.
 **Regla:** RN-08 / R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-050.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-050.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1470,7 +1470,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-051 — Tercero no puede aceptar
 **Técnica:** Tabla de decisiones. **Justificación:** Token válido con rol ajeno devuelve 404.
 **Regla:** Propiedad de datos. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-051.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-051.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1484,7 +1484,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-052 — Aceptar a los 2879 minutos
 **Técnica:** Valores límite (3 puntos). **Justificación:** Vigencia se decide en la acción, no solo al listar.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-052.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-052.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1501,7 +1501,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-053 — Aceptar a los 2880 minutos
 **Técnica:** Valores límite (3 puntos). **Justificación:** Vigencia se decide en la acción, no solo al listar.
 **Regla:** R-G4-05. **Resultado:** FALLÓ.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-053.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-053.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1519,7 +1519,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-054 — Aceptar a los 2881 minutos
 **Técnica:** Valores límite (3 puntos). **Justificación:** Vigencia se decide en la acción, no solo al listar.
 **Regla:** R-G4-05. **Resultado:** FALLÓ.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-054.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-054.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1537,7 +1537,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-055 — No aceptar dos veces
 **Técnica:** Transición de estados. **Justificación:** La segunda aceptación no duplica dinero.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-055.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-055.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1557,7 +1557,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-096 — Límite diario agotado impide operación
 **Técnica:** Tabla de decisiones. **Justificación:** Saldo suficiente pero límite agotado: aislar rechazo diario.
 **Regla:** RN-06. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-096.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-096.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1592,7 +1592,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-097 — No aceptar desde ACEPTADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-097.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-097.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1610,7 +1610,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-100 — No aceptar desde RECHAZADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-100.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-100.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1628,7 +1628,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-103 — No aceptar desde CANCELADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-103.html)
+[Escenario](../API/features/hu-g4-08.feature) · [Evidencia](../evidencias/G4-103.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1651,7 +1651,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-056 — Rechazar solicitud pendiente
 **Técnica:** Transición de estados. **Justificación:** Acción del rol correcto cambia el estado sin mover dinero.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-056.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-056.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1667,7 +1667,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-057 — Rechazar acción de tercero
 **Técnica:** Tabla de decisiones. **Justificación:** Un usuario ajeno no puede resolver solicitudes.
 **Regla:** Propiedad de datos. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-057.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-057.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1681,7 +1681,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-058 — No resolver solicitud vencida
 **Técnica:** Transición de estados. **Justificación:** A las 48 h la acción debe ser rechazada.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-058.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-058.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1698,7 +1698,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-059 — No repetir resolución
 **Técnica:** Transición de estados. **Justificación:** Estado terminal no admite otra resolución.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-059.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-059.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1714,7 +1714,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-064 — Motivo opcional y aviso al solicitante
 **Técnica:** Particiones de equivalencia. **Justificación:** Omitir motivo debe estar permitido; SMS verificable.
 **Regla:** HU-G4-09 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-064.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-064.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1730,7 +1730,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-065 — Motivo de rechazo longitud 60
 **Técnica:** Valores límite (2 puntos). **Justificación:** Extremo permitido y vecino inválido.
 **Regla:** HU-G4-09 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-065.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-065.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1743,7 +1743,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-066 — Motivo de rechazo longitud 61
 **Técnica:** Valores límite (2 puntos). **Justificación:** Extremo permitido y vecino inválido.
 **Regla:** HU-G4-09 CA1. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-066.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-066.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1757,7 +1757,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-098 — No rechazar desde ACEPTADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-098.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-098.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1775,7 +1775,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-101 — No rechazar desde RECHAZADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-101.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-101.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1793,7 +1793,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-104 — No rechazar desde CANCELADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-104.html)
+[Escenario](../API/features/hu-g4-09.feature) · [Evidencia](../evidencias/G4-104.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1816,7 +1816,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-060 — Cancelar solicitud pendiente
 **Técnica:** Transición de estados. **Justificación:** Acción del rol correcto cambia el estado sin mover dinero.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-060.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-060.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1832,7 +1832,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-061 — Rechazar acción de tercero
 **Técnica:** Tabla de decisiones. **Justificación:** Un usuario ajeno no puede resolver solicitudes.
 **Regla:** Propiedad de datos. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-061.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-061.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1846,7 +1846,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-062 — No resolver solicitud vencida
 **Técnica:** Transición de estados. **Justificación:** A las 48 h la acción debe ser rechazada.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-062.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-062.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1863,7 +1863,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-063 — No repetir resolución
 **Técnica:** Transición de estados. **Justificación:** Estado terminal no admite otra resolución.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-063.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-063.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1879,7 +1879,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-099 — No cancelar desde ACEPTADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-099.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-099.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1897,7 +1897,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-102 — No cancelar desde RECHAZADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-102.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-102.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201
@@ -1915,7 +1915,7 @@ Para cada caso mantenemos las demás entradas válidas. Los valores límite de d
 ### G4-105 — No cancelar desde CANCELADA
 **Técnica:** Transición de estados. **Justificación:** Cubrir transición inválida desde estado terminal con rol correcto.
 **Regla:** R-G4-05. **Resultado:** APROBADO.
-[Escenario](../features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-105.html)
+[Escenario](../API/features/hu-g4-10.feature) · [Evidencia](../evidencias/G4-105.html)
 ```gherkin
 * def contact = add(b.cell, 'Ana', a.token)
 * match contact.statusCode == 201

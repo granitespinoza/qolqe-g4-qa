@@ -1,6 +1,6 @@
 # Defectos conocidos — Escenario A
 
-Aplicación del criterio docente solicitada por el equipo en esta conversación. Admisión limitada a ejecución académica aislada; no es aprobación individual de la docente ni aceptación para producción.
+Política del equipo para una ejecución académica aislada. La admisión de fallos conocidos se limita a ese entorno y no constituye aceptación para producción.
 
 Escenario A académico: aceptar solo firmas exactas documentadas en datos ficticios aislados. No certifica aptitud productiva. Flakiness, preparación, omisiones y causas nuevas bloquean.
 

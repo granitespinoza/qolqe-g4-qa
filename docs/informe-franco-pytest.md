@@ -18,7 +18,7 @@
 
 ## Evidencia trazable
 - [Ejecución y consola completa](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/39017257865).
-- [Artefacto `evidencias-pytest-franco`](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/39017257865/artifacts/12095133305): `pytest-franco.xml` y `pytest-franco.txt`. **GitHub conserva el artefacto por siete días**; descargarlo para la sustentación.
+- [Artefacto `evidencias-pytest-franco`](https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/39017257865/artifacts/12095133305): `pytest-franco.xml` y `pytest-franco.txt`. La retención configurada fue de siete días; su disponibilidad actual debe comprobarse.
 - [Matriz de diseño](diseno-pruebas-franco.md).
 - [Guía de ejecución y alcance](../tests/pytest_franco/README.md).
 
@@ -27,14 +27,7 @@
 - Se comprobaron caminos positivos y negativos en registro y login, bloqueo por intentos, autorización, saldo, perfil, edición y acceso básico a contactos.
 - **No se encontraron nuevos defectos en estos escenarios** durante esta ejecución. Los cinco defectos de Granit pertenecen a otros escenarios y se conservan por separado.
 - La comparación de porcentajes de aprobados de pytest frente a Karate **no es justa** sin ejecutar casos equivalentes; Karate contiene muchos escenarios negativos adicionales diseñados para hallar defectos.
-- La ejecución CI prueba compatibilidad en el entorno remoto. **Falta ensayar en el equipo físico de exposición** para garantizar instalación, terminales, acceso a reportes y tiempos.
-
-## Pendientes antes de entrega final
-1. Granit revisa y fusiona el PR #1 si acepta el aporte.
-2. Ensayo local con `python -m pytest tests/pytest_franco -v --tb=short` y Qolqe encendido.
-3. Confirmar con el docente si basta una HU del núcleo vinculada a G4 o es obligatoria una HU propia de G4.
-4. Completar en la ficha oficial `IA.md` lo usado/revisado/descartado por cada integrante.
-5. Alinear formato del informe final con la plantilla docente y completar los casos que resten si el alcance solicitado es mayor.
+- La ejecución documentada corresponde al entorno remoto indicado; no acredita otros equipos.
 
 ## Conclusión
 El aporte implementa un segundo enfoque de automatización HTTP complementario a Karate, con casos trazables y reproducibles. La corrida verificada demuestra que los 16 escenarios implementados funcionaron en ese entorno. Su principal limitación es el **alcance**, no el éxito técnico: no pretende sustituir la batería funcional ni técnica completa de G4.

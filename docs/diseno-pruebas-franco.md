@@ -43,12 +43,5 @@ Los escenarios crean usuarios nuevos con identificadores sintéticos. Hay un son
 - **Evidencias:** workflow `.github/workflows/pytest-franco.yml`, artefacto `evidencias-pytest-franco` con `reports/pytest-franco.xml` y `reports/pytest-franco.txt` (conservación temporal).
 - **Pendientes de cobertura:** correo, SMS, DNI/celular inmutables, cuenta cerrada, vencimiento de token, desbloqueo tras 15 min, reglas de G4 diferentes del acceso a contactos.
 
-## Para la primera presentación
-1. Explicar la selección de pytest + httpx comparada con Karate.
-2. Contextualizar la autenticación/usuario como núcleo que protege G4.
-3. Exponer **HU-N-02 (Login)**; justificar equivalencia de credenciales y transiciones tras 3 intentos.
-4. Mostrar `test_login_correcto_devuelve_token_y_sesion` y `test_login_bloqueo_tercer_intento`.
-5. Ejecutar toda la suite `python -m pytest tests/pytest_franco -v --tb=short`, enseñar el XML/log de ejecución y contrastar con las pruebas equivalentes de Karate. Si se requiere exponer una HU propia de G4, ampliar específicamente el alcance antes de afirmar cumplimiento.
-
 ## Uso de IA
-Desarrollo asistido por ChatGPT (estructura inicial, automatización, README y matriz); revisar con los integrantes, contrastar con ejecuciones y completar el `IA.md` de la entrega final con lo realmente aceptado/modificado.
+Desarrollo asistido por ChatGPT en estructura inicial, automatización, README y matriz. La asistencia de IA no constituye evidencia de ejecución ni de cobertura.

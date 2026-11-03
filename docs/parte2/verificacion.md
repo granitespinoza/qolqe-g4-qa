@@ -69,4 +69,4 @@ Los reportes completos están en `reports/raw/` y no se suben a Git. El resumen 
 
 La API **no está en verde**: quedan defectos del SUT y señales de contrato documentadas. La instalación limpia no los corrige. No hay nueva validación Linux/GitHub de esta rama. Las ejecuciones locales tienen cambios sin commit registrados en el manifiesto.
 
-El siguiente trabajo aprobado por separado será el paso 3 (ampliar Cypress); después, tres ejecuciones de estabilidad web, pipeline integrado, trazabilidad a resultados y exposición. No se adelantaron esos pasos ni se modificó Qolqe para forzar un aprobado.
+Las fases posteriores se documentan en el [pipeline vigente](pipeline.md) y la [verificación web](verificacion-web.md).

@@ -25,3 +25,13 @@ cypress.env.json
 
 reports/gate/
 results/
+
+# Material personal y archivos del sistema
+**/[Gg]uion*
+guia-exposicion-*.pdf
+guia-repaso-*.pdf
+presentacion/*-con-matriz.pptx
+.DS_Store
+
+# Datos del portal anterior, sustituido por apidoc/parte2/
+apidoc/data.js

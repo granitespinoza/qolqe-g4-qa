@@ -1,5 +1,7 @@
 # Trazabilidad de la entrega — Parte 2
 
+> Evidencia histórica: los reportes crudos no se versionan. Las rutas identifican sus archivos originales; para abrirlos se necesita el artefacto correspondiente o una nueva ejecución. Ver [ejecución](../ejecucion.md).
+
 18 CA de HU-G4-01 a HU-G4-10. Núcleo solo como dependencia de estos flujos. API histórica de núcleo se conserva.
 
 Ejecución de GitHub: **pendiente; evidencia local**.
@@ -31,11 +33,11 @@ La evidencia local combina fechas distintas y no representa un pipeline remoto. 
 
 ## Reportes y procedencia
 
-- karate: `20261030T164709Z-3f163e`, salida `1`. [Reporte](../../reports/raw/karate/20261030T164709Z-3f163e/karate-summary.html). Run remoto: no existe para esta ejecución local.
-- schemathesis: `20261030T165256Z-01f388`, salida `1`. [Reporte](../../reports/raw/schemathesis/20261030T165256Z-01f388/schemathesis-detallado.html). Run remoto: no existe para esta ejecución local.
-- Cypress 1: `2026-10-30T16:45:13.079Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. [Reporte](../../reports/cypress/2026-10-30T16-45-13-067Z-regression/html/index.html). Run remoto: local.
-- Cypress 2: `2026-10-30T16:48:55.122Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. [Reporte](../../reports/cypress/2026-10-30T16-48-55-110Z-regression/html/index.html). Run remoto: local.
-- Cypress 3: `2026-10-30T16:53:17.754Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. [Reporte](../../reports/cypress/2026-10-30T16-53-17-738Z-regression/html/index.html). Run remoto: local.
+- karate: `20261030T164709Z-3f163e`, salida `1`. Reporte no incluido en esta copia · `reports/raw/karate/20261030T164709Z-3f163e/karate-summary.html`. Run remoto: no existe para esta ejecución local.
+- schemathesis: `20261030T165256Z-01f388`, salida `1`. Reporte no incluido en esta copia · `reports/raw/schemathesis/20261030T165256Z-01f388/schemathesis-detallado.html`. Run remoto: no existe para esta ejecución local.
+- Cypress 1: `2026-10-30T16:45:13.079Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. Reporte no incluido en esta copia · `reports/cypress/2026-10-30T16-45-13-067Z-regression/html/index.html`. Run remoto: local.
+- Cypress 2: `2026-10-30T16:48:55.122Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. Reporte no incluido en esta copia · `reports/cypress/2026-10-30T16-48-55-110Z-regression/html/index.html`. Run remoto: local.
+- Cypress 3: `2026-10-30T16:53:17.754Z`, `{'total': 54, 'passed': 45, 'failed': 9, 'pending': 0, 'skipped': 0}`. Reporte no incluido en esta copia · `reports/cypress/2026-10-30T16-53-17-738Z-regression/html/index.html`. Run remoto: local.
 
 Los resultados API de un escenario parametrizado conservan sus variantes en el JSON. Un caso solo figura passed cuando todas sus variantes ejecutadas pasan. La tabla por criterio se limita a 18 CA G4. La matriz exigida también incluye todos los casos API del núcleo compartido y sus variantes ejecutadas.
 

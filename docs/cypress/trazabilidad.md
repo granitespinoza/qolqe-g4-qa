@@ -1,3 +1,5 @@
+> Antecedente de la demo inicial. Para el alcance vigente, consultar [trazabilidad integrada](../parte2/trazabilidad.md) y [verificación web](../parte2/verificacion-web.md).
+
 # Alcance y trazabilidad de Cypress
 
 > Parte 2: [matriz G4 actual y backlog web](../parte2/alcance-y-matriz.md). Esta página conserva el alcance anterior. [Implementación y resultados actuales de pasos 3–4](../parte2/verificacion-web.md); presencia de pruebas no implica aprobación.

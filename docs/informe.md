@@ -1,4 +1,6 @@
 # Informe — Parte 1 · G4 Contactos
+
+> Antecedente de API. Para el alcance vigente de API y Web, consultar el [índice técnico](README.md) y la [arquitectura](arquitectura.md).
 Granit Espinoza y Franco · CS5383
 
 ## 1. Alcance y decisiones
@@ -6,7 +8,7 @@ Granit Espinoza y Franco · CS5383
 Referencia: https://github.com/cjudihtroj/qolqe-wallet · commit `8c7d2f0c939ede7765b7b80b98c10c3905693fda`.
 Karate verifica negocio, estados y efectos; Schemathesis explora el contrato. [Decisiones y alternativas](decisiones.md).
 Nivel: pruebas HTTP contra la aplicación FastAPI real con SQLite, sin mocks. No representa integración con bancos reales.
-[Usabilidad complementaria](usabilidad.md): plan de inspección heurística para la entrega web; no se declara evaluación de interfaz realizada.
+La evaluación heurística de usabilidad no forma parte de la evidencia ejecutada de esta entrega.
 
 ## 2. Pruebas de API
 [Diseño detallado por HU](diseno-pruebas.md). [Contrato original](../data/openapi-original.json).
@@ -21,8 +23,7 @@ El número de escenarios aprobados no mide cobertura de criterios ni ausencia de
 [Schemathesis y límites de la ejecución](revision-contrato.md).
 
 ## 3. Pruebas web y CI/CD
-Workflow preparado en `.github/workflows/api.yml`, con jobs separados para Karate y contrato. Conserva los reportes aunque una prueba falle. El pipeline debe informar fallos reales.
-E2E web pendiente de Parte 2.
+Este informe corresponde a la etapa inicial de API. El [pipeline vigente](parte2/pipeline.md) integra API, Web y Reportería. La [verificación web documentada](parte2/verificacion-web.md) registra la etapa posterior.
 
 ## 4. Rendimiento
 Pendiente de Parte 3; no se realizó prueba de carga contra servicios públicos.

@@ -1,5 +1,7 @@
 # Pasos 3 y 4 — cobertura y verificación web
 
+> Evidencia histórica: los reportes crudos no se versionan. Las rutas identifican sus archivos originales; para abrirlos se necesita el artefacto correspondiente o una nueva ejecución. Ver [ejecución](../ejecucion.md).
+
 Resultado local, generado desde tres ejecuciones reales. No acredita un pipeline de GitHub ni una entrega completa.
 
 Implementados: **54 tests**, **36 grupos de variantes**, **18 CA G4**.
@@ -10,9 +12,9 @@ Tres corridas sin fallos crudos: **NO**. Quality Gate: **A**, aprobado: **True**
 
 | Corrida | Aprobados | Fallidos | Omitidos/pendientes | Reporte local |
 |---|---:|---:|---:|---|
-| 1 | 45 | 9 | 0 | [HTML](../../reports/cypress/2026-10-30T16-45-13-067Z-regression/html/index.html) |
-| 2 | 45 | 9 | 0 | [HTML](../../reports/cypress/2026-10-30T16-48-55-110Z-regression/html/index.html) |
-| 3 | 45 | 9 | 0 | [HTML](../../reports/cypress/2026-10-30T16-53-17-738Z-regression/html/index.html) |
+| 1 | 45 | 9 | 0 | HTML no incluido en esta copia · `reports/cypress/2026-10-30T16-45-13-067Z-regression/html/index.html` |
+| 2 | 45 | 9 | 0 | HTML no incluido en esta copia · `reports/cypress/2026-10-30T16-48-55-110Z-regression/html/index.html` |
+| 3 | 45 | 9 | 0 | HTML no incluido en esta copia · `reports/cypress/2026-10-30T16-53-17-738Z-regression/html/index.html` |
 
 Huella común: `05d3d87a0498357dc839a020515f07935a9148937750cce7478ee02818c81a96`.
 
@@ -20,7 +22,7 @@ SUT: `8c7d2f0c939ede7765b7b80b98c10c3905693fda`. Base de datos independiente por
 
 Las fuentes aún pueden estar sin commit; el manifiesto registra `worktreeDirty` y hashes SHA-256 por archivo. Esta evidencia no debe atribuirse únicamente al commit HEAD.
 
-[Manifiesto detallado local](../../reports/cypress/stability-2026-10-30T16-45-12-153Z/stability.json) · [Resumen versionable](../../data/parte2-web-verificacion.json). Los reportes y vídeos están ignorados por Git; compartirlos requiere adjuntarlos o publicarlos en el paso de CI.
+Manifiesto detallado local no incluido en esta copia · `reports/cypress/stability-2026-10-30T16-45-12-153Z/stability.json` · [Resumen versionable](../../data/parte2-web-verificacion.json). Los reportes y vídeos están ignorados por Git; compartirlos requiere adjuntarlos o publicarlos en el paso de CI.
 
 ## Criterios
 

@@ -54,7 +54,7 @@ Schemathesis 4.17.0; fases examples, coverage y fuzzing. Stateful desactivado. S
 | Celular con dígitos Unicode genera 422 | Posible diferencia entre regex del contrato y validación del código | Revisar la semántica de digit y definir con requisitos si se admiten solamente dígitos ASCII |
 | GET solicitudes?estado=null devuelve 422 | Diferencia entre null del esquema y texto literal «null» en query | Reproducir omitiendo estado; no asumir que la cadena null equivale a ausencia |
 
-## Límites que debemos explicar
+## Límites de la exploración
 6 operaciones devolvieron repetidamente 404 por falta de identificadores propios. Por ello esta ejecución NO acredita toda la lógica de esos endpoints.
 5 operaciones generaron mayormente errores de validación. No se afirma cobertura técnica completa.
 Los reportes originales están en reports/raw/schemathesis y el workflow los conserva. Los tokens están ocultos en la versión compartida.

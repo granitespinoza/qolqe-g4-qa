@@ -6,7 +6,7 @@ Aplicación original: `8c7d2f0c939ede7765b7b80b98c10c3905693fda`. No se modific�
 **Clasificación:** Defecto revisado; reproducido en esta ejecución. **Requisito:** HU-G4-01, R-G4-01/02/03.
 **Descripción:** La regla R-G4-02 admite ñ. El alta con Niño devuelve ALIAS_INVALIDO en lugar de crear el contacto.
 **Reproducción automatizada:** ejecutar Karate con etiqueta `@G4-004`. El escenario prepara sus propios usuarios.
-**Esperado y pasos:** [feature](../features/hu-g4-01.feature).
+**Esperado y pasos:** [feature](../API/features/hu-g4-01.feature).
 **Obtenido:** [registro HTTP real](../evidencias/G4-004.html).
 ```text
 match failed: EQUALS
@@ -21,7 +21,7 @@ features/hu-g4-01.feature:55
 **Clasificación:** Defecto revisado; reproducido en esta ejecución. **Requisito:** HU-G4-01, R-G4-02.
 **Descripción:** Después de guardar Ana, crear otro contacto con « Ana » debe ser ALIAS_DUPLICADO. Se observa creación de un segundo alias Ana.
 **Reproducción automatizada:** ejecutar Karate con etiqueta `@G4-018`. El escenario prepara sus propios usuarios.
-**Esperado y pasos:** [feature](../features/hu-g4-01.feature).
+**Esperado y pasos:** [feature](../API/features/hu-g4-01.feature).
 **Obtenido:** [registro HTTP real](../evidencias/G4-018.html).
 ```text
 match failed: EQUALS
@@ -36,7 +36,7 @@ features/hu-g4-01.feature:192
 **Clasificación:** Defecto revisado; reproducido en esta ejecución. **Requisito:** HU-G4-08, R-G4-05.
 **Descripción:** A las 48 horas se espera ESTADO_INVALIDO, 409, sin transferencia. La aceptación realiza la transferencia.
 **Reproducción automatizada:** ejecutar Karate con etiqueta `@G4-053`. El escenario prepara sus propios usuarios.
-**Esperado y pasos:** [feature](../features/hu-g4-08.feature).
+**Esperado y pasos:** [feature](../API/features/hu-g4-08.feature).
 **Obtenido:** [registro HTTP real](../evidencias/G4-053.html).
 ```text
 match failed: EQUALS
@@ -51,7 +51,7 @@ features/hu-g4-08.feature:93
 **Clasificación:** Defecto revisado; reproducido en esta ejecución. **Requisito:** HU-N-03, HU-N-03.
 **Descripción:** HU-N-03 exige revocación inmediata. Tras logout, la consulta de saldo con el mismo token sigue respondiendo 200.
 **Reproducción automatizada:** ejecutar Karate con etiqueta `@G4-074`. El escenario prepara sus propios usuarios.
-**Esperado y pasos:** [feature](../features/hu-n-03.feature).
+**Esperado y pasos:** [feature](../API/features/hu-n-03.feature).
 **Obtenido:** [registro HTTP real](../evidencias/G4-074.html).
 ```text
 match failed: EQUALS
@@ -66,7 +66,7 @@ features/hu-n-03.feature:28
 **Clasificación:** Defecto revisado; reproducido en esta ejecución. **Requisito:** HU-N-07, RN-06/08.
 **Descripción:** Se incumple saldo no negativo o límite diario bajo dos transferencias simultáneas de S/ 400. La observación original y sus saldos se conservan en reports/concurrencia.json; la reproducción actual adjunta sus propios resultados.
 **Reproducción automatizada:** ejecutar Karate con etiqueta `@G4-116`. El escenario prepara sus propios usuarios.
-**Esperado y pasos:** [feature](../features/hu-n-07.feature).
+**Esperado y pasos:** [feature](../API/features/hu-n-07.feature).
 **Obtenido:** [registro HTTP real](../evidencias/G4-116.html).
 ```text
 match failed: EQUALS

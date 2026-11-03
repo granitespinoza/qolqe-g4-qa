@@ -83,7 +83,6 @@ def build():
     extra=json.loads((ROOT/'reports/complementarios.json').read_text(encoding='utf-8'))
     schema_run=json.loads((ROOT/'reports/schemathesis-actual.json').read_text(encoding='utf-8')) if (ROOT/'reports/schemathesis-actual.json').exists() else None
     data=dict(commit=commit,timestamp=stamp,report_dir=manifest['report_dir'],cases=cases,results=results,stats=stats,findings=findings,operations=operations,openapi=schema,supplementary=extra,schemathesis=schema_run)
-    write('apidoc/data.js','window.QA_DATA = '+json.dumps(data,ensure_ascii=False)+';\n')
     write('reports/resultados.json',json.dumps(dict(timestamp=stamp,commit=commit,stats=stats,results=results,findings=findings),ensure_ascii=False,indent=2))
     # Cada CA permanece visible, incluidos los que solo tienen cobertura parcial.
     hu_blocks=re.findall(r'### (HU-(?:G4|N)-\d+) · ([^\n]+)\n(.*?)(?=\n### |\n---|\Z)',source,re.S)
@@ -99,15 +98,18 @@ def build():
     for hu,title,body in hu_blocks:
         lines+=['',f'## {hu} — {title}','',body.strip(),'']
         for c in [c for c in cases if c['hu']==hu]:
-            lines += [f'### {c["id"]} — {c["title"]}',f'**Técnica:** {c["technique"]}. **Justificación:** {c["why"]}',f'**Regla:** {c["rule"]}. **Resultado:** {results.get(c["id"],{}).get("status","PENDIENTE")}.',f'[Escenario](../features/{hu.lower()}.feature) · [Evidencia](../evidencias/{c["id"]}.html)','```gherkin']+['* '+s for s in c['steps']]+['```','']
+            lines += [f'### {c["id"]} — {c["title"]}',f'**Técnica:** {c["technique"]}. **Justificación:** {c["why"]}',f'**Regla:** {c["rule"]}. **Resultado:** {results.get(c["id"],{}).get("status","PENDIENTE")}.',f'[Escenario](../API/features/{hu.lower()}.feature) · [Evidencia](../evidencias/{c["id"]}.html)','```gherkin']+['* '+s for s in c['steps']]+['```','']
     write('docs/diseno-pruebas.md','\n'.join(lines))
     lines=['# Defectos reproducidos','',f'Aplicación original: `{commit}`. No se modificó su código.','']
     for f in findings:
         c=next(c for c in cases if c['id']==f['case'])
-        lines += [f'## {f["id"]} — {f["title"]}',f'**Clasificación:** {f["classification"]}. **Requisito:** {c["hu"]}, {c["rule"]}.',f'**Descripción:** {f["description"]}',f'**Reproducción automatizada:** ejecutar Karate con etiqueta `@{c["id"]}`. El escenario prepara sus propios usuarios.',f'**Esperado y pasos:** [feature](../features/{c["hu"].lower()}.feature).',f'**Obtenido:** [registro HTTP real](../evidencias/{c["id"]}.html).','```text',results[c['id']]['error'],'```','']
+        lines += [f'## {f["id"]} — {f["title"]}',f'**Clasificación:** {f["classification"]}. **Requisito:** {c["hu"]}, {c["rule"]}.',f'**Descripción:** {f["description"]}',f'**Reproducción automatizada:** ejecutar Karate con etiqueta `@{c["id"]}`. El escenario prepara sus propios usuarios.',f'**Esperado y pasos:** [feature](../API/features/{c["hu"].lower()}.feature).',f'**Obtenido:** [registro HTTP real](../evidencias/{c["id"]}.html).','```text',results[c['id']]['error'],'```','']
     lines+=['## Clasificación pendiente','Los demás fallos se investigan por separado: no se atribuyen automáticamente a la aplicación. La implementación puede confirmar una hipótesis de causa, pero no reemplaza la reproducción HTTP.']
     write('docs/defectos.md','\n'.join(lines))
     write('docs/informe.md',f'''# Informe — Parte 1 · G4 Contactos
+
+> Antecedente de API. Consultar el [índice técnico](README.md) para el alcance vigente.
+
 Granit Espinoza y Franco · CS5383
 
 ## 1. Alcance y decisiones
@@ -115,7 +117,7 @@ Granit Espinoza y Franco · CS5383
 Referencia: https://github.com/cjudihtroj/qolqe-wallet · commit `{commit}`.
 Karate verifica negocio, estados y efectos; Schemathesis explora el contrato. [Decisiones y alternativas](decisiones.md).
 Nivel: pruebas HTTP contra la aplicación FastAPI real con SQLite, sin mocks. No representa integración con bancos reales.
-[Usabilidad complementaria](usabilidad.md): plan de inspección heurística para la entrega web; no se declara evaluación de interfaz realizada.
+La evaluación heurística de usabilidad no forma parte de la evidencia ejecutada de esta entrega.
 
 ## 2. Pruebas de API
 [Diseño detallado por HU](diseno-pruebas.md). [Contrato original](../data/openapi-original.json).
@@ -130,8 +132,7 @@ El número de escenarios aprobados no mide cobertura de criterios ni ausencia de
 [Schemathesis y límites de la ejecución](revision-contrato.md).
 
 ## 3. Pruebas web y CI/CD
-Workflow preparado en `.github/workflows/pruebas.yml`, con jobs separados para Karate y contrato. Conserva los reportes aunque una prueba falle. El pipeline debe informar fallos reales.
-E2E web pendiente de Parte 2.
+Este informe corresponde a la etapa inicial de API. El [pipeline vigente](parte2/pipeline.md) integra API, Web y Reportería. Consultar la [verificación web](parte2/verificacion-web.md).
 
 ## 4. Rendimiento
 Pendiente de Parte 3; no se realizó prueba de carga contra servicios públicos.
