@@ -4,6 +4,8 @@ Entradas vigentes: [arquitectura](arquitectura.md), [ejecución](ejecucion.md) y
 
 ## Alcance y diseño
 
+- [Informe integrado API y Web](informe.md).
+
 - [Alcance integrado API/Web](parte2/alcance-y-matriz.md).
 - [Trazabilidad de la entrega](parte2/trazabilidad.md).
 - [Diseño de pruebas API](diseno-pruebas.md) y [diseño de Franco](diseno-pruebas-franco.md).
@@ -13,7 +15,7 @@ Entradas vigentes: [arquitectura](arquitectura.md), [ejecución](ejecucion.md) y
 
 ## Ejecución y diagnóstico
 
-- [Pipeline vigente](parte2/pipeline.md) y [Quality Gate](parte2/quality-gate.md).
+- [Pipeline vigente](parte2/pipeline.md), [Quality Gate](parte2/quality-gate.md) y [resultado remoto histórico](parte2/resultado-gate.md).
 - [Defectos y riesgos integrados](parte2/defectos-conocidos.md).
 - [Verificación web documentada](parte2/verificacion-web.md).
 - [Revisión de contrato y señales de Schemathesis](revision-contrato.md).
@@ -24,7 +26,7 @@ Entradas vigentes: [arquitectura](arquitectura.md), [ejecución](ejecucion.md) y
 
 Estos documentos conservan análisis de etapas anteriores. Sus cifras y comandos no sustituyen la guía vigente ni acreditan una nueva ejecución.
 
-- [Informe inicial API](informe.md), [defectos iniciales](defectos.md) y [resultados complementarios](resultados-complementarios.md).
+- [Defectos iniciales](defectos.md) y [resultados complementarios](resultados-complementarios.md).
 - [Informe de pytest de Franco](informe-franco-pytest.md).
 - [Verificación de implementación API](parte2/verificacion.md) y [diagnóstico API](parte2/diagnostico-api.md).
 - [Diagnóstico web](parte2/diagnostico-web.md).

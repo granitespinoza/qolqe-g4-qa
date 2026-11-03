@@ -1,28 +1,28 @@
 {
   "scope": "18 CA de HU-G4-01 a HU-G4-10. Núcleo solo como dependencia de estos flujos. API histórica de núcleo se conserva.",
-  "pipeline_url": null,
+  "pipeline_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
   "missing": [],
   "api_runs": {
     "karate": {
-      "run_id": "20261030T164709Z-3f163e",
-      "started_at": "2026-10-30T16:47:09.710240+00:00",
-      "finished_at": "2026-10-30T16:52:40.960772+00:00",
+      "run_id": "20261031T010027Z-f3320e",
+      "started_at": "2026-10-31T01:00:27.926316+00:00",
+      "finished_at": "2026-10-31T01:01:42.675897+00:00",
       "exit_code": 1,
-      "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
-      "qa_worktree_dirty": true,
-      "github_run_url": null,
-      "report_dir": "reports/raw/karate/20261030T164709Z-3f163e",
+      "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
+      "qa_worktree_dirty": false,
+      "github_run_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
+      "report_dir": "reports/raw/karate/20261031T010027Z-f3320e",
       "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda"
     },
     "schemathesis": {
-      "run_id": "20261030T165256Z-01f388",
-      "started_at": "2026-10-30T16:52:56.037132+00:00",
-      "finished_at": "2026-10-30T16:53:47.853181+00:00",
+      "run_id": "20261031T010147Z-b7b92f",
+      "started_at": "2026-10-31T01:01:47.211863+00:00",
+      "finished_at": "2026-10-31T01:02:06.746522+00:00",
       "exit_code": 1,
-      "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+      "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
       "qa_worktree_dirty": true,
-      "github_run_url": null,
-      "report_dir": "reports/raw/schemathesis/20261030T165256Z-01f388",
+      "github_run_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
+      "report_dir": "reports/raw/schemathesis/20261031T010147Z-b7b92f",
       "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda"
     }
   },
@@ -32,9 +32,9 @@
   },
   "web_runs": [
     {
-      "runDir": "reports/cypress/2026-10-30T16-45-13-067Z-regression",
-      "started": "2026-10-30T16:45:13.079Z",
-      "ended": "2026-10-30T16:48:54.278Z",
+      "runDir": "reports/cypress/2026-10-31T01-02-38-322Z-regression",
+      "started": "2026-10-31T01:02:38.325Z",
+      "ended": "2026-10-31T01:04:23.269Z",
       "code": 9,
       "counts": {
         "total": 54,
@@ -45,14 +45,14 @@
       },
       "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
       "browser": "chrome",
-      "revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
-      "worktreeDirty": true,
-      "pipelineUrl": null
+      "revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
+      "worktreeDirty": false,
+      "pipelineUrl": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167"
     },
     {
-      "runDir": "reports/cypress/2026-10-30T16-48-55-110Z-regression",
-      "started": "2026-10-30T16:48:55.122Z",
-      "ended": "2026-10-30T16:53:16.713Z",
+      "runDir": "reports/cypress/2026-10-31T01-04-23-356Z-regression",
+      "started": "2026-10-31T01:04:23.358Z",
+      "ended": "2026-10-31T01:05:57.777Z",
       "code": 9,
       "counts": {
         "total": 54,
@@ -63,14 +63,14 @@
       },
       "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
       "browser": "chrome",
-      "revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
-      "worktreeDirty": true,
-      "pipelineUrl": null
+      "revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
+      "worktreeDirty": false,
+      "pipelineUrl": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167"
     },
     {
-      "runDir": "reports/cypress/2026-10-30T16-53-17-738Z-regression",
-      "started": "2026-10-30T16:53:17.754Z",
-      "ended": "2026-10-30T16:57:50.216Z",
+      "runDir": "reports/cypress/2026-10-31T01-05-57-860Z-regression",
+      "started": "2026-10-31T01:05:57.863Z",
+      "ended": "2026-10-31T01:07:31.970Z",
       "code": 9,
       "counts": {
         "total": 54,
@@ -81,9 +81,9 @@
       },
       "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
       "browser": "chrome",
-      "revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
-      "worktreeDirty": true,
-      "pipelineUrl": null
+      "revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
+      "worktreeDirty": false,
+      "pipelineUrl": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167"
     }
   ],
   "web_verdict": {
@@ -96,9 +96,9 @@
   },
   "contract": {
     "tool": "schemathesis",
-    "run_id": "20261030T165256Z-01f388",
-    "report_dir": "reports/raw/schemathesis/20261030T165256Z-01f388",
-    "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+    "run_id": "20261031T010147Z-b7b92f",
+    "report_dir": "reports/raw/schemathesis/20261031T010147Z-b7b92f",
+    "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
     "qa_worktree_dirty": true,
     "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
     "exit_code": 1,
@@ -7020,7 +7020,7 @@
   "gate": {
     "approved": true,
     "scenario": "A",
-    "pipeline_url": null,
+    "pipeline_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
     "blockers": [],
     "tools": [
       {
@@ -7940,12 +7940,12 @@
             "defect": null
           }
         ],
-        "run_id": "20261030T164709Z-3f163e",
+        "run_id": "20261031T010027Z-f3320e",
         "raw_exit_code": 1,
-        "report_dir": "reports/raw/karate/20261030T164709Z-3f163e",
-        "pipeline_url": null,
-        "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
-        "policy_sha256": "00220b634109c008eea4a0e456a5cc245152337ab8c1636ad47a8b6025e24294",
+        "report_dir": "reports/raw/karate/20261031T010027Z-f3320e",
+        "pipeline_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
+        "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
+        "policy_sha256": "4e2df31379360fbbb1c7d1f0ea94308f3b733f7f53ce432a9650c67c9b7a4a96",
         "tool": "karate"
       },
       {
@@ -8000,62 +8000,62 @@
             "defect": "K-C04"
           },
           {
-            "case": "69ab56d62d21a70da1a35c70f96698bf0250f098a2770e028377549fd68ae4c6",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "44c476eb747a8e45a6edee7f2502febea0fad83625d50afd6685f6749d36800b",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "598e7569cc7be5d4a0c82eaf605161f28a5c6747acde30fc8157c0c525c776bc",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "cc1133a7330f67acbe0bf08326bf881a6fd4d8dc1187f5b4b5e701d98f297814",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "997e81750c683f6d2d67a8a69ee932a2b9c75381d90a2330e667b79e4024ab9e",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "c9ff4b1a007441bec0534db26e8419b0b62aecaf79014b37d30f2bb7512efef8",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "52d201e92fed721abeae33eb80f322ef44a3d453c73f981677d1e92a7435f0d1",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "7755defbce2248b75f981a13d542cfa935afc95282ca02c2c614210265397788",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "fbeeb2e43d6edc0a77521cd4235b82a62f0e6de35b72191e07931e13ce43b7db",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "3394cc55fcba781a9b159783e30152cdedbf3c97cbf9b3cb6f48012be8b6b054",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "f6fa29e99335f92340a2d05f9c4bd575fae9e250d5e5c8307fea879565b6b775",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
           {
-            "case": "8eede13aa61728151b896e7b5eaa6cda24e2c5057b4866f48e3c670234f86496",
+            "case": "96fa7d96e69a6e00b76b0b9ba98da5ad12ac4af9681d78745c9b978f24dcac46",
             "status": "known_issue",
             "defect": "K-C03"
           },
@@ -8096,14 +8096,14 @@
           }
         ],
         "raw_exit_code": 1,
-        "report_dir": "reports/raw/schemathesis/20261030T165256Z-01f388",
-        "pipeline_url": null,
-        "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+        "report_dir": "reports/raw/schemathesis/20261031T010147Z-b7b92f",
+        "pipeline_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
+        "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
         "summary": {
           "tool": "schemathesis",
-          "run_id": "20261030T165256Z-01f388",
-          "report_dir": "reports/raw/schemathesis/20261030T165256Z-01f388",
-          "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
+          "run_id": "20261031T010147Z-b7b92f",
+          "report_dir": "reports/raw/schemathesis/20261031T010147Z-b7b92f",
+          "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
           "qa_worktree_dirty": true,
           "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
           "exit_code": 1,
@@ -8137,7 +8137,7 @@
           "context_successful_controls": 9,
           "policy": "Señales de contrato; no equivalen a defectos únicos confirmados. No se suprimen checks."
         },
-        "policy_sha256": "00220b634109c008eea4a0e456a5cc245152337ab8c1636ad47a8b6025e24294",
+        "policy_sha256": "4e2df31379360fbbb1c7d1f0ea94308f3b733f7f53ce432a9650c67c9b7a4a96",
         "tool": "schemathesis"
       },
       {
@@ -8450,10 +8450,10 @@
           9,
           9
         ],
-        "report_dir": "reports/cypress/stability-2026-10-30T16-45-12-153Z",
-        "pipeline_url": null,
-        "qa_revision": "7e076b4e3b5c050172580a19b1cd18b5c90b7048",
-        "policy_sha256": "00220b634109c008eea4a0e456a5cc245152337ab8c1636ad47a8b6025e24294",
+        "report_dir": "reports/cypress/stability-2026-10-31T01-02-38-164Z",
+        "pipeline_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/41152595167",
+        "qa_revision": "8ee107e2563367ca3045aaf7bb802bfbc23ab54d",
+        "policy_sha256": "4e2df31379360fbbb1c7d1f0ea94308f3b733f7f53ce432a9650c67c9b7a4a96",
         "tool": "web"
       }
     ]
