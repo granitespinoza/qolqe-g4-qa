@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qolqe G4 · Verificación trazable</title>
+  <link rel="stylesheet" href="./portal.css">
+  <script defer src="./vendor/gsap.min.js"></script>
+  <script defer src="./portal.js"></script>
+</head>
+<body>
+<a class="skip" href="#presentacion">Ir al recorrido</a>
+<div class="shell" id="portal">
+  <header class="masthead">
+    <a class="brand" href="#alcance"><span class="mark" aria-hidden="true">Q</span><span>Qolqe <small>G4 / LABORATORIO QA</small></span></a>
+    <div class="toolbar">
+      <button type="button" data-open="matrix">Matriz de casos</button>
+      <button type="button" data-open="reports">Reportes</button>
+      <button type="button" id="fullscreen" hidden>Pantalla completa</button>
+    </div>
+  </header>
+  <noscript><p class="notice">Activa JavaScript para navegar. Consulta la <a href="../../data/trazabilidad-parte2.csv">matriz CSV</a> para revisar los casos.</p></noscript>
+  <nav class="route" aria-label="Estaciones del recorrido">
+    <a href="#alcance" aria-current="step"><b>01</b> Alcance</a>
+    <a href="#arquitectura"><b>02</b> Arquitectura</a>
+    <a href="#caso"><b>03</b> Caso</a>
+    <a href="#pipeline"><b>04</b> Pipeline</a>
+    <a href="#resultados"><b>05</b> Resultados</a>
+    <a href="#impacto"><b>06</b> Impacto</a>
+  </nav>
+  <main id="presentacion">
+    <section class="stage" id="alcance" aria-labelledby="title-alcance">
+      <div class="intro">
+        <div>
+          <p class="eyebrow">01 / ALCANCE</p>
+          <h1 id="title-alcance" tabindex="-1">De la prueba<br> a la evidencia.</h1>
+          <p class="lead">Un kit para repetir verificaciones de Qolqe, comparar lo esperado con lo observado y localizar la evidencia de un fallo.</p>
+          <a class="primary" href="#arquitectura">Explorar la arquitectura <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="scope-card">
+          <p class="eyebrow">MÓDULO ASIGNADO</p>
+          <h2>Contactos y solicitudes</h2>
+          <p>Alta de contactos, transferencias desde contactos y solicitudes de dinero.</p>
+          <div class="scope-metrics"><div><strong>{{criterion_count}}</strong><span>criterios G4 en matriz</span></div><div><strong>3</strong><span>herramientas complementarias</span></div></div>
+          <p class="muted">El núcleo común se documenta como dependencia de estos flujos. Esta vista no afirma cobertura total.</p>
+        </div>
+      </div>
+    </section>
+    <section class="stage" id="arquitectura" aria-labelledby="title-arquitectura" hidden>
+      <p class="eyebrow">02 / ARQUITECTURA</p>
+      <h1 id="title-arquitectura" tabindex="-1">Tres herramientas. Una evidencia.</h1>
+      <p class="lead">Selecciona una capa para ver qué recibe, qué verifica y qué aporta.</p>
+      <div class="tools">
+        <button type="button" class="tool contract" data-tool="contract" aria-pressed="true"><small>01 / CONTRATO</small><strong>Schemathesis</strong><span>Exploración desde OpenAPI</span></button>
+        <button type="button" class="tool api" data-tool="api" aria-pressed="false"><small>02 / API</small><strong>Karate</strong><span>Reglas y casos explícitos</span></button>
+        <button type="button" class="tool web" data-tool="web" aria-pressed="false"><small>03 / INTERFAZ</small><strong>Cypress</strong><span>Recorridos en navegador</span></button>
+      </div>
+      <div class="flow" id="tool-flow" aria-live="polite">
+        <div><small>Entrada</small><strong id="tool-input">Esquema OpenAPI</strong></div><span aria-hidden="true">→</span>
+        <div><small>Verificación</small><strong id="tool-check">Peticiones generadas y comprobaciones</strong></div><span aria-hidden="true">→</span>
+        <div><small>Evidencia</small><strong id="tool-output">Petición, respuesta y señal de contrato</strong></div>
+      </div>
+      <p class="muted" id="tool-note">Una señal generada necesita revisión antes de clasificarla como defecto.</p>
+      <p class="muted">Las tres suites ejecutan por separado. La reportería reúne sus resultados.</p>
+    </section>
+    <section class="stage" id="caso" aria-labelledby="title-caso" hidden>
+      <p class="eyebrow">03 / TRAZABILIDAD · D-01</p>
+      <h1 id="title-caso" tabindex="-1">¿Qué pasó con el alias «Niño»?</h1>
+      <p class="lead">Un hallazgo documentado de G4 conecta el criterio, el caso y la respuesta observada.</p>
+      <ol class="steps" aria-label="Pasos del caso">
+        <li><button type="button" data-case="0" aria-pressed="true">1. Criterio</button></li>
+        <li><button type="button" data-case="1" aria-pressed="false">2. Petición</button></li>
+        <li><button type="button" data-case="2" aria-pressed="false">3. Respuesta</button></li>
+      </ol>
+      <div id="case-trail" aria-live="polite">
+        <div class="case-panel"><span class="label">HU-G4-01 · CA1</span><h2>Alta de contacto con alias válido</h2><p>El requisito admite la letra ñ en un alias. La prueba usa «Niño» para comprobar esa regla.</p></div>
+        <div class="case-panel" hidden><span class="label">TC-G4-004 · KARATE</span><h2>Enviar el alias en el alta</h2><p><code>POST /api/contactos</code> con alias <code>Niño</code> y los demás datos válidos del caso.</p></div>
+        <div class="case-panel" hidden><span class="label">HALLAZGO DOCUMENTADO</span><div class="comparison"><div><small>Esperado</small><strong>201</strong><span>Contacto creado</span></div><div><small>Observado</small><strong>422</strong><span>Alias rechazado</span></div></div><p class="muted">Estado en la matriz de esta vista: {{case_state}}.</p></div>
+      </div>
+      <div class="actions"><button type="button" data-open="matrix" data-query="G4-004">Ver TC-G4-004 en la matriz</button><a href="../../evidencias/G4-004.html">Abrir evidencia redactada</a></div>
+    </section>
+    <section class="stage" id="pipeline" aria-labelledby="title-pipeline" hidden>
+      <p class="eyebrow">04 / INTEGRACIÓN CONTINUA</p>
+      <h1 id="title-pipeline" tabindex="-1">De un cambio al reporte.</h1>
+      <p class="lead">GitHub Actions organiza la ejecución y publica los artefactos de la misma corrida.</p>
+      <ol class="pipeline">
+        <li><span>01</span><strong>API</strong><p>Karate y Schemathesis</p></li>
+        <li><span>02</span><strong>Web</strong><p>Tres corridas Cypress</p></li>
+        <li><span>03</span><strong>Reportería</strong><p>Matriz, evidencia y decisión</p></li>
+      </ol>
+      <div class="notice">{{provenance}}. Este flujo publica evidencia de pruebas.</div>
+      <div class="actions"><button type="button" data-open="reports">Consultar reportes</button><a href="../../docs/parte2/pipeline.md">Detalle del pipeline</a></div>
+    </section>
+    <section class="stage" id="resultados" aria-labelledby="title-resultados" hidden>
+      <p class="eyebrow">05 / RESULTADOS WEB</p>
+      <h1 id="title-resultados" tabindex="-1">Compara las corridas.</h1>
+      <p class="lead">Cada barra abre el detalle de una ejecución. Los fallos conservan su estado.</p>
+      <div class="run-list">{{runs}}</div>
+      <p class="muted">{{gate_note}} La decisión del gate y los resultados de prueba son datos distintos.</p>
+    </section>
+    <section class="stage" id="impacto" aria-labelledby="title-impacto" hidden>
+      <p class="eyebrow">06 / IMPACTO</p>
+      <h1 id="title-impacto" tabindex="-1">Qué trabajo podemos reducir.</h1>
+      <p class="lead">La automatización estandariza la preparación, la ejecución y la búsqueda de evidencia. Su ahorro todavía no se ha medido.</p>
+      <div class="impact-grid">
+        <div><small>01</small><h2>Preparar</h2><p>Acciones manuales y tiempo hasta disponer del entorno.</p></div>
+        <div><small>02</small><h2>Ejecutar</h2><p>Intervención humana y duración de la corrida, por separado.</p></div>
+        <div><small>03</small><h2>Investigar</h2><p>Tiempo hasta encontrar el caso, la petición y la respuesta.</p></div>
+      </div>
+      <p class="muted">Para estimar el costo se necesita una línea base comparable y el esfuerzo de mantenimiento.</p>
+    </section>
+  </main>
+  <footer class="controls">
+    <span id="position" aria-live="polite">01 / 06</span>
+    <span class="key-hint">← → Navegar</span>
+    <div><button type="button" id="previous" disabled>← Anterior</button><button type="button" id="next" class="primary">Siguiente →</button></div>
+  </footer>
+  <dialog id="matrix" aria-labelledby="matrix-title">
+    <div class="dialog-head"><h2 id="matrix-title">Matriz de casos</h2><form method="dialog"><button type="submit" aria-label="Cerrar matriz">Cerrar ×</button></form></div>
+    <div class="dialog-body">
+      <div class="filters"><label>Buscar HU o caso <input id="search" placeholder="Ej. G4-004" autofocus></label><label>Estado <select id="state"><option value="">Todos</option><option value="FALLA">Fallos</option><option value="PASA">Aprobados</option><option value="FLAKY">Inestables</option><option value="SIN EJECUCIÓN">Sin ejecución</option></select></label></div>
+      <div class="scroll" tabindex="0" aria-label="Tabla de trazabilidad">
+        <table><thead><tr><th scope="col">HU</th><th scope="col">TC</th><th scope="col">Escenario</th><th scope="col">Capa</th><th scope="col">Tags</th><th scope="col">Estado</th><th scope="col">Defecto</th></tr></thead><tbody>{{rows}}</tbody></table>
+      </div>
+      <div class="paging"><span id="match-count" aria-live="polite"></span><button type="button" id="matrix-previous">Anterior</button><button type="button" id="matrix-next">Siguiente</button></div>
+      <a href="../../data/trazabilidad-parte2.csv">Descargar matriz CSV</a>
+    </div>
+  </dialog>
+  <dialog id="reports" aria-labelledby="reports-title">
+    <div class="dialog-head"><h2 id="reports-title">Reportes y procedencia</h2><form method="dialog"><button type="submit" aria-label="Cerrar reportes" autofocus>Cerrar ×</button></form></div>
+    <div class="dialog-body"><p>{{provenance}}.</p><ul class="report-list">{{report_links}}</ul><p><a href="../../data/trazabilidad-parte2.json">Datos y procedencia (JSON)</a> · <a href="https://github.com/granitespinoza/qolqe-g4-qa/actions">GitHub Actions</a></p></div>
+  </dialog>
+  <dialog id="run-detail" aria-labelledby="run-title">
+    <div class="dialog-head"><h2 id="run-title">Detalle de ejecución</h2><form method="dialog"><button type="submit" aria-label="Cerrar detalle de ejecución" autofocus>Cerrar ×</button></form></div>
+    <div class="dialog-body" id="run-content"></div>
+  </dialog>
+  {{run_templates}}
+</div>
+</body>
+</html>

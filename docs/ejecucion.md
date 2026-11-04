@@ -62,7 +62,7 @@ En otra terminal:
 .venv/Scripts/python.exe -m http.server 8765 --bind 127.0.0.1
 ```
 
-Abrir [portal local](http://localhost:8765/apidoc/parte2/). El servidor sirve archivos, no inicia pruebas desde el navegador. Los reportes enlazados deben existir en la copia o en el artefacto extraído.
+Abrir [portal local](http://localhost:8765/apidoc/parte2/). Usar las seis estaciones, el teclado y los paneles de evidencia. La navegación y las animaciones funcionan con recursos locales. El servidor sirve archivos, no inicia pruebas desde el navegador. Los reportes enlazados deben existir en la copia o en el artefacto extraído.
 
 | Evidencia | Ubicación |
 |---|---|
@@ -74,6 +74,8 @@ Abrir [portal local](http://localhost:8765/apidoc/parte2/). El servidor sirve ar
 | Matriz generada | `data/trazabilidad-parte2.csv` |
 
 El gate puede admitir fallos conocidos bajo su política; no significa que todos los tests aprobaron. Si falta evidencia actual, el generador o evaluador puede bloquear la entrega. Consultar [política](parte2/quality-gate.md) y [defectos](parte2/defectos-conocidos.md).
+
+Para actualizar solo la vista del repositorio con la matriz histórica versionada, ejecutar `python scripts/build_delivery.py --snapshot`. La generación de evidencia nueva usa la secuencia completa anterior.
 
 ## Problemas de preparación
 

@@ -151,6 +151,7 @@ jobs:
             results/
             API/features/
             Web/cypress/
+            evidencias/G4-004.html
             presentacion/Entrega2-Qolqe-Cypress.pptx
           retention-days: 7
           compression-level: 9

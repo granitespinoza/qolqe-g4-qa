@@ -3,11 +3,11 @@ import argparse
 import csv
 import io
 from collections import Counter
-import html
 import json
 import os
 import re
 from pathlib import Path
+from delivery_portal import render
 from diagnose_api import parse_karate, diagnose_schemathesis
 from qa_provenance import validate
 
@@ -116,42 +116,16 @@ def build():
     return result,'\n'.join(lines)
 
 
-def render(data):
-    esc=lambda x:html.escape(str(x),quote=True)
-    slides=[('Entrega 2 · Qolqe G4','De HU y criterios a pruebas, ejecución y evidencia. Contactos, transferencias desde contactos y solicitudes. El alcance definido contiene 18 CA y 36 grupos de variantes.'),
-            ('Diseño y trazabilidad','HU-G4-01 CA1 relaciona particiones válidas e inválidas, límites del alias y duplicados con sus casos y resultados en la matriz.'),
-            ('Arquitectura y patrón','Cypress + TypeScript → Page Objects → UI real → FastAPI → SQLite. LoginPage, ContactosPage, SolicitudesPage y TransferenciasPage encapsulan acciones; los tests mantienen las aserciones de negocio.'),
-            ('Automatización en vivo','El modo smoke verifica alta de contacto, respuesta POST 201 y persistencia tras recargar. La regresión documentada contiene 54 tests; el recorrido breve cubre un único caso.'),
-            ('Pipeline real','GitHub Actions ejecuta las pruebas y publica sus artefactos. La evidencia remota se identifica por commit, run e intento; el estado de esta entrega permanece pendiente de verificación.'),
-            ('Reportes y resultados','Los identificadores relacionan casos, matriz y reportes. Cypress ejecuta tres corridas sin reintentos; el resumen distingue PASS, FAIL y omitidos. Publicar evidencia no equivale a aprobar pruebas.'),
-            ('Hallazgos y límites','La referencia conserva defectos de alias, vencimiento, historial y destino cerrado. Los FAIL siguen visibles y tienen un ID y riesgo documentados. La inestabilidad se verifica con tres corridas del mismo código; cualquier diferencia bloquea el gate.'),
-            ('Anexo / Referencias','Repositorio: github.com/granitespinoza/qolqe-g4-qa/tree/main. Matriz, reportes y política disponibles en esta entrega. Quality Gate Escenario A: fallos conocidos admitidos, ninguna causa nueva ni inestabilidad. El run del commit final está pendiente de verificación.')]
-    cards=''.join(f'<article class="slide" {"hidden" if i else ""}><p class="tag">{i+1:02} / 08 · PARTE 2</p><h1>{esc(t)}</h1><p>{esc(b)}</p></article>' for i,(t,b) in enumerate(slides))
-    rows=[]
-    for r in data['matrix']:
-        values=[r['hu'],r['tc'],r['scenario'],r['layer'],' '.join(r['tags']),r['state'],', '.join(r['defects']) or 'N/A']
-        cells=['<td>'+esc(v)+'</td>' for v in values]
-        cells[1]='<td><a href="../../'+esc(r['file'])+'">'+esc(r['tc'])+'</a></td>'
-        if r['defects']:cells[6]='<td><a href="../../docs/parte2/defectos-conocidos.md">'+esc(', '.join(r['defects']))+'</a></td>'
-        rows.append('<tr>'+''.join(cells)+'</tr>')
-    links=[]
-    for tool,m in data['api_runs'].items():
-        suffix='karate-summary.html' if tool=='karate' else 'schemathesis-detallado.html'
-        links.append(f'<li><a href="../../{esc(m["report_dir"])}/{suffix}">{esc(tool)} · {esc(m["run_id"])}</a> · salida {esc(m["exit_code"])}</li>')
-    for i,r in enumerate(data['web_runs'],1):links.append(f'<li><a href="../../{esc(r["runDir"])}/html/index.html">Cypress {i}</a>: {esc(r["counts"])}</li>')
-    remote=f'<a href="{esc(data["pipeline_url"])}">Run real de esta matriz</a>' if data['pipeline_url'] else 'Evidencia local: ejecución remota de esta versión pendiente de verificación.'
-    return '''<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Qolqe · Entrega 2</title><style>
-    *{box-sizing:border-box}body{margin:0;background:#eef3f4;color:#18383c;font:17px/1.6 system-ui}header,main{max-width:1200px;margin:auto;padding:24px}header{display:flex;gap:24px;flex-wrap:wrap}a{color:#086e68}button,input,select{font:inherit;padding:10px;border:1px solid #9abbb9;border-radius:8px;background:white;color:#18383c}button{cursor:pointer}article,section{background:white;padding:32px;border-radius:16px;margin:18px 0;border:1px solid #d5e2e1}.slide{min-height:330px;border-top:6px solid #087e77}h1{font-size:clamp(28px,4vw,46px);line-height:1.15;margin:16px 0}.slide p:not(.tag){font-size:22px;max-width:930px}.tag{letter-spacing:.12em;font-size:13px;color:#526e70}small{display:block;color:#526e70}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:14px;border-bottom:1px solid #d5e2e1;text-align:left;vertical-align:top}th{min-width:175px}td{min-width:290px}pre{overflow:auto;background:#102c31;color:#edfafa;padding:20px;border-radius:8px}.warning{border-left:5px solid #aa5721;padding:15px;background:#fff3df}[hidden]{display:none}nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}@media print{.slide[hidden]{display:block}nav,input,select{display:none}.scroll{overflow:visible}article{break-inside:avoid}table{font-size:10px}}</style>
-    <header><strong>QOLQE · ENTREGA 2</strong><a href="#presentacion">Presentación</a><a href="#matriz">Matriz</a><a href="#reportes">Reportes</a><a href="../../docs/arquitectura.md">Arquitectura del kit</a></header><main>
-    <div class="warning">''' +remote+''' Los fallos crudos permanecen visibles. Quality Gate: '''+esc(data.get('gate',{}).get('scenario','pendiente'))+''' · aprobado: '''+esc(data.get('gate',{}).get('approved',False))+'''. Escenario A se limita a la evaluación académica aislada.</div><section id="presentacion"><nav><button id="prev">← Anterior</button><span id="counter" aria-live="polite"></span><button id="next">Siguiente →</button><button id="full">Pantalla completa</button></nav>'''+cards+'''</section>
-    <section id="matriz"><h2>HU → CA → casos → resultados</h2><p>Matriz con las siete columnas requeridas. Un FAIL conocido continúa visible; la decisión del Quality Gate es independiente. Las peticiones aleatorias de Schemathesis se revisan en su reporte de contrato.</p><label>Buscar HU o caso <input id="search" placeholder="HU-G4-01 o E2E-G4-102"></label> <label>Estado <select id="state"><option value="">Todos</option><option value="FALLA">Fallos</option><option value="PASA">Pasa</option><option value="KNOWN ISSUE">Known issues</option><option value="FLAKY">Inestables</option></select></label><div class="scroll"><table><thead><tr><th>HU</th><th>TC</th><th>Escenario</th><th>Capa</th><th>Tags en código</th><th>Estado de prueba</th><th>Defecto asociado</th></tr></thead><tbody>'''+''.join(rows)+'''</tbody></table></div><p><a href="../../data/trazabilidad-parte2.json">JSON con variantes, fechas y procedencia</a></p></section>
-    <section id="reportes"><h2>Reportes de esta matriz</h2><ul>'''+''.join(links)+'''</ul><p><a href="https://github.com/granitespinoza/qolqe-g4-qa/actions">GitHub Actions</a> · <a href="../../docs/parte2/entrega.md">Lista de entrega</a></p><p>Los reportes locales deben existir en esta copia. Para compartir la evidencia, descargar y extraer el artefacto del pipeline; la página por sí sola no contiene todos los reportes.</p></section></main><script>
-    const slides=[...document.querySelectorAll('.slide')];let n=0;function show(i){n=(i+slides.length)%slides.length;slides.forEach((s,j)=>s.hidden=j!==n);document.querySelector('#counter').textContent=`${n+1} / ${slides.length}`};document.querySelector('#prev').onclick=()=>show(n-1);document.querySelector('#next').onclick=()=>show(n+1);document.querySelector('#full').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.querySelector('#presentacion').requestFullscreen();document.addEventListener('keydown',e=>{if(['INPUT','SELECT'].includes(e.target.tagName))return;if(e.key==='ArrowRight')show(n+1);if(e.key==='ArrowLeft')show(n-1)});function filter(){const q=document.querySelector('#search').value.toLowerCase(),s=document.querySelector('#state').value;document.querySelectorAll('tbody tr').forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(q)||(s&&!r.textContent.includes(s)))};document.querySelector('#search').oninput=filter;document.querySelector('#state').onchange=filter;show(0);
-    </script></html>'''
-
-
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser()
+    modes=p.add_mutually_exclusive_group()
+    modes.add_argument('--check',action='store_true')
+    modes.add_argument('--snapshot',action='store_true',help='Regenerar solo el portal desde la matriz histórica versionada')
+    a=p.parse_args()
+    if a.snapshot:
+        (ROOT/'apidoc/parte2/index.html').write_text(
+            render(load(ROOT/'data/trazabilidad-parte2.json'), snapshot=True), encoding='utf-8')
+        raise SystemExit(0)
     data,md=build()
     outputs={'data/trazabilidad-parte2.json':json.dumps(data,ensure_ascii=False,indent=2)+'\n','docs/parte2/trazabilidad.md':md,'apidoc/parte2/index.html':render(data)}
     csv_buffer=io.StringIO(newline='');writer=csv.writer(csv_buffer,lineterminator="\n")

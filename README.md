@@ -10,7 +10,7 @@ Kit de pruebas para reproducir verificaciones de contactos y solicitudes de dine
 |---|---|
 | Entender componentes y recorrido | [Arquitectura](docs/arquitectura.md) |
 | Preparar el entorno y ejecutar | [Guía de ejecución](docs/ejecucion.md) |
-| Revisar presentación, matriz y reportes | [Portal de la entrega](apidoc/parte2/index.html) |
+| Seguir el recorrido por clics y abrir matriz y reportes | [Portal de la entrega](apidoc/parte2/index.html) |
 | Ver alcance y trazabilidad | [Alcance](docs/parte2/alcance-y-matriz.md) · [Matriz](docs/parte2/trazabilidad.md) |
 | Ver pruebas y datos web | [API](API/README.md) · [Web](Web/README.md) · [Datos preparados](Web/cypress/support/fixtures.ts) |
 | Revisar automatización y criterios | [Pipeline](docs/parte2/pipeline.md) · [Política del gate](docs/parte2/quality-gate.md) |
