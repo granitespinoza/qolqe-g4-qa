@@ -1,0 +1,32 @@
+{
+  "profile": "estres",
+  "run_id": "20261113T014737Z-estres",
+  "qa_revision": "e5219bab072428fc46b7738ee9ecd08200aee36d",
+  "qa_dirty": true,
+  "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "server_pid": 7420,
+  "logical_cpus": 12,
+  "physical_cpus": 6,
+  "memory_gb": 8.21,
+  "k6_version": "k6.exe v2.4.0 (commit/dd9395906d, go1.26.11, windows/amd64)",
+  "target_vus": 600,
+  "server_workers": 1,
+  "source_hashes": {
+    "tests/performance/configuracion/modelo.json": "69fcca3035de7cc8772457fd328817e62fc81f4623c04ecb33e8c885ed27301a",
+    "tests/performance/escenarios/carga.js": "2ad9663c11b5f8571a1a19b40286312d81ba961695e202a6874dac72ee1ad1b8",
+    "tests/performance/scripts/crear_informe.py": "4a0b305e511d24b07ab14f647df729a43a35e67f84e023cfa677f28899b6ee78",
+    "tests/performance/scripts/crear_presentacion.py": "4eac404355dc712f079e79a69d1950c35f925816b946900090c3c839489ef42e",
+    "tests/performance/scripts/diagnostico_sql.py": "36bbf47f0332ee6c2015a518b89372a20335c03861d1443d9093faa852d6e0af",
+    "tests/performance/scripts/generar_reportes.py": "8749bc6f7f42d6e74e853b7140c28a92f7b74b1eb5129a7f44fb65f7b4124099",
+    "tests/performance/scripts/performance.py": "a63b935541240668c5145455504900e0490c73063a7188e01e926af48ac658fe",
+    "tests/performance/scripts/server.py": "872a9a7fb57dd6df8522497a1c95b6f869602b25bc59960af00d7923a0075162",
+    "tests/performance/scripts/test_performance.py": "498e406a991489f4b29241a491b82d12ede9b957676e0db893e379b99fbdd78b"
+  },
+  "k6_started_epoch": 1794534467.4884953,
+  "measurement_epoch": 1794534467.8378808,
+  "k6_exit_code": 99,
+  "k6_completed": true,
+  "finished_epoch": 1794535832.7038395
+}

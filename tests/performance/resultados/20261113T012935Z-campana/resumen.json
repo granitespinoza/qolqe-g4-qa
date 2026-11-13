@@ -1,0 +1,203 @@
+{
+  "profile": "campana",
+  "valid": true,
+  "approved": true,
+  "criteria": "campaña: integridad obligatoria; latencia/error comparados con referencia normal, sin SLA numérico de campaña",
+  "meta": {
+    "profile": "campana",
+    "run_id": "20261113T012935Z-campana",
+    "qa_revision": "e5219bab072428fc46b7738ee9ecd08200aee36d",
+    "qa_dirty": true,
+    "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "logical_cpus": 12,
+    "physical_cpus": 6,
+    "memory_gb": 8.21,
+    "k6_version": "k6.exe v2.4.0 (commit/dd9395906d, go1.26.11, windows/amd64)",
+    "target_vus": 300,
+    "server_workers": 1,
+    "source_hashes": {
+      "tests/performance/configuracion/modelo.json": "bf209a6474afac9910e7b5f31f6ac9535e1c476817f5198c19078a875c504ab8",
+      "tests/performance/escenarios/carga.js": "2ad9663c11b5f8571a1a19b40286312d81ba961695e202a6874dac72ee1ad1b8",
+      "tests/performance/scripts/crear_informe.py": "43ad776456e0f9cd21e8a0b9d9cfd4c5fbb44ead296cace90f4277b745cdba25",
+      "tests/performance/scripts/crear_presentacion.py": "506067c8b54b3106a4c78cbf7e8b70a022c6fcd36bddebfc82597ff19f2138ce",
+      "tests/performance/scripts/generar_reportes.py": "dd084087171c92bfc67372f1e4164894faf4d5bda01e54e88680a5272412be55",
+      "tests/performance/scripts/performance.py": "250b50158fd4c4120ae566075d07b05969b6b5f13fbdaee9e6b48ffa075d610e",
+      "tests/performance/scripts/server.py": "872a9a7fb57dd6df8522497a1c95b6f869602b25bc59960af00d7923a0075162",
+      "tests/performance/scripts/test_performance.py": "432be1680e04f6fa04caf57ebe2595a7b980d9676f235b3b6ff3d30847e03d1f"
+    },
+    "k6_started_epoch": 1794533387.4274044,
+    "measurement_epoch": 1794533388.1079767,
+    "k6_exit_code": 99,
+    "k6_completed": true,
+    "finished_epoch": 1794534454.375667
+  },
+  "windows": [
+    {
+      "operations": 9828,
+      "requests": 14470,
+      "login": 1617,
+      "ops_s": 16.38,
+      "all_ops_s": 16.38,
+      "req_s": 24.116666666666667,
+      "error_rate": 0.0,
+      "login_error_rate": 0.0,
+      "p95_consulta": 889.0,
+      "p95_dinero": 215.05000000000018,
+      "start_s": 300,
+      "end_s": 900,
+      "latency_ok": false,
+      "error_ok": true,
+      "by_operation": {
+        "contactos": {
+          "count": 942,
+          "p95": 85.85000000000014,
+          "error_rate": 0.0
+        },
+        "deudas": {
+          "count": 614,
+          "p95": 110.05000000000007,
+          "error_rate": 0.0
+        },
+        "login": {
+          "count": 1617,
+          "p95": 749.0,
+          "error_rate": 0.0
+        },
+        "movimientos": {
+          "count": 1407,
+          "p95": 1453.8000000000002,
+          "error_rate": 0.0
+        },
+        "otros": {
+          "count": 980,
+          "p95": 81.04999999999995,
+          "error_rate": 0.0
+        },
+        "pagos": {
+          "count": 410,
+          "p95": 123.10000000000002,
+          "error_rate": 0.0
+        },
+        "recargas": {
+          "count": 947,
+          "p95": 141.50000000000023,
+          "error_rate": 0.0
+        },
+        "saldo_perfil": {
+          "count": 3025,
+          "p95": 140.80000000000018,
+          "error_rate": 0.0
+        },
+        "transferencias": {
+          "count": 1503,
+          "p95": 234.70000000000027,
+          "error_rate": 0.0
+        }
+      },
+      "per_operation_ok": false
+    }
+  ],
+  "by_operation": {
+    "contactos": {
+      "count": 942,
+      "errors": 0,
+      "p50": 22.0,
+      "p95": 85.85000000000014,
+      "p99": 215.34000000000083,
+      "max": 1565,
+      "share": 9.584859584859586
+    },
+    "deudas": {
+      "count": 614,
+      "errors": 0,
+      "p50": 24.0,
+      "p95": 110.05000000000007,
+      "p99": 304.35,
+      "max": 1273,
+      "share": 6.247456247456248
+    },
+    "login": {
+      "count": 1617,
+      "errors": 0,
+      "p50": 600.0,
+      "p95": 749.0,
+      "p99": 935.8399999999999,
+      "max": 1851,
+      "share": null
+    },
+    "movimientos": {
+      "count": 1407,
+      "errors": 0,
+      "p50": 769.0,
+      "p95": 1453.8000000000002,
+      "p99": 2044.980000000001,
+      "max": 2615,
+      "share": 14.316239316239315
+    },
+    "otros": {
+      "count": 980,
+      "errors": 0,
+      "p50": 22.0,
+      "p95": 81.04999999999995,
+      "p99": 256.03000000000156,
+      "max": 1482,
+      "share": 9.971509971509972
+    },
+    "pagos": {
+      "count": 410,
+      "errors": 0,
+      "p50": 39.0,
+      "p95": 123.10000000000002,
+      "p99": 297.2900000000005,
+      "max": 642,
+      "share": 4.171754171754172
+    },
+    "recargas": {
+      "count": 947,
+      "errors": 0,
+      "p50": 42.0,
+      "p95": 141.50000000000023,
+      "p99": 530.4599999999982,
+      "max": 1723,
+      "share": 9.635734635734636
+    },
+    "saldo_perfil": {
+      "count": 3025,
+      "errors": 0,
+      "p50": 41.0,
+      "p95": 140.80000000000018,
+      "p99": 526.6800000000039,
+      "max": 2659,
+      "share": 30.779405779405778
+    },
+    "transferencias": {
+      "count": 1503,
+      "errors": 0,
+      "p50": 128.0,
+      "p95": 234.70000000000027,
+      "p99": 467.82000000000016,
+      "max": 1173,
+      "share": 15.293040293040294
+    }
+  },
+  "integrity": {
+    "approved": true,
+    "attempts": 3988,
+    "database_operations": 3988,
+    "confirmed_records": 3988,
+    "committed_after_http_error": 0,
+    "issues": []
+  },
+  "throughput_normal_ok": null,
+  "resources": {
+    "samples": 1036,
+    "app_cpu_host_max": 59.78333333333333,
+    "generator_cpu_host_max": 9.008333333333333,
+    "app_rss_mb_max": 113.09056
+  },
+  "errors": [],
+  "normal_reference_met": false,
+  "analysis_note": "Análisis regenerado desde diario y CSV de esta ejecución; procedencia conserva hashes del ejecutor medido."
+}

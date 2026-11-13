@@ -1,5 +1,8 @@
 # Qolqe G4 · Verificación de API y Web
 
+**Parte 3 — Rendimiento:** [Ejecución y modelo](tests/performance/README.md) · [Reportes](tests/performance/resultados/index.html) · [Presentación](apidoc/parte3/index.html) · [Informe](docs/parte3/Informe_Rendimiento_Qolqe.docx).
+
+
 Granit Espinoza y Franco · Pruebas y Verificación de Software.
 
 Kit de pruebas para reproducir verificaciones de contactos y solicitudes de dinero en Qolqe. Schemathesis explora el contrato OpenAPI, Karate comprueba escenarios explícitos y Cypress verifica recorridos desde la interfaz. Los ejecutores preparan instancias de prueba y conservan evidencia; el ahorro de tiempo todavía no está medido.

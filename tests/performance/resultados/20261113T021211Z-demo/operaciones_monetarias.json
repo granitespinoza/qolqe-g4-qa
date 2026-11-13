@@ -1,0 +1,132 @@
+[
+  {
+    "vu": 4,
+    "seq": 1,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221124410004"
+    ]
+  },
+  {
+    "vu": 1,
+    "seq": 1,
+    "op": "recargas",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "REC26111221124910001"
+    ]
+  },
+  {
+    "vu": 1,
+    "seq": 2,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221130010001"
+    ]
+  },
+  {
+    "vu": 4,
+    "seq": 3,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221132410004"
+    ]
+  },
+  {
+    "vu": 3,
+    "seq": 4,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221132610003"
+    ]
+  },
+  {
+    "vu": 5,
+    "seq": 4,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221134110005"
+    ]
+  },
+  {
+    "vu": 4,
+    "seq": 4,
+    "op": "pagos",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "PAG26111221134210004"
+    ]
+  },
+  {
+    "vu": 3,
+    "seq": 5,
+    "op": "recargas",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "REC26111221134310003"
+    ]
+  },
+  {
+    "vu": 1,
+    "seq": 5,
+    "op": "pagos",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "PAG26111221135310001"
+    ]
+  },
+  {
+    "vu": 3,
+    "seq": 6,
+    "op": "pagos",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "PAG26111221135710003"
+    ]
+  },
+  {
+    "vu": 5,
+    "seq": 8,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221144610005"
+    ]
+  },
+  {
+    "vu": 3,
+    "seq": 10,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111221151210003"
+    ]
+  },
+  {
+    "vu": 3,
+    "seq": 11,
+    "op": "recargas",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "REC26111221153110003"
+    ]
+  }
+]

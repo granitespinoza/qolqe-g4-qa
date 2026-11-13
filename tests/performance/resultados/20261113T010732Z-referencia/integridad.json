@@ -1,0 +1,8 @@
+{
+  "approved": true,
+  "attempts": 3,
+  "database_operations": 3,
+  "confirmed_records": 3,
+  "committed_after_http_error": 0,
+  "issues": []
+}

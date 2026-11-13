@@ -1,0 +1,3 @@
+usuario_id,inicial_cent,esperado_cent,observado_cent,coincide
+10001,1000000,999300,999300,True
+20001,1000000,1000100,1000100,True

@@ -1,0 +1,35 @@
+{
+  "package_complete": true,
+  "product_compliance_is_separate": true,
+  "runs": [
+    {
+      "profile": "carga",
+      "run_id": "20261113T011146Z-carga",
+      "valid": true,
+      "sla_or_profile_approved": false,
+      "integrity": true
+    },
+    {
+      "profile": "campana",
+      "run_id": "20261113T012935Z-campana",
+      "valid": true,
+      "sla_or_profile_approved": true,
+      "integrity": true
+    },
+    {
+      "profile": "estres",
+      "run_id": "20261113T014737Z-estres",
+      "valid": true,
+      "sla_or_profile_approved": false,
+      "integrity": true
+    }
+  ],
+  "checks": [
+    "carga: evidencia completa y ejecución válida; cumplimiento e integridad se informan por separado",
+    "campana: evidencia completa y ejecución válida; cumplimiento e integridad se informan por separado",
+    "estres: evidencia completa y ejecución válida; cumplimiento e integridad se informan por separado",
+    "HTML: enlaces locales y gráficos existentes",
+    "Informe: ocho secciones de plantilla presentes y sin campos de relleno",
+    "Informe del proyecto: sección 4 integrada; diagnóstico SQL presente"
+  ]
+}

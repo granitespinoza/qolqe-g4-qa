@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/api/cuentas/me/saldo",
+    "status": 200
+  },
+  {
+    "path": "/api/cuentas/me",
+    "status": 200
+  },
+  {
+    "path": "/api/movimientos?pagina=1",
+    "status": 200
+  },
+  {
+    "path": "/api/contactos?buscar=Contacto",
+    "status": 200
+  },
+  {
+    "path": "/api/servicios/deudas?empresa=ELECTRO&suministro=85000001",
+    "status": 200
+  },
+  {
+    "path": "/api/limites",
+    "status": 200
+  },
+  {
+    "path": "/api/limites/alertas",
+    "status": 200
+  },
+  {
+    "path": "/api/solicitudes",
+    "status": 200
+  },
+  {
+    "path": "/api/seguridad/dispositivos",
+    "status": 200
+  },
+  {
+    "path": "/api/seguridad/sesiones",
+    "status": 200
+  }
+]

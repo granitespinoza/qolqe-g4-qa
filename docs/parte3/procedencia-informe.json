@@ -1,0 +1,10 @@
+{
+  "template_sha256": "e08eef64a51ba4cd000ad627c84e7f363346668d91c06c3ae6ae7166b5bad628",
+  "runs": [
+    "20261113T011146Z-carga",
+    "20261113T012935Z-campana",
+    "20261113T014737Z-estres"
+  ],
+  "source": "Template_Informe_Rendimiento.docx",
+  "sections": 8
+}

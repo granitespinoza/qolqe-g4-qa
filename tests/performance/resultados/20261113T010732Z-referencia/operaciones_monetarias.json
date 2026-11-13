@@ -1,0 +1,32 @@
+[
+  {
+    "vu": 1,
+    "seq": 1,
+    "op": "recargas",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "REC26111220075810001"
+    ]
+  },
+  {
+    "vu": 1,
+    "seq": 2,
+    "op": "transferencias",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "TRF26111220081010001"
+    ]
+  },
+  {
+    "vu": 1,
+    "seq": 5,
+    "op": "pagos",
+    "http_ok": true,
+    "records": 1,
+    "codes": [
+      "PAG26111220090410001"
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "os": {
+    "Caption": "Microsoft Windows 11 Home Single Language",
+    "Version": "10.0.26300"
+  },
+  "date_lima": "2026-11-12 20:39:54 -05:00",
+  "network": "loopback 127.0.0.1",
+  "power_plan": "GUID de plan de energía: 48684d4a-8524-4093-8a63-ea7132b79c1c  (Recomendado por HP)",
+  "cpu": "11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz",
+  "port": 8021,
+  "mode": "API HTTP; Uvicorn un worker; SQLite original"
+}

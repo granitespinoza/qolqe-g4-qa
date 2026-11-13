@@ -35,3 +35,6 @@ presentacion/*-con-matriz.pptx
 
 # Datos del portal anterior, sustituido por apidoc/parte2/
 apidoc/data.js
+
+# Evidencia de rendimiento requerida por la Parte 3
+!tests/performance/resultados/**/*.log

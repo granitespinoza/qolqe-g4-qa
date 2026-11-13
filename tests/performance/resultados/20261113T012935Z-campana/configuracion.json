@@ -1,0 +1,206 @@
+{
+  "profile": {
+    "stages": [
+      {
+        "duration": "300s",
+        "target": 300
+      },
+      {
+        "duration": "600s",
+        "target": 300
+      },
+      {
+        "duration": "60s",
+        "target": 0
+      }
+    ],
+    "steady": [
+      [
+        300,
+        900
+      ]
+    ],
+    "expected_ops_s": null
+  },
+  "model": {
+    "seed": 20261112,
+    "usuarios": 600,
+    "saldo_centimos": 1000000,
+    "historial_por_usuario": 1000,
+    "deudas_por_usuario": 64,
+    "operaciones_por_sesion": 6,
+    "think_time": {
+      "min": 10,
+      "mode": 19,
+      "max": 25,
+      "mean": 18
+    },
+    "distribucion": {
+      "saldo_perfil": 30,
+      "movimientos": 15,
+      "transferencias": 15,
+      "contactos": 10,
+      "recargas": 10,
+      "deudas": 6,
+      "pagos": 4,
+      "otros": 10
+    },
+    "perfiles": {
+      "referencia": {
+        "stages": [
+          {
+            "duration": "60s",
+            "target": 1
+          }
+        ],
+        "steady": [
+          [
+            0,
+            60
+          ]
+        ],
+        "expected_ops_s": null
+      },
+      "demo": {
+        "stages": [
+          {
+            "duration": "15s",
+            "target": 5
+          },
+          {
+            "duration": "90s",
+            "target": 5
+          },
+          {
+            "duration": "15s",
+            "target": 0
+          }
+        ],
+        "steady": [
+          [
+            15,
+            105
+          ]
+        ],
+        "expected_ops_s": null
+      },
+      "carga": {
+        "stages": [
+          {
+            "duration": "300s",
+            "target": 100
+          },
+          {
+            "duration": "600s",
+            "target": 100
+          },
+          {
+            "duration": "60s",
+            "target": 0
+          }
+        ],
+        "steady": [
+          [
+            300,
+            900
+          ]
+        ],
+        "expected_ops_s": 5
+      },
+      "campana": {
+        "stages": [
+          {
+            "duration": "300s",
+            "target": 300
+          },
+          {
+            "duration": "600s",
+            "target": 300
+          },
+          {
+            "duration": "60s",
+            "target": 0
+          }
+        ],
+        "steady": [
+          [
+            300,
+            900
+          ]
+        ],
+        "expected_ops_s": null
+      },
+      "estres": {
+        "stages": [
+          {
+            "duration": "30s",
+            "target": 100
+          },
+          {
+            "duration": "150s",
+            "target": 100
+          },
+          {
+            "duration": "30s",
+            "target": 200
+          },
+          {
+            "duration": "150s",
+            "target": 200
+          },
+          {
+            "duration": "30s",
+            "target": 300
+          },
+          {
+            "duration": "150s",
+            "target": 300
+          },
+          {
+            "duration": "30s",
+            "target": 450
+          },
+          {
+            "duration": "150s",
+            "target": 450
+          },
+          {
+            "duration": "30s",
+            "target": 600
+          },
+          {
+            "duration": "150s",
+            "target": 600
+          },
+          {
+            "duration": "60s",
+            "target": 0
+          }
+        ],
+        "steady": [
+          [
+            30,
+            180
+          ],
+          [
+            210,
+            360
+          ],
+          [
+            390,
+            540
+          ],
+          [
+            570,
+            720
+          ],
+          [
+            750,
+            900
+          ]
+        ],
+        "expected_ops_s": null
+      }
+    }
+  }
+}

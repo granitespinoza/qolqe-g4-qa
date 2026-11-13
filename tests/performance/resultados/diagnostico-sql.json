@@ -1,0 +1,71 @@
+{
+  "method": "Llamada directa a listar() original en una base exclusiva; mismo código y datos sintéticos. Una conexión instrumentada con set_trace_callback; calentamiento excluido y tres repeticiones. No es una segunda prueba HTTP ni demuestra por sí sola la causa total del estrés.",
+  "source": "qolqe/api/movimientos.py",
+  "source_sha256": "6b1d0be4c9bd726c945aa3863d9df0119b643d2273ddf67bc49f85617a84311e",
+  "observed": "El endpoint obtiene el historial completo, ejecuta una consulta SUM por fila y pagina después. Patrón N+1 confirmado en este diagnóstico; contribución al límite bajo carga es una hipótesis respaldada por latencias por endpoint.",
+  "rows": [
+    {
+      "historial": 100,
+      "repeticion": 1,
+      "total_select": 102,
+      "sumas_por_movimiento": 100,
+      "filas_respuesta": 10,
+      "ms": 2.3718000011285767
+    },
+    {
+      "historial": 100,
+      "repeticion": 2,
+      "total_select": 102,
+      "sumas_por_movimiento": 100,
+      "filas_respuesta": 10,
+      "ms": 2.395999999862397
+    },
+    {
+      "historial": 100,
+      "repeticion": 3,
+      "total_select": 102,
+      "sumas_por_movimiento": 100,
+      "filas_respuesta": 10,
+      "ms": 2.242399999886402
+    },
+    {
+      "historial": 1000,
+      "repeticion": 1,
+      "total_select": 1002,
+      "sumas_por_movimiento": 1000,
+      "filas_respuesta": 10,
+      "ms": 88.21960000022955
+    },
+    {
+      "historial": 1000,
+      "repeticion": 2,
+      "total_select": 1002,
+      "sumas_por_movimiento": 1000,
+      "filas_respuesta": 10,
+      "ms": 87.6470999992307
+    },
+    {
+      "historial": 1000,
+      "repeticion": 3,
+      "total_select": 1002,
+      "sumas_por_movimiento": 1000,
+      "filas_respuesta": 10,
+      "ms": 90.75920000032056
+    }
+  ],
+  "summary": [
+    {
+      "historial": 100,
+      "mediana_ms": 2.3718000011285767,
+      "selects": 102,
+      "sumas": 100
+    },
+    {
+      "historial": 1000,
+      "mediana_ms": 88.21960000022955,
+      "selects": 1002,
+      "sumas": 1000
+    }
+  ],
+  "recommendation": "Proponer paginación en SQL y cálculo de saldos acumulados sin una consulta por movimiento. Validar después con el mismo modelo. No se implementa cambio en Qolqe."
+}

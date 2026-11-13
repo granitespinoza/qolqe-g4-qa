@@ -1,7 +1,7 @@
-# Informe — Parte 2 · G4 Contactos y solicitudes
+# Informe del proyecto Qolqe Wallet
 Granit Espinoza y Franco · CS5383
 
-Este informe cubre la Entrega 2 (secciones 1, 3 y 5). La sección 2 conserva el resultado de la Parte 1. Componentes y responsabilidades: [arquitectura](arquitectura.md).
+Este informe reúne las entregas del Proyecto 2. La sección 2 conserva la Parte 1; las secciones 1, 3 y 5 describen la Parte 2; la sección 4 incorpora las pruebas de rendimiento de la Parte 3. Componentes y responsabilidades: [arquitectura](arquitectura.md).
 
 ## 1. Alcance y decisiones
 10 HU de G4 (18 criterios de aceptación) y el núcleo común solo como dependencia de esos flujos. Fuente de requisitos: https://github.com/cjudihtroj/qolqe-wallet, commit `8c7d2f0c939ede7765b7b80b98c10c3905693fda`. Qolqe no se modifica.
@@ -30,7 +30,16 @@ El número de escenarios aprobados no mide cobertura de criterios ni ausencia de
 **Gestión de casos.** La trazabilidad HU → caso → ejecución se registra en [`data/trazabilidad-parte2.csv`](../data/trazabilidad-parte2.csv) y [`data/trazabilidad-parte2.json`](../data/trazabilidad-parte2.json), con estado en el pipeline y defecto asociado por caso. Vista legible: [trazabilidad](parte2/trazabilidad.md) y [presentación web](../apidoc/parte2/index.html).
 
 ## 4. Rendimiento
-Pendiente de Parte 3; no se realizó prueba de carga contra servicios públicos.
+
+Parte 3: campaña Quincena Qolqe, probada por API con k6 y Qolqe original. [Informe según plantilla](parte3/Informe_Rendimiento_Qolqe.docx), [resultados](../tests/performance/resultados/index.html), [modelo y ejecución](../tests/performance/README.md) y [presentación](../apidoc/parte3/index.html).
+
+| Perfil | Ejecución válida | Cumple perfil | Integridad | Evidencia |
+|---|---|---|---|---|
+| carga | True | False | True | [Reporte](../tests/performance/resultados/20261113T011146Z-carga/reporte.html) |
+| campana | True | True | True | [Reporte](../tests/performance/resultados/20261113T012935Z-campana/reporte.html) |
+| estres | True | False | True | [Reporte](../tests/performance/resultados/20261113T014737Z-estres/reporte.html) |
+
+Carga normal: aproximadamente 100 VUs y 5 operaciones/s; campaña: 300 VUs. Consultas/login p95 <800 ms, dinero p95 <1500 ms y error normal <=1%. El detalle incluye p95 por operación, CPU y memoria de aplicación/generador, gráficos y conciliación de saldos y movimientos. Resistencia de 18 h no ejecutada: limitación explícita del experimento. Los resultados son una línea base local y no certifican producción.
 
 ## 5. Defectos encontrados
 Ocho defectos conocidos, cada uno con casos, esperado y observado, y su severidad en el producto. Detalle y reproducción en [defectos-conocidos.md](parte2/defectos-conocidos.md).
