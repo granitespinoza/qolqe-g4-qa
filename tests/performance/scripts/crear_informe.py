@@ -8,6 +8,9 @@ from docx.shared import Inches,Pt
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 ROOT=Path(__file__).resolve().parents[3];PERF=ROOT/'tests/performance';OUT=ROOT/'docs/parte3'
+def nombre_perfil(profile):
+ return {'campana':'campaña','estres':'estrés'}.get(profile,profile)
+
 def txt(v):return 'sin muestra'if v is None else f'{v:.2f}'if isinstance(v,float)else str(v)
 def after(p,text,style=None):
     el=OxmlElement('w:p');p._p.addnext(el)
@@ -53,7 +56,7 @@ def main():
     rows=[]
     for r in primary:
         for w in r['windows']:
-            rows.append([r['profile'],f"{w['start_s']}–{w['end_s']}",txt(w['ops_s']),txt(w['p95_consulta']),txt(w['p95_dinero']),txt(100*w['error_rate'])if w['error_rate']is not None else'—','Conforme' if r['integrity']['approved'] else 'Incidencias'])
+            rows.append([nombre_perfil(r['profile']),f"{w['start_s']}–{w['end_s']}",txt(w['ops_s']),txt(w['p95_consulta']),txt(w['p95_dinero']),txt(100*w['error_rate'])if w['error_rate']is not None else'—','Conforme' if r['integrity']['approved'] else 'Incidencias'])
     def insert_table(anchor,headers,rows):
         table=d.add_table(rows=1,cols=len(headers))
         for child in d.tables[0]._tbl.tblPr:
@@ -78,7 +81,7 @@ def main():
     ps[43].text='Evidencia gráfica de carga normal y campaña';ps[43].paragraph_format.keep_with_next=True
     tail=ps[43]
     for r in [load,campaign]:
-        tail=after(tail,f"{r['profile'].upper()} · {r['meta']['run_id']}");tail.paragraph_format.keep_with_next=True
+        tail=after(tail,f"{nombre_perfil(r['profile']).upper()} · {r['meta']['run_id']}");tail.paragraph_format.keep_with_next=True
         run=ROOT/'tests/performance/resultados'/r['meta']['run_id'];tail=after(tail,'')
         tail.add_run().add_picture(str(run/'graficos/rendimiento-doc.png'),width=Inches(6.0))
         tail=after(tail,'');tail.add_run().add_picture(str(run/'graficos/recursos-doc.png'),width=Inches(6.0))

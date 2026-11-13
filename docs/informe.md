@@ -36,7 +36,7 @@ Parte 3: campaña Quincena Qolqe, probada por API con k6 y Qolqe original. [Info
 | Perfil | Ejecución válida | Cumple perfil | Integridad | Evidencia |
 |---|---|---|---|---|
 | carga | True | False | True | [Reporte](../tests/performance/resultados/20261113T011146Z-carga/reporte.html) |
-| campana | True | True | True | [Reporte](../tests/performance/resultados/20261113T012935Z-campana/reporte.html) |
+| campaña | True | True | True | [Reporte](../tests/performance/resultados/20261113T012935Z-campana/reporte.html) |
 | estres | True | False | True | [Reporte](../tests/performance/resultados/20261113T014737Z-estres/reporte.html) |
 
 Carga normal: aproximadamente 100 VUs y 5 operaciones/s; campaña: 300 VUs. Consultas/login p95 <800 ms, dinero p95 <1500 ms y error normal <=1%. El detalle incluye p95 por operación, CPU y memoria de aplicación/generador, gráficos y conciliación de saldos y movimientos. Resistencia de 18 h no ejecutada: limitación explícita del experimento. Los resultados son una línea base local y no certifican producción.
