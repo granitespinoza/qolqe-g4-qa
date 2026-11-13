@@ -134,13 +134,13 @@
     "criteria": "Perfil de referencia/demostración; no sustituye un experimento completo ni emite gate del SLA.",
     "meta": {
       "profile": "demo",
-      "run_id": "20261113T021211Z-demo",
-      "qa_revision": "e5219bab072428fc46b7738ee9ecd08200aee36d",
+      "run_id": "20261113T213801Z-demo",
+      "qa_revision": "b8d11b20e5d35236cb6b74b696b8beef69c9d492",
       "qa_dirty": true,
       "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
       "platform": "Windows-11-10.0.26300-SP0",
       "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
-      "server_pid": 6528,
+      "server_pid": 13508,
       "logical_cpus": 12,
       "physical_cpus": 6,
       "memory_gb": 8.21,
@@ -150,81 +150,81 @@
       "source_hashes": {
         "tests/performance/configuracion/modelo.json": "69fcca3035de7cc8772457fd328817e62fc81f4623c04ecb33e8c885ed27301a",
         "tests/performance/escenarios/carga.js": "2ad9663c11b5f8571a1a19b40286312d81ba961695e202a6874dac72ee1ad1b8",
-        "tests/performance/scripts/crear_informe.py": "1f598e0f2dfaaf76df0121a2916d4809504e6f0ff19a832ce534ba58167ccb6b",
-        "tests/performance/scripts/crear_presentacion.py": "d51fbeb957144e286a0cc33d4578a2c580acf3c1c5ab6298368c26c3a6d39c77",
-        "tests/performance/scripts/diagnostico_sql.py": "36bbf47f0332ee6c2015a518b89372a20335c03861d1443d9093faa852d6e0af",
-        "tests/performance/scripts/generar_reportes.py": "be8edbfad010a08118ebb634616adeacb2cb4f97b960309d6eacbb0af677cd25",
-        "tests/performance/scripts/performance.py": "a63b935541240668c5145455504900e0490c73063a7188e01e926af48ac658fe",
-        "tests/performance/scripts/server.py": "872a9a7fb57dd6df8522497a1c95b6f869602b25bc59960af00d7923a0075162",
+        "tests/performance/scripts/crear_informe.py": "aee92ccf8736efa31bb21aa61296ccd26bd381eb26fbe4024ce224189f30a2fc",
+        "tests/performance/scripts/crear_presentacion.py": "1f6c4827ab84ccd34a0eb4a397b7858e57051bd13ec864cc0b7e3a692a93247c",
+        "tests/performance/scripts/diagnostico_sql.py": "17b97ba4553b910cc87ef1ec9a550585397ea56402bf9a128e68df072abbe928",
+        "tests/performance/scripts/generar_reportes.py": "21a9675efa7a109b66525af7c2f4cb29e0f95154f4dcd2622190f40222184fc3",
+        "tests/performance/scripts/performance.py": "e8184939d35a76e4bb746c4c65012ffe8bb0e6416511c5ab948ef20b8bd31d42",
+        "tests/performance/scripts/server.py": "07e1dc81bda21f2c39ffd954195e9308dc3fb590448b6042e3459807cae1ffa9",
         "tests/performance/scripts/test_performance.py": "498e406a991489f4b29241a491b82d12ede9b957676e0db893e379b99fbdd78b",
-        "tests/performance/scripts/verificar_entrega.py": "125ae3a75a4d07fae5fe2c1a8de554a47475a9ac095bbd7901fb31a611608d37"
+        "tests/performance/scripts/verificar_entrega.py": "43b1a5350e6dab3bd4c0cd90a899fec09694246b7ee44a66447bc7bfac064d35"
       },
-      "k6_started_epoch": 1794535935.32408,
-      "measurement_epoch": 1794535935.4276435,
+      "k6_started_epoch": 1794605885.1449127,
+      "measurement_epoch": 1794605885.2936862,
       "k6_exit_code": 0,
       "k6_completed": true,
-      "finished_epoch": 1794536163.646938
+      "finished_epoch": 1794606099.0987465
     },
     "windows": [
       {
         "operations": 24,
-        "requests": 28,
-        "login": 2,
+        "requests": 29,
+        "login": 3,
         "ops_s": 0.26666666666666666,
         "all_ops_s": 0.26666666666666666,
-        "req_s": 0.3111111111111111,
+        "req_s": 0.32222222222222224,
         "error_rate": 0.0,
         "login_error_rate": 0.0,
-        "p95_consulta": 146.25,
-        "p95_dinero": 152.05,
+        "p95_consulta": 470.4,
+        "p95_dinero": 139.40000000000003,
         "start_s": 15,
         "end_s": 105,
         "latency_ok": true,
         "error_ok": true,
         "by_operation": {
           "contactos": {
-            "count": 3,
-            "p95": 9.9,
+            "count": 2,
+            "p95": 19.9,
             "error_rate": 0.0
           },
           "deudas": {
-            "count": 4,
-            "p95": 14.55,
+            "count": 5,
+            "p95": 22.0,
             "error_rate": 0.0
           },
           "login": {
-            "count": 2,
-            "p95": 152.35,
+            "count": 3,
+            "p95": 396.6,
             "error_rate": 0.0
           },
           "movimientos": {
             "count": 3,
-            "p95": 141.3,
+            "p95": 503.3,
             "error_rate": 0.0
           },
           "otros": {
             "count": 2,
-            "p95": 9.0,
+            "p95": 17.75,
             "error_rate": 0.0
           },
           "pagos": {
             "count": 3,
-            "p95": 47.9,
+            "p95": 44.6,
             "error_rate": 0.0
           },
           "recargas": {
             "count": 2,
-            "p95": 34.65,
+            "p95": 36.8,
             "error_rate": 0.0
           },
           "saldo_perfil": {
             "count": 2,
-            "p95": 15.8,
+            "p95": 35.7,
             "error_rate": 0.0
           },
           "transferencias": {
             "count": 5,
-            "p95": 154.8,
+            "p95": 151.39999999999998,
             "error_rate": 0.0
           }
         },
@@ -233,101 +233,101 @@
     ],
     "by_operation": {
       "contactos": {
-        "count": 3,
-        "errors": 0,
-        "p50": 9.0,
-        "p95": 9.9,
-        "p99": 9.98,
-        "max": 10,
-        "share": 12.5
-      },
-      "deudas": {
-        "count": 4,
-        "errors": 0,
-        "p50": 9.5,
-        "p95": 14.55,
-        "p99": 14.91,
-        "max": 15,
-        "share": 16.666666666666664
-      },
-      "login": {
         "count": 2,
         "errors": 0,
-        "p50": 146.5,
-        "p95": 152.35,
-        "p99": 152.87,
-        "max": 153,
+        "p50": 19.0,
+        "p95": 19.9,
+        "p99": 19.98,
+        "max": 20,
+        "share": 8.333333333333332
+      },
+      "deudas": {
+        "count": 5,
+        "errors": 0,
+        "p50": 19.0,
+        "p95": 22.0,
+        "p99": 22.0,
+        "max": 22,
+        "share": 20.833333333333336
+      },
+      "login": {
+        "count": 3,
+        "errors": 0,
+        "p50": 375.0,
+        "p95": 396.6,
+        "p99": 398.52,
+        "max": 399,
         "share": null
       },
       "movimientos": {
         "count": 3,
         "errors": 0,
-        "p50": 117.0,
-        "p95": 141.3,
-        "p99": 143.46,
-        "max": 144,
+        "p50": 461.0,
+        "p95": 503.3,
+        "p99": 507.06,
+        "max": 508,
         "share": 12.5
       },
       "otros": {
         "count": 2,
         "errors": 0,
-        "p50": 9.0,
-        "p95": 9.0,
-        "p99": 9.0,
-        "max": 9,
+        "p50": 15.5,
+        "p95": 17.75,
+        "p99": 17.95,
+        "max": 18,
         "share": 8.333333333333332
       },
       "pagos": {
         "count": 3,
         "errors": 0,
-        "p50": 38.0,
-        "p95": 47.9,
-        "p99": 48.78,
-        "max": 49,
+        "p50": 41.0,
+        "p95": 44.6,
+        "p99": 44.92,
+        "max": 45,
         "share": 12.5
       },
       "recargas": {
         "count": 2,
         "errors": 0,
-        "p50": 31.5,
-        "p95": 34.65,
-        "p99": 34.93,
-        "max": 35,
+        "p50": 35.0,
+        "p95": 36.8,
+        "p99": 36.96,
+        "max": 37,
         "share": 8.333333333333332
       },
       "saldo_perfil": {
         "count": 2,
         "errors": 0,
-        "p50": 14.0,
-        "p95": 15.8,
-        "p99": 15.96,
-        "max": 16,
+        "p50": 33.0,
+        "p95": 35.7,
+        "p99": 35.94,
+        "max": 36,
         "share": 8.333333333333332
       },
       "transferencias": {
         "count": 5,
         "errors": 0,
-        "p50": 146.0,
-        "p95": 154.8,
-        "p99": 156.56,
-        "max": 157,
+        "p50": 83.0,
+        "p95": 151.39999999999998,
+        "p99": 159.07999999999998,
+        "max": 161,
         "share": 20.833333333333336
       }
     },
     "integrity": {
       "approved": true,
-      "attempts": 13,
-      "database_operations": 13,
-      "confirmed_records": 13,
+      "attempts": 15,
+      "database_operations": 15,
+      "confirmed_records": 15,
       "committed_after_http_error": 0,
       "issues": []
     },
     "throughput_normal_ok": null,
     "resources": {
-      "samples": 224,
-      "app_cpu_host_max": 1.2750000000000001,
-      "generator_cpu_host_max": 0.775,
-      "app_rss_mb_max": 63.868928
+      "samples": 208,
+      "app_cpu_host_max": 3.6833333333333336,
+      "generator_cpu_host_max": 1.7583333333333335,
+      "app_rss_mb_max": 66.060288
     },
     "errors": [],
     "analysis_note": "Análisis regenerado desde diario y CSV de esta ejecución; procedencia conserva hashes del ejecutor medido."

@@ -1,0 +1,8 @@
+{
+  "approved": true,
+  "attempts": 15,
+  "database_operations": 15,
+  "confirmed_records": 15,
+  "committed_after_http_error": 0,
+  "issues": []
+}
