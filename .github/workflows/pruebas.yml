@@ -44,7 +44,7 @@ jobs:
       - name: Evaluar contrato antes de API y web
         run: python scripts/ci_run.py contract
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ !cancelled() }}
         with:
           name: contract-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -57,7 +57,7 @@ jobs:
   api:
     name: 2 - API funcional y técnica (Karate)
     needs: contrato
-    if: always()
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -72,7 +72,7 @@ jobs:
           QA_CONTRACT_SEPARATE: '1'
         run: python scripts/ci_run.py api
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ !cancelled() }}
         with:
           name: api-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -84,7 +84,7 @@ jobs:
   web:
     name: 3 - Web Gherkin, núcleo y tres corridas
     needs: [contrato, api]
-    if: always()
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     env:
@@ -103,10 +103,10 @@ jobs:
       - name: Ejecutar 60 escenarios completos tres veces sin reintentos
         run: QA_PYTHON="$(command -v python)" python scripts/ci_run.py web
       - name: Consolidar cobertura sin ocultar fallos
-        if: always()
+        if: ${{ !cancelled() }}
         run: python scripts/build_web_coverage.py
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ !cancelled() }}
         with:
           name: web-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -118,7 +118,7 @@ jobs:
   rendimiento:
     name: 4 - Coherencia de evidencia de rendimiento
     needs: web
-    if: always()
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -140,7 +140,7 @@ jobs:
           python tests/performance/scripts/performance.py demo
           python tests/performance/scripts/generar_reportes.py
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ !cancelled() }}
         with:
           name: performance-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -231,7 +231,7 @@ jobs:
   publicar:
     name: Publicar HTML en Pages (opcional)
     needs: reporteria
-    if: always() && inputs.publish_pages == true
+    if: ${{ !cancelled() && inputs.publish_pages == true }}
     runs-on: ubuntu-latest
     permissions:
       pages: write

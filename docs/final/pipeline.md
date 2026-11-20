@@ -11,7 +11,7 @@
 | Reportería | Construir HTML, historial y matriz aunque suites fallen | Consolidar errores de jobs y gates; publicar antes de devolver rechazo |
 | Pages opcional | Publicar sitio navegable si se habilita la opción | Requiere Settings → Pages → GitHub Actions y permisos de despliegue |
 
-Los jobs funcionales posteriores se intentan aunque uno anterior falle para obtener diagnóstico completo. Esto no anula el gate: cualquier job fallido o evidencia ausente bloquea la decisión final. El gate académico distingue PASS, firma conocida admitida, fallo nuevo, intermitencia y preparación incompleta. La excepción no autoriza uso productivo ni rebaja la severidad del defecto.
+Los jobs funcionales posteriores usan `!cancelled()`: se intentan aunque uno anterior falle, pero no prolongan una revisión cancelada. Reportería conserva `always()` para publicar el diagnóstico. Esto no anula el gate: cualquier job fallido o evidencia ausente bloquea la decisión final. El gate académico distingue PASS, firma conocida admitida, fallo nuevo, intermitencia y preparación incompleta. La excepción no autoriza uso productivo ni rebaja la severidad del defecto.
 
 ## Visible al finalizar
 
