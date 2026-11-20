@@ -31,6 +31,9 @@ def audit():
  web=read(ROOT/'Web/features/catalogo.json');webids=[x['id']for x in web]
  issues=[]
  if len(set(webids))!=len(webids):issues.append('IDs web duplicados')
+ common_hus={h for c in web for h in c['hu']if h.startswith('HU-N-')}
+ missing_common={f'HU-N-{n:02}'for n in range(1,10)}-common_hus
+ if missing_common:issues.append('Núcleo común sin escenario web: '+', '.join(sorted(missing_common)))
  for c in web:
   if not(ROOT/c['implementation']).exists():issues.append('Implementación ausente: '+c['id'])
   p=ROOT/c['feature']
@@ -43,7 +46,7 @@ def audit():
   case=by_id.get(ident)
   if not case or case.get('defect')!=rule['defect']:issues.append('Defecto no trazado en Gherkin: '+ident)
   elif '@known_issue' not in next((line for line in (ROOT/case['feature']).read_text(encoding='utf-8').splitlines()if 'Escenario: '+ident+' 'in line),''):issues.append('Etiqueta perdida en resultado Gherkin: '+ident)
- if len(web)!=60:issues.append('Suite web esperada: 60')
+ if len(web)!=policy['expected_web_tests']:issues.append('Suite web esperada: '+str(policy['expected_web_tests']))
  if len(matrix)!=51 or any(not c['cases']for c in matrix):issues.append('Criterios API sin diseño')
  if missing:issues.append('Casos sin feature API: '+str(missing))
  technical=sorted({x for s in features.values()for x in re.findall(r'@(CT-\d+)',s)})
@@ -52,10 +55,15 @@ def audit():
  print(json.dumps({k:v for k,v in result.items()if k not in ('criteria','web')},ensure_ascii=True,indent=2))
  return result
 
+def repo_path(value):
+ path=(ROOT/str(value).replace('\\','/')).resolve()
+ if not path.is_relative_to(ROOT.resolve()):raise ValueError('Ruta de evidencia fuera del repositorio')
+ return path
+
 def performance():
  result=[]
  for profile in ['carga','campana','estres']:
-  p=read(ROOT/f'tests/performance/resultados/latest-{profile}.json');folder=ROOT/p['dir'];r=read(folder/'resumen.json')
+  p=read(ROOT/f'tests/performance/resultados/latest-{profile}.json');folder=repo_path(p['dir']);r=read(folder/'resumen.json')
   assert r['profile']==profile and r['valid']and r['integrity']['approved'],profile
   assert r['meta']['reference_commit']=='8c7d2f0c939ede7765b7b80b98c10c3905693fda'
   for f in ['recursos.csv','operaciones.jsonl','integridad.json','procedencia.json','reporte.html','graficos/evolucion.png']:

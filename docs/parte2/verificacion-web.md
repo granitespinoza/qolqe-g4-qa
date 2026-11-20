@@ -1,3 +1,5 @@
+> Evidencia histórica local de la suite anterior de 60 escenarios. El alcance final de 65 y sus resultados vigentes se consultan en Actions y en el reporte consolidado.
+
 # Pasos 3 y 4 — cobertura y verificación web
 
 Resultado local, generado desde tres ejecuciones reales. No acredita un pipeline de GitHub ni una entrega completa.

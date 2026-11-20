@@ -19,4 +19,4 @@ Los seis casos nuevos de núcleo se prepararon con asistencia de Codex y se veri
 
 ## Ejecución real comprobada
 
-El run `2026-11-20T01-50-32-126Z-ai` ejecutó cy.prompt en Chrome con el proyecto Cloud del equipo: 1/1 aprobada, POST 201 y persistencia tras recargar. El [reporte](evidencias/ia/reporte.html), [captura](evidencias/ia/contacto-ia.png) y registro de ejecución se conservan junto al resumen `data/final-ia.json`. No es una ejecución IA del pipeline hospedado ni se afirma que haya una llamada nueva al modelo en cada corrida: Cypress puede reutilizar el código generado en caché.
+El run `2026-11-20T02-18-03-994Z-ai` ejecutó cy.prompt en Chrome con el proyecto Cloud del equipo: 1/1 aprobada, POST 201 y persistencia tras recargar. El [reporte](evidencias/ia/reporte.html), [captura](evidencias/ia/contacto-ia.png) y registro de ejecución se conservan junto al resumen `data/final-ia.json`. No es una ejecución IA del pipeline hospedado ni se afirma que haya una llamada nueva al modelo en cada corrida: Cypress puede reutilizar el código generado en caché.

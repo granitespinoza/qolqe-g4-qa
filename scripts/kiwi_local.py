@@ -61,14 +61,14 @@ print('QOLQE_IDS='+json.dumps({'KIWI_PRODUCT_ID':product.pk,'KIWI_CATEGORY_ID':c
  info={'url':'https://localhost:8443','plan_id':ids['KIWI_PLAN_ID'],'initialized':True,'tls_verified_by_client':False,'image':subprocess.check_output(['docker','image','inspect',image_ref,'--format','{{index .RepoDigests 0}}'],text=True).strip()}
  (LOCAL/'instance.json').write_text(json.dumps(info,indent=2),encoding='utf-8')
  print('Kiwi iniciado. Credenciales locales en integrations/kiwi/.local/account.json (ignorado por Git). Plan:',ids['KIWI_PLAN_ID'])
-def sync():
+def sync(report=None):
  config=json.loads((LOCAL/'connection.json').read_text(encoding='utf-8'));env={**os.environ,**{k:str(v)for k,v in config.items()}}
- subprocess.run([sys.executable,str(ROOT/'scripts/kiwi_sync.py')],env=env,check=True,cwd=ROOT)
+ subprocess.run([sys.executable,str(ROOT/'scripts/kiwi_sync.py')]+(['--report',str(report)]if report else[]),env=env,check=True,cwd=ROOT)
  info=json.loads((LOCAL/'instance.json').read_text());info['tls_verified_by_client']=True;(LOCAL/'instance.json').write_text(json.dumps(info,indent=2),encoding='utf-8')
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','start','sync','stop','status']);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','start','sync','stop','status']);p.add_argument('--report',type=Path);a=p.parse_args()
  if a.action=='prepare':prepare();print('Certificados y secretos locales preparados.')
  if a.action=='start':initialize()
- if a.action=='sync':sync()
+ if a.action=='sync':sync(a.report)
  if a.action=='stop':compose('stop')
  if a.action=='status':compose('ps')

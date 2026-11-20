@@ -466,7 +466,7 @@
     "CT-14",
     "CT-15"
   ],
-  "web_count": 60,
+  "web_count": 65,
   "web": [
     {
       "id": "E2E-G4-101",
@@ -1259,6 +1259,61 @@
       "title": "Registro por UI crea cuenta y permite iniciar sesión",
       "hu": [
         "HU-N-01"
+      ],
+      "groups": [],
+      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "defect": null,
+      "feature": "Web/features/nucleo.feature"
+    },
+    {
+      "id": "E2E-G4-407",
+      "title": "Cerrar sesión limpia la UI, revoca su token y conserva otra sesión",
+      "hu": [
+        "HU-N-03"
+      ],
+      "groups": [],
+      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "defect": "D-04",
+      "feature": "Web/features/nucleo.feature"
+    },
+    {
+      "id": "E2E-G4-408",
+      "title": "Cerrar cuenta con saldo cero y PIN impide volver a ingresar",
+      "hu": [
+        "HU-N-06"
+      ],
+      "groups": [],
+      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "defect": null,
+      "feature": "Web/features/nucleo.feature"
+    },
+    {
+      "id": "E2E-G4-409",
+      "title": "Transferencia directa por celular muestra comprobante y acredita al destinatario",
+      "hu": [
+        "HU-N-07"
+      ],
+      "groups": [],
+      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "defect": null,
+      "feature": "Web/features/nucleo.feature"
+    },
+    {
+      "id": "E2E-G4-410",
+      "title": "Transferencia interbancaria cobra comisión y enmascara el CCI",
+      "hu": [
+        "HU-N-08"
+      ],
+      "groups": [],
+      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "defect": null,
+      "feature": "Web/features/nucleo.feature"
+    },
+    {
+      "id": "E2E-G4-411",
+      "title": "Simular comisión y cancelar conserva saldo y no crea movimientos",
+      "hu": [
+        "HU-N-09"
       ],
       "groups": [],
       "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",

@@ -2,7 +2,7 @@
 
 ## Entrega final consolidada
 
-[Estado de verificación local y pendientes](docs/final/verificacion.md). La verificación local completó las tres corridas web y la importación real en Kiwi; cada revisión publicada conserva su propia validación en Actions.
+[Estado de verificación local y pendientes](docs/final/verificacion.md). La suite final contiene 65 escenarios web y las nueve HU comunes. La estabilidad y los gates de cada revisión se comprueban en Actions; Kiwi conserva las múltiples ejecuciones sin sustituirlas.
 
 Corregimos Gherkin web ejecutable, núcleo común, contrato al inicio del workflow, reportería visible en Actions, selección de capturas e historial por ejecución. Conservamos los resultados reales y los defectos del producto.
 

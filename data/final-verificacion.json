@@ -107,5 +107,7 @@
     "tests": 1,
     "run": "2026-11-20T01-50-32-126Z-ai",
     "proof": "data/final-ia.json"
-  }
+  },
+  "historical_snapshot": true,
+  "superseded_scope": "La suite final amplía Web a 65; consultar los resultados del pipeline del commit vigente."
 }

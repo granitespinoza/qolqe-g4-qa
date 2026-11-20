@@ -4,7 +4,7 @@
 
 La cobertura funcional API abarca los 51 CA de las HU del núcleo y G4, con 116 casos base, cinco complementarios y 15 identificadores técnicos: 136 IDs API que producen 187 escenarios/variantes al expandir los outlines. El auditor verifica enlaces, no cuenta cada interacción de Schemathesis como un caso. El resultado se considera completo solo si cada caso diseñado tiene ejecución actual; cualquier ausencia bloquea. No afirmamos cobertura de todas las ramas del código ni de otros módulos.
 
-La web tiene 60 escenarios: los 54 previos de G4 y seis adicionales del núcleo. Los casos del núcleo comprueban registro, login válido/inválido, saldo y ocultación, perfil enmascarado y edición persistente. No se atribuye a esos seis casos toda la cobertura de variantes API del núcleo.
+La web tiene 65 escenarios: 54 de G4 y 11 del núcleo, vinculados a las nueve HU comunes. Incluyen registro, acceso, logout, saldo/perfil, edición, cierre de cuenta, transferencia directa e interbancaria y simulación sin efectos monetarios. Los datos de frontera y variantes técnicas siguen cubiertos también por API; no se afirma que un happy path web cubra todas esas variantes.
 
 ## Derivación del modelo de rendimiento
 

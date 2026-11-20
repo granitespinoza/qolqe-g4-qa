@@ -40,3 +40,33 @@ Característica: Nucleo verificable en Qolqe
     Dado un contexto aislado para "E2E-G4-406"
     Cuando realizo "Registro por UI crea cuenta y permite iniciar sesión" en "E2E-G4-406"
     Entonces verifico las reglas y la persistencia de "E2E-G4-406"
+
+  @HU-N-03 @TC-E2E-G4-407 @known_issue @D-04
+  Escenario: E2E-G4-407 @HU-N-03 @TC-E2E-G4-407 @known_issue @D-04 | Cerrar sesión limpia la UI, revoca su token y conserva otra sesión
+    Dado un contexto aislado para "E2E-G4-407"
+    Cuando realizo "Cerrar sesión limpia la UI, revoca su token y conserva otra sesión" en "E2E-G4-407"
+    Entonces verifico las reglas y la persistencia de "E2E-G4-407"
+
+  @HU-N-06 @TC-E2E-G4-408
+  Escenario: E2E-G4-408 @HU-N-06 @TC-E2E-G4-408 | Cerrar cuenta con saldo cero y PIN impide volver a ingresar
+    Dado un contexto aislado para "E2E-G4-408"
+    Cuando realizo "Cerrar cuenta con saldo cero y PIN impide volver a ingresar" en "E2E-G4-408"
+    Entonces verifico las reglas y la persistencia de "E2E-G4-408"
+
+  @HU-N-07 @TC-E2E-G4-409
+  Escenario: E2E-G4-409 @HU-N-07 @TC-E2E-G4-409 | Transferencia directa por celular muestra comprobante y acredita al destinatario
+    Dado un contexto aislado para "E2E-G4-409"
+    Cuando realizo "Transferencia directa por celular muestra comprobante y acredita al destinatario" en "E2E-G4-409"
+    Entonces verifico las reglas y la persistencia de "E2E-G4-409"
+
+  @HU-N-08 @TC-E2E-G4-410
+  Escenario: E2E-G4-410 @HU-N-08 @TC-E2E-G4-410 | Transferencia interbancaria cobra comisión y enmascara el CCI
+    Dado un contexto aislado para "E2E-G4-410"
+    Cuando realizo "Transferencia interbancaria cobra comisión y enmascara el CCI" en "E2E-G4-410"
+    Entonces verifico las reglas y la persistencia de "E2E-G4-410"
+
+  @HU-N-09 @TC-E2E-G4-411
+  Escenario: E2E-G4-411 @HU-N-09 @TC-E2E-G4-411 | Simular comisión y cancelar conserva saldo y no crea movimientos
+    Dado un contexto aislado para "E2E-G4-411"
+    Cuando realizo "Simular comisión y cancelar conserva saldo y no crea movimientos" en "E2E-G4-411"
+    Entonces verifico las reglas y la persistencia de "E2E-G4-411"

@@ -25,7 +25,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 smoke
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
 ```
 
-El happy path usa `Web/smoke/contactos.feature`, conecta sus pasos con el escenario existente y valida POST, UI y persistencia. Un smoke no es la regresión de 60 casos ni sus tres repeticiones. Para ver el navegador, usar la acción `open` y seleccionar una feature. Mantener libre el puerto 8011.
+El happy path usa `Web/smoke/contactos.feature`, conecta sus pasos con el escenario existente y valida POST, UI y persistencia. Un smoke no es la regresión de 65 casos ni sus tres repeticiones. Para ver el navegador, usar la acción `open` y seleccionar una feature. Mantener libre el puerto 8011.
 
 ## Capacidad de IA
 
@@ -72,4 +72,14 @@ Antes de publicar: revisar `git status`, los bloqueos del reporte, el run remoto
 
 ## Preparación de Kiwi antes de la exposición
 
-Iniciar una vez con `.venv/Scripts/python.exe scripts/kiwi_local.py start`, preparar la confianza del certificado y abrir `https://localhost:8443/plan/1/`. Las credenciales se consultan en `integrations/kiwi/.local/account.json`, ignorado por Git. Mostrar las cuatro corridas y abrir un caso con sus variantes. No reinstalar Docker ni repetir migraciones durante los 15 minutos.
+Iniciar una vez con `.venv/Scripts/python.exe scripts/kiwi_local.py start`, preparar la confianza del certificado y abrir `https://localhost:8443/plan/1/`. Las credenciales se consultan en `integrations/kiwi/.local/account.json`, ignorado por Git. Mostrar las corridas identificadas por run/commit y abrir un caso con sus variantes. No reinstalar Docker ni repetir migraciones durante los 15 minutos.
+
+## Importar una ejecución de GitHub en Kiwi local
+
+Descargar y extraer el artefacto final en una carpeta independiente, conservando sus rutas. Después importar su `results/final/report.json`:
+
+```powershell
+.venv/Scripts/python.exe scripts/kiwi_local.py sync --report RUTA-EXTRAIDA/results/final/report.json
+```
+
+No se reemplaza el historial ni se confunde una corrida de Linux con una nueva ejecución local.

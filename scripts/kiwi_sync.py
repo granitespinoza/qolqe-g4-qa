@@ -63,8 +63,8 @@ def sync(data,rpc,plan_id,build_id,manager_id,product_id,category_id):
 
  return created
 def main():
- p=argparse.ArgumentParser();p.add_argument('--dry-run',action='store_true');args=p.parse_args()
- report=ROOT/'data/final-report.json'
+ p=argparse.ArgumentParser();p.add_argument('--dry-run',action='store_true');p.add_argument('--report',type=Path,default=ROOT/'data/final-report.json');args=p.parse_args()
+ report=args.report
  if not report.exists():raise SystemExit('Primero ejecutar scripts/final_delivery.py report')
  data=payload(json.loads(report.read_text(encoding='utf-8')))
  output=ROOT/'results/final';output.mkdir(parents=True,exist_ok=True)

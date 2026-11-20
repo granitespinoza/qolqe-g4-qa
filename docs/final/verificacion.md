@@ -1,33 +1,28 @@
 # Verificación de la entrega final
 
-Ejecuciones locales identificadas por run y hashes de fuentes. Se realizaron antes del commit de consolidación y registran `worktree_dirty=true`; no se atribuyen falsamente al contenido limpio de su commit base. La validación de la revisión publicada se consulta en Actions.
+## Alcance vigente
 
-| Comprobación | Resultado local |
-|---|---|
-| Diseño API G4 y núcleo | 51 criterios, 116 casos base + 5 complementarios + 15 técnicos: 136 IDs |
-| Karate | 187 escenarios/variantes: 175 PASS y 12 FAIL conocidos; gate A aprobado |
-| Schemathesis | 562 interacciones, 27 señales conocidas y 0 desconocidas; gate A aprobado |
-| Web Gherkin | 60 escenarios × 3 corridas completas, con las mismas fuentes y entorno |
-| Cada corrida web | 51 PASS / 9 FAIL conocidos, 0 omitidos, 0 intermitentes; gate A aprobado |
-| Evidencia web | 180 capturas, vídeos desactivados |
-| Kiwi TCMS local | 196 casos, cuatro corridas y 316 ejecuciones; estados leídos de nuevo y comparados con el payload |
-| Rendimiento | Tres experimentos históricos verificados; se conservan incumplimientos de carga y estrés |
-| Producto Qolqe | Referencia original sin modificar |
+- API: 51 criterios del núcleo y G4; 136 IDs (116 base, cinco complementarios y 15 técnicos), expandidos en 187 escenarios/variantes.
+- Web: 65 escenarios .feature; 54 de G4 y 11 del núcleo. Hay escenarios vinculados a las nueve HU comunes.
+- El auditor rechaza un núcleo sin alguna de sus HU y los gates requieren tres corridas completas con la misma selección, fuentes y entorno.
+- Qolqe permanece en su referencia original, sin modificaciones del producto.
 
-API: `20261119T181613Z-d95321`. Contrato: `20261119T181336Z-7b77c5`. Web: `stability-2026-11-20T01-14-36-285Z` (19 de noviembre en Lima). Las tres corridas completas reemplazan la secuencia interrumpida anterior como evidencia vigente; no se convirtió la interrupción en defecto tolerado.
+## Evidencias y unidades
 
-## Diferencia entre escenarios y casos de gestión
+La ejecución vigente se consulta en el Summary y el artefacto del commit publicado en [Actions](https://github.com/granitespinoza/qolqe-g4-qa/actions). Allí se publican los estados crudos, defectos, repeticiones y variantes. No se atribuyen automáticamente a un commit nuevo las métricas de una corrida anterior.
 
-Karate ejecuta 187 escenarios/variantes. Kiwi los agrupa en 136 casos: 127 PASSED y 9 FAILED. Las 12 variantes fallidas pertenecen a nueve casos; los comentarios conservan el detalle de cada variante. Web registra 60 casos por corrida: 51 PASSED y 9 FAILED. En total hay 196 casos distintos y 316 ejecuciones de casos, conservadas en cuatro corridas.
+Antes de ampliar el núcleo se verificaron tres corridas locales de 60 escenarios (51 PASS y nueve FAIL conocidos cada una), 180 capturas y una importación Kiwi de 196 casos y 316 ejecuciones. Se conservan como snapshot histórico en `data/final-verificacion.json`. La ampliación incorpora cierre de sesión/cuenta y transferencias/simulación; la estabilidad del alcance final de 65 se verifica en el workflow vigente.
 
-No hay contradicción entre esos recuentos: se cuentan unidades diferentes. Las 27 señales de Schemathesis se muestran por separado; no se convierten en 27 defectos únicos ni se suman como casos funcionales.
+El núcleo ampliado se ejecutó localmente: diez PASS y un FAIL por el defecto D-04 de revocación tras logout. La falla de sincronización inicial del formulario se corrigió en la automatización mediante una espera de red. No se convirtió en excepción del producto.
 
-## Alcance de la aprobación
+Karate publica variantes, mientras Kiwi agrega por ID/versión de caso. En el snapshot anterior, 12 variantes API fallidas correspondían a nueve casos; los comentarios conservaron todas sus variantes. Los casos de Schemathesis son señales de contrato y no se suman como defectos únicos.
 
-El gate académico aprueba el Escenario A con firmas conocidas exactas y datos aislados. Los fallos continúan siendo FAIL y no representan aptitud productiva. Las tres corridas son consistentes; no son tres ejecuciones 60/60 aprobadas.
+## Condiciones de aprobación
 
-Kiwi funciona en esta laptop con TLS verificado por el cliente. Un runner hospedado de GitHub necesita una instancia accesible para sincronizar automáticamente; la exportación del payload y el historial no dependen de esa conectividad. Antes de exponer se prepara la confianza del certificado local en el navegador y se abre el plan.
+El Escenario A admite solo firmas conocidas documentadas, con datos aislados; conserva los FAIL. Fallos nuevos, intermitencia, omisiones o preparación inválida bloquean. No certifica aptitud productiva ni significa que las 65 pruebas hayan pasado individualmente.
 
-La demo cy.prompt pasó 1/1 en `2026-11-20T01-50-32-126Z-ai`; se mantiene separada de la regresión por su autenticación Cloud. La asistencia de IA en el diseño del núcleo cuenta con seis escenarios comprobados contra el producto real.
+Kiwi local verifica TLS y lee de nuevo los estados importados. Un runner de GitHub requiere una instancia accesible para sincronizar directamente; el payload siempre puede importarse en la herramienta local. Su historial conserva las versiones y corridas previas.
 
-[Resumen verificable](../../data/final-verificacion.json) · [Guía de demo](ejecucion.md) · [Actions del repositorio](https://github.com/granitespinoza/qolqe-g4-qa/actions)
+La demo cy.prompt cuenta con evidencia real, validada mediante POST 201 y persistencia; requiere la sesión personal Cloud para repetirla. No se afirma ejecución IA nueva en cada pipeline.
+
+[Guía de ejecución](ejecucion.md) · [Gestión de casos](gestion-casos.md) · [IA](ia.md)

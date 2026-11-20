@@ -92,7 +92,7 @@ export function sms(a: Actor, texto: string) {
 export const casosRegistrados = new Map<string, () => void>()
 export function caso(id: string, grupos: string[], descripcion: string, test: () => void) {
   const hus = [...new Set(grupos.map(g => '@HU-G4-' + g.split('-')[2]))]
-  const defect = ({'E2E-G4-102':'D-01','E2E-G4-104':'D-02','E2E-G4-113':'D-01','E2E-G4-115':'D-02','E2E-G4-117':'D-07','E2E-G4-201':'D-07','E2E-G4-202':'D-07','E2E-G4-206':'D-08','E2E-G4-324':'D-03'} as Record<string,string>)[id]
+  const defect = ({'E2E-G4-102':'D-01','E2E-G4-104':'D-02','E2E-G4-113':'D-01','E2E-G4-115':'D-02','E2E-G4-117':'D-07','E2E-G4-201':'D-07','E2E-G4-202':'D-07','E2E-G4-206':'D-08','E2E-G4-324':'D-03','E2E-G4-407':'D-04'} as Record<string,string>)[id]
   const tags = [...hus, '@TC-' + id, ...(defect ? ['@known_issue', '@' + defect] : [])]
   if (Cypress.expose('gherkin')) {
     if (casosRegistrados.has(id)) throw new Error('Caso duplicado: '+id)

@@ -35,6 +35,12 @@ class FinalDeliveryTests(unittest.TestCase):
   p=payload({'cases':[self.case],'runs':[self.run]})
   self.assertEqual(p['runs'][0]['cases'][0]['variants'][0]['classification'],'known_issue')
   self.assertEqual(p['runs'][0]['revision'],'abc')
+ def test_windows_evidence_path_is_portable(self):
+  with patch.object(final,'ROOT',Path(self.tmp.name)):
+   self.assertEqual(final.repo_path('tests\\performance\\resultados\\run'),Path(self.tmp.name)/'tests/performance/resultados/run')
+ def test_evidence_path_cannot_leave_repository(self):
+  with patch.object(final,'ROOT',Path(self.tmp.name)):
+   with self.assertRaises(ValueError):final.repo_path('../outside')
  def test_missing_evidence_blocks_without_creating_success(self):
   with patch.object(final,'ROOT',Path(self.tmp.name)),patch.object(final,'git',return_value='abc'):
    runs,gates,issues=final.collect()

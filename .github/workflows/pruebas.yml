@@ -100,7 +100,7 @@ jobs:
         run: |
           python scripts/final_delivery.py audit
           npm run cy:check-evidence
-      - name: Ejecutar 60 escenarios completos tres veces sin reintentos
+      - name: Ejecutar 65 escenarios completos tres veces sin reintentos
         run: QA_PYTHON="$(command -v python)" python scripts/ci_run.py web
       - name: Consolidar cobertura sin ocultar fallos
         if: ${{ !cancelled() }}
