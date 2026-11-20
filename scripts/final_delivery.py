@@ -26,9 +26,9 @@ def audit():
  for hu,ca in criteria:
   linked=[c['id']for c in cases if c['hu']==hu and ca in c['ca']]
   matrix.append(dict(hu=hu,ca=ca,cases=linked))
- features={p.relative_to(ROOT).as_posix():p.read_text(encoding='utf-8')for p in (ROOT/'API/features').glob('*.feature')}
+ features={p.relative_to(ROOT).as_posix():p.read_text(encoding='utf-8')for p in (ROOT/'tests/api/features').glob('*.feature')}
  missing=[c['id']for c in cases if not any('@'+c['id']in s.split()for s in features.values())]
- web=read(ROOT/'Web/features/catalogo.json');webids=[x['id']for x in web]
+ web=read(ROOT/'features/e2e/catalogo.json');webids=[x['id']for x in web]
  issues=[]
  if len(set(webids))!=len(webids):issues.append('IDs web duplicados')
  common_hus={h for c in web for h in c['hu']if h.startswith('HU-N-')}
@@ -46,11 +46,13 @@ def audit():
   case=by_id.get(ident)
   if not case or case.get('defect')!=rule['defect']:issues.append('Defecto no trazado en Gherkin: '+ident)
   elif '@known_issue' not in next((line for line in (ROOT/case['feature']).read_text(encoding='utf-8').splitlines()if 'Escenario: '+ident+' 'in line),''):issues.append('Etiqueta perdida en resultado Gherkin: '+ident)
+ for required in ['INFORME_FINAL.md','features/e2e','tests/api/features','tests/api/reportes','tests/e2e/specs','presentacion/Entrega_Final_Qolqe.pdf']:
+  if not(ROOT/required).exists():issues.append('Entregable obligatorio ausente: '+required)
  if len(web)!=policy['expected_web_tests']:issues.append('Suite web esperada: '+str(policy['expected_web_tests']))
  if len(matrix)!=51 or any(not c['cases']for c in matrix):issues.append('Criterios API sin diseño')
  if missing:issues.append('Casos sin feature API: '+str(missing))
  technical=sorted({x for s in features.values()for x in re.findall(r'@(CT-\d+)',s)})
- result=dict(design_complete=not issues,scope='G4 y núcleo común; no se atribuye cobertura a otros módulos',criteria=matrix,criteria_count=len(matrix),api_case_count=len(cases),technical_cases=technical,web_count=len(web),web=web,issues=issues,note='Vinculación de diseño; presencia de casos no equivale a aprobación ni garantiza cobertura de todos los caminos internos.')
+ result=dict(design_complete=not issues,scope='G4 y núcleo común; no se atribuye cobertura a otros módulos',criteria=matrix,criteria_count=len(matrix),base_api_case_count=len(cases),api_case_count=sum(c['layer']=='API'for c in catalogue()),technical_cases=technical,web_count=len(web),web=web,issues=issues,note='Vinculación de diseño; presencia de casos no equivale a aprobación ni garantiza cobertura de todos los caminos internos.')
  write(ROOT/'data/final-audit.json',result)
  print(json.dumps({k:v for k,v in result.items()if k not in ('criteria','web')},ensure_ascii=True,indent=2))
  return result
@@ -75,7 +77,7 @@ def performance():
 
 def catalogue():
  rows=[]
- for p in sorted((ROOT/'API/features').glob('*.feature')):
+ for p in sorted((ROOT/'tests/api/features').glob('*.feature')):
   text=p.read_text(encoding='utf-8');feature_hus=re.findall(r'@(HU-[A-Z0-9-]+)',text.split('Background:')[0]);tags=[]
   for line in text.splitlines():
    if line.strip().startswith('@'):tags=line.split()
@@ -83,7 +85,7 @@ def catalogue():
    if m:
     ids=[x[1:]for x in tags if re.fullmatch(r'@(G4|CF|CT)-\d+',x)]
     for ident in ids:rows.append(dict(id=ident,title=m[1],hu=sorted(set(feature_hus+[x[1:]for x in tags if x.startswith('@HU-')])),layer='API',file=p.relative_to(ROOT).as_posix(),tags=tags))
- for c in read(ROOT/'Web/features/catalogo.json'):rows.append(dict(id=c['id'],title=c['title'],hu=c['hu'],layer='Web',file=c['feature'],tags=['@'+h for h in c['hu']]+['@TC-'+c['id']]))
+ for c in read(ROOT/'features/e2e/catalogo.json'):rows.append(dict(id=c['id'],title=c['title'],hu=c['hu'],layer='Web',file=c['feature'],tags=['@'+h for h in c['hu']]+['@TC-'+c['id']]))
  unique={c['id']:c for c in rows}
  for c in unique.values():c['version']=sha(ROOT/c['file'])
  return sorted(unique.values(),key=lambda c:(c['layer'],c['id']))
@@ -239,18 +241,26 @@ def report(evidence='none'):
   assert site.resolve().parent==base.resolve(),'Destino de sitio fuera del reporte'
   shutil.rmtree(site)
  site.mkdir(exist_ok=True)
- paths=['apidoc/final','docs/final','docs/parte3','Web/features','Web/cypress','API/features','.github']+[p['dir']for p in perf]+[r['report_dir']for r in runs]
+ paths=['apidoc/final','docs/final','docs/parte3','features','tests/e2e','tests/api','.github','INFORME_FINAL.md','presentacion/Entrega_Final_Qolqe.pdf']+[p['dir']for p in perf]+[r['report_dir']for r in runs]
  for rel in paths:
   source=ROOT/rel
   if source.exists():
    target=site/rel;target.parent.mkdir(parents=True,exist_ok=True)
-   shutil.copytree(source,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('screenshots','videos')if evidence=='none'and rel.startswith('reports/')else None)
+
+   if source.is_dir():shutil.copytree(source,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('screenshots','videos')if evidence=='none'and rel.startswith('reports/')else None)
+   else:shutil.copy2(source,target)
  for source in list((ROOT/'tests/performance/resultados').glob('diagnostico*'))+[ROOT/'data/quality-policy.json']:
   if source.is_file():
    target=site/source.relative_to(ROOT);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
  target=site/'results/final';target.mkdir(parents=True,exist_ok=True)
  for name in ['index.html','report.json','trazabilidad.csv','cases-kiwi.json']+(['kiwi-status.json']if(base/'kiwi-status.json').exists()else[]):shutil.copy2(base/name,target/name)
  (site/'index.html').write_text('<!doctype html><meta http-equiv="refresh" content="0;url=results/final/index.html"><a href="results/final/index.html">Reporte final</a>',encoding='utf-8')
+
+ api_out=ROOT/'tests/api/reportes';api_out.mkdir(parents=True,exist_ok=True)
+ write(api_out/'resumen.json',{'revision':current['revision'],'remote_run':current['remote_run'],'gates':{k:v for k,v in gates.items()if k in ('karate','schemathesis')},'runs':[r for r in runs if r['layer']in ('karate','schemathesis')]})
+ (api_out/'index.html').write_text('<!doctype html><meta charset="utf-8"><h1>Reportes API de esta ejecución</h1><p>Los resultados conservan sus PASS/FAIL. <a href="../../../results/final/index.html">Abrir consolidado, matriz y reportes crudos</a></p>',encoding='utf8')
+ dest_api=site/'tests/api/reportes';dest_api.mkdir(parents=True,exist_ok=True)
+ for file in ['index.html','resumen.json']:shutil.copy2(api_out/file,dest_api/file)
  print('Reporte generado:',base/'index.html','Gate:',current['approved'])
  return current
 

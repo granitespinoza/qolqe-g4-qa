@@ -6,7 +6,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from kiwi_sync import sync
 class KiwiSyncTests(unittest.TestCase):
  def setUp(self):
-  self.case={'id':'E2E-G4-102','version':'abc','title':'Alta','hu':['HU-G4-01'],'file':'Web/features/contactos.feature'}
+  self.case={'id':'E2E-G4-102','version':'abc','title':'Alta','hu':['HU-G4-01'],'file':'features/e2e/contactos.feature'}
   self.item={'case':self.case,'state':'FAILED','variants':[{'state':'failed','classification':'known_issue','defect':'D-01'}]}
   self.run={'key':'web:run1','fingerprint':'abc','revision':'commit','url':None,'cases':[self.item]}
   self.rpc=MagicMock();self.rpc.TestCaseStatus.filter.return_value=[{'id':2}]

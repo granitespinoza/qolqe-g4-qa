@@ -9,7 +9,7 @@ from kiwi_sync import aggregate_case,payload
 class FinalDeliveryTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.db=Path(self.tmp.name)/'history.sqlite'
-  self.case={'id':'E2E-G4-401','version':'abc','title':'Login','hu':['HU-N-02'],'layer':'Web','file':'Web/features/nucleo.feature'}
+  self.case={'id':'E2E-G4-401','version':'abc','title':'Login','hu':['HU-N-02'],'layer':'Web','file':'features/e2e/nucleo.feature'}
   self.test={'case_id':self.case['id'],'variant':'feature::401','state':'failed','classification':'known_issue','defect':'D-01','error':'expected 422 to equal 201'}
   self.run={'key':'web:run1','layer':'web','started':'2026-11-19T00:00:00Z','revision':'abc','source_hash':'abc','url':None,'tests':[self.test]}
  def test_history_reimport_is_idempotent(self):

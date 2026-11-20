@@ -18,9 +18,9 @@ def run(mode, tag=None, scope='all'):
     if mode=='karate':
         java=shutil.which('java') or next((str(p) for p in (ROOT/'.tools/java').rglob('java.exe')),None)
         if not java: raise SystemExit('Falta Java 17: ejecutar scripts/bootstrap.ps1')
-        args=[java,'-DqaPython='+sys.executable,'-cp',str(ROOT/'.tools/karate.jar')+os.pathsep+str(ROOT),'com.intuit.karate.Main','-T','1','-f','cucumber:json,junit:xml','-r',report_dir,'API/features']
+        args=[java,'-DqaPython='+sys.executable,'-cp',str(ROOT/'.tools/karate.jar')+os.pathsep+str(ROOT),'com.intuit.karate.Main','-T','1','-f','cucumber:json,junit:xml','-r',report_dir,'tests/api/features']
         if scope == 'g4':
-            args[-1:] = [str(p.relative_to(ROOT)) for p in sorted((ROOT/'API/features').glob('hu-g4-*.feature'))]
+            args[-1:] = [str(p.relative_to(ROOT)) for p in sorted((ROOT/'tests/api/features').glob('hu-g4-*.feature'))]
         if tag:
             # Se pasa como argumento, sin ejecutar texto en un shell.
             args[args.index('-r'):args.index('-r')] = ['-t', tag]
@@ -99,7 +99,7 @@ if __name__=='__main__':
     if a.mode != 'karate' and (a.tag or a.scope != 'all' or a.list_tags):
         p.error('--tag, --scope y --list-tags se utilizan solo con karate')
     if a.list_tags:
-        selected=(ROOT/'API/features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'API/features').rglob('*.feature')
+        selected=(ROOT/'tests/api/features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'tests/api/features').rglob('*.feature')
         for path in sorted(selected):
             tags=sorted({tag for line in path.read_text(encoding='utf-8').splitlines() if line.lstrip().startswith('@') for tag in line.split() if tag.startswith('@')})
             if tags and tags != ['@ignore']:
@@ -108,7 +108,7 @@ if __name__=='__main__':
     if a.tag and (not a.tag.startswith('@') or any(c.isspace() for c in a.tag) or ',' in a.tag or '~' in a.tag):
         p.error('--tag debe ser un único tag, por ejemplo @HU-G4-01')
     if a.tag:
-        selected=(ROOT/'API/features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'API/features').rglob('*.feature')
+        selected=(ROOT/'tests/api/features').glob('hu-g4-*.feature') if a.scope=='g4' else (ROOT/'tests/api/features').rglob('*.feature')
         if not any(a.tag in text.split() for path in selected for text in path.read_text(encoding='utf-8').splitlines() if text.lstrip().startswith('@')):
             p.error('El tag no existe en el alcance elegido. Revisa el encabezado de la HU o del escenario.')
     proc=None

@@ -12,9 +12,9 @@ from diagnose_api import classify, parse_karate
 
 class ClassificationTests(unittest.TestCase):
     def setUp(self):
-        self.row = dict(key='API/features/a.feature::10', file='API/features/a.feature', status='failed',
+        self.row = dict(key='tests/api/features/a.feature::10', file='tests/api/features/a.feature', status='failed',
                         background_failed=False, failed_steps=[dict(step='match r.statusCode == 201',error_sha256='error1')])
-        self.manifest = dict(reference_commit='sut1',source_hashes={'API/features/a.feature':'source1'})
+        self.manifest = dict(reference_commit='sut1',source_hashes={'tests/api/features/a.feature':'source1'})
         self.catalog = dict(reference_commit='sut1',failures=[dict(key=self.row['key'],source_sha256='source1',
                             failed_steps=copy.deepcopy(self.row['failed_steps']),defect='D-01')])
 
@@ -32,7 +32,7 @@ class ClassificationTests(unittest.TestCase):
 
     def test_changed_reference_or_test_invalidates_classification(self):
         for changed in [dict(reference_commit='sut2',source_hashes=self.manifest['source_hashes']),
-                        dict(reference_commit='sut1',source_hashes={'API/features/a.feature':'source2'})]:
+                        dict(reference_commit='sut1',source_hashes={'tests/api/features/a.feature':'source2'})]:
             self.assertIsNone(classify(self.row,changed,self.catalog))
 
     def test_preparation_failure_not_functional_defect(self):
@@ -51,7 +51,7 @@ class EvidenceTests(unittest.TestCase):
             elements.append(dict(type='background',steps=[dict(name='setup',result={'status':'failed'})]))
         elements.append(dict(type='scenario',line=10,name='sample',tags=[{'name':'@G4-001'}],
             steps=[dict(name='match result',result={'status':'skipped' if failed_background else 'passed'})]))
-        (root/'features.a.json').write_text(json.dumps([dict(uri='API/features/a.feature',elements=elements)]))
+        (root/'features.a.json').write_text(json.dumps([dict(uri='tests/api/features/a.feature',elements=elements)]))
         (root/'karate-summary-json.txt').write_text(json.dumps(dict(scenariosPassed=0 if failed_background else count,scenariosfailed=1 if failed_background else 0)))
 
     def test_empty_or_incomplete_report_rejected(self):

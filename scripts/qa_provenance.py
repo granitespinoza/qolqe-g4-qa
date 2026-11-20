@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib, subprocess
 ROOT=Path(__file__).resolve().parents[1]
 def snapshot():
-    files=sorted((ROOT/'API/features').rglob('*.feature'))+[ROOT/'karate-config.js',ROOT/'data/casos.json',ROOT/'scripts/concurrency_probe.py']
+    files=sorted((ROOT/'tests/api/features').rglob('*.feature'))+[ROOT/'karate-config.js',ROOT/'data/casos.json',ROOT/'scripts/concurrency_probe.py']
     return {'reference_commit':subprocess.check_output(['git','-C',str(ROOT/'referencias/qolqe-wallet'),'rev-parse','HEAD'],text=True).strip(),'source_hashes':{str(p.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
 def validate(manifest):
     current=snapshot()

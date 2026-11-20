@@ -1,6 +1,6 @@
 # Capacidad de IA y validación independiente
 
-Incorporamos `cy.prompt` en `Web/cypress/demos/contactos-ia.cy.ts`. La IA interpreta instrucciones de interacción: completar celular/alias y agregar un contacto. Aporta generación de acciones sobre la UI a partir de lenguaje natural. No decide el criterio de aceptación, no cambia el producto y no clasifica automáticamente defectos para permitir el gate.
+Incorporamos `cy.prompt` en `tests/e2e/demos/contactos-ia.cy.ts`. La IA interpreta instrucciones de interacción: completar celular/alias y agregar un contacto. Aporta generación de acciones sobre la UI a partir de lenguaje natural. No decide el criterio de aceptación, no cambia el producto y no clasifica automáticamente defectos para permitir el gate.
 
 Validamos su resultado con oráculos deterministas: POST real responde 201; tras recargar hay un único contacto; coinciden alias y celular. Eso comprueba persistencia, no solamente que la IA hizo clic. Datos y actores son sintéticos y exclusivos.
 

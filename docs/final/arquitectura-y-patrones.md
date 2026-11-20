@@ -43,7 +43,7 @@ Usamos POM para encapsular selectores y acciones en ContactosPage, SolicitudesPa
 
 | Patrón | Ventaja | Evaluación para el contexto |
 |---|---|---|
-| POM + componentes pequeños | Un cambio de selector se corrige en un lugar; interfaz concreta por pantalla | Elegido para dos integrantes y pocas pantallas; evita duplicación sin introducir una jerarquía extensa |
+| POM + componentes pequeños | Un cambio de selector se corrige en un lugar; interfaz concreta por pantalla | Elegido para un alcance acotado y mantenimiento individual; evita duplicación sin introducir una jerarquía extensa |
 | Screenplay | Actores, tareas y preguntas reutilizables entre muchos flujos | Conveniente al crecer roles y procesos transversales; mayor inversión inicial de abstracción |
 | Fluent Interface / flujos encadenados | Lectura compacta de acciones | Complementa POM; por sí solo no separa selectores ni garantiza oráculos claros |
 | Scripts con selectores directos | Inicio rápido | Descartado como arquitectura principal: cambios UI multiplican el mantenimiento |
@@ -52,7 +52,7 @@ La escalabilidad se apoya en separar componentes comunes, acciones, datos y aser
 
 ## Gherkin y reutilización
 
-`Web/features/*.feature` se ejecuta con el preprocesador Cucumber, no es documentación desconectada. `Web/cypress/steps/web.ts` enlaza cada escenario a su implementación única. Se conservan los cuerpos de las pruebas para no duplicar oráculos ni alterar el comportamiento al migrar. El paso Cuando ejecuta acciones y aserciones existentes; Entonces verifica que esa cadena finalizó. Esta migración es una capa de enlace: un refinamiento posterior puede separar precondiciones, acciones y verificaciones en pasos de negocio más pequeños. El título, las HU, los TC y los grupos identifican el objetivo concreto.
+`features/e2e/*.feature` se ejecuta con el preprocesador Cucumber, no es documentación desconectada. `tests/e2e/steps/web.ts` enlaza cada escenario a su implementación única. Se conservan los cuerpos de las pruebas para no duplicar oráculos ni alterar el comportamiento al migrar. El paso Cuando ejecuta acciones y aserciones existentes; Entonces verifica que esa cadena finalizó. Esta migración es una capa de enlace: un refinamiento posterior puede separar precondiciones, acciones y verificaciones en pasos de negocio más pequeños. El título, las HU, los TC y los grupos identifican el objetivo concreto.
 
 ## Fuentes técnicas
 

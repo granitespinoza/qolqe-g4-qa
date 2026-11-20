@@ -26,3 +26,7 @@ Kiwi local verifica TLS y lee de nuevo los estados importados. Un runner de GitH
 La demo cy.prompt cuenta con evidencia real, validada mediante POST 201 y persistencia; requiere la sesión personal Cloud para repetirla. No se afirma ejecución IA nueva en cada pipeline.
 
 [Guía de ejecución](ejecucion.md) · [Gestión de casos](gestion-casos.md) · [IA](ia.md)
+
+## Organización final exigida
+
+El informe principal está en `INFORME_FINAL.md`, los escenarios ejecutables en `features/e2e/`, Karate en `tests/api/features/`, Cypress en `tests/e2e/` y la exportación de 18 diapositivas en `presentacion/Entrega_Final_Qolqe.pdf`. La reorganización exige una nueva ejecución; los snapshots anteriores conservan su revisión y no se renombran como resultados nuevos. La demo IA se volvió a ejecutar después de mover las rutas: 1/1 aprobada.

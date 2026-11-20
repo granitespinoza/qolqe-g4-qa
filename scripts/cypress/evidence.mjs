@@ -4,7 +4,7 @@ import path from 'node:path'
 
 export function sourceFingerprint(root = process.cwd()) {
   const walk = dir => readdirSync(path.join(root,dir), { withFileTypes:true }).flatMap(e => e.isDirectory() ? walk(`${dir}/${e.name}`) : [`${dir}/${e.name}`])
-  const files = [...walk('Web/cypress'), ...walk('Web/features'), ...walk('Web/smoke'), ...walk('scripts/cypress').filter(p=>/\.(mjs|py|txt)$/.test(p)),
+  const files = [...walk('tests/e2e'), ...walk('features/e2e'), ...walk('features/smoke'), ...walk('scripts/cypress').filter(p=>/\.(mjs|py|txt)$/.test(p)),
     'cypress.config.ts','package.json','package-lock.json','tsconfig.json','requirements-lock.txt']
     .filter(p=>!p.includes('__pycache__')).sort()
   const hashes = Object.fromEntries(files.map(file=>[file,createHash('sha256').update(readFileSync(path.join(root,file))).digest('hex')]))

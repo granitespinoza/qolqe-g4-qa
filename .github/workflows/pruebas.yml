@@ -51,7 +51,7 @@ jobs:
             reports/raw/schemathesis/
             reports/latest-schemathesis.json
             reports/gate/schemathesis.json
-            API/openapi.json
+            tests/api/openapi.json
             data/final-audit.json
           retention-days: 14
   api:
@@ -211,7 +211,10 @@ jobs:
             tests/performance/resultados/
             docs/final/
             docs/parte3/
-            Web/features/
+            features/
+            tests/api/reportes/
+            INFORME_FINAL.md
+            presentacion/Entrega_Final_Qolqe.pdf
             data/final-*.json
             .tools/final-history.sqlite
           include-hidden-files: true

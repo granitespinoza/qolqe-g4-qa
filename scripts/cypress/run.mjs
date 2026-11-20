@@ -10,7 +10,7 @@ const sutRevision = spawnSync('git',['-C','referencias/qolqe-wallet','rev-parse'
 const sutState = spawnSync('git',['-C','referencias/qolqe-wallet','status','--porcelain'],{encoding:'utf8',windowsHide:true})
 if(sutRevision.status!==0 || sutRevision.stdout.trim()!=='8c7d2f0c939ede7765b7b80b98c10c3905693fda' || sutState.status!==0 || sutState.stdout.trim()) throw new Error('La referencia debe estar limpia y en la versión fijada')
 const source = sourceFingerprint(root)
-const expectedSpecs = Object.keys(source.files).filter(f=>f.startsWith('Web/features/') && f.endsWith('.feature'))
+const expectedSpecs = Object.keys(source.files).filter(f=>f.startsWith('features/e2e/') && f.endsWith('.feature'))
 const mode = process.argv[2] || 'regression'
 if (!['open','smoke','regression','ai','ai-open','failure'].includes(mode)) throw new Error('Modo desconocido')
 const major = Number(process.versions.node.split('.')[0])
@@ -51,7 +51,7 @@ while (Date.now() - started < 90000) {
 if (!ready) { stop(); throw new Error(`Servidor no disponible. Revisa ${runDir}/server.log`) }
 const interactive = ['open', 'ai-open'].includes(mode)
 const args = [interactive ? 'open' : 'run', '--e2e', '--browser', process.env.CY_BROWSER || 'chrome']
-if (mode === 'smoke') args.push('--spec', process.env.CY_SMOKE_SPEC || 'Web/smoke/contactos.feature')
+if (mode === 'smoke') args.push('--spec', process.env.CY_SMOKE_SPEC || 'features/smoke/contactos.feature')
 const env = { ...process.env, CY_RUN_DIR: runDir, CY_MODE: mode, CY_DEMO: mode.startsWith('ai') ? 'ai' : mode === 'failure' ? 'failure' : '' }
 // El entorno del desktop puede heredar esta opción de Electron y romper Cypress.
 delete env.ELECTRON_RUN_AS_NODE

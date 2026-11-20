@@ -38,3 +38,7 @@ apidoc/data.js
 
 # Evidencia de rendimiento requerida por la Parte 3
 !tests/performance/resultados/**/*.log
+
+# Reportería API por ejecución; se publica como artefacto, sin sobrescribir el código
+tests/api/reportes/*
+!tests/api/reportes/README.md

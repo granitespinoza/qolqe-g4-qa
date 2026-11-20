@@ -98,12 +98,12 @@ def build():
     for hu,title,body in hu_blocks:
         lines+=['',f'## {hu} — {title}','',body.strip(),'']
         for c in [c for c in cases if c['hu']==hu]:
-            lines += [f'### {c["id"]} — {c["title"]}',f'**Técnica:** {c["technique"]}. **Justificación:** {c["why"]}',f'**Regla:** {c["rule"]}. **Resultado:** {results.get(c["id"],{}).get("status","PENDIENTE")}.',f'[Escenario](../API/features/{hu.lower()}.feature) · [Evidencia](../evidencias/{c["id"]}.html)','```gherkin']+['* '+s for s in c['steps']]+['```','']
+            lines += [f'### {c["id"]} — {c["title"]}',f'**Técnica:** {c["technique"]}. **Justificación:** {c["why"]}',f'**Regla:** {c["rule"]}. **Resultado:** {results.get(c["id"],{}).get("status","PENDIENTE")}.',f'[Escenario](../tests/api/features/{hu.lower()}.feature) · [Evidencia](../evidencias/{c["id"]}.html)','```gherkin']+['* '+s for s in c['steps']]+['```','']
     write('docs/diseno-pruebas.md','\n'.join(lines))
     lines=['# Defectos reproducidos','',f'Aplicación original: `{commit}`. No se modificó su código.','']
     for f in findings:
         c=next(c for c in cases if c['id']==f['case'])
-        lines += [f'## {f["id"]} — {f["title"]}',f'**Clasificación:** {f["classification"]}. **Requisito:** {c["hu"]}, {c["rule"]}.',f'**Descripción:** {f["description"]}',f'**Reproducción automatizada:** ejecutar Karate con etiqueta `@{c["id"]}`. El escenario prepara sus propios usuarios.',f'**Esperado y pasos:** [feature](../API/features/{c["hu"].lower()}.feature).',f'**Obtenido:** [registro HTTP real](../evidencias/{c["id"]}.html).','```text',results[c['id']]['error'],'```','']
+        lines += [f'## {f["id"]} — {f["title"]}',f'**Clasificación:** {f["classification"]}. **Requisito:** {c["hu"]}, {c["rule"]}.',f'**Descripción:** {f["description"]}',f'**Reproducción automatizada:** ejecutar Karate con etiqueta `@{c["id"]}`. El escenario prepara sus propios usuarios.',f'**Esperado y pasos:** [feature](../tests/api/features/{c["hu"].lower()}.feature).',f'**Obtenido:** [registro HTTP real](../evidencias/{c["id"]}.html).','```text',results[c['id']]['error'],'```','']
     lines+=['## Clasificación pendiente','Los demás fallos se investigan por separado: no se atribuyen automáticamente a la aplicación. La implementación puede confirmar una hipótesis de causa, pero no reemplaza la reproducción HTTP.']
     write('docs/defectos.md','\n'.join(lines))
     write('docs/informe.md',f'''# Informe — Parte 1 · G4 Contactos

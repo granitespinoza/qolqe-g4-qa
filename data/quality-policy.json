@@ -163,7 +163,7 @@
   },
   "api_rules": [
     {
-      "key": "API/features/complemento-contactos.feature::30",
+      "key": "tests/api/features/complemento-contactos.feature::30",
       "defect": "D-01",
       "failures": [
         {
@@ -173,7 +173,7 @@
       ]
     },
     {
-      "key": "API/features/complemento-contactos.feature::62",
+      "key": "tests/api/features/complemento-contactos.feature::62",
       "defect": "D-02",
       "failures": [
         {
@@ -183,7 +183,7 @@
       ]
     },
     {
-      "key": "API/features/contrato-contactos.feature::67",
+      "key": "tests/api/features/contrato-contactos.feature::67",
       "defect": "D-06",
       "failures": [
         {
@@ -193,7 +193,7 @@
       ]
     },
     {
-      "key": "API/features/contrato-contactos.feature::68",
+      "key": "tests/api/features/contrato-contactos.feature::68",
       "defect": "D-06",
       "failures": [
         {
@@ -203,7 +203,7 @@
       ]
     },
     {
-      "key": "API/features/contrato-contactos.feature::69",
+      "key": "tests/api/features/contrato-contactos.feature::69",
       "defect": "D-06",
       "failures": [
         {
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "key": "API/features/contrato-contactos.feature::70",
+      "key": "tests/api/features/contrato-contactos.feature::70",
       "defect": "D-06",
       "failures": [
         {
@@ -223,7 +223,7 @@
       ]
     },
     {
-      "key": "API/features/hu-g4-01.feature::52",
+      "key": "tests/api/features/hu-g4-01.feature::52",
       "defect": "D-01",
       "failures": [
         {
@@ -233,7 +233,7 @@
       ]
     },
     {
-      "key": "API/features/hu-g4-01.feature::187",
+      "key": "tests/api/features/hu-g4-01.feature::187",
       "defect": "D-02",
       "failures": [
         {
@@ -243,7 +243,7 @@
       ]
     },
     {
-      "key": "API/features/hu-g4-08.feature::82",
+      "key": "tests/api/features/hu-g4-08.feature::82",
       "defect": "D-03",
       "failures": [
         {
@@ -253,7 +253,7 @@
       ]
     },
     {
-      "key": "API/features/hu-g4-08.feature::97",
+      "key": "tests/api/features/hu-g4-08.feature::97",
       "defect": "D-03",
       "failures": [
         {
@@ -263,7 +263,7 @@
       ]
     },
     {
-      "key": "API/features/hu-n-03.feature::22",
+      "key": "tests/api/features/hu-n-03.feature::22",
       "defect": "D-04",
       "failures": [
         {
@@ -273,7 +273,7 @@
       ]
     },
     {
-      "key": "API/features/hu-n-07.feature::80",
+      "key": "tests/api/features/hu-n-07.feature::80",
       "defect": "D-05",
       "failures": [
         {
@@ -285,52 +285,52 @@
   ],
   "web_rules": {
     "E2E-G4-102": {
-      "file": "Web/features/contactos.feature",
+      "file": "features/e2e/contactos.feature",
       "defect": "D-01",
       "error": "AssertionError: expected 422 to equal 201"
     },
     "E2E-G4-104": {
-      "file": "Web/features/contactos.feature",
+      "file": "features/e2e/contactos.feature",
       "defect": "D-02",
       "error": "AssertionError: expected 201 to equal 409"
     },
     "E2E-G4-113": {
-      "file": "Web/features/contactos.feature",
+      "file": "features/e2e/contactos.feature",
       "defect": "D-01",
       "error": "AssertionError: expected 422 to equal 200"
     },
     "E2E-G4-115": {
-      "file": "Web/features/contactos.feature",
+      "file": "features/e2e/contactos.feature",
       "defect": "D-02",
       "error": "AssertionError: expected 200 to equal 409"
     },
     "E2E-G4-117": {
-      "file": "Web/features/contactos.feature",
+      "file": "features/e2e/contactos.feature",
       "defect": "D-07",
       "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '10.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
     },
     "E2E-G4-324": {
-      "file": "Web/features/solicitudes.feature",
+      "file": "features/e2e/solicitudes.feature",
       "defect": "D-03",
       "error": "AssertionError: expected 200 to equal 409"
     },
     "E2E-G4-201": {
-      "file": "Web/features/transferencias.feature",
+      "file": "features/e2e/transferencias.feature",
       "defect": "D-07",
       "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '0.01', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
     },
     "E2E-G4-202": {
-      "file": "Web/features/transferencias.feature",
+      "file": "features/e2e/transferencias.feature",
       "defect": "D-07",
       "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '500.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
     },
     "E2E-G4-206": {
-      "file": "Web/features/transferencias.feature",
+      "file": "features/e2e/transferencias.feature",
       "defect": "D-08",
       "error": "AssertionError: expected 201 to equal 422"
     },
     "E2E-G4-407": {
-      "file": "Web/features/nucleo.feature",
+      "file": "features/e2e/nucleo.feature",
       "error": "AssertionError: Token de la sesión cerrada debe quedar revocado: expected 200 to equal 401",
       "defect": "D-04"
     }
@@ -411,54 +411,54 @@
     }
   },
   "source_hashes": {
-    "API/features/complemento-contactos.feature": "993d5a0236ce7a516caa8de879a3325b42e278cece27cbb7b32e095e1e21da4a",
-    "API/features/contrato-contactos.feature": "efa73b99b4d98404ae5b5ad04137dd991c4e90c45e7120066ac87b0ee19ac101",
-    "API/features/hu-g4-01.feature": "8d3c6a3b5224b5a61e1477831e2a3f5f1b9eaabf8bed716629cd3ea48d7af389",
-    "API/features/hu-g4-02.feature": "1c6ff5e01da2c0b3d8b2afd59f2d43f104364f6be7750085ccc19847e06d04e1",
-    "API/features/hu-g4-03.feature": "c5b370a85b53456778d364107bde65939e6799a5a6b7960e56c9a86c50012435",
-    "API/features/hu-g4-04.feature": "d30d2a97820f4c71f9a99d2f60fdff24dd399f1427b9fc43f05bc03790c48241",
-    "API/features/hu-g4-05.feature": "9e58002e3231b4e53debfb0fb1f87e55dded641f70c20908564482e18e4e9654",
-    "API/features/hu-g4-06.feature": "0cd3392346d8648dd32e799c459668601c97650c76f0bc6ad39fb106eb1f62fb",
-    "API/features/hu-g4-07.feature": "da59d5de33468857850b87b7ed7c6d50e9c8a4347addf0c76bec9984b049e036",
-    "API/features/hu-g4-08.feature": "f0c7b665efb034e2c5fe2931a7ae5658f60371efc5c8ed864ac75c715b7a53a6",
-    "API/features/hu-g4-09.feature": "4b01e5114b71593bd8633d805234eb8c363d261a6b1cfa1bfa0723e3c06dbf2f",
-    "API/features/hu-g4-10.feature": "5829f0dc861f78cb7e5388e65e99d6470fbefcd2db8d1eef24eda415f890a5da",
-    "API/features/hu-n-01.feature": "8a3578ed3c09ffcca67dd058b734ef1ad7708c6057adb5b09c2bbe504dc529a6",
-    "API/features/hu-n-02.feature": "d6329a589bf15598d9ee11c0f5a82ff9bfd9895193b29be6303520dd73eac73b",
-    "API/features/hu-n-03.feature": "af35f144f278b1153e4b1700404580eb79b0ca886518df8a63f309da708b6106",
-    "API/features/hu-n-04.feature": "5859b2bc8f658389378a197eb8a53feb1cb41e2f18b8ca2d4ba4ec800181d7a9",
-    "API/features/hu-n-05.feature": "7925a454dcb05070c4bcc9a5776f8b5e503d630919cec0bf81f2849d8058b72b",
-    "API/features/hu-n-06.feature": "727bf7d0baf73eff2e18e67e53f094ad18aacc85766a9664a235a9637ce1ded8",
-    "API/features/hu-n-07.feature": "7842058c3203f9271f98f26596091b5dfdcd780552d9ab4c8680a64e595a71c5",
-    "API/features/hu-n-08.feature": "782eb6dd9747aed3782eaff36682f6c982f9f5eec81f6db17947595c22cdbc90",
-    "API/features/hu-n-09.feature": "27287ce476eca5bd1a4a12209d05f3bdd5f6ff51424965c3b1693de234ed3edc",
-    "API/features/support/http.feature": "10d04bc36c21c8d197c5fb6f303ccf4425425d530ecd37e0b18b373e758725a7",
-    "API/features/support/session-ready.feature": "71ca30c336af82cc56f0db3a5f438bd9fc1041ef847fae662b92ac7ea635a9ad",
-    "API/features/support/setup.feature": "471ec5a14b29a26792c7124c2abc725751f9d8a698fe3c82a129fdb7755f353a",
-    "Web/cypress/demos/contactos-ia.cy.ts": "202ccd31164426eb0860c1d7bac8f871fc61f4544391f25c614cf923fded42f5",
-    "Web/cypress/demos/evidencia-fallo.cy.ts": "e248700c3bdf4f3327e386603806eeda9c9b1cf0e6080d23e35ed873274e9d12",
-    "Web/cypress/e2e/contactos-completo.cy.ts": "915c76f7179ecbf1ecced90ddfed0688b3b51a680a516472ddb34b2d1fdceb75",
-    "Web/cypress/e2e/contactos-happy-path.cy.ts": "c9a1399ce433027ef2966e1d685c5f9f357a565cb1ecf6f40b8d2754eb5e7033",
-    "Web/cypress/e2e/contactos-validaciones.cy.ts": "5fc336305c215f82adb30ca07e6763d81a29a5aa6fc9d33c21bd207d9fd02a34",
-    "Web/cypress/e2e/solicitudes-completo.cy.ts": "ae0acd3a5a2d6a5f016b2a3adbc61ace94593c43eee9e2aff60f54106d55ea73",
-    "Web/cypress/e2e/transferencias-contactos.cy.ts": "720dec91d158657fdb008c6765939640e19f0058b7663ac12953e0bb279be1b3",
-    "Web/cypress/pages/ContactosPage.ts": "98ac7665abb2ef9853533cecc3ed474099a703ac0f18cd2131498ea57dd9b73e",
-    "Web/cypress/pages/LoginPage.ts": "30baaf86e906b1cc3f634994478a92acb81c36874fe396dd0f265f876fabf741",
-    "Web/cypress/pages/SolicitudesPage.ts": "9d9606e106e733039699858a530cdb9130887b0ed969f441f71f9913ffeccf84",
-    "Web/cypress/pages/TransferenciasPage.ts": "b8c88c639425b4442aa1cb60947313fd81a1281ab3576bf4d24a464438cb0303",
-    "Web/cypress/pages/Ui.ts": "43da6a31b17030924df7909418dc2d8e8292658e8a401f8253d5d52faf02d44e",
-    "Web/cypress/support/commands.ts": "e05a36293484e14ddabc95d6fef17fa3a5fdf218c500d59b7b9167cac1d20a91",
-    "Web/cypress/support/e2e.ts": "11ab68d92712a5b2d36e64bb96a9376ae89d6d1ce9f9bc372ebce456efade049",
-    "Web/cypress/support/fixtures.ts": "ad84e8e63a5dc296659d65d6e8ce8d9d7d7d566247277d29b82fb986b82f425f",
+    "tests/api/features/complemento-contactos.feature": "eed56e0791d8ac21fd1e3653d6012c68d8e1c4cd3866101184a950155c6277eb",
+    "tests/api/features/contrato-contactos.feature": "c1dd6ee90f0268f16e5ab717c546e7439ce2d9ce819c1153ada08d7505885015",
+    "tests/api/features/hu-g4-01.feature": "c08a12883dd4f04647e6869797e50e16db17b6fe3113747b49d78cd3a11eb481",
+    "tests/api/features/hu-g4-02.feature": "47e119026bb8f4f35f1410fed903d288b8d50e3e5da8b4793c7cb332b774e508",
+    "tests/api/features/hu-g4-03.feature": "67cd7ef4073aade0918cfe907d6758ac6bddbd317d97d835e223d77641291130",
+    "tests/api/features/hu-g4-04.feature": "cbcea91496a5da3daf8a562e4a5a62ffc7962297116854725c4c58b53e3498bc",
+    "tests/api/features/hu-g4-05.feature": "2abb3ec85bd97ec16ab4396f0e2364468e9782c21bcb92c6fa578f360d3de1bd",
+    "tests/api/features/hu-g4-06.feature": "6b69835f30427426cc9bd8cd98a639fa3edbcc7df2b1e60eebde9bc152f623ae",
+    "tests/api/features/hu-g4-07.feature": "559e3f289e67da512cda37bdc723c3ef4f127c5baf9583dfbac727885941f3bf",
+    "tests/api/features/hu-g4-08.feature": "d6e853e61cb869e7f7bfc11e760664216652763b8b095bd28b38dd37371af88a",
+    "tests/api/features/hu-g4-09.feature": "f76c4088043e47c6e5e5c2fd7f0c8e3b7b82c45bded9c332a645a136366b3605",
+    "tests/api/features/hu-g4-10.feature": "38ec098788237f3bf81415aa0f6fd4ca94b1bd6cdd7079408f074a24cc786a04",
+    "tests/api/features/hu-n-01.feature": "b2e8ee2a3ce25f01bf961e9735a45237cba3087cff1cc17a3557f38b5d40eb0c",
+    "tests/api/features/hu-n-02.feature": "537e208c92df2bdf9fb3c52928bd349a674322fde98b7a2b4bbd98f55fe8c69d",
+    "tests/api/features/hu-n-03.feature": "62467a84dd843b4244c6e1e973f29f7d94602026a28409b514432765b7ebb867",
+    "tests/api/features/hu-n-04.feature": "42c18dcabc3a5e992631c9fc63b2d36f0792c840ec2f597e9e31ceb3767b0f76",
+    "tests/api/features/hu-n-05.feature": "b582d5bfb1d3ab4ada047aee52dd001421f16f52678da8b4bd22a21e3a821698",
+    "tests/api/features/hu-n-06.feature": "79bcc4b0ab8242b6153694c51416ed8ad3fbf8d8c104913f0e3582e92083e39c",
+    "tests/api/features/hu-n-07.feature": "05ba641fffeff3c5dd8e73f92a0292cce4f815f7348327b7162de439a7c15c75",
+    "tests/api/features/hu-n-08.feature": "3802bc2e4e7898c2e823e8147bf4b3f9c3b4e5646c0436305cd067e5d40d9e73",
+    "tests/api/features/hu-n-09.feature": "b990e5bbddef9e2cd1e583ca54ca2b5bdcd6113874904f0bfa22600cb82f6563",
+    "tests/api/features/support/http.feature": "10d04bc36c21c8d197c5fb6f303ccf4425425d530ecd37e0b18b373e758725a7",
+    "tests/api/features/support/session-ready.feature": "ef57e43052836651f0ab5714406c23e17e4cabe6e78b4c2d286d0ce5d2230a49",
+    "tests/api/features/support/setup.feature": "ea4dc4ea929d974240fa2bdc24c9fab20a7baefd8a683afb3f1900ef26b75313",
+    "tests/e2e/demos/contactos-ia.cy.ts": "202ccd31164426eb0860c1d7bac8f871fc61f4544391f25c614cf923fded42f5",
+    "tests/e2e/demos/evidencia-fallo.cy.ts": "e248700c3bdf4f3327e386603806eeda9c9b1cf0e6080d23e35ed873274e9d12",
+    "tests/e2e/specs/contactos-completo.cy.ts": "915c76f7179ecbf1ecced90ddfed0688b3b51a680a516472ddb34b2d1fdceb75",
+    "tests/e2e/specs/contactos-happy-path.cy.ts": "c9a1399ce433027ef2966e1d685c5f9f357a565cb1ecf6f40b8d2754eb5e7033",
+    "tests/e2e/specs/contactos-validaciones.cy.ts": "5fc336305c215f82adb30ca07e6763d81a29a5aa6fc9d33c21bd207d9fd02a34",
+    "tests/e2e/specs/solicitudes-completo.cy.ts": "ae0acd3a5a2d6a5f016b2a3adbc61ace94593c43eee9e2aff60f54106d55ea73",
+    "tests/e2e/specs/transferencias-contactos.cy.ts": "720dec91d158657fdb008c6765939640e19f0058b7663ac12953e0bb279be1b3",
+    "tests/e2e/pages/ContactosPage.ts": "98ac7665abb2ef9853533cecc3ed474099a703ac0f18cd2131498ea57dd9b73e",
+    "tests/e2e/pages/LoginPage.ts": "30baaf86e906b1cc3f634994478a92acb81c36874fe396dd0f265f876fabf741",
+    "tests/e2e/pages/SolicitudesPage.ts": "9d9606e106e733039699858a530cdb9130887b0ed969f441f71f9913ffeccf84",
+    "tests/e2e/pages/TransferenciasPage.ts": "b8c88c639425b4442aa1cb60947313fd81a1281ab3576bf4d24a464438cb0303",
+    "tests/e2e/pages/Ui.ts": "43da6a31b17030924df7909418dc2d8e8292658e8a401f8253d5d52faf02d44e",
+    "tests/e2e/support/commands.ts": "e05a36293484e14ddabc95d6fef17fa3a5fdf218c500d59b7b9167cac1d20a91",
+    "tests/e2e/support/e2e.ts": "11ab68d92712a5b2d36e64bb96a9376ae89d6d1ce9f9bc372ebce456efade049",
+    "tests/e2e/support/fixtures.ts": "ad84e8e63a5dc296659d65d6e8ce8d9d7d7d566247277d29b82fb986b82f425f",
     "requirements-lock.txt": "aaf01bd528693d4a1231f374108401f9104a3e31663a2ffad9ac25b953e11ee6",
-    "cypress.config.ts": "a40c390ca689097f514a6a23b822dd35c899b97b098f9dbe006c596715869d58",
-    "tsconfig.json": "9308f713e7207831627d8df5dbcb6c10b446f367f7d2dd09e39dd6f04272ce19",
+    "cypress.config.ts": "c3e4b1865222d3acc93881a0ea4691e1e9cb5f272b2a288dcbf9cf16f5b051b3",
+    "tsconfig.json": "cfe32f2b8594a10d08bcafe7c7ccba708e3ed49eb4ccd8b8930bc60e0f5ed41d",
     "data/casos.json": "651f28ccebab37bcc321de1e420851c5354015f6d6a0bfd94595cc9b160cfc2c",
-    "API/features/contrato-nucleo-solicitudes.feature": "17ba42d760a1a48e58a07f6d391249cfc458a1d5529039a003ad6fff1bb55825",
-    "Web/cypress/e2e/nucleo-comun.cy.ts": "ef13c40c97fb950d0352888d4fac8bcbd118a8c6637529a41af489eb5810cd6d",
-    "Web/cypress/steps/web.ts": "55a0738a80d4e720fe29d194f4fde81acb8e1a9488822a9ebf7d5f8387e8b0f2",
-    "Web/features/catalogo.json": "e9964c8bc50027ab322d142f898dedcc5d720eb6425f4073d9e5fabf21e98c33",
-    "Web/features/nucleo.feature": "f7220d1736da18aeaf26d7e75696d52e9624e89e972ba914ace2a8c7c2c2aa15"
+    "tests/api/features/contrato-nucleo-solicitudes.feature": "a63b3991d8881e738e14511e83f278bef3471e3e094a6424915a1f65031995af",
+    "tests/e2e/specs/nucleo-comun.cy.ts": "ef13c40c97fb950d0352888d4fac8bcbd118a8c6637529a41af489eb5810cd6d",
+    "tests/e2e/steps/web.ts": "ace803abe28f8be7ea8335de1cfd6f1b75dae87d3b4b85261739859e806e74e7",
+    "features/e2e/catalogo.json": "2dc892e917d75207fcbb63a71f0c604624d54a8b37c4fd7817015c82ed3b263b",
+    "features/e2e/nucleo.feature": "f7220d1736da18aeaf26d7e75696d52e9624e89e972ba914ace2a8c7c2c2aa15"
   },
   "contract_schema_sha256": "4247ee6fe4d1ede34b325c4de4e9d6e6dd258240720dd406bfa0ee647e794b69",
   "runtime_versions": {

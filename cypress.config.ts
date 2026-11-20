@@ -18,8 +18,8 @@ export default defineConfig({
   retries: 0,
   e2e: {
     baseUrl: 'http://127.0.0.1:8011', testIsolation: true,
-    specPattern: demo === 'ai' ? 'Web/cypress/demos/contactos-ia.cy.ts' : demo === 'failure' ? 'Web/cypress/demos/evidencia-fallo.cy.ts' : process.env.CY_MODE === 'smoke' ? ['Web/features/**/*.feature','Web/smoke/**/*.feature'] : 'Web/features/**/*.feature',
-    supportFile: 'Web/cypress/support/e2e.ts',
+    specPattern: demo === 'ai' ? 'tests/e2e/demos/contactos-ia.cy.ts' : demo === 'failure' ? 'tests/e2e/demos/evidencia-fallo.cy.ts' : process.env.CY_MODE === 'smoke' ? ['features/e2e/**/*.feature','features/smoke/**/*.feature'] : 'features/e2e/**/*.feature',
+    supportFile: 'tests/e2e/support/e2e.ts',
     async setupNodeEvents(on, config) {
       const originalOn = on
       const listeners: Record<string, ((...args: any[]) => any)[]> = {}

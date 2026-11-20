@@ -1,0 +1,68 @@
+# Informe del proyecto Qolqe Wallet
+Franco · Entrega final · CS5383
+
+Este informe consolida las tres partes y las correcciones finales. La sección 2 conserva, con fecha e identificador, el resultado inicial de la Parte 1. El alcance vigente, el pipeline, la gestión y los materiales finales se describen en las secciones 1 y 3. La sección 4 conserva los experimentos de rendimiento identificados. Componentes y responsabilidades: [arquitectura final](docs/final/arquitectura-y-patrones.md).
+
+## 1. Alcance y decisiones
+10 HU de G4 y las nueve HU del núcleo común: 51 criterios API; en Web se cubren los 18 CA de G4 y escenarios explícitos de todas las HU comunes. Fuente de requisitos: https://github.com/cjudihtroj/qolqe-wallet, commit `8c7d2f0c939ede7765b7b80b98c10c3905693fda`. Qolqe no se modifica.
+Herramientas: Karate (negocio, estados y efectos en la API), Schemathesis (contrato OpenAPI) y Cypress con TypeScript (E2E web). Cada herramienta aporta una capa distinta; ver [decisiones](docs/decisiones.md).
+Cobertura vigente: **65 escenarios web** en Gherkin (54 de G4 y 11 del núcleo) y **136 IDs API** que producen 187 escenarios/variantes. La matriz de cada ejecución publicada enlaza HU → caso → variante → corrida y conserva el resultado crudo y el defecto; la [matriz de Parte 2](data/trazabilidad-parte2.csv) permanece como archivo histórico. Un caso puede aparecer en varios criterios. No se declara cobertura total: el número de pruebas no mide por sí solo la cobertura de criterios.
+Quality Gate **Escenario A**: aprueba solo si todo fallo es una firma conocida y documentada, sin causas nuevas ni intermitencia, en un entorno académico aislado con datos ficticios. No certifica la aplicación para producción. [Política](docs/parte2/quality-gate.md).
+Nivel: pruebas contra la aplicación FastAPI real con SQLite, sin mocks. FastAPI queda fijado en 0.117.1 y Starlette en 0.48.0: las versiones nuevas confirman el commit después de enviar la respuesta y producían lecturas inconsistentes.
+
+## 2. Pruebas de API (resultado de la Parte 1, conservado)
+[Diseño detallado por HU](docs/diseno-pruebas.md). [Contrato original](data/openapi-original.json).
+Usuarios nuevos por escenario. Reloj global restablecido al comenzar. Ejecución secuencial porque cambiar el reloj afecta toda la aplicación; no se promete paralelismo seguro.
+**Última generación de evidencia:** 2026-10-16T21:26:08-05:00.
+**Karate, catálogo funcional inicial:** 116 ejecutados; 107 aprobados; 9 fallaron.
+Las validaciones CT y variantes CF se presentan por separado en [resultados complementarios](docs/resultados-complementarios.md) y [matriz revisada de Contactos](docs/cobertura-tecnica-contactos.md). La suite completa incluye ambos conjuntos.
+El contraste entre requisitos, OpenAPI e implementación se conserva en [documentación frente a código](docs/contraste-documentacion-codigo.md).
+Los fallos adicionales de efectos inmediatos y la preparación se analizan con fecha y evidencia en [incidencia de consistencia](docs/incidencia-consistencia.md). No se convierten automáticamente en defectos independientes.
+Reporte bruto de esta ejecución: `reports/raw/karate/20261017T022208Z-161b94/karate-summary.html`. Registros redactados: [evidencias](evidencias/).
+El número de escenarios aprobados no mide cobertura de criterios ni ausencia de defectos. Cada reporte queda vinculado con commit, huellas de fuentes e inicio/fin de su ejecución; se rechazan resultados desactualizados.
+[Schemathesis y límites de la ejecución](docs/revision-contrato.md).
+
+## 3. Pruebas web y CI/CD
+**Diseño web.** Cypress con Page Object y comandos propios: los selectores `data-testid` viven en `tests/e2e/pages/`, la preparación de usuarios ficticios en `support/` y las aserciones del negocio en cada test. No hay esperas fijas: se usan los reintentos de consultas y aserciones de Cypress. Cada escenario crea sus propios usuarios y corre sobre una base SQLite exclusiva (puerto 8011). `cy.intercept` solo observa las peticiones reales. Ver [`tests/e2e/README.md`](tests/e2e/README.md).
+**Estabilidad.** El gate exige tres corridas completas de los 65 escenarios, con la misma selección, fuentes y entorno, sin omisiones ni intermitencia. El resultado de la revisión publicada se consulta en el Summary y artefacto de Actions. Las corridas previas de 54 y 60 escenarios se conservan como evidencia histórica, no como ejecución de la suite ampliada.
+**Pipeline.** `.github/workflows/pruebas.yml` ejecuta Contrato (Schemathesis) → API (Karate) → Web (tres corridas) → verificación de Rendimiento → Reportería. Funciona en push, PR y ejecución manual. Una falla anterior no impide el diagnóstico posterior; una revisión cancelada no prolonga las pruebas. El reporte se publica antes de aplicar el gate final. La tolerancia al descargar artefactos permite intentar el diagnóstico, pero un archivo ausente bloquea la aprobación. Artefactos crudos: 14 días; consolidado: 30 días. [Pipeline final](docs/final/pipeline.md).
+**Reportería.** El Summary muestra los resultados y la matriz directamente al finalizar el último job. El sitio del artefacto conserva enlaces y reportes. La opción `images` captura pruebas aprobadas y fallidas; `none` no produce capturas nuevas. Las métricas y gráficos de rendimiento se conservan en ambos modos.
+**Gestión de casos.** Kiwi TCMS conserva casos versionados y una corrida por herramienta/repetición. Los outlines permanecen como variantes en los comentarios y en la matriz CSV/HTML. Un FAIL conocido permanece FAILED; la decisión académica no cambia el estado crudo. La instancia local verifica TLS y sus resultados importados se leen de nuevo para comparar estados. [Modelo y ejecución](docs/final/gestion-casos.md).
+**IA.** La demo cy.prompt ejecutó instrucciones naturales sobre la UI real y verificó POST 201 y persistencia mediante aserciones independientes. Su reporte y fuentes se conservan; la sesión Cloud es personal y la prueba no se presenta como ejecutada automáticamente por cada pipeline. [Evidencia IA](docs/final/ia.md).
+
+## 4. Rendimiento
+
+Parte 3: campaña Quincena Qolqe, probada por API con k6 y Qolqe original. [Informe según plantilla](docs/parte3/Informe_Rendimiento_Qolqe.docx), [resultados](tests/performance/resultados/index.html), [modelo y ejecución](tests/performance/README.md) y [presentación](apidoc/parte3/index.html).
+
+| Perfil | Ejecución válida | Cumple perfil | Integridad | Evidencia |
+|---|---|---|---|---|
+| carga | True | False | True | [Reporte](tests/performance/resultados/20261113T011146Z-carga/reporte.html) |
+| campaña | True | True | True | [Reporte](tests/performance/resultados/20261113T012935Z-campana/reporte.html) |
+| estrés | True | False | True | [Reporte](tests/performance/resultados/20261113T014737Z-estres/reporte.html) |
+
+Carga normal: aproximadamente 100 VUs y 5 operaciones/s; campaña: 300 VUs. Consultas/login p95 <800 ms, dinero p95 <1500 ms y error normal <=1%. El detalle incluye p95 por operación, CPU y memoria de aplicación/generador, gráficos y conciliación de saldos y movimientos. Resistencia de 18 h no ejecutada: limitación explícita del experimento. Los resultados son una línea base local y no certifican producción.
+
+## 5. Defectos encontrados
+Ocho defectos conocidos, cada uno con casos, esperado y observado, y su severidad en el producto. Detalle y reproducción en [defectos-conocidos.md](docs/parte2/defectos-conocidos.md).
+
+| ID | Defecto | Severidad | Casos |
+|---|---|---|---|
+| D-01 | Alias con ñ rechazado: esperado 201/200, obtenido 422 | Media | G4-004, CF-01, E2E-G4-102, E2E-G4-113 |
+| D-02 | Alias duplicado por espacios permitido: esperado 409 | Media | G4-018, CF-03, E2E-G4-104, E2E-G4-115 |
+| D-03 | Se acepta una solicitud vencida: esperado 409, obtenido 200 | Alta | G4-053, G4-054, E2E-G4-324 |
+| D-04 | Token válido después de cerrar sesión: esperado 401 | Crítica | G4-074, E2E-G4-407 |
+| D-05 | Transferencias simultáneas superan saldo o límite diario | Crítica | G4-116 |
+| D-06 | Favorito acepta texto o entero: esperado 422 | Media | CT-02 |
+| D-07 | El historial omite el último día | Alta | E2E-G4-117, E2E-G4-201, E2E-G4-202 |
+| D-08 | Transferencia a una cuenta cerrada permitida | Alta | E2E-G4-206 |
+
+No se modificó Qolqe ni se ajustaron expectativas para ocultar fallos. La admisión de estos fallos en el gate se limita a esta evaluación académica aislada y no resta severidad al producto.
+
+## 6. Conclusiones y recomendaciones
+La entrega relaciona requisitos, pruebas y resultados para reproducir fallos. Los pendientes de cobertura se mantienen explícitos.
+La documentación HTML ayuda a localizar pruebas; el análisis se conserva en este informe y el diseño.
+
+
+## Consolidado final y correcciones
+
+[Arquitectura y patrón](docs/final/arquitectura-y-patrones.md) · [Requerimientos y umbrales](docs/final/requerimientos-y-umbrales.md) · [Pipeline](docs/final/pipeline.md) · [Gestión y Kiwi TCMS](docs/final/gestion-casos.md) · [IA](docs/final/ia.md). La [presentación final](apidoc/final/index.html) enlaza el reporte actual; las Partes 1–3 anteriores se conservan como evidencia histórica.

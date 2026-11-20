@@ -448,7 +448,8 @@
     }
   ],
   "criteria_count": 51,
-  "api_case_count": 116,
+  "base_api_case_count": 116,
+  "api_case_count": 136,
   "technical_cases": [
     "CT-01",
     "CT-02",
@@ -477,9 +478,9 @@
       "groups": [
         "WEB-G4-01-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-102",
@@ -490,9 +491,9 @@
       "groups": [
         "WEB-G4-01-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": "D-01",
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-103",
@@ -503,9 +504,9 @@
       "groups": [
         "WEB-G4-01-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-104",
@@ -516,9 +517,9 @@
       "groups": [
         "WEB-G4-01-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": "D-02",
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-105",
@@ -529,9 +530,9 @@
       "groups": [
         "WEB-G4-01-CA1-03"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-106",
@@ -542,9 +543,9 @@
       "groups": [
         "WEB-G4-01-CA1-04"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-107",
@@ -555,9 +556,9 @@
       "groups": [
         "WEB-G4-01-CA1-04"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-108",
@@ -570,9 +571,9 @@
         "WEB-G4-01-CA1-05",
         "WEB-G4-02-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-109",
@@ -584,9 +585,9 @@
         "WEB-G4-02-CA1-01",
         "WEB-G4-02-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-110",
@@ -598,9 +599,9 @@
         "WEB-G4-02-CA1-01",
         "WEB-G4-02-CA3-01"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-111",
@@ -612,9 +613,9 @@
         "WEB-G4-02-CA2-01",
         "WEB-G4-02-CA2-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-112",
@@ -626,9 +627,9 @@
         "WEB-G4-03-CA1-01",
         "WEB-G4-03-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-113",
@@ -639,9 +640,9 @@
       "groups": [
         "WEB-G4-03-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": "D-01",
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-114",
@@ -652,9 +653,9 @@
       "groups": [
         "WEB-G4-03-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-115",
@@ -665,9 +666,9 @@
       "groups": [
         "WEB-G4-03-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": "D-02",
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-116",
@@ -678,9 +679,9 @@
       "groups": [
         "WEB-G4-03-CA1-03"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-117",
@@ -692,9 +693,9 @@
         "WEB-G4-04-CA1-01",
         "WEB-G4-04-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": "D-07",
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-118",
@@ -705,9 +706,9 @@
       "groups": [
         "WEB-G4-04-CA2-01"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-119",
@@ -718,9 +719,9 @@
       "groups": [
         "WEB-G4-04-CA2-01"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-120",
@@ -731,9 +732,9 @@
       "groups": [
         "WEB-G4-04-CA2-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-121",
@@ -744,9 +745,9 @@
       "groups": [
         "WEB-G4-04-CA2-02"
       ],
-      "implementation": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-001",
@@ -755,9 +756,9 @@
         "HU-G4-01"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/contactos-happy-path.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-happy-path.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-002",
@@ -766,9 +767,9 @@
         "HU-G4-01"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/contactos-validaciones.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-validaciones.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-003",
@@ -777,9 +778,9 @@
         "HU-G4-01"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/contactos-validaciones.cy.ts",
+      "implementation": "tests/e2e/specs/contactos-validaciones.cy.ts",
       "defect": null,
-      "feature": "Web/features/contactos.feature"
+      "feature": "features/e2e/contactos.feature"
     },
     {
       "id": "E2E-G4-301",
@@ -791,9 +792,9 @@
         "WEB-G4-06-CA1-01",
         "WEB-G4-06-CA2-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-302",
@@ -804,9 +805,9 @@
       "groups": [
         "WEB-G4-06-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-303",
@@ -817,9 +818,9 @@
       "groups": [
         "WEB-G4-06-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-304",
@@ -831,9 +832,9 @@
         "WEB-G4-06-CA1-01",
         "WEB-G4-06-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-305",
@@ -844,9 +845,9 @@
       "groups": [
         "WEB-G4-06-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-306",
@@ -857,9 +858,9 @@
       "groups": [
         "WEB-G4-06-CA1-03"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-307",
@@ -871,9 +872,9 @@
         "WEB-G4-07-CA1-01",
         "WEB-G4-07-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-308",
@@ -886,9 +887,9 @@
         "WEB-G4-07-CA2-01",
         "WEB-G4-08-CA4-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-309",
@@ -901,9 +902,9 @@
         "WEB-G4-07-CA2-01",
         "WEB-G4-08-CA4-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-310",
@@ -916,9 +917,9 @@
         "WEB-G4-07-CA2-01",
         "WEB-G4-08-CA4-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-311",
@@ -930,9 +931,9 @@
         "WEB-G4-08-CA1-01",
         "WEB-G4-08-CA3-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-312",
@@ -943,9 +944,9 @@
       "groups": [
         "WEB-G4-08-CA2-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-313",
@@ -956,9 +957,9 @@
       "groups": [
         "WEB-G4-08-CA2-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-314",
@@ -973,9 +974,9 @@
         "WEB-G4-09-CA1-02",
         "WEB-G4-10-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-315",
@@ -990,9 +991,9 @@
         "WEB-G4-09-CA1-02",
         "WEB-G4-10-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-316",
@@ -1007,9 +1008,9 @@
         "WEB-G4-09-CA1-02",
         "WEB-G4-10-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-317",
@@ -1024,9 +1025,9 @@
         "WEB-G4-09-CA1-02",
         "WEB-G4-10-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-318",
@@ -1037,9 +1038,9 @@
       "groups": [
         "WEB-G4-09-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-319",
@@ -1050,9 +1051,9 @@
       "groups": [
         "WEB-G4-09-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-320",
@@ -1063,9 +1064,9 @@
       "groups": [
         "WEB-G4-09-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-321",
@@ -1076,9 +1077,9 @@
       "groups": [
         "WEB-G4-10-CA1-01"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-322",
@@ -1089,9 +1090,9 @@
       "groups": [
         "WEB-G4-09-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-323",
@@ -1102,9 +1103,9 @@
       "groups": [
         "WEB-G4-10-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": null,
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-324",
@@ -1115,9 +1116,9 @@
       "groups": [
         "WEB-G4-08-CA4-02"
       ],
-      "implementation": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "implementation": "tests/e2e/specs/solicitudes-completo.cy.ts",
       "defect": "D-03",
-      "feature": "Web/features/solicitudes.feature"
+      "feature": "features/e2e/solicitudes.feature"
     },
     {
       "id": "E2E-G4-201",
@@ -1129,9 +1130,9 @@
         "WEB-G4-05-CA1-01",
         "WEB-G4-05-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "implementation": "tests/e2e/specs/transferencias-contactos.cy.ts",
       "defect": "D-07",
-      "feature": "Web/features/transferencias.feature"
+      "feature": "features/e2e/transferencias.feature"
     },
     {
       "id": "E2E-G4-202",
@@ -1143,9 +1144,9 @@
         "WEB-G4-05-CA1-01",
         "WEB-G4-05-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "implementation": "tests/e2e/specs/transferencias-contactos.cy.ts",
       "defect": "D-07",
-      "feature": "Web/features/transferencias.feature"
+      "feature": "features/e2e/transferencias.feature"
     },
     {
       "id": "E2E-G4-203",
@@ -1156,9 +1157,9 @@
       "groups": [
         "WEB-G4-05-CA1-02"
       ],
-      "implementation": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "implementation": "tests/e2e/specs/transferencias-contactos.cy.ts",
       "defect": null,
-      "feature": "Web/features/transferencias.feature"
+      "feature": "features/e2e/transferencias.feature"
     },
     {
       "id": "E2E-G4-204",
@@ -1169,9 +1170,9 @@
       "groups": [
         "WEB-G4-05-CA1-03"
       ],
-      "implementation": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "implementation": "tests/e2e/specs/transferencias-contactos.cy.ts",
       "defect": null,
-      "feature": "Web/features/transferencias.feature"
+      "feature": "features/e2e/transferencias.feature"
     },
     {
       "id": "E2E-G4-205",
@@ -1182,9 +1183,9 @@
       "groups": [
         "WEB-G4-05-CA1-03"
       ],
-      "implementation": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "implementation": "tests/e2e/specs/transferencias-contactos.cy.ts",
       "defect": null,
-      "feature": "Web/features/transferencias.feature"
+      "feature": "features/e2e/transferencias.feature"
     },
     {
       "id": "E2E-G4-206",
@@ -1195,9 +1196,9 @@
       "groups": [
         "WEB-G4-05-CA1-03"
       ],
-      "implementation": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "implementation": "tests/e2e/specs/transferencias-contactos.cy.ts",
       "defect": "D-08",
-      "feature": "Web/features/transferencias.feature"
+      "feature": "features/e2e/transferencias.feature"
     },
     {
       "id": "E2E-G4-401",
@@ -1206,9 +1207,9 @@
         "HU-N-02"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-402",
@@ -1217,9 +1218,9 @@
         "HU-N-02"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-403",
@@ -1228,9 +1229,9 @@
         "HU-N-04"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-404",
@@ -1239,9 +1240,9 @@
         "HU-N-04"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-405",
@@ -1250,9 +1251,9 @@
         "HU-N-05"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-406",
@@ -1261,9 +1262,9 @@
         "HU-N-01"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-407",
@@ -1272,9 +1273,9 @@
         "HU-N-03"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": "D-04",
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-408",
@@ -1283,9 +1284,9 @@
         "HU-N-06"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-409",
@@ -1294,9 +1295,9 @@
         "HU-N-07"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-410",
@@ -1305,9 +1306,9 @@
         "HU-N-08"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     },
     {
       "id": "E2E-G4-411",
@@ -1316,9 +1317,9 @@
         "HU-N-09"
       ],
       "groups": [],
-      "implementation": "Web/cypress/e2e/nucleo-comun.cy.ts",
+      "implementation": "tests/e2e/specs/nucleo-comun.cy.ts",
       "defect": null,
-      "feature": "Web/features/nucleo.feature"
+      "feature": "features/e2e/nucleo.feature"
     }
   ],
   "issues": [],

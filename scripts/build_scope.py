@@ -27,10 +27,10 @@ def build(root=ROOT):
         raise ValueError(f'Criterios duplicados, faltantes o ajenos: {set(ids) ^ expected}')
     cases = json.loads((root/'data/casos.json').read_text(encoding='utf-8'))
     web_files = {}
-    for path in (root/'Web/cypress/e2e').glob('*.cy.ts'):
+    for path in (root/'tests/e2e/specs').glob('*.cy.ts'):
         for case in re.findall(r'E2E-G4-\d+', path.read_text(encoding='utf-8')):
             web_files[case] = path.relative_to(root).as_posix()
-    features = {p.relative_to(root).as_posix(): p.read_text(encoding='utf-8') for p in (root/'API/features').glob('*.feature')}
+    features = {p.relative_to(root).as_posix(): p.read_text(encoding='utf-8') for p in (root/'tests/api/features').glob('*.feature')}
     planned = set()
     for c in criteria:
         c['api_cases'] = []

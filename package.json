@@ -29,7 +29,7 @@
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": [
-      "Web/cypress/steps/**/*.ts"
+      "tests/e2e/steps/**/*.ts"
     ],
     "filterSpecs": false,
     "omitFiltered": false,

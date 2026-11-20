@@ -25,7 +25,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 smoke
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/cypress.ps1 report
 ```
 
-El happy path usa `Web/smoke/contactos.feature`, conecta sus pasos con el escenario existente y valida POST, UI y persistencia. Un smoke no es la regresión de 65 casos ni sus tres repeticiones. Para ver el navegador, usar la acción `open` y seleccionar una feature. Mantener libre el puerto 8011.
+El happy path usa `features/smoke/contactos.feature`, conecta sus pasos con el escenario existente y valida POST, UI y persistencia. Un smoke no es la regresión de 65 casos ni sus tres repeticiones. Para ver el navegador, usar la acción `open` y seleccionar una feature. Mantener libre el puerto 8011.
 
 ## Capacidad de IA
 

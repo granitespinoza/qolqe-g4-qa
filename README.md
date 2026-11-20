@@ -2,6 +2,12 @@
 
 ## Entrega final consolidada
 
+Entrega final y exposición: Franco.
+
+[Informe completo en la raíz](INFORME_FINAL.md) · [Diapositivas PDF](presentacion/Entrega_Final_Qolqe.pdf)
+
+Rutas ejecutables: `features/e2e/`, `tests/api/features/`, `tests/e2e/` y `tests/performance/`. Los reportes API de cada revisión se publican también en `tests/api/reportes/` dentro del artefacto de Actions.
+
 [Estado de verificación local y pendientes](docs/final/verificacion.md). La suite final contiene 65 escenarios web y las nueve HU comunes. La estabilidad y los gates de cada revisión se comprueban en Actions; Kiwi conserva las múltiples ejecuciones sin sustituirlas.
 
 Corregimos Gherkin web ejecutable, núcleo común, contrato al inicio del workflow, reportería visible en Actions, selección de capturas e historial por ejecución. Conservamos los resultados reales y los defectos del producto.
@@ -11,7 +17,7 @@ Corregimos Gherkin web ejecutable, núcleo común, contrato al inicio del workfl
 - [Requerimientos, umbrales y coherencia](docs/final/requerimientos-y-umbrales.md).
 - [Jobs y reportería con/sin imágenes](docs/final/pipeline.md).
 - [Gestión de casos y preparación de Kiwi TCMS](docs/final/gestion-casos.md) · [Capacidad de IA](docs/final/ia.md).
-- Gherkin: `Web/features/`; pasos: `Web/cypress/steps/`; cuerpos de escenarios: `Web/cypress/e2e/`; POM: `Web/cypress/pages/`.
+- Gherkin: `features/e2e/`; pasos: `tests/e2e/steps/`; cuerpos de escenarios: `tests/e2e/specs/`; POM: `tests/e2e/pages/`.
 
 ### Preparación y reproducción en Windows
 
@@ -261,7 +267,7 @@ Si el puerto 8021 está ocupado, detenemos la instancia anterior que iniciamos a
 | Preparar el entorno y ejecutar | [Guía de ejecución](docs/ejecucion.md) |
 | Seguir el recorrido por clics y abrir matriz y reportes | [Portal de la entrega](apidoc/parte2/index.html) |
 | Ver alcance y trazabilidad | [Alcance](docs/parte2/alcance-y-matriz.md) · [Matriz](docs/parte2/trazabilidad.md) |
-| Ver pruebas y datos web | [API](API/README.md) · [Web](Web/README.md) · [Datos preparados](Web/cypress/support/fixtures.ts) |
+| Ver pruebas y datos web | [API](tests/api/README.md) · [Web](Web/README.md) · [Datos preparados](tests/e2e/support/fixtures.ts) |
 | Revisar automatización y criterios | [Pipeline](docs/parte2/pipeline.md) · [Política del gate](docs/parte2/quality-gate.md) |
 | Investigar diferencias | [Defectos conocidos](docs/parte2/defectos-conocidos.md) · [Revisión del contrato](docs/revision-contrato.md) |
 | Encontrar sustento adicional | [Índice técnico](docs/README.md) |
