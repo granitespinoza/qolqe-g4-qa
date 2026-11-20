@@ -1,9 +1,5 @@
 name: Cypress contactos E2E
 on:
-  push:
-    paths: ['cypress/**', 'scripts/cypress/**', 'cypress.config.ts', 'package*.json', 'tsconfig.json', '.github/workflows/cypress.yml']
-  pull_request:
-    paths: ['cypress/**', 'scripts/cypress/**', 'cypress.config.ts', 'package*.json', 'tsconfig.json', '.github/workflows/cypress.yml']
   workflow_dispatch:
 permissions:
   contents: read

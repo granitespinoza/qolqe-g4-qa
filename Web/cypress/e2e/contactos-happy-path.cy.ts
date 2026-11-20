@@ -1,8 +1,9 @@
+import { caso } from '../support/fixtures'
 import { LoginPage } from '../pages/LoginPage'
 import { ContactosPage } from '../pages/ContactosPage'
 
 describe('Smoke | HU-G4-01 CA1 | Contactos reales', () => {
-  it('E2E-G4-001 @HU-G4-01 @TC-E2E-G4-001 agrega un contacto y conserva sus datos al recargar', () => {
+  caso('E2E-G4-001', ['WEB-G4-01-CA1-01'], 'agrega un contacto y conserva sus datos al recargar', () => {
     cy.prepararContactos().then(({ propietario, contacto }) => {
       const pagina = new ContactosPage()
       new LoginPage().ingresar(propietario.celular, propietario.pin)

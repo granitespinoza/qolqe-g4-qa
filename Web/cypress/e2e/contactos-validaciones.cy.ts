@@ -1,8 +1,9 @@
+import { caso } from '../support/fixtures'
 import { LoginPage } from '../pages/LoginPage'
 import { ContactosPage } from '../pages/ContactosPage'
 
 describe('Regresión | HU-G4-01 CA1', () => {
-  it('E2E-G4-002 @HU-G4-01 @TC-E2E-G4-002 rechaza alias de 2 caracteres sin crear un contacto', () => {
+  caso('E2E-G4-002', ['WEB-G4-01-CA1-01'], 'rechaza alias de 2 caracteres sin crear un contacto', () => {
     cy.prepararContactos().then(({ propietario, contacto }) => {
       const pagina = new ContactosPage()
       new LoginPage().ingresar(propietario.celular, propietario.pin)
@@ -19,7 +20,7 @@ describe('Regresión | HU-G4-01 CA1', () => {
       pagina.filas().should('not.exist')
     })
   })
-  it('E2E-G4-003 @HU-G4-01 @TC-E2E-G4-003 rechaza celular duplicado y conserva un único contacto', () => {
+  caso('E2E-G4-003', ['WEB-G4-01-CA1-01'], 'rechaza celular duplicado y conserva un único contacto', () => {
     cy.prepararContactos().then(({ propietario, contacto }) => {
       const pagina = new ContactosPage()
       new LoginPage().ingresar(propietario.celular, propietario.pin)

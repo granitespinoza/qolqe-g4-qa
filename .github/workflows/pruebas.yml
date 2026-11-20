@@ -1,99 +1,112 @@
-name: Pipeline CI/CD - Entrega 2
+name: Entrega final - Contrato, API, Web y reportes
 on:
   push:
-    branches: [main]
+    branches: [main, 'codex/**']
   pull_request:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      evidence:
+        description: Reportería web con imágenes o sin imágenes
+        type: choice
+        options: [none, images]
+        default: none
+      performance_demo:
+        description: Ejecutar además la demo corta de rendimiento (no reemplaza experimentos completos)
+        type: boolean
+        default: false
+      publish_pages:
+        description: Publicar HTML en GitHub Pages (requiere Pages configurado como GitHub Actions)
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
-  group: entrega2-${{ github.ref }}
+  group: final-${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
+env:
+  TZ: America/Lima
+  QA_EVIDENCE: ${{ inputs.evidence || 'none' }}
 jobs:
-  job_api:
-    name: API y contratos — Quality Gate
+  contrato:
+    name: 1 - Contrato OpenAPI y Schemathesis
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-      - name: Preparar Qolqe intacto y dependencias fijadas
+      - uses: ./.github/actions/preparar-qa
+      - name: Validar catálogo, Gherkin y cobertura diseñada
+        run: python scripts/final_delivery.py audit
+      - name: Verificar historial y preparación de Kiwi
         run: |
-          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
-          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
-          mkdir -p .tools
-          curl -fL https://github.com/karatelabs/karate/releases/download/v1.5.2/karate-1.5.2.jar -o .tools/karate.jar
-          python -m pip install -r requirements-lock.txt
-          python -m pip check
-      - name: Verificar el Quality Gate contra falsos verdes
-        run: python -m unittest discover -s tests -p test_quality_gate.py
-      - name: Ejecutar Karate y Schemathesis y evaluar Escenario A
-        run: python scripts/ci_run.py api
-      - name: Publicar resultados crudos y decisiones API
+          python -m unittest discover -s tests -p 'test_final_delivery.py'
+          python -m unittest discover -s tests -p 'test_kiwi_sync.py'
+      - name: Evaluar contrato antes de API y web
+        run: python scripts/ci_run.py contract
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
+        with:
+          name: contract-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reports/raw/schemathesis/
+            reports/latest-schemathesis.json
+            reports/gate/schemathesis.json
+            API/openapi.json
+            data/final-audit.json
+          retention-days: 14
+  api:
+    name: 2 - API funcional y técnica (Karate)
+    needs: contrato
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/preparar-qa
+        with:
+          java: 'true'
+      - name: Proteger el gate contra falsos verdes
+        run: python -m unittest discover -s tests -p 'test_quality_gate.py'
+      - name: Ejecutar suite completa de G4 y núcleo
+        env:
+          QA_CONTRACT_SEPARATE: '1'
+        run: python scripts/ci_run.py api
+      - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: api-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            reports/raw/
+            reports/raw/karate/
             reports/latest-karate.json
-            reports/latest-schemathesis.json
             reports/gate/karate.json
-            reports/gate/schemathesis.json
             results/api-results.xml
-            API/openapi.json
-            .tools/api-runs/*/server.log
-          retention-days: 7
-          compression-level: 9
-  job_web:
-    name: Web E2E — tres corridas y Quality Gate
-    needs: [job_api]
+          retention-days: 14
+  web:
+    name: 3 - Web Gherkin, núcleo y tres corridas
+    needs: [contrato, api]
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     env:
-      TZ: America/Lima
-      CY_BROWSER: chrome
+      CY_BROWSER: electron
       CY_VIDEO: '0'
       CY_KEEP_DB: '0'
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        id: python
+      - uses: ./.github/actions/preparar-qa
         with:
-          python-version: '3.13'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: npm
-      - name: Preparar Qolqe intacto y Cypress
+          web: 'true'
+      - name: Gherkin y evidencias
         run: |
-          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
-          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
-          python -m pip install -r requirements-lock.txt
-          python -m pip check
-          npm ci --no-audit --no-fund
-          npx cypress verify
-          npm run cy:typecheck
+          python scripts/final_delivery.py audit
           npm run cy:check-evidence
-          python scripts/build_scope.py --check
-      - name: Ejecutar todas las pruebas tres veces y decidir el gate
-        env:
-          QA_PYTHON: ${{ steps.python.outputs.python-path }}
-        run: python scripts/ci_run.py web
-      - name: Consolidar cobertura web
+      - name: Ejecutar 60 escenarios completos tres veces sin reintentos
+        run: QA_PYTHON="$(command -v python)" python scripts/ci_run.py web
+      - name: Consolidar cobertura sin ocultar fallos
         if: always()
         run: python scripts/build_web_coverage.py
-      - name: Publicar reportes y clasificación Web
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
           name: web-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -101,63 +114,131 @@ jobs:
             reports/gate/web.json
             results/web-results.xml
             data/parte2-web-verificacion.json
-            docs/parte2/verificacion-web.md
-          retention-days: 7
-          compression-level: 9
-  job_reporting:
-    name: Reportería, matriz y decisión final
-    needs: [job_api, job_web]
+          retention-days: 14
+  rendimiento:
+    name: 4 - Coherencia de evidencia de rendimiento
+    needs: web
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Descargar evidencia del mismo run e intento
-        uses: actions/download-artifact@v4
+      - name: Verificar experimentos documentados, sin presentarlos como nuevas corridas
+        run: python scripts/final_delivery.py performance
+      - uses: ./.github/actions/preparar-qa
+        if: inputs.performance_demo == true
+      - name: Demo k6 opcional en Linux
+        if: inputs.performance_demo == true
+        run: |
+          python -m pip install -r tests/performance/requirements.txt
+          curl -fL https://github.com/grafana/k6/releases/download/v2.4.0/k6-v2.4.0-linux-amd64.tar.gz -o /tmp/k6.tar.gz
+          tar -xzf /tmp/k6.tar.gz -C /tmp
+          sudo install /tmp/k6-v2.4.0-linux-amd64/k6 /usr/local/bin/k6
+          python tests/performance/scripts/performance.py demo
+          python tests/performance/scripts/generar_reportes.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            tests/performance/resultados/
+            data/final-performance.json
+          retention-days: 14
+  reporteria:
+    name: 5 - Reporte visible, historial y gate final
+    needs: [contrato, api, web, rendimiento]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Preparar referencia para validar procedencia
+        run: |
+          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
+          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
         with:
           pattern: '*-results-${{ github.run_id }}-${{ github.run_attempt }}'
           merge-multiple: true
           path: .
-      - name: Preparar referencia para verificar procedencia
-        run: |
-          git clone https://github.com/cjudihtroj/qolqe-wallet.git referencias/qolqe-wallet
-          git -C referencias/qolqe-wallet checkout 8c7d2f0c939ede7765b7b80b98c10c3905693fda
-      - name: Aplicar decisión consolidada sin esconder fallos
+      - name: Restaurar historial de corridas anteriores
+        uses: actions/cache/restore@v4
+        with:
+          path: .tools/final-history.sqlite
+          key: history-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: history-${{ github.ref_name }}-
+      - name: Construir reporte incluso ante errores de preparación
         if: always()
-        run: python scripts/ci_run.py reporting
-      - name: Generar matriz actual y presentación navegable
-        if: always()
+        env:
+          QA_JOB_RESULTS: ${{ toJSON(needs) }}
+        run: python scripts/final_delivery.py report --evidence "$QA_EVIDENCE"
+      - name: Sincronizar Kiwi TCMS si está configurado
+        env:
+          KIWI_URL: ${{ secrets.KIWI_URL }}
+          KIWI_USER: ${{ secrets.KIWI_USER }}
+          KIWI_PASSWORD: ${{ secrets.KIWI_PASSWORD }}
+          KIWI_PLAN_ID: ${{ secrets.KIWI_PLAN_ID }}
+          KIWI_BUILD_ID: ${{ secrets.KIWI_BUILD_ID }}
+          KIWI_MANAGER_ID: ${{ secrets.KIWI_MANAGER_ID }}
+          KIWI_PRODUCT_ID: ${{ secrets.KIWI_PRODUCT_ID }}
+          KIWI_CATEGORY_ID: ${{ secrets.KIWI_CATEGORY_ID }}
         run: |
-          python -c "from pathlib import Path; [Path(p).unlink(missing_ok=True) for p in ['data/trazabilidad-parte2.json','docs/parte2/trazabilidad.md','apidoc/parte2/index.html']]"
-          python scripts/build_delivery.py
-      - name: Publicar entrega consolidada
+          if [ -n "$KIWI_URL" ]; then python -m pip install -r requirements-kiwi.txt; fi
+          python scripts/kiwi_sync.py
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .tools/final-history.sqlite
+          key: history-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
         id: artifact
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: entrega-parte2-${{ github.run_id }}-${{ github.run_attempt }}
+          name: entrega-final-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            apidoc/parte2/
-            data/trazabilidad-parte2.json
-            data/trazabilidad-parte2.csv
-            data/quality-policy.json
-            docs/parte2/
+            apidoc/final/
+            results/final/
             reports/raw/
             reports/cypress/
             reports/gate/
-            results/
-            API/features/
-            Web/cypress/
-            evidencias/G4-004.html
-            presentacion/Entrega2-Qolqe-Cypress.pptx
-          retention-days: 7
-          compression-level: 9
-      - name: Enlace al reporte final
+            tests/performance/resultados/
+            docs/final/
+            docs/parte3/
+            Web/features/
+            data/final-*.json
+            .tools/final-history.sqlite
+          include-hidden-files: true
+          retention-days: 30
+      - name: Publicar resumen legible directamente en Actions
         if: always()
         env:
           QA_ARTIFACT: ${{ steps.artifact.outputs.artifact-url }}
-        run: |
-          python -c "import os; from pathlib import Path; Path(os.environ['GITHUB_STEP_SUMMARY']).open('a',encoding='utf-8').write('\n[Descargar matriz, reportes y presentación]('+os.environ.get('QA_ARTIFACT','')+'). Extraer y abrir apidoc/parte2/index.html.\n')"
+        run: python scripts/final_delivery.py summary
+      - uses: actions/upload-pages-artifact@v3
+        if: inputs.publish_pages == true
+        with:
+          path: results/final/site
+      - name: Aplicar gate consolidado al terminar la reportería
+        if: always()
+        run: python scripts/final_delivery.py gate
+  publicar:
+    name: Publicar HTML en Pages (opcional)
+    needs: reporteria
+    if: always() && inputs.publish_pages == true
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

@@ -1,5 +1,7 @@
 # Índice técnico
 
+Entrega final vigente: [arquitectura y patrones](final/arquitectura-y-patrones.md), [ejecución](final/ejecucion.md), [pipeline](final/pipeline.md), [gestión de casos](final/gestion-casos.md) y [requerimientos y umbrales](final/requerimientos-y-umbrales.md). Los apartados de Parte 2 conservan el historial de esa entrega.
+
 Entradas vigentes: [arquitectura](arquitectura.md), [ejecución](ejecucion.md) y [lista de entrega](parte2/entrega.md).
 
 ## Alcance y diseño

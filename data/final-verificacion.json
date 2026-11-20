@@ -1,0 +1,111 @@
+{
+  "local_verified": true,
+  "scope": "G4 y núcleo común",
+  "api": {
+    "cases": 136,
+    "scenarios": 187,
+    "passed": 175,
+    "known_failed": 12
+  },
+  "web": [
+    {
+      "run": "web:reports/cypress/2026-11-20T01-15-02-829Z-regression",
+      "passed": 51,
+      "failed": 9
+    },
+    {
+      "run": "web:reports/cypress/2026-11-20T01-26-23-528Z-regression",
+      "passed": 51,
+      "failed": 9
+    },
+    {
+      "run": "web:reports/cypress/2026-11-20T01-33-27-639Z-regression",
+      "passed": 51,
+      "failed": 9
+    }
+  ],
+  "gates": {
+    "schemathesis": {
+      "approved": true,
+      "scenario": "A",
+      "counts": {
+        "passed": 0,
+        "known_issue": 27,
+        "unknown_failure": 0,
+        "flaky": 0
+      }
+    },
+    "karate": {
+      "approved": true,
+      "scenario": "A",
+      "counts": {
+        "passed": 175,
+        "known_issue": 12,
+        "unknown_failure": 0,
+        "flaky": 0
+      }
+    },
+    "web": {
+      "approved": true,
+      "scenario": "A",
+      "counts": {
+        "passed": 51,
+        "known_issue": 9,
+        "unknown_failure": 0,
+        "flaky": 0
+      }
+    }
+  },
+  "screenshots": 180,
+  "kiwi": {
+    "verified": true,
+    "cases": 196,
+    "executions": 316,
+    "runs": [
+      {
+        "run_id": 1,
+        "key": "karate:20261119T181613Z-d95321",
+        "cases": 136,
+        "states": {
+          "FAILED": 9,
+          "PASSED": 127
+        }
+      },
+      {
+        "run_id": 2,
+        "key": "web:reports/cypress/2026-11-20T01-15-02-829Z-regression",
+        "cases": 60,
+        "states": {
+          "PASSED": 51,
+          "FAILED": 9
+        }
+      },
+      {
+        "run_id": 3,
+        "key": "web:reports/cypress/2026-11-20T01-26-23-528Z-regression",
+        "cases": 60,
+        "states": {
+          "PASSED": 51,
+          "FAILED": 9
+        }
+      },
+      {
+        "run_id": 4,
+        "key": "web:reports/cypress/2026-11-20T01-33-27-639Z-regression",
+        "cases": 60,
+        "states": {
+          "PASSED": 51,
+          "FAILED": 9
+        }
+      }
+    ],
+    "tls_verified": true
+  },
+  "note": "Evidencia local previa al commit de consolidación. Las fuentes quedan identificadas por los hashes de cada run; la ejecución remota se consulta en Actions.",
+  "ai": {
+    "passed": true,
+    "tests": 1,
+    "run": "2026-11-20T01-50-32-126Z-ai",
+    "proof": "data/final-ia.json"
+  }
+}

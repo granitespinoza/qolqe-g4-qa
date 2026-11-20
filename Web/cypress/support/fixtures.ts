@@ -89,9 +89,13 @@ export function sms(a: Actor, texto: string) {
     expect(rows.some((r: {mensaje: string; celular: string}) => r.celular === a.celular && r.mensaje.includes(texto)), 'SMS al destinatario correcto').to.eq(true)
   })
 }
+export const casosRegistrados = new Map<string, () => void>()
 export function caso(id: string, grupos: string[], descripcion: string, test: () => void) {
   const hus = [...new Set(grupos.map(g => '@HU-G4-' + g.split('-')[2]))]
   const defect = ({'E2E-G4-102':'D-01','E2E-G4-104':'D-02','E2E-G4-113':'D-01','E2E-G4-115':'D-02','E2E-G4-117':'D-07','E2E-G4-201':'D-07','E2E-G4-202':'D-07','E2E-G4-206':'D-08','E2E-G4-324':'D-03'} as Record<string,string>)[id]
   const tags = [...hus, '@TC-' + id, ...(defect ? ['@known_issue', '@' + defect] : [])]
-  it(`${id} ${tags.join(' ')} | ${grupos.join(' ')} | ${descripcion}`, test)
+  if (Cypress.expose('gherkin')) {
+    if (casosRegistrados.has(id)) throw new Error('Caso duplicado: '+id)
+    casosRegistrados.set(id,test)
+  } else it(`${id} ${tags.join(' ')} | ${grupos.join(' ')} | ${descripcion}`, test)
 }

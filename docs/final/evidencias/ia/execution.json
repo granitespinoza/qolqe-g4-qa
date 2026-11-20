@@ -1,0 +1,96 @@
+{
+  "mode": "ai",
+  "code": 0,
+  "revision": "7019b914bf2999d05ce131be7ee1c92567d923db",
+  "expectedSpecs": [
+    "Web/features/contactos.feature",
+    "Web/features/nucleo.feature",
+    "Web/features/solicitudes.feature",
+    "Web/features/transferencias.feature"
+  ],
+  "runtime": {
+    "python": "3.13.3",
+    "fastapi": "0.117.1",
+    "starlette": "0.48.0"
+  },
+  "databaseRemoved": true,
+  "videoEnabled": false,
+  "pipelineUrl": null,
+  "browser": "chrome",
+  "worktreeDirty": true,
+  "sourceFingerprint": {
+    "hash": "4d788b186dd2a8c7abe9b893743308bb4b6703b18780293b4eaa9a02d509c212",
+    "files": {
+      "Web/cypress/demos/contactos-ia.cy.ts": "19cbd68d033887161192b4721378a32997748da8c3aabd64cf27739f8c6beb22",
+      "Web/cypress/demos/evidencia-fallo.cy.ts": "0f423b692288da6941cba24ab6419c34ed05675d5fd52051a1bff4cddfef1e46",
+      "Web/cypress/e2e/contactos-completo.cy.ts": "02bec11a321abcca444f157490cd166d7ad70ea9748550863a4a513088c54522",
+      "Web/cypress/e2e/contactos-happy-path.cy.ts": "c24288341f5468655d07ff44251d5c5ac2ce27c3a99499db9d66c489721ee862",
+      "Web/cypress/e2e/contactos-validaciones.cy.ts": "eb638b04d1c7688ca31d780e8600289f34e40b5697c922bfb534751bcbff0427",
+      "Web/cypress/e2e/nucleo-comun.cy.ts": "936ecd7ec3d26d89ffe0666c768f974affbb239006c949cada303b163f448c75",
+      "Web/cypress/e2e/solicitudes-completo.cy.ts": "3f0b4c63f7cd9dd0de28c6c0e8e606374471115352d21e97e3d31800c5bcb30d",
+      "Web/cypress/e2e/transferencias-contactos.cy.ts": "1113d85f74a6a5f526c20a01602bdb62a2706e3f74df03d93b12bf69231570a8",
+      "Web/cypress/pages/ContactosPage.ts": "34f926f059c77c9b33d1ec616859bf22e077c64d380f837ef4c84af671d2ce48",
+      "Web/cypress/pages/LoginPage.ts": "7cc2c486590804b91caea5cca7f138ffdb3bc7fe40a87c8b638cc8fddf9c2137",
+      "Web/cypress/pages/SolicitudesPage.ts": "63e7a61c9a594fc0ccd938fa7a2a96d39b603b30d23e96b9c90844470f85e16a",
+      "Web/cypress/pages/TransferenciasPage.ts": "329c65fdcc3fb2fd5ae202c0195cf03c1265a07838273f61cdbe71f828ff58e3",
+      "Web/cypress/pages/Ui.ts": "a1bcf7b0e6f4ae64a57a4be68346ffc026e8d0c0839f7072b27b01ccad4fbf40",
+      "Web/cypress/steps/web.ts": "0a4a978a35017e457ac188bb0108551aa6361b2030cc5fb9ad911cc5477aa416",
+      "Web/cypress/support/commands.ts": "f6b8d36e4cecbea86b117f2ffa3f8902d0da6b6dab38e3ec24075cfc35921313",
+      "Web/cypress/support/e2e.ts": "463115f1d23977bcdff707b2e3e74658851df6eed3fbf848f33261b67e00464c",
+      "Web/cypress/support/fixtures.ts": "c14a652fe0773ebf14a5d29927dba1437e7809672a0ca7063a4c37745539d9bb",
+      "Web/features/catalogo.json": "3d7ac5e2394540806afa6cec67ab760eae5b7f70a9c8435e26525c05b411ecc7",
+      "Web/features/contactos.feature": "149c9e136b24a8778aeae7dcf2f525fd28ba2a13a39d429b6000b41e3a20cd50",
+      "Web/features/nucleo.feature": "228daef15e7e67975352e05fd2eec2b6c09e0350c10f33659207cc168873e22b",
+      "Web/features/solicitudes.feature": "a501d8220b6747a834e94f97863b8aad483b1eb231b1783060e81a4db6cf9780",
+      "Web/features/transferencias.feature": "37071b49841084c3af4e5221743a72bf058580348604a85e1700b12fa4844917",
+      "Web/smoke/contactos.feature": "b44767de94c91a9f16a439598c2e13724fbb5e24939d537bca8c1c419ef4e6bc",
+      "cypress.config.ts": "e159d85b902ea6bbe9ed3f5b950a444255be0e0eedaa1443fc9a12db48f05917",
+      "package-lock.json": "399564a1c4b545158c1c76b947eb9d9e1f2c49d3ba2f8a62633fc82818b1ba04",
+      "package.json": "8c7a16bd4ea5805a21f361b2935e34b4ed308ecdc5595f6067ae1cf1f55a0fe4",
+      "requirements-lock.txt": "3eb18e3c5db361358f27fcb6f91da8f63ccd82a39acf7c813b7830082722cb46",
+      "scripts/cypress/evidence.mjs": "0b5507911a8588fbf365cc68024b54da4f6eded6b1a17547b84116a1a9e63d6e",
+      "scripts/cypress/report.mjs": "084892b8464662e66dbdefee3c25deab77ce6b35ab2c2d4d13e142971de1ae88",
+      "scripts/cypress/requirements.txt": "ec1a74b61e9428444c2cf71eb49138bc310a97a6b0a2f314dbfb115de1653a90",
+      "scripts/cypress/run.mjs": "2f45501172e464031839999a00b7fffe79f43a9b0e1c7634f1072ee92f8c72b0",
+      "scripts/cypress/server.py": "26f972ea94e84397a013ea2639388347831afed6ff03e9ddd91dfb097d2c0ffe",
+      "scripts/cypress/setup.mjs": "b4f8fdd7d002ca321e024927900de3bf22c014ce3f892b96dd4ddcf1a10e1ea0",
+      "scripts/cypress/stability.mjs": "69ef551727a9a29989acafa54e4975dce7dbce736341de16b68a78bb03f839c7",
+      "scripts/cypress/test-evidence.mjs": "8d5c6c504f3336adeb5ac93fbfa6b7fb6550330ac8026df5b625abcf5f9bed36",
+      "tsconfig.json": "b649e795b58ea6cd81028609767b42fe0171aa43c0ff0aee1d96fdc1bf8badca"
+    }
+  },
+  "endFingerprint": "4d788b186dd2a8c7abe9b893743308bb4b6703b18780293b4eaa9a02d509c212",
+  "specs": [
+    "Web/cypress/demos/contactos-ia.cy.ts"
+  ],
+  "tests": [
+    {
+      "title": [
+        "DEMO IA | requiere sesión Cypress Cloud | Chromium",
+        "genera acciones con cy.prompt y verifica persistencia con aserciones explícitas"
+      ],
+      "state": "passed",
+      "error": null,
+      "attempts": [
+        {
+          "state": "passed",
+          "error": null
+        }
+      ],
+      "spec": "Web/cypress/demos/contactos-ia.cy.ts"
+    }
+  ],
+  "counts": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pending": 0,
+    "skipped": 0
+  },
+  "specErrors": [],
+  "started": "2026-11-20T01:50:32.143Z",
+  "ended": "2026-11-20T01:51:27.023Z",
+  "node": "v24.22.1",
+  "sutRevision": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
+  "aiVerification": "Consultar resultado real; requiere Cloud"
+}

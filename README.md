@@ -1,5 +1,67 @@
 # Qolqe G4 · Pruebas de API, Web y rendimiento
 
+## Entrega final consolidada
+
+[Estado de verificación local y pendientes](docs/final/verificacion.md). La verificación local completó las tres corridas web y la importación real en Kiwi; cada revisión publicada conserva su propia validación en Actions.
+
+Corregimos Gherkin web ejecutable, núcleo común, contrato al inicio del workflow, reportería visible en Actions, selección de capturas e historial por ejecución. Conservamos los resultados reales y los defectos del producto.
+
+- [Presentación final](apidoc/final/index.html) · [Reporte actual](results/final/index.html) (generado localmente o en el artefacto).
+- [Arquitectura y comparación de patrones](docs/final/arquitectura-y-patrones.md).
+- [Requerimientos, umbrales y coherencia](docs/final/requerimientos-y-umbrales.md).
+- [Jobs y reportería con/sin imágenes](docs/final/pipeline.md).
+- [Gestión de casos y preparación de Kiwi TCMS](docs/final/gestion-casos.md) · [Capacidad de IA](docs/final/ia.md).
+- Gherkin: `Web/features/`; pasos: `Web/cypress/steps/`; cuerpos de escenarios: `Web/cypress/e2e/`; POM: `Web/cypress/pages/`.
+
+### Preparación y reproducción en Windows
+
+Necesitamos Python 3.13, Node 24 LTS, Git, Chrome y Java 17. Con una copia nueva:
+
+```powershell
+git clone https://github.com/granitespinoza/qolqe-g4-qa.git
+Set-Location qolqe-g4-qa
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/bootstrap.ps1
+npm ci --no-audit --no-fund
+npx cypress install
+npm run cy:typecheck
+.venv/Scripts/python.exe scripts/final_delivery.py audit
+```
+
+Para una demo breve, sin ejecutar las tres suites completas:
+
+```powershell
+$env:QA_EVIDENCE = 'images' # o 'none'
+npm run cy:smoke
+npm run cy:report
+```
+
+Para una verificación completa y reporte nuevo:
+
+```powershell
+.venv/Scripts/python.exe scripts/ci_run.py api
+.venv/Scripts/python.exe scripts/ci_run.py web
+.venv/Scripts/python.exe scripts/build_web_coverage.py
+.venv/Scripts/python.exe scripts/final_delivery.py report --evidence none
+.venv/Scripts/python.exe -m pip install -r requirements-kiwi.txt
+.venv/Scripts/python.exe scripts/kiwi_local.py start
+.venv/Scripts/python.exe scripts/kiwi_local.py sync
+.venv/Scripts/python.exe scripts/final_delivery.py report --evidence none
+.venv/Scripts/python.exe scripts/final_delivery.py summary
+.venv/Scripts/python.exe scripts/final_delivery.py gate
+```
+
+No ejecutamos suites simultáneas sobre la misma instancia. El gate conserva fallos de producto; un rechazo no se corrige cambiando expectativas para ocultarlos. Ejecutamos reportería después de suites fallidas para conservar el diagnóstico. La presentación no inicia pruebas al pulsar enlaces.
+
+```powershell
+.venv/Scripts/python.exe -m http.server 8765 --bind 127.0.0.1
+```
+
+Abrimos `http://localhost:8765/apidoc/final/` y `http://localhost:8765/results/final/`. En GitHub: Actions → **Entrega final - Contrato, API, Web y reportes** → Run workflow; elegir `none` o `images`. El Summary muestra resultados directamente; el artefacto incluye el sitio completo con rutas conservadas. Pages es opcional y requiere configuración del repositorio.
+
+Kiwi TCMS dispone de un lanzador local con TLS, datos persistentes y sincronización por corrida. Para iniciarlo: `.venv/Scripts/python.exe -m pip install -r requirements-kiwi.txt` y `.venv/Scripts/python.exe scripts/kiwi_local.py start`. Después de generar el reporte usamos `.venv/Scripts/python.exe scripts/kiwi_local.py sync`. Las credenciales locales están ignoradas por Git; ver [gestión de casos](docs/final/gestion-casos.md). En Actions, `not_configured` indica que falta una instancia accesible desde el runner. La IA usa cy.prompt y requiere sesión personal Cypress Cloud. Los experimentos de rendimiento conservan sus fechas e incumplimientos y no se presentan como recién ejecutados por CI.
+
+
+
 Granit Espinoza y Franco · Pruebas y Verificación de Software.
 
 En este repositorio reunimos las pruebas de API (Karate y Schemathesis), los recorridos web (Cypress) y las pruebas de rendimiento (k6) de Qolqe Wallet. Conservamos la aplicación original y ejecutamos las pruebas con datos sintéticos y bases independientes.

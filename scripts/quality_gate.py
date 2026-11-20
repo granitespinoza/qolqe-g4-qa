@@ -79,6 +79,8 @@ def evaluate(tool, policy):
             if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('Fuentes web modificadas desde la evidencia')
         classified=[]
         for run in m['runs']:
+            if not (ROOT/run['runDir']/'html/index.html').is_file():blockers.append('Reporte HTML web ausente')
+            if run.get('code')!=min(run['counts']['failed'],255):blockers.append('Salida Cypress no explicada por los fallos registrados')
             if run['counts']['total']!=policy['expected_web_tests'] or run['specErrors']:blockers.append('Suite web incompleta o error del spec')
             if any(run.get('runtime',{}).get(k)!=v for k,v in policy['runtime_versions'].items()):blockers.append('Entorno web distinto del fijado')
             if not run.get('databaseRemoved'):blockers.append('Aislamiento web no confirmado')
@@ -148,6 +150,7 @@ if __name__=='__main__':
         result['policy_sha256']=hashlib.sha256((ROOT/'data/quality-policy.json').read_bytes()).hexdigest()
     except (Exception,SystemExit) as e:
         result=aggregate([],['Evidencia o preparación inválida: '+str(e)])
+    if (ROOT/'data/quality-policy.json').exists():result['policy_sha256']=hashlib.sha256((ROOT/'data/quality-policy.json').read_bytes()).hexdigest()
     result['tool']=a.tool
     (output/(a.tool+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:v for k,v in result.items() if k!='tests'},ensure_ascii=True,indent=2))
