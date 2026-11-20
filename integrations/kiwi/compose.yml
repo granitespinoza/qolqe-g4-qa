@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mariadb:11.4@sha256:5e73baf8179b29f115101bb102763a47a017361f3e9792daccba6646c3ab1532
+    mem_limit: 384m
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_DATABASE: kiwi
+      MYSQL_USER: kiwi
+      MYSQL_PASSWORD: ${KIWI_DB_PASSWORD:?Definir KIWI_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${KIWI_ROOT_PASSWORD:?Definir KIWI_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 10s
+      retries: 20
+  web:
+    image: pub.kiwitcms.eu/kiwitcms/kiwitcms:latest@sha256:7440f5aa10dc98f842156027c032eca18aca155c383170a28151f0d035b22cfd
+    mem_limit: 768m
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:8443:8443'
+    environment:
+      KIWI_DB_HOST: db
+      KIWI_DB_PORT: '3306'
+      KIWI_DB_NAME: kiwi
+      KIWI_DB_USER: kiwi
+      KIWI_DB_PASSWORD: ${KIWI_DB_PASSWORD}
+      KIWI_SECRET_KEY: ${KIWI_SECRET_KEY:?Definir KIWI_SECRET_KEY}
+    volumes:
+      - uploads:/Kiwi/uploads
+      - ./.local/ssl:/Kiwi/ssl:ro
+    cap_drop: [ALL]
+volumes:
+  db_data:
+  uploads:

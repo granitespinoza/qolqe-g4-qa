@@ -1,7 +1,7 @@
 {
   "reference_commit": "8c7d2f0c939ede7765b7b80b98c10c3905693fda",
-  "expected_api_tests": 181,
-  "expected_web_tests": 54,
+  "expected_api_tests": 187,
+  "expected_web_tests": 65,
   "policy": "Escenario A académico: aceptar solo firmas exactas documentadas en datos ficticios aislados. No certifica aptitud productiva. Flakiness, preparación, omisiones y causas nuevas bloquean.",
   "acceptance": "Aplicación del criterio docente solicitada por el equipo en esta conversación. Admisión limitada a ejecución académica aislada; no es aprobación individual de la docente ni aceptación para producción.",
   "defects": {
@@ -55,7 +55,8 @@
       "impact": "Revocación de autenticación inefectiva",
       "reproduction": "Logout y reutilizar token; esperado 401, observado 200",
       "cases": [
-        "G4-074"
+        "G4-074",
+        "E2E-G4-407"
       ],
       "accepted_for_academic_gate": true,
       "scope": "isolated-academic-tests",
@@ -284,49 +285,54 @@
   ],
   "web_rules": {
     "E2E-G4-102": {
-      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "file": "Web/features/contactos.feature",
       "defect": "D-01",
       "error": "AssertionError: expected 422 to equal 201"
     },
     "E2E-G4-104": {
-      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "file": "Web/features/contactos.feature",
       "defect": "D-02",
       "error": "AssertionError: expected 201 to equal 409"
     },
     "E2E-G4-113": {
-      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "file": "Web/features/contactos.feature",
       "defect": "D-01",
       "error": "AssertionError: expected 422 to equal 200"
     },
     "E2E-G4-115": {
-      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "file": "Web/features/contactos.feature",
       "defect": "D-02",
       "error": "AssertionError: expected 200 to equal 409"
     },
     "E2E-G4-117": {
-      "file": "Web/cypress/e2e/contactos-completo.cy.ts",
+      "file": "Web/features/contactos.feature",
       "defect": "D-07",
       "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '10.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
     },
     "E2E-G4-324": {
-      "file": "Web/cypress/e2e/solicitudes-completo.cy.ts",
+      "file": "Web/features/solicitudes.feature",
       "defect": "D-03",
       "error": "AssertionError: expected 200 to equal 409"
     },
     "E2E-G4-201": {
-      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "file": "Web/features/transferencias.feature",
       "defect": "D-07",
       "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '0.01', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
     },
     "E2E-G4-202": {
-      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "file": "Web/features/transferencias.feature",
       "defect": "D-07",
       "error": "AssertionError: Timed out retrying after 4000ms: expected '<table>' to contain text '500.00', but the text was '\\n        FechaTipoDescripciónCategoríaImporte\\n        No hay movimientos en el rango seleccionado\\n      '"
     },
     "E2E-G4-206": {
-      "file": "Web/cypress/e2e/transferencias-contactos.cy.ts",
+      "file": "Web/features/transferencias.feature",
       "defect": "D-08",
       "error": "AssertionError: expected 201 to equal 422"
+    },
+    "E2E-G4-407": {
+      "file": "Web/features/nucleo.feature",
+      "error": "AssertionError: Token de la sesión cerrada debe quedar revocado: expected 200 to equal 401",
+      "defect": "D-04"
     }
   },
   "contract_rules": {
@@ -432,22 +438,27 @@
     "Web/cypress/demos/contactos-ia.cy.ts": "202ccd31164426eb0860c1d7bac8f871fc61f4544391f25c614cf923fded42f5",
     "Web/cypress/demos/evidencia-fallo.cy.ts": "e248700c3bdf4f3327e386603806eeda9c9b1cf0e6080d23e35ed873274e9d12",
     "Web/cypress/e2e/contactos-completo.cy.ts": "915c76f7179ecbf1ecced90ddfed0688b3b51a680a516472ddb34b2d1fdceb75",
-    "Web/cypress/e2e/contactos-happy-path.cy.ts": "3b89b067bdb97f3c092916d88bc3d38d709142ba2e7979747df257a521edb117",
-    "Web/cypress/e2e/contactos-validaciones.cy.ts": "b9f2969e4bbbc9b37f981a59221f7b03d3817a0c49d7e7edd4ad7945f7897390",
+    "Web/cypress/e2e/contactos-happy-path.cy.ts": "c9a1399ce433027ef2966e1d685c5f9f357a565cb1ecf6f40b8d2754eb5e7033",
+    "Web/cypress/e2e/contactos-validaciones.cy.ts": "5fc336305c215f82adb30ca07e6763d81a29a5aa6fc9d33c21bd207d9fd02a34",
     "Web/cypress/e2e/solicitudes-completo.cy.ts": "ae0acd3a5a2d6a5f016b2a3adbc61ace94593c43eee9e2aff60f54106d55ea73",
     "Web/cypress/e2e/transferencias-contactos.cy.ts": "720dec91d158657fdb008c6765939640e19f0058b7663ac12953e0bb279be1b3",
     "Web/cypress/pages/ContactosPage.ts": "98ac7665abb2ef9853533cecc3ed474099a703ac0f18cd2131498ea57dd9b73e",
     "Web/cypress/pages/LoginPage.ts": "30baaf86e906b1cc3f634994478a92acb81c36874fe396dd0f265f876fabf741",
     "Web/cypress/pages/SolicitudesPage.ts": "9d9606e106e733039699858a530cdb9130887b0ed969f441f71f9913ffeccf84",
-    "Web/cypress/pages/TransferenciasPage.ts": "c14bbe3e2ff76e0de856c49b435b200b9f78d394ed030f060db357989ef69187",
+    "Web/cypress/pages/TransferenciasPage.ts": "b8c88c639425b4442aa1cb60947313fd81a1281ab3576bf4d24a464438cb0303",
     "Web/cypress/pages/Ui.ts": "43da6a31b17030924df7909418dc2d8e8292658e8a401f8253d5d52faf02d44e",
     "Web/cypress/support/commands.ts": "e05a36293484e14ddabc95d6fef17fa3a5fdf218c500d59b7b9167cac1d20a91",
-    "Web/cypress/support/e2e.ts": "a231984cd3033a1108ad9b960f10eca8de9f97e22a7e4413f6e537b710a615fc",
-    "Web/cypress/support/fixtures.ts": "3c5ec479e18cf64fc616dca940d4f6c3fd9111fd0748d7641a809eea5c4356f1",
+    "Web/cypress/support/e2e.ts": "11ab68d92712a5b2d36e64bb96a9376ae89d6d1ce9f9bc372ebce456efade049",
+    "Web/cypress/support/fixtures.ts": "ad84e8e63a5dc296659d65d6e8ce8d9d7d7d566247277d29b82fb986b82f425f",
     "requirements-lock.txt": "aaf01bd528693d4a1231f374108401f9104a3e31663a2ffad9ac25b953e11ee6",
-    "cypress.config.ts": "99e61aa7634af62c877638c5191b09c00616f5c4e8ff48b97c1589489a7a38a5",
+    "cypress.config.ts": "a40c390ca689097f514a6a23b822dd35c899b97b098f9dbe006c596715869d58",
     "tsconfig.json": "9308f713e7207831627d8df5dbcb6c10b446f367f7d2dd09e39dd6f04272ce19",
-    "data/casos.json": "651f28ccebab37bcc321de1e420851c5354015f6d6a0bfd94595cc9b160cfc2c"
+    "data/casos.json": "651f28ccebab37bcc321de1e420851c5354015f6d6a0bfd94595cc9b160cfc2c",
+    "API/features/contrato-nucleo-solicitudes.feature": "17ba42d760a1a48e58a07f6d391249cfc458a1d5529039a003ad6fff1bb55825",
+    "Web/cypress/e2e/nucleo-comun.cy.ts": "ef13c40c97fb950d0352888d4fac8bcbd118a8c6637529a41af489eb5810cd6d",
+    "Web/cypress/steps/web.ts": "55a0738a80d4e720fe29d194f4fde81acb8e1a9488822a9ebf7d5f8387e8b0f2",
+    "Web/features/catalogo.json": "e9964c8bc50027ab322d142f898dedcc5d720eb6425f4073d9e5fabf21e98c33",
+    "Web/features/nucleo.feature": "f7220d1736da18aeaf26d7e75696d52e9624e89e972ba914ace2a8c7c2c2aa15"
   },
   "contract_schema_sha256": "4247ee6fe4d1ede34b325c4de4e9d6e6dd258240720dd406bfa0ee647e794b69",
   "runtime_versions": {

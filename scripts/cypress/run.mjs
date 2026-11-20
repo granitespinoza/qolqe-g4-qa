@@ -10,7 +10,7 @@ const sutRevision = spawnSync('git',['-C','referencias/qolqe-wallet','rev-parse'
 const sutState = spawnSync('git',['-C','referencias/qolqe-wallet','status','--porcelain'],{encoding:'utf8',windowsHide:true})
 if(sutRevision.status!==0 || sutRevision.stdout.trim()!=='8c7d2f0c939ede7765b7b80b98c10c3905693fda' || sutState.status!==0 || sutState.stdout.trim()) throw new Error('La referencia debe estar limpia y en la versión fijada')
 const source = sourceFingerprint(root)
-const expectedSpecs = Object.keys(source.files).filter(f=>f.startsWith('Web/cypress/e2e/') && f.endsWith('.cy.ts'))
+const expectedSpecs = Object.keys(source.files).filter(f=>f.startsWith('Web/features/') && f.endsWith('.feature'))
 const mode = process.argv[2] || 'regression'
 if (!['open','smoke','regression','ai','ai-open','failure'].includes(mode)) throw new Error('Modo desconocido')
 const major = Number(process.versions.node.split('.')[0])
@@ -36,7 +36,7 @@ const server = spawn(python, ['scripts/cypress/server.py'], { cwd: root, windows
 server.stdout.pipe(log,{end:false}); server.stderr.pipe(log,{end:false})
 const serverClosed = new Promise(resolve => server.once('close',resolve))
 let stopped = false
-function stop() { if (!stopped) { stopped = true; server.kill() } }
+function stop() { if (!stopped) { stopped = true; if (process.platform === 'win32' && server.pid) spawnSync('taskkill',['/PID',String(server.pid),'/T','/F'],{stdio:'ignore',windowsHide:true}); else server.kill() } }
 process.on('exit', stop)
 process.on('SIGINT', () => { stop(); process.exit(130) })
 process.on('SIGTERM', () => { stop(); process.exit(143) })
@@ -51,13 +51,21 @@ while (Date.now() - started < 90000) {
 if (!ready) { stop(); throw new Error(`Servidor no disponible. Revisa ${runDir}/server.log`) }
 const interactive = ['open', 'ai-open'].includes(mode)
 const args = [interactive ? 'open' : 'run', '--e2e', '--browser', process.env.CY_BROWSER || 'chrome']
-if (mode === 'smoke') args.push('--spec', 'Web/cypress/e2e/contactos-happy-path.cy.ts')
-const env = { ...process.env, CY_RUN_DIR: runDir, CY_DEMO: mode.startsWith('ai') ? 'ai' : mode === 'failure' ? 'failure' : '' }
+if (mode === 'smoke') args.push('--spec', process.env.CY_SMOKE_SPEC || 'Web/smoke/contactos.feature')
+const env = { ...process.env, CY_RUN_DIR: runDir, CY_MODE: mode, CY_DEMO: mode.startsWith('ai') ? 'ai' : mode === 'failure' ? 'failure' : '' }
 // El entorno del desktop puede heredar esta opción de Electron y romper Cypress.
 delete env.ELECTRON_RUN_AS_NODE
 const child = spawn(process.execPath, ['node_modules/cypress/bin/cypress', ...args], { env, stdio: 'inherit', windowsHide: !interactive })
 child.on('error', error => { console.error(error); stop(); process.exit(1) })
+const limitMs = Number(process.env.CY_TIMEOUT_MINUTES || 15) * 60000
+if (!Number.isFinite(limitMs) || limitMs < 60000) throw new Error('CY_TIMEOUT_MINUTES debe ser al menos 1')
+const deadline = interactive ? null : setTimeout(() => {
+  console.error('Tiempo máximo del ejecutor agotado; se conserva evidencia incompleta y el gate debe bloquear.')
+  if (process.platform === 'win32' && child.pid) spawnSync('taskkill',['/PID',String(child.pid),'/T','/F'],{stdio:'ignore',windowsHide:true})
+  else child.kill('SIGTERM')
+}, limitMs)
 const code = await new Promise(resolve => child.once('exit', code => resolve(code ?? 1)))
+if (deadline) clearTimeout(deadline)
 stop()
 await serverClosed
 log.end()

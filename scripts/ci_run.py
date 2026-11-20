@@ -72,9 +72,10 @@ def overall():
     return 0 if result['approved'] else 1
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('mode',choices=['api','web','reporting']);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('mode',choices=['contract','api','web','reporting']);a=p.parse_args()
+    if a.mode=='contract':raise SystemExit(run('schemathesis'))
     if a.mode=='api':
-        codes=[run(t) for t in ('karate','schemathesis')]
+        codes=[run(t) for t in (('karate',) if os.environ.get('QA_CONTRACT_SEPARATE')=='1' else ('schemathesis','karate'))]
         export('api')
         raise SystemExit(0 if all(c==0 for c in codes) else 1)
     if a.mode=='web':

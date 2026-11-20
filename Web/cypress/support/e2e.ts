@@ -9,3 +9,9 @@ beforeEach(() => {
     expect(r.status).to.eq(200)
   })
 })
+
+afterEach(function () {
+  if (Cypress.expose('reportImages') && this.currentTest?.state === 'passed') {
+    cy.screenshot('resultado-'+this.currentTest.title.match(/E2E-G4-\d+/)?.[0], {capture:'viewport'})
+  }
+})

@@ -1,5 +1,7 @@
 # Arquitectura del kit de verificación
 
+La arquitectura consolidada de la entrega final y el orden contrato → API → web → rendimiento → reportería se documentan en [arquitectura y patrones](final/arquitectura-y-patrones.md). Este documento conserva la descripción inicial del kit.
+
 ## Qué se integra
 
 El kit prueba la aplicación Qolqe fijada en la revisión indicada en el README. La aplicación tiene interfaz, API FastAPI y persistencia SQLite; los ejecutores de QA administran instancias y datos de prueba separados.

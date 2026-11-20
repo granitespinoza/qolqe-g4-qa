@@ -1,0 +1,899 @@
+[
+  {
+    "profile": "carga",
+    "run_id": "20261113T011146Z-carga",
+    "dir": "tests/performance/resultados/20261113T011146Z-carga",
+    "valid": true,
+    "approved": false,
+    "integrity": {
+      "approved": true,
+      "attempts": 1353,
+      "database_operations": 1353,
+      "confirmed_records": 1353,
+      "committed_after_http_error": 0,
+      "issues": []
+    },
+    "windows": [
+      {
+        "operations": 3282,
+        "requests": 4799,
+        "login": 548,
+        "ops_s": 5.47,
+        "all_ops_s": 5.47,
+        "req_s": 7.998333333333333,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 695.25,
+        "p95_dinero": 202.05000000000007,
+        "start_s": 300,
+        "end_s": 900,
+        "latency_ok": true,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 332,
+            "p95": 69.44999999999999,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 198,
+            "p95": 60.0,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 548,
+            "p95": 678.65,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 449,
+            "p95": 914.8000000000008,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 340,
+            "p95": 69.05000000000001,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 154,
+            "p95": 115.39999999999998,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 342,
+            "p95": 138.49999999999966,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 969,
+            "p95": 86.60000000000002,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 498,
+            "p95": 241.04999999999984,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": false
+      }
+    ],
+    "by_operation": {
+      "contactos": {
+        "count": 332,
+        "errors": 0,
+        "p50": 21.0,
+        "p95": 69.44999999999999,
+        "p99": 183.62999999999994,
+        "max": 484,
+        "share": 10.1157830591103
+      },
+      "deudas": {
+        "count": 198,
+        "errors": 0,
+        "p50": 21.0,
+        "p95": 60.0,
+        "p99": 92.29000000000005,
+        "max": 239,
+        "share": 6.032906764168191
+      },
+      "login": {
+        "count": 548,
+        "errors": 0,
+        "p50": 583.0,
+        "p95": 678.65,
+        "p99": 762.7199999999993,
+        "max": 1027,
+        "share": null
+      },
+      "movimientos": {
+        "count": 449,
+        "errors": 0,
+        "p50": 643.0,
+        "p95": 914.8000000000008,
+        "p99": 1317.199999999999,
+        "max": 1483,
+        "share": 13.68068251066423
+      },
+      "otros": {
+        "count": 340,
+        "errors": 0,
+        "p50": 20.0,
+        "p95": 69.05000000000001,
+        "p99": 258.4600000000012,
+        "max": 544,
+        "share": 10.359536867763559
+      },
+      "pagos": {
+        "count": 154,
+        "errors": 0,
+        "p50": 43.5,
+        "p95": 115.39999999999998,
+        "p99": 269.25999999999993,
+        "max": 640,
+        "share": 4.692260816575259
+      },
+      "recargas": {
+        "count": 342,
+        "errors": 0,
+        "p50": 48.0,
+        "p95": 138.49999999999966,
+        "p99": 361.9499999999999,
+        "max": 432,
+        "share": 10.420475319926874
+      },
+      "saldo_perfil": {
+        "count": 969,
+        "errors": 0,
+        "p50": 36.0,
+        "p95": 86.60000000000002,
+        "p99": 202.32000000000005,
+        "max": 656,
+        "share": 29.52468007312614
+      },
+      "transferencias": {
+        "count": 498,
+        "errors": 0,
+        "p50": 133.0,
+        "p95": 241.04999999999984,
+        "p99": 345.03,
+        "max": 625,
+        "share": 15.173674588665447
+      }
+    },
+    "resources": {
+      "samples": 1027,
+      "app_cpu_host_max": 39.34166666666667,
+      "generator_cpu_host_max": 4.7250000000000005,
+      "app_rss_mb_max": 77.824
+    },
+    "historical": true
+  },
+  {
+    "profile": "campana",
+    "run_id": "20261113T012935Z-campana",
+    "dir": "tests/performance/resultados/20261113T012935Z-campana",
+    "valid": true,
+    "approved": true,
+    "integrity": {
+      "approved": true,
+      "attempts": 3988,
+      "database_operations": 3988,
+      "confirmed_records": 3988,
+      "committed_after_http_error": 0,
+      "issues": []
+    },
+    "windows": [
+      {
+        "operations": 9828,
+        "requests": 14470,
+        "login": 1617,
+        "ops_s": 16.38,
+        "all_ops_s": 16.38,
+        "req_s": 24.116666666666667,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 889.0,
+        "p95_dinero": 215.05000000000018,
+        "start_s": 300,
+        "end_s": 900,
+        "latency_ok": false,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 942,
+            "p95": 85.85000000000014,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 614,
+            "p95": 110.05000000000007,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 1617,
+            "p95": 749.0,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 1407,
+            "p95": 1453.8000000000002,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 980,
+            "p95": 81.04999999999995,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 410,
+            "p95": 123.10000000000002,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 947,
+            "p95": 141.50000000000023,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 3025,
+            "p95": 140.80000000000018,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 1503,
+            "p95": 234.70000000000027,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": false
+      }
+    ],
+    "by_operation": {
+      "contactos": {
+        "count": 942,
+        "errors": 0,
+        "p50": 22.0,
+        "p95": 85.85000000000014,
+        "p99": 215.34000000000083,
+        "max": 1565,
+        "share": 9.584859584859586
+      },
+      "deudas": {
+        "count": 614,
+        "errors": 0,
+        "p50": 24.0,
+        "p95": 110.05000000000007,
+        "p99": 304.35,
+        "max": 1273,
+        "share": 6.247456247456248
+      },
+      "login": {
+        "count": 1617,
+        "errors": 0,
+        "p50": 600.0,
+        "p95": 749.0,
+        "p99": 935.8399999999999,
+        "max": 1851,
+        "share": null
+      },
+      "movimientos": {
+        "count": 1407,
+        "errors": 0,
+        "p50": 769.0,
+        "p95": 1453.8000000000002,
+        "p99": 2044.980000000001,
+        "max": 2615,
+        "share": 14.316239316239315
+      },
+      "otros": {
+        "count": 980,
+        "errors": 0,
+        "p50": 22.0,
+        "p95": 81.04999999999995,
+        "p99": 256.03000000000156,
+        "max": 1482,
+        "share": 9.971509971509972
+      },
+      "pagos": {
+        "count": 410,
+        "errors": 0,
+        "p50": 39.0,
+        "p95": 123.10000000000002,
+        "p99": 297.2900000000005,
+        "max": 642,
+        "share": 4.171754171754172
+      },
+      "recargas": {
+        "count": 947,
+        "errors": 0,
+        "p50": 42.0,
+        "p95": 141.50000000000023,
+        "p99": 530.4599999999982,
+        "max": 1723,
+        "share": 9.635734635734636
+      },
+      "saldo_perfil": {
+        "count": 3025,
+        "errors": 0,
+        "p50": 41.0,
+        "p95": 140.80000000000018,
+        "p99": 526.6800000000039,
+        "max": 2659,
+        "share": 30.779405779405778
+      },
+      "transferencias": {
+        "count": 1503,
+        "errors": 0,
+        "p50": 128.0,
+        "p95": 234.70000000000027,
+        "p99": 467.82000000000016,
+        "max": 1173,
+        "share": 15.293040293040294
+      }
+    },
+    "resources": {
+      "samples": 1036,
+      "app_cpu_host_max": 59.78333333333333,
+      "generator_cpu_host_max": 9.008333333333333,
+      "app_rss_mb_max": 113.09056
+    },
+    "historical": true
+  },
+  {
+    "profile": "estres",
+    "run_id": "20261113T014737Z-estres",
+    "dir": "tests/performance/resultados/20261113T014737Z-estres",
+    "valid": true,
+    "approved": false,
+    "integrity": {
+      "approved": true,
+      "attempts": 2528,
+      "database_operations": 2066,
+      "confirmed_records": 2066,
+      "committed_after_http_error": 8,
+      "issues": []
+    },
+    "windows": [
+      {
+        "operations": 207,
+        "requests": 305,
+        "login": 26,
+        "ops_s": 1.38,
+        "all_ops_s": 1.38,
+        "req_s": 2.033333333333333,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 212.29999999999998,
+        "p95_dinero": 355.6,
+        "start_s": 30,
+        "end_s": 180,
+        "latency_ok": true,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 22,
+            "p95": 132.89999999999995,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 12,
+            "p95": 238.3499999999997,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 26,
+            "p95": 209.0,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 27,
+            "p95": 477.6999999999998,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 20,
+            "p95": 13.400000000000006,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 8,
+            "p95": 81.9,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 17,
+            "p95": 202.9999999999999,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 72,
+            "p95": 45.15000000000002,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 29,
+            "p95": 619.0000000000006,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": true
+      },
+      {
+        "operations": 409,
+        "requests": 613,
+        "login": 70,
+        "ops_s": 2.7266666666666666,
+        "all_ops_s": 2.7266666666666666,
+        "req_s": 4.086666666666667,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 235.09999999999968,
+        "p95_dinero": 305.5,
+        "start_s": 210,
+        "end_s": 360,
+        "latency_ok": true,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 38,
+            "p95": 112.29999999999991,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 20,
+            "p95": 81.60000000000005,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 70,
+            "p95": 293.64999999999975,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 62,
+            "p95": 507.5,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 44,
+            "p95": 96.10000000000007,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 16,
+            "p95": 82.25,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 40,
+            "p95": 141.99999999999972,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 134,
+            "p95": 114.04999999999987,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 55,
+            "p95": 333.59999999999997,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": true
+      },
+      {
+        "operations": 815,
+        "requests": 1159,
+        "login": 122,
+        "ops_s": 5.433333333333334,
+        "all_ops_s": 5.433333333333334,
+        "req_s": 7.726666666666667,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 1373.7999999999984,
+        "p95_dinero": 1344.6999999999991,
+        "start_s": 390,
+        "end_s": 540,
+        "latency_ok": false,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 91,
+            "p95": 458.0,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 52,
+            "p95": 477.800000000001,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 122,
+            "p95": 881.3500000000004,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 123,
+            "p95": 2496.3000000000015,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 80,
+            "p95": 1028.6499999999976,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 38,
+            "p95": 1044.0499999999995,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 79,
+            "p95": 1256.1999999999916,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 222,
+            "p95": 1083.249999999999,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 130,
+            "p95": 1530.6999999999991,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": false
+      },
+      {
+        "operations": 1652,
+        "requests": 2414,
+        "login": 254,
+        "ops_s": 11.013333333333334,
+        "all_ops_s": 11.013333333333334,
+        "req_s": 16.093333333333334,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 649.0,
+        "p95_dinero": 1033.75,
+        "start_s": 570,
+        "end_s": 720,
+        "latency_ok": true,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 157,
+            "p95": 321.19999999999993,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 107,
+            "p95": 186.5,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 254,
+            "p95": 634.0499999999998,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 238,
+            "p95": 1379.6,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 166,
+            "p95": 281.0,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 71,
+            "p95": 961.5,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 173,
+            "p95": 1164.2,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 508,
+            "p95": 376.1999999999998,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 232,
+            "p95": 932.5999999999999,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": false
+      },
+      {
+        "operations": 2445,
+        "requests": 3609,
+        "login": 407,
+        "ops_s": 16.3,
+        "all_ops_s": 16.3,
+        "req_s": 24.06,
+        "error_rate": 0.0,
+        "login_error_rate": 0.0,
+        "p95_consulta": 850.6500000000001,
+        "p95_dinero": 1110.85,
+        "start_s": 750,
+        "end_s": 900,
+        "latency_ok": false,
+        "error_ok": true,
+        "by_operation": {
+          "contactos": {
+            "count": 242,
+            "p95": 345.9999999999998,
+            "error_rate": 0.0
+          },
+          "deudas": {
+            "count": 154,
+            "p95": 368.94999999999993,
+            "error_rate": 0.0
+          },
+          "login": {
+            "count": 407,
+            "p95": 896.5999999999997,
+            "error_rate": 0.0
+          },
+          "movimientos": {
+            "count": 346,
+            "p95": 1586.25,
+            "error_rate": 0.0
+          },
+          "otros": {
+            "count": 262,
+            "p95": 379.79999999999995,
+            "error_rate": 0.0
+          },
+          "pagos": {
+            "count": 98,
+            "p95": 968.9000000000001,
+            "error_rate": 0.0
+          },
+          "recargas": {
+            "count": 234,
+            "p95": 933.1999999999995,
+            "error_rate": 0.0
+          },
+          "saldo_perfil": {
+            "count": 757,
+            "p95": 633.6000000000001,
+            "error_rate": 0.0
+          },
+          "transferencias": {
+            "count": 352,
+            "p95": 1226.8999999999996,
+            "error_rate": 0.0
+          }
+        },
+        "per_operation_ok": false
+      },
+      {
+        "operations": 1297,
+        "requests": 1917,
+        "login": 265,
+        "ops_s": 4.566666666666666,
+        "all_ops_s": 8.646666666666667,
+        "req_s": 12.78,
+        "error_rate": 0.471858134155744,
+        "login_error_rate": 0.8528301886792453,
+        "p95_consulta": 60002.0,
+        "p95_dinero": 30002.0,
+        "start_s": 930,
+        "end_s": 1080,
+        "latency_ok": false,
+        "error_ok": false,
+        "by_operation": {
+          "contactos": {
+            "count": 141,
+            "p95": 30002.0,
+            "error_rate": 0.375886524822695
+          },
+          "deudas": {
+            "count": 83,
+            "p95": 30002.0,
+            "error_rate": 0.40963855421686746
+          },
+          "login": {
+            "count": 265,
+            "p95": 30002.0,
+            "error_rate": 0.8528301886792453
+          },
+          "movimientos": {
+            "count": 199,
+            "p95": 30002.0,
+            "error_rate": 0.27638190954773867
+          },
+          "otros": {
+            "count": 126,
+            "p95": 30002.0,
+            "error_rate": 0.3492063492063492
+          },
+          "pagos": {
+            "count": 64,
+            "p95": 30002.0,
+            "error_rate": 0.75
+          },
+          "recargas": {
+            "count": 142,
+            "p95": 30002.0,
+            "error_rate": 0.6830985915492958
+          },
+          "saldo_perfil": {
+            "count": 355,
+            "p95": 60003.0,
+            "error_rate": 0.39154929577464787
+          },
+          "transferencias": {
+            "count": 187,
+            "p95": 30002.0,
+            "error_rate": 0.7593582887700535
+          }
+        },
+        "per_operation_ok": false
+      },
+      {
+        "operations": 498,
+        "requests": 2058,
+        "login": 1379,
+        "ops_s": 0.0,
+        "all_ops_s": 3.32,
+        "req_s": 13.72,
+        "error_rate": 1.0,
+        "login_error_rate": 1.0,
+        "p95_consulta": 60002.0,
+        "p95_dinero": 30002.9,
+        "start_s": 1110,
+        "end_s": 1260,
+        "latency_ok": false,
+        "error_ok": false,
+        "by_operation": {
+          "contactos": {
+            "count": 45,
+            "p95": 30002.8,
+            "error_rate": 1.0
+          },
+          "deudas": {
+            "count": 35,
+            "p95": 30002.0,
+            "error_rate": 1.0
+          },
+          "login": {
+            "count": 1379,
+            "p95": 30065.199999999997,
+            "error_rate": 1.0
+          },
+          "movimientos": {
+            "count": 68,
+            "p95": 30002.0,
+            "error_rate": 1.0
+          },
+          "otros": {
+            "count": 46,
+            "p95": 30081.75,
+            "error_rate": 1.0
+          },
+          "pagos": {
+            "count": 22,
+            "p95": 30002.0,
+            "error_rate": 1.0
+          },
+          "recargas": {
+            "count": 35,
+            "p95": 30002.9,
+            "error_rate": 1.0
+          },
+          "saldo_perfil": {
+            "count": 181,
+            "p95": 60396.0,
+            "error_rate": 1.0
+          },
+          "transferencias": {
+            "count": 66,
+            "p95": 30002.75,
+            "error_rate": 1.0
+          }
+        },
+        "per_operation_ok": false
+      }
+    ],
+    "by_operation": {
+      "contactos": {
+        "count": 736,
+        "errors": 98,
+        "p50": 24.5,
+        "p95": 30001.0,
+        "p99": 30002.0,
+        "max": 30158,
+        "share": 10.050525740816605
+      },
+      "deudas": {
+        "count": 463,
+        "errors": 69,
+        "p50": 36.0,
+        "p95": 30002.0,
+        "p99": 30002.0,
+        "max": 30529,
+        "share": 6.322545404888706
+      },
+      "login": {
+        "count": 2523,
+        "errors": 1605,
+        "p50": 30001.0,
+        "p95": 30003.0,
+        "p99": 30828.120000000003,
+        "max": 32210,
+        "share": null
+      },
+      "movimientos": {
+        "count": 1063,
+        "errors": 123,
+        "p50": 288.0,
+        "p95": 30001.0,
+        "p99": 30002.0,
+        "max": 30072,
+        "share": 14.515908780554417
+      },
+      "otros": {
+        "count": 744,
+        "errors": 90,
+        "p50": 24.0,
+        "p95": 30001.0,
+        "p99": 30002.0,
+        "max": 30647,
+        "share": 10.15977058582548
+      },
+      "pagos": {
+        "count": 317,
+        "errors": 70,
+        "p50": 74.0,
+        "p95": 30001.0,
+        "p99": 30002.0,
+        "max": 30014,
+        "share": 4.328826983476717
+      },
+      "recargas": {
+        "count": 720,
+        "errors": 132,
+        "p50": 77.5,
+        "p95": 30001.0,
+        "p99": 30002.81,
+        "max": 30407,
+        "share": 9.832036050798854
+      },
+      "saldo_perfil": {
+        "count": 2229,
+        "errors": 320,
+        "p50": 35.0,
+        "p95": 60002.0,
+        "p99": 60006.72,
+        "max": 62020,
+        "share": 30.438344940598117
+      },
+      "transferencias": {
+        "count": 1051,
+        "errors": 208,
+        "p50": 166.0,
+        "p95": 30001.0,
+        "p99": 30002.0,
+        "max": 30111,
+        "share": 14.352041513041103
+      }
+    },
+    "resources": {
+      "samples": 1308,
+      "app_cpu_host_max": 48.61666666666667,
+      "generator_cpu_host_max": 11.6,
+      "app_rss_mb_max": 206.737408
+    },
+    "historical": true
+  }
+]

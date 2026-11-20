@@ -10,7 +10,7 @@
 | Usuarios nuevos | Compartir contactos semilla | Evitar duplicados y dependencias entre escenarios | Más peticiones y persistencia de datos de prueba; ejecución secuencial |
 | Reloj controlado | Esperar 48 horas | Probar frontera temporal sin demora; renovar JWT al avanzar | El reloj es global; no paralelizar escenarios que lo cambian |
 | Contrato original conservado | Modificar OpenAPI para hacer pasar las pruebas | Mantener evidencia de discrepancias | Validar una observación antes de atribuir la causa |
-| Repo privado | Publicar todo automáticamente | Revisar entregables antes de compartirlos externamente | Los revisores requieren acceso a la versión entregada |
+| Repositorio público en GitHub | Compartir solo un ZIP | Mantener código y documentos revisables; publicar evidencia de cuentas sintéticas | Credenciales y bases locales permanecen ignoradas; la publicación del commit final debe verificarse |
 
 ## Criterios de diseño
 Alias 3–20: fronteras 2, 3, 20, 21. Vacío, espacios y caracteres prohibidos son casos separados, porque pueden recorrer validaciones distintas.

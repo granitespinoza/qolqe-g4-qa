@@ -48,7 +48,7 @@ def build():
         passed = all(r['state'] == 'passed' for key in linked for r in tests[key]['results'])
         criteria.append(dict(id=c['id'], groups=sorted(group_ids), tests=linked,
                              status='aprobado en 3 corridas' if passed else 'Escenario A: fallo conocido' if linked and all(gate_by_id.get(k,{}).get('status') in ('passed','known_issue') for k in linked) else 'bloqueado por fallos'))
-    result = dict(scope='G4 aprobado: 18 CA y 36 grupos de variantes; no todos los módulos Qolqe',
+    result = dict(scope='G4: 18 CA y 36 grupos; núcleo común: escenarios adicionales explícitos; no todos los módulos Qolqe',
                   evidence=evidence_path.relative_to(ROOT).as_posix(),
                   evidence_sha256=hashlib.sha256(evidence_path.read_bytes()).hexdigest(),
                   source_hash=evidence['sourceFingerprint']['hash'], verdict=evidence['verdict'],
