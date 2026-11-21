@@ -61,3 +61,19 @@ La escalabilidad se apoya en separar componentes comunes, acciones, datos y aser
 - https://grafana.com/docs/k6/latest/using-k6/scenarios/
 - https://docs.locust.io/en/stable/writing-a-locustfile.html
 - https://kiwitcms.readthedocs.io/en/latest/
+
+## Comparaciones de la presentación final
+
+La selección se fundamenta en el alcance ya implementado y su costo de mantenimiento, no en un benchmark entre productos. Karate conserva los escenarios HTTP y sus aserciones; pytest + httpx y Postman/Newman son alternativas con otra organización de ejecución y reportería. Cypress fue la herramienta asignada y se aprovechan sus consultas/aserciones reintentables y observación de red. Playwright aporta contextos aislados; Selenium utiliza WebDriver y distintos lenguajes. Ninguna alternativa queda descartada para todos los proyectos.
+
+k6 mantiene etapas, etiquetas y métricas HTTP como código. Locust permite modelar usuarios mediante Python; JMeter organiza planes y componentes. Python sigue preparando, monitoreando y conciliando. La elección del generador no depende de que Qolqe utilice Python.
+
+La presentación reúne 19 HU, los resultados de una referencia identificada y los tipos ejecutados/excluidos. El snapshot `data/presentacion-final-resultados.json` proviene del run 44821336947, commit 3f3857f. Las modificaciones de las diapositivas no se presentan como nuevas ejecuciones de la aplicación.
+
+Fuentes oficiales de las alternativas:
+
+- https://docs.karatelabs.io/core-syntax/feature-files/
+- https://docs.pytest.org/en/stable/how-to/fixtures.html
+- https://playwright.dev/docs/browser-contexts
+- https://www.selenium.dev/documentation/webdriver/
+- https://jmeter.apache.org/usermanual/test_plan.html

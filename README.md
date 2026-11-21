@@ -12,7 +12,7 @@ Rutas ejecutables: `features/e2e/`, `tests/api/features/`, `tests/e2e/` y `tests
 
 Corregimos Gherkin web ejecutable, núcleo común, contrato al inicio del workflow, reportería visible en Actions, selección de capturas e historial por ejecución. Conservamos los resultados reales y los defectos del producto.
 
-- [Presentación final](apidoc/final/index.html) · [Reporte actual](results/final/index.html) (generado localmente o en el artefacto).
+- [Presentación final · 24 diapositivas](apidoc/final/index.html) · [Reporte actual](results/final/index.html) (generado localmente o en el artefacto).
 - [Arquitectura y comparación de patrones](docs/final/arquitectura-y-patrones.md).
 - [Requerimientos, umbrales y coherencia](docs/final/requerimientos-y-umbrales.md).
 - [Jobs y reportería con/sin imágenes](docs/final/pipeline.md).

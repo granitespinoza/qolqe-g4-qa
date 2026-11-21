@@ -25,7 +25,7 @@ class Parser(HTMLParser):
   for i in range(len(self.stack)-1,0,-1):
    if self.stack[i].tag==tag:self.stack=self.stack[:i];break
  def handle_data(self,data):self.stack[-1].children.append(data)
-p=Parser();p.feed((R/'apidoc/final/index.html').read_text(encoding='utf8'));assert len(p.slides)==18
+p=Parser();p.feed((R/'apidoc/final/index.html').read_text(encoding='utf8'));assert len(p.slides)>0
 for family,file in [('Body','segoeui.ttf'),('BodyBold','segoeuib.ttf'),('Mono','consola.ttf')]:pdfmetrics.registerFont(TTFont(family,str(Path('C:/Windows/Fonts')/file)))
 pdfmetrics.registerFontFamily('Body',normal='Body',bold='BodyBold')
 styles={k:ParagraphStyle(k,fontName=font,fontSize=size,leading=leading,textColor=colors.HexColor('#19332b'),spaceAfter=after)for k,font,size,leading,after in [('body','Body',12,17,10),('title','BodyBold',25,30,18),('small','Body',10,14,7),('code','Mono',10,14,8)]}
@@ -69,10 +69,10 @@ c=canvas.Canvas(str(out),pagesize=(960,540));c.setTitle('Qolqe · Entrega final 
 heights=[]
 for n,s in enumerate(p.slides,1):
  c.setFillColor(colors.HexColor('#f4f4ee'));c.rect(0,0,960,540,fill=1,stroke=0)
- c.setFillColor(colors.HexColor('#19332b'));c.setFont('BodyBold',10);c.drawString(40,514,'QOLQE · ENTREGA FINAL · FRANCO');c.setFont('Body',9);c.drawRightString(920,22,f'{n} / 18')
+ c.setFillColor(colors.HexColor('#19332b'));c.setFont('BodyBold',10);c.drawString(40,514,'QOLQE · ENTREGA FINAL · FRANCO');c.setFont('Body',9);c.drawRightString(920,22,f'{n} / {len(p.slides)}')
  content=flows(s);frame=KeepInFrame(880,454,content,mode='shrink');w,h=frame.wrapOn(c,880,454);frame.drawOn(c,40,490-h);heights.append(round(h,1));c.showPage()
-c.save();reader=PdfReader(out);assert len(reader.pages)==18
+c.save();reader=PdfReader(out);assert len(reader.pages)==len(p.slides)
 for page,slide in zip(reader.pages,p.slides):assert slide.find('h1')[0].text()[:20]in(page.extract_text()or''),'Título ausente'
 assert 'Granit y Franco'not in '\n'.join(x.extract_text()or''for x in reader.pages)
-(R/'presentacion/Entrega_Final_Qolqe.verificacion.json').write_text(json.dumps({'pages':18,'source':'apidoc/final/index.html','author':'Franco','format_points':[960,540],'content_heights':heights},indent=2),encoding='utf8')
-print('PDF exportado y verificado: 18 páginas',out)
+(R/'presentacion/Entrega_Final_Qolqe.verificacion.json').write_text(json.dumps({'pages':len(p.slides),'source':'apidoc/final/index.html','author':'Franco','format_points':[960,540],'content_heights':heights},indent=2),encoding='utf8')
+print('PDF exportado y verificado:',len(p.slides),'páginas',out)

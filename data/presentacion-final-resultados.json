@@ -1,0 +1,57 @@
+{
+  "reference_run": "44821336947",
+  "reference_commit": "3f3857f0cb27823fd5d0173c1cef3bf39d7fd83e",
+  "pipeline_url": "https://github.com/granitespinoza/qolqe-g4-qa/actions/runs/44821336947",
+  "report_sha256": "9131d73e09c91a46f1b0c8b9bca3b0fbfb80b220e1f3f20cb54f3913420fd08f",
+  "hu": {
+    "g4": 10,
+    "core": 9,
+    "total": 19
+  },
+  "api": {
+    "ids": 136,
+    "variants": 187,
+    "counts": {
+      "passed": 175,
+      "failed": 12
+    }
+  },
+  "web": {
+    "unique_cases": 65,
+    "repetitions": [
+      {
+        "repetition": 1,
+        "counts": {
+          "passed": 55,
+          "failed": 10
+        }
+      },
+      {
+        "repetition": 2,
+        "counts": {
+          "passed": 55,
+          "failed": 10
+        }
+      },
+      {
+        "repetition": 3,
+        "counts": {
+          "passed": 55,
+          "failed": 10
+        }
+      }
+    ]
+  },
+  "contract": {
+    "passed": 0,
+    "known_issue": 27,
+    "unknown_failure": 0,
+    "flaky": 0
+  },
+  "ai": {
+    "passed": 1,
+    "failed": 0
+  },
+  "note": "Snapshot verificable de una ejecución completada. Las modificaciones de diapositivas no se presentan como una nueva ejecución de pruebas.",
+  "contract_interactions": 562
+}

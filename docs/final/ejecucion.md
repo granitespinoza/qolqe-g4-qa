@@ -2,7 +2,7 @@
 
 ## Antes de exponer
 
-Usar Node 24 LTS, Python 3.13 y Chrome. Preparar el entorno una vez con el README; no instalar dependencias frente a la audiencia. No modificar archivos durante las tres corridas web. Abrir la presentación, un run real de Actions y su Summary/artefacto, el reporte final y la matriz. La nueva presentación tiene 18 diapositivas de apoyo, con enlaces a detalle.
+Usar Node 24 LTS, Python 3.13 y Chrome. Preparar el entorno una vez con el README; no instalar dependencias frente a la audiencia. No modificar archivos durante las tres corridas web. Abrir la presentación, un run real de Actions y su Summary/artefacto, el reporte final y la matriz. La nueva presentación tiene 24 diapositivas de apoyo, con enlaces a detalle.
 
 ```powershell
 Set-Location "$env:USERPROFILE\qolqe-g4-qa"
